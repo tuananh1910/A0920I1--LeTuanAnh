@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="surverykhachhang.css">
+</head>
+<body>
+<form>
+    <p><h2><b>Market Research Survey</b></h2></p>
+    Please take a few moments to complete this satisfaction survery <br>
+    <p><h3><b>What is your age range ?</b></h3></p>
+    <select name="age">
+        <option value="18-24">18-24</option>
+        <option value="25-31">25-31</option>
+    </select>
+
+    <p><h3><b>What is your yearly income range ?</b></h3></p>
+    <select name="income">
+    <option value="$0-$25000">$0-$25000</option>
+    <option value="$25000-$50000">$25000-$50000</option>
+    </select>
+
+    <p><h3><b>Gender</b></h3></p>
+    <label> <input type="radio" value="Male" name="gender"> Male</label> <br>
+    <label> <input type="radio" value="Female" name="gender"> Female </label>
+
+    <p><h3><b>Which of the following products have your purchased in the last 2 mouths.Please check all that apply</b></h3></p>
+    <label> <input type="checkbox" value="Product1" name="product"> Product 1 </label> <br>
+    <label> <input type="checkbox" value="Product2" name="product"> Product 2 </label><br>
+    <label> <input type="checkbox" value="Product3" name="product"> Product 3 </label>
+
+    <p><h3><b>How often would you use our new product?</b></h3></p>
+    <label> <input type="radio" value="Daily" name="Often"> Daily</label> <br>
+    <label> <input type="radio" value="Weekly" name="Often"> Weekly </label> <br>
+    <label> <input type="radio" value="Monthly" name="Often"> Monthly </label>
+
+    <p><h3><b>What would you pay for the new product?</b></h3></p>
+    <b>$</b> <input type="text"> <b>.</b> <input type="text">
+
+    <p><h3><b>What features would you like to see in the new product.</b></h3></p>
+    <textarea></textarea> <br>
+
+    <table>
+        <tr>
+            <th></th>
+            <th>Strongly Disagree</th>
+            <th>Disagree</th>
+            <th>Agree</th>
+            <th>Strongly Agree</th>
+        </tr>
+        <tr>
+            <th> Our products are priced fairly</th>
+            <th> <label> <input type="radio" value="1" name="tick">1</label></th>
+            <th> <label> <input type="radio" value="2" name="tick">2</label></th>
+            <th> <label> <input type="radio" value="3" name="tick">3</label></th>
+            <th> <label> <input type="radio" value="4" name="tick">4</label></th>
+        </tr>
+        <tr>
+            <th> Our products are high quality</th>
+            <th> <label> <input type="radio" value="1" name="tick">1</label></th>
+            <th> <label> <input type="radio" value="2" name="tick">2</label></th>
+            <th> <label> <input type="radio" value="3" name="tick">3</label></th>
+            <th> <label> <input type="radio" value="4" name="tick">4</label></th>
+        </tr>
+        <tr>
+            <th> You would recommend out product to a friend or coworker</th>
+            <th> <label> <input type="radio" value="1" name="tick">1</label></th>
+            <th> <label> <input type="radio" value="2" name="tick">2</label></th>
+            <th> <label> <input type="radio" value="3" name="tick">3</label></th>
+            <th> <label> <input type="radio" value="4" name="tick">4</label></th>
+        </tr>
+    </table>
+
+    <input type="submit" value="Sumbit">
+</form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+body {
+    background-color: lightblue;
+    font-weight: bold;
+
+}
+
+.b1 {
+    background: white;
+    height: 280px;
+    margin: 5px 10px 3px 20px;
+    padding-top: 1px;
+}
+.b2 {
+    font-size: 200% ;
+    font-variant: all-small-caps;
+    color: white ;
+    margin: -0.5cm 10px 3px 10px;
+    height: 50px;
+    background: orangered;
+
+}
+.b3{
+    margin:1px 200px 10px 500px;
+    color: blue;
+}
+.b4 {
+    display: flex;
+    margin: 10px 10px 10px 0px;
+}
+.b5 {
+    display: flex;
+    margin: 10px 10px 10px 73px;
+}
+.b6 {
+    margin: 0px 0px 0px 75px;
+
+}
+.b7 input{
+    margin-left: 25px;
+}
+.b8 {
+    margin-left: 13px;
+}
+.b9 {
+    margin-left: 12px;
+}
+
+
+
+
+
+
+
+
+
