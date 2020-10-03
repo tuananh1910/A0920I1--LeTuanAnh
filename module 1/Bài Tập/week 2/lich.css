@@ -1,0 +1,14 @@
+.b1{
+    font-size: 50px;
+    color: blue;
+}
+table#t02{
+    width: 100%;
+    color: blue;
+    border-collapse: collapse;
+}
+
+table#t02 td, th {
+    padding: 20px;
+}
+
