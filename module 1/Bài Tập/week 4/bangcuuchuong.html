@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    document.writeln("<table border=1 width=100%>"); // khoi tao bang
+    for (let i=1;i<10;i++){ //vong lap chay tu 1 toi 9
+        document.writeln("<tr>"); // in  dong
+        for (let j=2; j<10;j++)// chay tu 2 toi 9
+        {
+            document.writeln("<td>" +j + "x"+ i + "="+ (i*j)); //in ra 1 cot co noi dung la j*i= (i*j)
+            document.writeln("</td>"); // ket thuc 1 cot
+        }
+        document.writeln("</tr>"); // ket thuc  dong
+    }document.writeln("</tr></table>");
+</script>
+</body>
+</html>

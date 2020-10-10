@@ -10,16 +10,38 @@
     <label style="font-size: 40px;margin-left: 127px"> From Current </label>
     <label style="font-size: 40px; margin-left: 150px"> To Current </label> <br>
     <input id="1" type="text" size="25" style="height: 25px">
-    <select id="2" name="current" style="margin-left: 100px; width: 200px;height: 30px">
-        <option value="Việt Nam">Việt Nam</option>
-    </select>
-    <select id="3" name="currentt" style="margin-left: 173px; width: 180px">
+    <select id="fromCurrent"  style="margin-left: 100px; width: 200px;height: 30px">
+        <option value="VietNam">Việt Nam</option>
         <option value="USD">USD</option>
+    </select>
+    <select id="toCurrent"  style="margin-left: 173px; width: 180px">
+        <option value="USD">USD</option>
+        <option value="VietNam">Việt Nam</option>
     </select>
     <button onclick="convert()" style="background-color: blue; color: white; margin-left: 50px;height: 25px; border-radius: 5px">
         Convert</button>
 
 </form>
-<script src="tiente.js"></script>
+<script>
+    function convert() {
+
+        let x= document.getElementById('1').value;
+        let y= parseInt(x);
+        let fromCurrent= document.getElementById('fromCurrent').value;
+        let toCurrent= document.getElementById('toCurrent').value;
+
+        if (fromCurrent === 'VietNam' && toCurrent === 'USD'){
+            let current= y/23000;
+            alert(current);
+        }
+    else if(fromCurrent === 'USD' && toCurrent === 'VietNam'){
+            let current= y*23000;
+            alert(current);
+        }
+    else{
+            alert('nhap loai tien muon chuyen doi')
+        }
+    }
+</script>
 </body>
 </html>

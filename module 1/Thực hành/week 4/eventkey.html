@@ -5,43 +5,46 @@
     <title>Title</title>
 </head>
 <body onload="docReady()">
-<img id="nobita" src="https://file.vforum.vn/hinh/2018/02/hinh-anh-hinh-nen-nobita-dep-nhat-de-thuong-19.png">
+<img style="position:absolute;left:0; top:0;" height="100" width="80" id="nobita" src="https://file.vforum.vn/hinh/2018/02/hinh-anh-hinh-nen-nobita-dep-nhat-de-thuong-19.png">
+
 <script>
-    function uparrowpress() {
-        let element= document.getElementById('nobita')
-        element.style.top= parseInt(element.style.top) - 5 + 'px'
+    function upArrowPressed() {
+        let element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) - 5 + 'px';
     }
-    function downarrowpress() {
-        let element= document.getElementById('nobita')
-        element.style.top= parseInt(element.style.top) + 5 + 'px'
+    function downArrowPressed() {
+        var element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) + 5 + 'px';
     }
-    function leftarrowpress() {
-        let element= document.getElementById('nobita')
-        element.style.left= parseInt(element.style.left) - 5 +'px'
+    function leftArrowPressed() {
+        var element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) - 5 + 'px';
     }
-    function rightarrowpress() {
-        let element= document.getElementById('nobita')
-        element.style.left= parseInt(element.style.left) + 5 +'px'
+    function rightArrowPressed() {
+        var element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) + 5 + 'px';
+
     }
     function moveSelection(evt) {
         switch (evt.keyCode) {
             case 37:
-                leftarrowpress();
+                leftArrowPressed();
                 break;
             case 39:
-                rightarrowpress();
+                rightArrowPressed();
                 break;
             case 38:
-                uparrowpress();
+                upArrowPressed();
                 break;
             case 40:
-                downarrowpress();
+                downArrowPressed();
                 break;
         }
     }
     function docReady() {
         window.addEventListener('keydown', moveSelection);
     }
+
 </script>
 </body>
 </html>

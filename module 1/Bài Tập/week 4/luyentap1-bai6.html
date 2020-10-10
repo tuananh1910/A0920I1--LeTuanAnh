@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let totalSales= parseInt(prompt("nhập tổng doanh số bán hàng="));
+    let profitPercentage="";
+    let profit="";
+    if (totalSales>10000000){ // tong doanh thu >10 tr
+        profitPercentage=0.1;   // phan tram hoa hong = 10%
+        profit= profitPercentage * totalSales;   // tien loi hoa hong = total * 0,1
+        alert(profit);
+    }
+    else if (totalSales>50000000){   // tong doanh thu tu > 50tr
+        profitPercentage = 0.5;    // phan tram hoa hong la 50%
+        profit= profitPercentage * totalSales;
+        alert(profit);
+    }
+    else {   // tong doanh thu <= 10tr
+        profitPercentage= 0.01;   // phan tram hoa hong la 1%
+        profit= profitPercentage*totalSales;
+        alert(profit);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <input type="text" id="thang">
+    <button onclick="tinh(); return false;">Tính số ngày</button> <br>
+    <p id="in"></p>
+</form>
+<script>
+    function tinh() {
+        let mounth =parseInt(document.getElementById('thang').value);
+        switch(mounth){
+            case (1):
+            case (3):
+            case (5):
+            case (7):
+            case (8):
+            case (10):
+            case (12):
+                alert("tháng "+mounth+" có 31 ngày");
+                break;
+            case (2):
+                document.getElementById('in').innerHTML="Tháng " + mounth + " có 30 ngày";
+                break;
+            default:
+                document.getElementById('in').innerHTML="Tháng " + mounth + " có 30 ngày";
+        }
+    }
+
+</script>
+</body>
+</html>

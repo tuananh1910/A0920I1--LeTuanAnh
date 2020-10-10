@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body> <div style="display: flex">
+<div id="a" style="width: 800px">   <img src="cat1.jpg" height="160" width="800" onclick="changeImg1()" id="img1">
+    <img src="cat2.jpg" height="160" width="800" onclick="changeImg2()" id="img2">
+    <img src="panda3.jpg" height="160" width="800" onclick="changeImg3()" id="img3">
+    <img src="panda4.jpg" height="160" width="800" onclick="changeImg4()" id="img4">
+    <img src="cat5.jpg" height="160" width="800" onclick="changeImg5()" id="img5"></div>
+</div>
+<script>
+    let img1 = document.getElementById('img1');
+    let img2 = document.getElementById('img2');
+    let img3 = document.getElementById('img3');
+    let img4 = document.getElementById('img4');
+    let img5 = document.getElementById('img5');
+    function changeImg1() {
+        if (img1.getAttribute("src")==="cat1.jpg"){
+            img1.src="panda1.jpg";
+        }
+        else{
+            img1.src="cat1.jpg";
+        }
+        check();
+    }
+    function changeImg2() {
+        if (img2.getAttribute("src")==="cat2.jpg"){
+            img2.src="panda2.jpg";
+        }
+        else{
+            img2.src="cat2.jpg";
+        }
+        check()
+    }
+    function changeImg3() {
+        if (img3.getAttribute("src")==="cat3.jpg"){
+            img3.src="panda3.jpg";
+        }
+        else{
+            img3.src="cat3.jpg";
+        }
+        check()
+    }
+    function changeImg4() {
+        if (img4.getAttribute("src")==="cat4.jpg"){
+            img4.src="panda4.jpg";
+        }
+        else{
+            img4.src="cat4.jpg";
+        }
+        check()
+    }
+    function changeImg5() {
+        if (img5.getAttribute("src")==="cat5.jpg"){
+            img5.src="panda5.jpg";
+        }
+        else{
+            img5.src="cat5.jpg";
+        }
+        check()
+    }
+    function check() {
+        if (img1.getAttribute("src")==="cat1.jpg"&& img2.getAttribute("src")==="cat2.jpg"&&
+            img3.getAttribute("src")==="cat3.jpg"&& img4.getAttribute("src")==="cat4.jpg"
+       && img5.getAttribute("src")==="cat5.jpg"){
+            document.getElementById("a").style.border= "thick solid blue";
+        }
+        else if (img1.getAttribute("src")==="panda1.jpg"&& img2.getAttribute("src")==="panda2.jpg"&&
+                img3.getAttribute("src")==="panda3.jpg"&& img4.getAttribute("src")==="panda4.jpg"
+                && img5.getAttribute("src")==="panda5.jpg"){
+            document.getElementById("a").style.border= "thick solid red";
+        }
+
+    }
+    </script>
+</body>
+</html>

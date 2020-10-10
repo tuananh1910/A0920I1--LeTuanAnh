@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let marktest = parseInt(prompt("Nhập điểm kiểm tra="));
+    let markMidTerm= parseInt(prompt("Nhập điểm kiểm tra giữa kì="));
+    let markLastTerm=parseInt(prompt("Nhập điểm kiểm tra cuối kì="));
+    let markTotal= ((marktest*2 + markMidTerm*2 + markLastTerm*6)/10);
+    if (markTotal>8){   // diem tong ket >8 dat loai A
+        alert("A");
+    }
+    else {
+        if (markTotal>=7){                  // diem tong ket [7;8) dat loai B
+            alert("B");
+        }
+        else {
+            if (markTotal>=6){          // diem tong ket [6;7) dat loai C
+                alert("C");
+            }
+            else {
+                if (markTotal>=4){      // diem tong ket [4;6) dat loai D
+                    alert("D");
+                }
+                else {
+                    alert("F");     // diem tong ket <4 dat loai F
+                }
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
