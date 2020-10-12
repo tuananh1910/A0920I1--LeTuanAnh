@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>nhập hệ số numer dưới dạng Ax+B=C</p>
+<button onclick="firstDegreeEquation()">Bấm vào đây để nhập số</button>
+<script>
+
+    function firstDegreeEquation(){
+    let number1= parseInt(prompt("nhập hệ số A"));
+    let number2= parseInt(prompt("nhập hệ số B"));
+    let number3= parseInt(prompt("nhập hệ số C"));
+    document.writeln(number1+"X + " +number2+ " = "+ number3);
+    let x= (number3-number2)/number1;
+    document.writeln("nghiệm của x = " + x);
+    }
+</script>
+</body>
+</html>

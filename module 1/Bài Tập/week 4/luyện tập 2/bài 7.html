@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>nhập hệ số numer dưới dạng Ax^2+ Bx + C = 0</p>
+<button onclick="firstDegreeEquation()">Bấm vào đây để nhập số</button>
+
+<script>
+
+   function firstDegreeEquation(){
+       let number1= parseInt(prompt("nhập hệ số A"));
+       let number2= parseInt(prompt("nhậo hệ số B"));
+       let number3= parseInt(prompt("nhậo hệ số C"));
+       let delta = (Math.pow (number2,2)- (4*number1*number3));
+       if (delta<0){
+           document.writeln(number1+"X^2 + " +number2+ "X + "+ number3+ "= 0" );
+           document.writeln(" phương trình vô nghiệm");
+       }
+       else {
+           if (delta>0){
+               let x1= ((-number2) + Math.sqrt(delta))/(2*number1);
+               let x2= ((-number2) - Math.sqrt(delta))/(2*number1);
+               document.writeln(number1+"X^2 + " +number2+ "X + "+ number3+ "= 0" );
+               document.writeln("nghiệm x1 = " + x1 );
+               document.writeln("nghiệm x2 = " + x2 );
+           }
+           else {
+               let x = ((-number2) / (2 * number1));
+               document.writeln(number1 + "X^2 + " + number2 + "X + " + number3 + "= 0");
+               document.writeln("nghiệm duy nhất = " + x);
+           }
+       }
+   }
+</script>
+</body>
+</html>

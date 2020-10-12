@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let income= parseFloat(prompt(" thu nhập cá nhân mỗi tháng (triệu / tháng )= ")); //thu nhập cá nhân
+    let personalIncomeTax; // thuế thu nhập cá nhân
+    let percent=0.01; // phần trăm thuế thu nhập cá nhân
+    if (income<10000000){
+        personalIncomeTax=percent*income;
+        alert(personalIncomeTax);
+    }
+    else {
+        if (income<50000000){
+            percent=0.02;
+            personalIncomeTax=percent*income;
+            alert(personalIncomeTax);
+        }
+        else {
+            percent=0.04;
+            personalIncomeTax=percent*income;
+            alert(personalIncomeTax);
+        }
+    }
+</script>
+</body>
+</html>

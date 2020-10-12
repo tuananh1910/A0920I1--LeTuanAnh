@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Caro Game Simple</h3>
+<p id="carogame" />
+<input type="button" value="Change Value" onclick="changeValue()">
+<script>
+    let b = document.getElementById("carogame");
+
+    let board = [];   // khoi tao mang board
+    let data = ""; // data = space
+    for (let i = 0; i < 5; i++) {    // vong lap chay tu 0-4
+        board[i] = new Array(0, 0, 0, 0, 0);    // phan tu thứ i trong mảng = 0 0 0 0 0
+    }
+
+    for (let i = 0; i < 5; i++) {  //chay i tu  0-4
+        data += "<br/>";       // tạo 5 dòng
+        for (let j = 0; j < 5; j++) { // j chay tu 0-4
+            data += board[i][j] + "&nbsp;&nbsp;";   // in ra phần tử trong board thứ (i;j) với 2 khoảng trắng in ra 5 lần
+        }
+    }
+
+    data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>";
+    b.innerHTML = data;
+    function changeValue() {
+        let positionX = prompt("X: ");   // positionX ===i     nhận vị trí thứ i=x
+        let positionY = prompt("Y: ");   // positionY===j     nhận vị trí thứ j=y
+        data = "";
+        board[positionX][positionY] = "x";   //phần tử thứ ij trong mảng board có giá trị là string X
+        for (let i = 0; i < 5; i++) {   // lặp chạy i 0-4
+            data += "<br/>";     // tạo 5 dòng
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>"
+        b.innerHTML = "<hr/>" + data;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="Chơi" onclick="play()">
+<button type="reset" onclick="replay()">Chơi lại</button>
+<script>
+    function play() {
+        let a= parseInt(prompt("bạn muốn đoán trong khoảng từ :", "1"));
+        let b= parseInt(prompt("tới :","10"));
+        let x = Math.floor((Math.random() * b) + a);
+        let number = parseInt(prompt("nhập số mà bạn đoán :"));
+        for (let i=1; i<4 ;i++){
+        if(number===x){
+            alert("chúc mừng bạn đã chiến thắng");
+            break;
+        }
+        else {
+            if (number>x){
+                alert("số của bạn đoán lớn hơn")
+                 number = parseInt(prompt("bạn được phép nhập lại (bạn còn"+ (3 - i) +"lần đoán)"));
+            }
+            else{
+                alert("số của bạn bé thua")
+                number = parseInt(prompt("bạn được phép nhập lại (bạn còn"+ (3 - i) +"lần đoán)"));
+            }
+        }
+        }
+
+    }
+    function replay() {
+        play();
+    }
+</script>
+</body>
+</html>

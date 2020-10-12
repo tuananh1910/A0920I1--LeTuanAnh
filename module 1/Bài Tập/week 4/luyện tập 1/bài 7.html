@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let timeCall= parseInt(prompt("số phút gọi (đơn vị phút):"));
+    let callRatesMinutes = 1000;
+    let totalCallRates;
+    if ( timeCall < 3){
+        totalCallRates= timeCall*callRatesMinutes;
+        alert(totalCallRates);}
+    else {
+            if (timeCall<6){
+                callRatesMinutes=2000;
+                totalCallRates=timeCall*callRatesMinutes;
+                alert(totalCallRates);
+            }
+            else {
+                callRatesMinutes=3000;
+                totalCallRates=timeCall*callRatesMinutes;
+                alert(totalCallRates);
+            }
+
+    }
+</script>
+</body>
+</html>

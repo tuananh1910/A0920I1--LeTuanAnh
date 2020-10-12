@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let moneyForWoat= 2000;
+    let woat= parseFloat(prompt("nhập lượng tiêu thụ điện (W): "));
+    let money;
+    if (woat<20){
+        money= moneyForWoat*woat;
+        alert("số tiền phải trả ="+money);
+    }
+    else {
+        if (woat<40){
+            moneyForWoat=3000
+           money= moneyForWoat*woat;
+            alert("số tiền phải trả ="+money);
+        }
+        else {
+            moneyForWoat=5000;
+            money=moneyForWoat*woat;
+            alert("số tiền phải trả ="+money);
+        }
+    }
+</script>
+</body>
+</html>

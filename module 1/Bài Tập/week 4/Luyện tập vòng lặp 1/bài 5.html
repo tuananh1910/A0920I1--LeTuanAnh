@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let i;
+    let fib = [];
+    let sum=0;
+
+    fib[0] = 0;
+    fib[1] = 1;
+    for (i = 2; i <= 21; i++) {
+        fib[i] = fib[i - 2] + fib[i - 1];
+        document.writeln(fib[i]);
+        document.writeln("<br>");
+        sum += fib[i];
+    }document.writeln("tổng của 20 số đầu tiên :" + sum);
+</script>
+</body>
+</html>

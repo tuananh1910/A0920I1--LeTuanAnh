@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let dem=0; // đếm đủ 30 số có chia hết cho 7
+
+    let sum=0;
+
+        let check=0;
+        for (let n=1; n>0;n++){
+            if (n%7===0){
+                document.writeln("số tự nhiên chia hết cho 7 :"+n);
+                document.writeln("<br>");
+                sum += n;
+                check ++ ;
+            }
+            if (check===30){
+                break;
+            }
+        }
+        document.writeln("tổng của 30 số tự nhiên đầu tiên chia hết cho 7: "+sum);
+
+
+</script>
+</body>
+</html>
