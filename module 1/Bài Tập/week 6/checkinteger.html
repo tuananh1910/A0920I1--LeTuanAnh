@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt("nhập số nguyên dương (>=2) :"));
+    let integer= new Object();
+    integer.check=function () {
+        let check1=0;
+        for (let i=2;i<number-1;i++){
+            if (number%i===0){
+                check1++
+            }
+        }
+        if (check1===0){
+            alert("la so nguyen to")
+        }
+        else {
+            alert("khong phai la so nguyen to")
+        }
+    }
+    integer.check();
+</script>
+</body>
+</html>

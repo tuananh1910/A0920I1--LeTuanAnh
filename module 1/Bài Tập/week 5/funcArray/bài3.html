@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const string=window.prompt();
+    const str=string.toString();
+    const result=[str[0]];
+    let upCase='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let lowerCase='abcdefghijklmnopqrstuvwxyz';
+    for (let i=0;i<str.length;i++){
+        if (upCase.indexOf(str[i])!==-1){
+            result.push(str[i].toLowerCase());
+        }
+        else if (lowerCase.indexOf(str[i])!==-1){
+            result.push(str[i].toUpperCase());
+        }
+        else {
+            result.push(str[i]);
+        }
+    }
+    document.writeln(result.join(""));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="string" type="text" placeholder="nhập từ: code gym ">
+<button onclick="check()">đếm số từ</button>
+<p id="text"></p>
+<script>
+    // let array=[""]
+    function check(){
+        let text=document.getElementById('string').value;
+        let array =text.split(" ");
+        let dem=0;
+        for (let i=0;i<array.length;i++){
+            if (typeof (array[i])==="string"){
+                dem++;
+            }
+        }
+        document.getElementById("text").innerHTML= dem;
+    }
+</script>
+</body>
+</html>

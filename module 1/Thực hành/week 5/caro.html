@@ -23,7 +23,6 @@
             data += board[i][j] + "&nbsp;&nbsp;";   // in ra phần tử trong board thứ (i;j) với 2 khoảng trắng in ra 5 lần
         }
     }
-
     data += "<br/><br/><input type='button' value='Change Value' onclick='changeValue()'>";
     b.innerHTML = data;
     function changeValue() {
@@ -32,7 +31,7 @@
         data = "";
         board[positionX][positionY] = "x";   //phần tử thứ ij trong mảng board có giá trị là string X
         for (let i = 0; i < 5; i++) {   // lặp chạy i 0-4
-            data += "<br/>";     // tạo 5 dòng
+            data += "<br/>";     //  5 dòng
             for (let j = 0; j < 5; j++) {
                 data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
             }

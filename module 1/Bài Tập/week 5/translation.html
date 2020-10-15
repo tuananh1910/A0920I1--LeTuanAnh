@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <input type="text" id="word">
+    <button onclick="translation()"> Dịch </button>
+</form>
+<script>
+    let trans =new Array();
+    trans[0]= new Array("dog","cat","dophin");
+    trans[1]= new Array("chó","mèo","cá heo");
+    function translation() {
+        let word = document.getElementById("word").value;
+        for (let i=0;i<3;i++){
+            for (let j=0;j<3;j++){
+                if (word === trans[i][j]) {
+                    alert(trans[i+1][j]);
+                }
+        }
+        }
+
+    }
+</script>
+</body>
+</html>

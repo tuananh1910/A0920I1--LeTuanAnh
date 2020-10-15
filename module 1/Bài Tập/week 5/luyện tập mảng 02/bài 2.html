@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="string" type="text" placeholder="nhập các kí tự: c s g h 1 2 45 -89 $% 23$">
+<button onclick="reverse()">đảo mảng</button>
+<p id="reverse"></p>
+<script>
+    function reverse(){
+        let text=document.getElementById('string').value;
+        let array =text.split(" ");
+        array.reverse();
+        document.getElementById("reverse").innerHTML=array.join("");
+    }
+</script>
+</body>
+</html>

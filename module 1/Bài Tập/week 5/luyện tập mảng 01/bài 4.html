@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="string" type="text" placeholder="nhập số nguyên dưới dạng: 11 22 33 4 6 7">
+<button onclick="reverse()">đảo mảng</button>
+<p id="reverse"></p>
+<script>
+    function reverse(){
+        let text=document.getElementById('string').value;
+        let array =text.split(" ");
+        array.reverse();
+        document.getElementById("reverse").innerHTML=array;
+    }
+</script>
+</body>
+</html>

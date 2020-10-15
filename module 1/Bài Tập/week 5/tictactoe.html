@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Tic tac toe</h3>
+
+<p id="carogame"></p> <br>
+
+<button onclick="playerOne()">Người chơi 1</button>
+<button onclick="playerTwo()" style="margin-left: 10px">Người chơi 2</button>
+    <script>
+        let b = document.getElementById("carogame");
+        let board=[];
+        let data = "";
+        for (let i = 0; i < 5; i++) {
+            board[i] = new Array(" . ", " . ", " . ", " . ", " . ");
+        }
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                data += board[i][j] + "&nbsp;&nbsp;";
+            }
+        }
+        b.innerHTML = data;
+
+        function playerOne(){
+            let x1= parseInt(prompt("nhập toạ độ X (dòng):"));
+            let y1= parseInt(prompt("nhập toạ độ Y (cột) :"));
+            board[x1][y1]="X";
+            data = "";
+            for (let i=0;i<5;i++){
+                data +="<br>";
+                for (let j=0;j<5;j++){
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            b.innerHTML = "<hr/>" + data;
+            check();
+        }
+        function playerTwo(){
+            let x2= parseFloat(prompt("nhập toạ độ X (dòng):"));
+            let y2= parseFloat(prompt("nhập toạ độ Y (cột) :"));
+            board[x2][y2]="O";
+            data="";
+            for (let i=0;i<5;i++){
+                data +="<br>";
+                for (let j=0;j<5;j++){
+                    data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+                }
+            }
+            b.innerHTML = "<hr/>" + data;
+            check();
+        }
+        function check() {
+            for (let i=0; i<5;i++) {
+                for (let j = 0; j < 5; j++) {
+                    // kiem tra hang ngang
+                    if (board[i][j] === "X" && board[i][j + 1] === "X" && board[i][j + 2] === "X") {
+                        alert("người chơi 1 winnnn :v");
+                        break;
+                    }
+                    if (board[i][j] === "O" && board[i][j + 1] === "O" && board[i][j + 2] === "O") {
+                        alert("người chơi 2 winnnn :v");
+                        break;
+                    }
+
+                    //kiem tra hang doc
+                    if (board[i][j] === "X" && board[i+1][j] === "X" && board[i+2][j] === "X") {
+                        alert("người chơi 1 winnnn :v");
+                        break;
+                    }
+                    if (board[i][j] === "O" && board[i+2][j] === "O" && board[i+2][j] === "O") {
+                        alert("người chơi 2 winnnn :v");
+                        break;
+                    }
+
+                    //kiem tra hang cheo
+                    if (board[i][j] === "X" && board[i+1][j+1] === "X" && board[i+2][j+2] === "X"){
+                        alert("người chơi 1 winnnn :v");
+                        break;
+                    }
+                    if (board[i][j] === "O" && board[i+1][j+1] === "O" && board[i+2][j+2] === "O"){
+                        alert("người chơi 2 winnnn :v");
+                        break;
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

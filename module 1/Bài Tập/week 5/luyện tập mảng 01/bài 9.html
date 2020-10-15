@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="stringA" type="text" placeholder="nhập vào 10 giá trị (số nguyên): -11 22 -33 4 6 7" size="100px">
+<input id="stringB" type="text" placeholder="nhập vào 10 giá trị (số nguyên): -11 22 -33 4 6 7" size="100px">
+<button onclick="check()">hiển thị mảng</button>
+<script>
+    function check() {
+        let textA= document.getElementById('stringA').value;
+        let arrayA=textA.split(" ");
+        let textB= document.getElementById('stringB').value;
+        let arrayB=textB.split(" ");
+        let arrayC =[20];
+        arrayC=arrayA.concat(arrayB);
+        document.writeln(arrayC);
+    }
+</script>
+</body>
+</html>

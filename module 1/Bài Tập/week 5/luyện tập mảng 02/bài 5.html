@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$Title$</title>
+</head>
+<body>
+<input id="string1" type="text" placeholder="nhập từ (chuỗi 1): code gym ">
+<input id="string2" type="text" placeholder="nhập từ (chuỗi 2): code gym ">
+<button onclick="check()">kiểm tra 2 chuỗi</button>
+<p id="text1"></p>
+<p id="text2"></p>
+<script>
+    function check() {
+            let text1=document.getElementById('string1').value;
+            let array1 =text1.split(" ");
+            let text2=document.getElementById('string2').value;
+            let array2=text2.split(" ");
+            let check=0;
+            for (let i=0;i<array1.length;i++){
+                   for (let j=0; j<array2.length;j++){
+                       if (array1[i]===array2[j]){
+                           check =0;
+                       }
+                       else {
+                           check++;
+                       }
+                   }
+                }
+            if (check>0){
+                alert("2 chuỗi khác nhau");
+            }
+            else {
+                alert("2 chuỗi giống nhau")
+            }
+    }
+
+</script>
+</body>
+</html>

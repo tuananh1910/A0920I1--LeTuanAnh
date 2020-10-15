@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<input id="string" type="text" placeholder="nhập các kí tự: c s g h 1 2 45 -89 ">-->
+<!--<button onclick="check()">đếm kí tự</button>-->
+<!--<p id="text"></p>-->
+<script>
+    let arr1=["1","q","5",8];
+    function check(arr) {
+        // let text=document.getElementById('string').value;
+        // let array =text.split(" ");
+        let dem=0;
+        for (let i=0;i<arr.length;i++){
+
+            if (typeof(arr[i]) === "number"){
+                dem++
+            }
+        }
+        alert(dem);
+    }
+
+    check(arr1);
+
+</script>
+</body>
+</html>

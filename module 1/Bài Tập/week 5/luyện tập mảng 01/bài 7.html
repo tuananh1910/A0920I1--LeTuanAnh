@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="string" type="text" placeholder="nhập vào 10 giá trị (số nguyên): -11 22 -33 4 6 7" size="100px">
+<input id="number" type="text" placeholder="19" size="100px">
+<button onclick="check()"> kiểm tra </button> <br>
+<p id="array"></p>
+<script>
+    function check() {
+        let text= document.getElementById('string').value;
+        let array=text.split(" ");
+        let number= document.getElementById('number').value;
+        for (let i=0;i<array.length;i++){
+            if (array[i]=number){
+                array[i]=array[i+1];
+
+            }
+        }
+        document.getElementById("array").innerHTML=array;
+    }
+</script>
+</body>
+</html>

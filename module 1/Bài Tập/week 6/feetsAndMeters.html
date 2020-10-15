@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   let number= parseFloat(prompt("nhập số:"));
+   let feet = new Object();
+   let meter = new Object();
+    feet.convert =function footToMetert(foot) {
+        let meter = 0.305 * foot;
+        alert(meter+"(m)");
+    }
+    meter.convert =function meterToFoot(meter) {
+        let foot = 3.279 * meter;
+        alert(foot+"(feet)");
+    }
+    feet.convert(number);
+    meter.convert(number);
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Hãy nhập vào đây :V </h3>
+<form name="form">
+    <textarea name="text" onkeydown="typeTextarea();"></textarea>
+</form>
+
+<script>
+    let a= new Array(),n="";
+    a[1]='I';a[2]=' ';a[3]='M';a[4]='I';a[5]='S';a[6]='S';a[7]=' ';a[8]='Y';a[9]='O';a[10]='U';a[11]='!';a[12]='!';a[13]='!';
+
+    function typeTextarea() {
+         t=document.form.text.value;
+         j=t.length;
+        if (j>0){
+            for (let i=1;i<=j;i++){
+                n = n +a[i];
+                if (i==13){
+                    document.form.text.value="";
+                    n="";
+                }
+            }
+        }
+        document.form.text.value = n;
+        n="";
+        setTimeout("typeTextarea()", 100);   //mã JavaScript được thực thi sau khi timeout chạy hết số mili giây đã thiết lập.
+    }
+</script>
+</body>
+</html>

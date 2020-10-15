@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var a=new Array(),n="";
+        a[1]='I';a[2]=' ';a[3]='M';a[4]='I';a[5]='S';a[6]='S';a[7]=' ';a[8]='Y';a[9]='O';a[10]='U';a[11]='!';a[12]='!';a[13]='!';
+        function typeTextarea(){
+            t = document.f.txt.value;
+            j = t.length;
+            if(j > 0)
+            {
+                for(var i=1; i<=j; i++)
+                {
+                    n = n + a[i];
+                    if(i == 13)
+                    {
+                        document.f.txt.value = "";
+                        n = "";
+                    }
+                }
+            }
+            document.f.txt.value = n;
+            n="";
+            setTimeout("typeTextarea()", 200);
+            //return false;
+        }
+    </script>
+</head>
+<body>
+<center>
+    <h2>Hãy nhập vào đây :v</h2>
+    <form name="f">
+        <textarea name="txt" cols="40" rows="10" onkeydown="typeTextarea();"></textarea>
+    </form>
+</center>
+</body>
+</html>

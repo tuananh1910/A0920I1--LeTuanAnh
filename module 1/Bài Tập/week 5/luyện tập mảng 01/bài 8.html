@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="string" type="text" placeholder="nhập vào 10 giá trị (số nguyên): -11 22 -33 4 6 7" size="100px">
+<button onclick="soft()"> sắp xếp </button> <br>
+<p id="array"></p>
+<script>
+    function soft() {
+        let text= document.getElementById('string').value;
+        let array=text.split(" ");
+        let x;
+        for (let i=0;i<array.length;i++){
+            for (let j=0;j<array.length; j++){
+            if (array[j]<array[j+1]){
+                x= array[j];
+                array[j]=array[j+1];
+                array[j+1]=x;
+            }
+            }
+        }
+        document.getElementById("array").innerHTML=array;
+    }
+</script>
+</body>
+</html>
