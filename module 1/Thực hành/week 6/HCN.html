@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    let Rectangle= function (width, length) {
+        this.width = width;
+        this.length = length;
+        this.getArea = function () {
+            return  width*length;
+        };
+        this.getPerimeter = function () {
+            return 2*(width+length);
+        };
+        let c = document.getElementById("myCanvas");
+        let ctx = c.getContext("2d");
+        ctx.fillStyle = "#030f08";
+        ctx.fillRect(0,0,150,75);
+    };
+
+    let rectangle = new Rectangle(3,4);
+    rectangle.getArea();
+    rectangle.getPerimeter();
+    alert("dien tich hinh chu nhat"+rectangle.getArea());
+    alert("chu vi hinh chu nhat"+rectangle.getPerimeter());
+
+</script>
+</body>
+</html>

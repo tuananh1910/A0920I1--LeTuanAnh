@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    Name :
+    <input id="name" value="" type="text"> <br>
+    CMND :
+    <input id="CMND" value="" type="text"> <br>
+    Ngày/tháng/năm sinh:
+    <input id="day" value="" type="date"> <br>
+    Email:
+    <input id="email" value="" type="text"> <br>
+    Address:
+    <input id="address" value="" type="text"> <br>
+    Loại Customer:
+    <select id="customer">
+        <option value="Diamond">Diamond</option>
+        <option value="Platinum">Platinum</option>
+        <option value="Gold">Gold</option>
+        <option value="Silver">Silver</option>
+        <option value="Member">Member</option>
+    </select> <br>
+    Discount :
+    <select id="discount">
+        <option value="10">10%</option>
+        <option value="20">20%</option>
+        <option value="50">50%</option>
+        <option value="60">60%</option>
+        <option value="70">70%</option>
+    </select> <br>
+    Số người đi cùng:
+    <input id="people" value="" type="number"><br>
+    Số ngày thuê:
+    <input id="rentDay" value="" type="number"><br>
+    Loại Dịch vụ:
+    <select id="service">
+        <option value="Villa">Villa</option>
+        <option value="House">House</option>
+        <option value="Room">Room</option>
+    </select> <br>
+    Loại Phòng thuê:
+    <select id="room">
+        <option value="Vip">Vip</option>
+        <option value="Business">Business</option>
+        <option value="Normal">Normal</option>
+    </select> <br>
+    <button onclick="Done()">Done</button>
+</form>
+<script>
+
+    function Done() {
+        alert("Tên : "+   document.getElementById('name').value +'\n'+
+              "CMND : " +     document.getElementById('CMND').value +'\n'+
+              "Ngày Sinh : "+  document.getElementById('day').value +'\n'+
+              "Email : " + document.getElementById('email').value +'\n'+
+              "Địa chỉ : " +document.getElementById('address').value +'\n'+
+              "Loại Customer : "+ document.getElementById('customer').value +'\n'+
+              "Giảm giá : "+   document.getElementById('discount').value+'\n'+
+              "Số người đi cùng : " + document.getElementById('people').value +'\n'+
+              "Số ngày thuê : " +   document.getElementById('rentDay').value +'\n'+
+              "Loại dịch vụ : " + document.getElementById('service').value +'\n'+
+              "Loại phòng thuê" + document.getElementById('room').value +'\n'
+        );
+
+        let discount =document.getElementById('discount').value;
+        let rentDay= document.getElementById('rentDay').value;
+        let totalMoney;
+        if ('Villa'===document.getElementById('service').value){
+            totalMoney= 500 * rentDay*(1- (discount/100));
+            alert("tổng số tiền thanh toán : " +totalMoney + "$");
+        }
+        if ('House'===document.getElementById('service').value){
+            totalMoney= 300 * rentDay*(1- (discount/100));
+            alert("tổng số tiền thanh toán : " +totalMoney+ "$");
+        }
+        if ('Room'===document.getElementById('service').value){
+            totalMoney= 100 * rentDay*(1- (discount/100));
+            alert("tổng số tiền thanh toán : " +totalMoney+ "$");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check(a,b,c){
+        if (a>b){
+            if (b>c){
+                alert(c)
+            }
+            else {
+                alert(b);
+            }
+        }
+        else {
+            if (a<c){
+                alert(a)
+            }
+            else {
+                alert(c);
+            }
+        }
+    }
+    let number1= parseInt(prompt("nhập number 1:"));
+    let number2= parseInt(prompt("nhập number 2:"));
+    let number3= parseInt(prompt("nhập number 3:"));
+    check(number1,number2,number3);
+</script>
+</body>
+</html>

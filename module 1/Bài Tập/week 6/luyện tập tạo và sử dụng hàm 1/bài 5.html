@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array1= ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe" , "Regulus"]; // các ngôi sao
+    let array2= ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major" , "Leo"]; // các chòm sao
+    function myfunction(star1) {
+        let check =0;
+        let a="";
+        for (let i=0;i<array1.length;i++) {
+            if (array1[i]=== star1){
+                a = array2[i];
+                check =0;
+                break;
+            }
+            else {
+                check ++;
+            }
+        }
+        if (check!==0){
+            alert("không tìm thấy ngôi sao và chòm sao tương ứng ");
+        }
+        else {
+            alert(" chòm sao tương ứng: " +a)
+        }
+    }
+    let star = prompt("nhập tên ngôi sao:");
+    myfunction(star);
+</script>
+</body>
+</html>

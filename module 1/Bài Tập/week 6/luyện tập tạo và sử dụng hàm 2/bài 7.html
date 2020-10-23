@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function check(number1,number2){
+        let text;
+        text = number1;
+        number1 = number2;
+        number2 = text;
+        alert( "số thứ nhất : "+ number1+ "số thứ hai : " + number2);
+    }
+    let number1=parseInt(prompt("nhập số thứ 1 : "));
+    let number2 =parseInt(prompt("nhập số thứ 2 :"));
+    check(number1,number2);
+</script>
+</body>
+</html>

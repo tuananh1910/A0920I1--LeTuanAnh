@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a=0;
+    let arrListCustomers= new Array();
+    arrListCustomers[0]= new Array("Tên","CMND","Ngày sinh","Email","Địa chỉ","Loại Customer","Giảm giá","Số người đi cùng","Số ngày thuê","Loại dịch vụ","Loại room");
+    function displayMainMenu() {
+        document.body.innerHTML="";
+        document.writeln("<h3>Menu");
+        document.writeln("<br>");
+        document.writeln("<button onclick='addNewCustomer()'>Add New Customer");
+        document.writeln("<button onclick='displayInformationCustomer()'>Display Information Customer");
+        document.writeln("<button onclick='editInformationCustomer()'>Edit Information Customer");
+        document.writeln("<button onclick='deleteCustomer()'>Delete Customer");
+        document.writeln("<button onclick='exit()'>Exit</button>");
+    }
+    displayMainMenu();
+    function addNewCustomer() {
+        let name= prompt("1. Nhập tên :");
+        let cmnd= prompt("2. CMND: ");
+        let birthday= prompt("3. Ngày sinh :");
+        let mailFormat= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        let email;
+        do {
+            email = prompt("4. Email: ");
+        }
+        while (email.match(mailFormat));
+        let address= prompt("5. Địa chỉ: ");
+        let customer= prompt("6. Loại Customer: ");
+        let discount= prompt("7. Giảm giá: ");
+        let peopleTogether= prompt("8. Số người đi cùng: ");
+        let rentDay= prompt("9. Số ngày thuê: ");
+        let service= prompt("10. Loại dịch vụ: ");
+        let room= prompt("11. Loại phòng thuê: ");
+        a= a+1;
+        arrListCustomers[a]=new Array(name,cmnd,birthday,email,address,customer,discount,peopleTogether,rentDay,service,room);
+    }
+    function displayInformationCustomer() {
+        document.writeln("<table id='table' border=1 width=100%>");
+        for (let i=0;i<11;i++) {
+            document.writeln("<tr>");
+            for (let j=0;j<11;j++) {
+                document.writeln("<td>" + arrListCustomers[i][j]);
+                document.writeln("</td>");
+            }
+            document.writeln("</tr>");
+        }
+        document.writeln("</tr></table>");
+    }
+    function editInformationCustomer() {
+        let edit= parseInt(prompt("1. Tên khách hàng"+ "\n"+
+            "2. CMND" + "\n"+
+            "3. Ngày sinh"+ "\n"+
+            "4. Email" + "\n"+
+            "5. Địa chỉ"+ "\n"+
+            "6. Loại Customer"+ "\n"+
+            "7. Giảm giá "+ "\n"+
+            "8. Số người đi cùng"+ "\n"+
+            "9. Số ngày thuê"+ "\n"+
+            "10. Loại dịch vụ" + "\n"+
+            "11. Loại phòng "
+        ));
+        // switch (edit) {
+        //     case 1:
+        //         let newname = prompt("Nhập tên: ");
+        //         break;
+        // case 2:
+        //     let newCMND=
+
+        // }
+
+    }
+    function deleteCustomer() {
+
+    }
+    function exit() {
+        confirm("bạn muốn đóng cửa sổ này?");
+        window.close();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="string1" type="text" placeholder="nhập 1 từ : c o d e ">
+<button onclick="isPalindrome()">kiểm tra từ</button>
+<script>
+    function isPalindrome() {
+        let text=document.getElementById('string1').value;
+        let array =text.split(" ");
+        let check = 0;
+        let lastarray=array.length;
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] === array[lastarray-1]){
+                    check = 0;
+                }
+                else {
+                    check ++;
+                }
+            }
+            if (check > 0) {
+                alert("từ không đối xứng");
+            }
+            else {
+                alert(" từ  đối xứng ");
+            }
+    }
+</script>
+</body>
+</html>

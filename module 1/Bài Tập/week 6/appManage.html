@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array= new Array("yeezy","addidas","sneaker");
+    function reload() {
+        document.writeln("<h3>Add New Product");
+        document.writeln("<input id='product' type='text'>");
+        document.writeln("<button onclick='add()'>Add</button>");
+        document.writeln("<h3>Display All Product");
+        document.writeln("<table id='table' border='1' width=100%>");
+        for (let i=0; i<array.length;i++){
+        document.writeln("<tr>");
+        for (let j=0; j<array.length;j++){
+            if (j === 0){
+                document.writeln("<td>"+ array[i]);
+                document.writeln("</td>");
+            }
+            if (j === 1) {
+                document.writeln("<td><button onclick='edit("+j+")'>Edit</button>");
+                document.writeln("</td>");
+                }
+            if (j === 2){
+                document.writeln("<td><button onclick='del("+j+")'>Delete</button>");
+                document.writeln("</td>");
+            }
+        }
+        document.writeln("</tr>");
+    }
+    document.writeln("</table>");
+    }
+    reload();
+    function add() {
+        let product = document.getElementById('product').value;
+        array.push(product);
+        document.body.innerHTML="";
+        reload()
+    }
+    function edit(j) {
+        document.writeln("<h3>Edit Product");
+        document.writeln("<input type='text' id='product'>");
+        document.writeln("<button onclick='editProduct("+j+")'>Edit");
+    }
+    function editProduct(j) {
+        let newProduct = document.getElementById('product').value;
+        array[j]= newProduct;
+        document.body.innerHTML="";
+        reload();
+    }
+    function del(ind) {
+        if (confirm("bạn có chắc chắn muốn xoá ?")){
+            array.splice(ind,1);
+        }
+        document.body.innerHTML="";
+        reload();
+    }
+</script>
+</body>
+</html>
