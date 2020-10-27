@@ -3,20 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-    <div id="listButton">
-        <h1><center>MENU</center></h1>
-        <button class='btn btn-dark btn-space btn-block' onclick='addNewCustomer()'>Add New Customer</button>
-        <button class='btn btn-primary btn-space btn-block' onclick='displayInformationCustomer(a)'>Display Information Customer</button>
-        <button class='btn btn-dark btn-space btn-block' onclick='displayInformationCustomer(a)'>Display Total Pay Of Customer</button>
-        <button class='btn btn-primary btn-space btn-block' onclick='displayInformationCustomer(a)'>Edit Information Customer</button>
-        <button class='btn btn-dark btn-space btn-block' onclick='displayInformationCustomer(a)'>Delete Customer</button>
-        <button class='btn btn-primary btn-space btn-block' onclick='exit()'>Exit</button>
-    </div>
-    <div id="table"></div>
+<style>
 
+</style>
 <script>
     let address;
     let customer;
@@ -28,16 +19,21 @@
     arrListCustomers[0]= new Array("Tên","CMND","Ngày sinh","Email","Địa chỉ",
         "Loại Customer","Giảm giá","Số người đi cùng","Số ngày thuê","Loại dịch vụ",
         "Loại room","Edit","Delete","Total Pay");
+    function displayMainMenu() {
+        document.body.innerHTML="";
+        document.writeln("<h3>Menu");
+        document.writeln("<br>");
+        document.writeln("<button onclick='addNewCustomer()'>Add New Customer");
+        document.writeln("<button onclick='displayInformationCustomer()'>Display Information Customer");
+        document.writeln("<button onclick='displayInformationCustomer()'>Display Total Pay Of Customer");
+        document.writeln("<button onclick='displayInformationCustomer()'>Edit Information Customer");
+        document.writeln("<button onclick='displayInformationCustomer()'>Delete Customer");
+        document.writeln("<button onclick='exit()'>Exit</button>");
+    }
+    displayMainMenu();
     // them thong tin new customer
     function addNewCustomer() {
-        let nametext= prompt("1. Nhập tên :");
-        function ucwords (str) {
-            str = (str + '').toLowerCase();
-            return str.replace(/^([a-z])|\s+([a-z])/g, function ($1) {
-                return $1.toUpperCase();
-            });
-        }
-         let name=ucwords(nametext);
+        let name= prompt("1. Nhập tên :");
 
         let cmnd;
         let cmndFormat = /^[0-9]*$/;
@@ -82,45 +78,47 @@
         a= a+1;
         arrListCustomers[a]=new Array(name,cmnd,birthday,email,address,customer,discount,peopleTogether
             ,rentDay,service,room);
+        document.body.innerHTML="";
+        displayMainMenu();
+        displayInformationCustomer();
     }
-
     // hien thi thong tin khach hang
-    function displayInformationCustomer(a) {
-        // displayMainMenu();
-        document.getElementById('table').innerHTML="";
-        let content = document.getElementById("table").innerHTML;
-        content +="<h2><center>Thông tin khách hàng</center></h2>";
-        content +="<table id='table' border=1 width=100%>";
-        for (let i=0;i<(a+1);i++) {
-            content+=("<tr>");
+    function displayInformationCustomer() {
+        displayMainMenu();
+        document.writeln("<h3>Thông tin khách hàng</h3>");
+        document.writeln("<table id='table' border=1 width=100%>");
+        for (let i=0;i<13;i++) {
+            document.writeln("<tr>");
             for (let j=0;j<14;j++) {
                 if (i===0){
-                    content+=("<td>" + arrListCustomers[0][j]);
-                    content+=("</td>");
+                    document.writeln("<td>" + arrListCustomers[0][j]);
+                    document.writeln("</td>");
                 }
                 if (j===11 && i>0){
-                    content+=("<td><button class='btn btn-dark btn-space' onclick='editInformationCustomer("+i+")'>Edit</button>");
-                    content+=("</td>");
+                    document.writeln("<td><button onclick='editInformationCustomer("+i+")'>Edit</button>");
+                    document.writeln("</td>");
                 }
                 if (j===12 && i>0){
-                    content+=("<td><button class='btn btn-dark btn-space' onclick='deleteCustomer("+i+")'>Delete</button>");
-                    content+=("</td>");
+                    document.writeln("<td><button onclick='deleteCustomer("+i+")'>Delete</button>");
+                    document.writeln("</td>");
                 }
                 if (j===13 && i>0){
-                    content+=("<td><button class='btn btn-dark btn-space' onclick='displayTotalPayOfCustomer("+i+")'>Total Pay" +
+                    document.writeln("<td><button onclick='displayTotalPayOfCustomer("+i+")'>Total Pay" +
                         "</button>");
-                    content+=("</td>");
+                    document.writeln("</td>");
                 }
                 if (j!==11 && j!==12 && j!==13 && i>0){
-                    content+=("<td>" + arrListCustomers[i][j]);
-                    content+=("</td>");
+                    document.writeln("<td>" + arrListCustomers[i][j]);
+                    document.writeln("</td>");
                 }
             }
-            content+=("</tr>");
+            document.writeln("</tr>");
         }
-        content+=("</tr></table>");
-        document.getElementById('table').innerHTML= content;
+        document.writeln("</tr></table>");
+        // document.writeln("<button onclick='displayMainMenu()'>Back Menu</button>");
     }
+    // document.writeln("<button onclick='displayMainMenu()'>Back Menu</button>");
+    //hien thi danh sanh customer cho phep nguoi dung chon vao khach hang nao
     // muon hien thi tien thanh toan
     function displayTotalPayOfCustomer(i) { //so tien phai tra = service * so ngay -giam gia
         // so tien giam gia= dia chi+ so ngay thue + loai customer
@@ -248,21 +246,18 @@
                 break;
             }
         }
-        // document.getElementById('table').innerHTML="";
-        // displayMainMenu();
-        displayInformationCustomer(a);
+        document.body.innerHTML="";
+        displayMainMenu();
+        displayInformationCustomer();
     }
     // xoa thong tin khach hang
     function deleteCustomer(i) {
-        // let content = document.getElementById('table').innerHTML;
         if (confirm("Bạn chắc chắn muốn xoá khách hàng này?")){
-            // content +=
             arrListCustomers.splice(i,1);
-            // delete arrListCustomers[i];
         }
-        a=a-1;
-        // document.getElementById('table').innerHTML='';
-        displayInformationCustomer(a);
+        document.body.innerHTML="";
+        displayMainMenu();
+        displayInformationCustomer();
     }
     // out
     function exit() {
