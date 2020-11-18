@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="messing()">Soạn tin nhắn</button>
+<button onclick="battering()">Sạc pin</button>
+<p id="battering"></p>
+<script>
+    // let inbox = new Array();
+    // let sent = new Array();
+    class phone{
+        constructor(battery, messenger, inbox, sent) {
+            this.battery = battery;
+            this.status = false;
+            this.messenger = messenger;
+            this.inbox = inbox;
+            this.sent = sent
+        }
+        checkPhone(){
+            return this.status;
+        }
+        turnOffOrOn(){
+            return this.status = !this.battery;
+        }
+        messing(){
+            let messenger = prompt("Soạn tin nhắn: ");
+            messenger = this.sent;
+            if (confirm("Bạn chắc chắn muốn gửi tin nhắn này?")){
+                alert("Tin nhắn đã được gửi đi");
+            }
+            else {
+                alert("Bạn đã huỷ tin nhắn gửi đi");
+            }
+        }
+        send(){
+            this.messing();
+        }
+        inbox(){
+
+        }
+        battering(){
+            // document.getElementById('battering').innerHTML = this.battery;
+            this.battery++;
+            document.getElementById('battering').innerHTML = this.battery;
+        }
+    }
+    let phone1 = new phone(98);
+    // let phone2 = new phone();
+    function messing() {
+        phone1.messing();
+    }
+    function battering() {
+        do {
+            document.getElementById('battering').innerHTML = phone1.battery;
+            // setTimeout(phone1.battering,500);
+            phone1.battering();
+        }
+       while(phone1.battery<100);
+        alert("Pin đã đầy :D");
+    }
+</script>
+</body>
+</html>

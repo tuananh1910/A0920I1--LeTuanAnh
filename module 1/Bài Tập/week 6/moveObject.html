@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="game"></div>
+<script>
+    function Hero(image, top, left, size){
+        this.image = image;
+        this.top = top;      //20px
+        this.left = left;    // 30 px
+        this.size = size;    //200px
+
+        this.getHeroElement = function(){   //img width= this size, heigth = this size, src,
+            return '<img width="'+ this.size + '"' +
+                ' height="'+ this.size + '"' +
+                ' src="' + this.image +'"' +
+                ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+        }
+
+        this.moveRight = function(){      // di chuyen ve ben phai
+            this.left += 100;              // move right
+            console.log('ok: ' + this.left);
+        }
+
+    }
+
+    var hero = new Hero('pikachu.png', 20, 30, 200); //pika cac doi so  (top 20; left 30; size 200)
+
+    function start(){
+        if(hero.left < window.innerWidth - hero.size){    // if hero ben trai < width window - heroSize
+            hero.moveRight();   // goi method pika move right
+        }
+        document.getElementById('game').innerHTML = hero.getHeroElement();
+        setTimeout(start, 500) // sau 500 = 1/2(s) bat dau goi ham start
+    }
+
+    start();
+
+</script>
+</body>
+</html>

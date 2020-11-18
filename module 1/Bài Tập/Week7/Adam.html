@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="eat()">Eat</button>
+<button onclick="checkApple()">Check Apple</button>
+<button onclick="say()">Say</button>
+<script>
+    class Apple{
+        constructor() {
+            this.weight_Apple=10;
+        }
+        get weightApple(){
+            return this.weight_Apple;
+        }
+        decrease(){  //  return this.weight --;
+            if (this.weight_Apple >0) {
+                this.weight_Apple = this.weight_Apple - 1;
+                alert("ban da an tao");
+                this.weight_Apple;
+            }
+            else{
+                alert("Da het tao");
+            }
+        }
+        isEmpty(){    //return this.weight <=0
+            if (this.weight_Apple >0){
+                alert("con tao , co khoi luong "+ this.weight_Apple);
+            }
+            else {
+                alert("het tao");
+            }
+        }
+    }
+    class Human extends Apple{
+        constructor(weight_Apple, nameHuman, genderHuman , weigthHuman) {
+            super(weight_Apple);
+           this.nameHuman = nameHuman;
+           this.genderHuman= genderHuman;
+           this.weigthHuman = weigthHuman;
+        }
+
+        getNameHuman(){
+            return this.nameHuman;
+        }
+        getGenderHuman(){
+            return this.genderHuman;
+        }
+        getWeigthHuman(){
+            return this.weigthHuman
+        }
+        setNameHuman(name){
+            this.nameHuman = name;
+        }
+        setGenderHuman(gender){
+            this.genderHuman = gender;
+        }
+        setWightHuman(weigth){
+            this.weigthHuman = weigth;
+        }
+        isMale(gender){
+            if (gender === "Male"){
+                return this.genderHuman;
+            }
+            else {
+                return ("khong phai la male");
+            }
+        }
+        checkApple(){
+            human.isEmpty();
+        }
+        eatApple(){
+            human.decrease();
+            this.weigthHuman += 1;
+        }
+        say(text){
+            alert(text);
+        }
+    }
+    let apple = new Apple();
+    let human = new Human(apple);
+    function eat() {    // if (check.Apple(apple);}
+        if (human.weight_Apple>0){
+            human.eatApple();
+        }
+        else{
+            alert("da het tao")
+        }
+    }
+    function checkApple() { // return !apple.isEmpty();
+        human.checkApple();
+    }
+    function say() {
+        human.say("Hello");
+    }
+    human.setNameHuman("Anh");
+    human.setGenderHuman("Male");
+    human.setWightHuman("60");
+    alert(human.nameHuman);
+    alert(human.genderHuman);
+    alert(human.weigthHuman);
+    alert(human.isMale(human.genderHuman));
+</script>
+</body>
+</html>

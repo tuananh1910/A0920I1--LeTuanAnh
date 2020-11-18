@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="Catch()">Bắt chuột</button>
+<button onclick="eat()">Ăn chuột</button>
+<script>
+    class Rat{
+        constructor() {
+            this.name = Rat;
+            this.mass = 5;
+            this.speed = 100;
+            this.status = true;
+        }
+        chirpRat(){
+            alert("chít chít");
+        }
+    }
+    class Cat{
+        constructor(Cat) {
+            this.name = Cat;
+            this.mass = 15;
+            this.maxspeed = 150;
+            this.check = false;
+        }
+        chirpCat(){
+            alert("meo meo");
+        }
+        // co kha nang bat chuot khi toc do meo lon hon toc do chuot
+        catCatchRat(){
+            if (this.maxspeed> mouse.speed ){
+                alert("Cat da bat duoc Rat");
+                this.check = true;
+            }
+            if (this.maxspeed < mouse.speed){
+                alert("Cat khong bat duoc Rat");
+            }
+        }
+        // meo an thit chuot . chuot con song
+        CatEatRat(){
+            if (this.check === true) {
+                if (mouse.status === true) {
+                    alert("meo an chuot");
+                    this.mass++;
+                    alert("meo len can :v " + this.mass);
+                    mouse.status = false;
+                } else {
+                    alert(" chuot da chet");
+                }
+            }
+            else {
+                alert("meo chua bat chuot");
+            }
+        }
+    }
+    let mouse = new Rat();
+    let cat1 = new Cat();
+    function Catch() {
+        cat1.catCatchRat();
+    }
+    function eat() {
+        cat1.CatEatRat();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="upVolumne()"> Up Volumne</button>
+<button onclick="downVolumne()">Down Volumne</button>
+<button onclick="turnOnOrOf()">Bật/Tắt Tivi</button>
+<button onclick="changeChanel()">Thay đổi kênh</button>
+<p id="displayChanel"> </p>
+<script>
+    class remote{
+        constructor() {
+
+        }
+        changeUpVolumne(){
+            tivi1.changeUpVolumne();
+        }
+        changeDownVolumne(){
+            tivi1.changeDownVolumne();
+        }
+    }
+    class tivi{
+        constructor(display, volumne) {
+            this.display= display;
+            this.displayvolumne = volumne;
+            this.status = true;
+        }
+        changeUpVolumne() {
+            if (this.status) {
+                if (this.displayvolumne >= 0) {
+                    alert(++this.displayvolumne);
+                }
+            }
+        }
+        changeDownVolumne(){
+            if (this.status) {
+                if (this.displayvolumne > 0) {
+                    alert(--this.displayvolumne);
+                }
+            }
+        }
+    }
+    let remote1 = new remote();
+    let tivi1 = new tivi("kênh "+7,30);
+    function turnOnOrOf() {
+        if (tivi1.status) {
+            alert(tivi1.status);
+            document.getElementById('displayChanel').innerHTML = tivi1.display;
+        }
+        else {
+            document.getElementById('displayChanel').innerHTML = "";
+            alert("ti vi da tat")
+        }
+        tivi1.status = !tivi1.status;
+    }
+    function upVolumne() {
+        remote1.changeUpVolumne();
+    }
+    function downVolumne() {
+        remote1.changeDownVolumne();
+    }
+    let check = true;
+    function changeChanel() {
+        if (check){
+            document.getElementById('displayChanel').innerText = "kênh 8" ;
+        }
+        else{
+            document.getElementById('displayChanel').innerHTML = tivi1.display;
+        }
+        check = !check;
+    }
+
+</script>
+</body>
+</html>

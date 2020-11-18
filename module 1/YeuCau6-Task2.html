@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <button onclick="add()">Add New Employee</button>
+    <button onclick="display(a)">Display Information Employees</button>
+    <button onclick="exit()">Exit</button>
+
+
+</div>
+<div id="table"></div>
+<script>
+    const cmndFormat = /^[0-9]*$/;
+    const birthDayFormat =/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
+    const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let a=0;
+    let lisEmployees = new Array();
+    lisEmployees[0]= new Array("Tên","CMND","Ngày sinh","Email","Địa chỉ","Chức vụ","Salary","Edit","Delete");
+    class employee{
+        constructor(name1, cmnd, birthDay, email, address, position) {
+            this.name1 = name1;
+            this.cmnd = cmnd;
+            this.birthDay = birthDay;
+            this.email = email;
+            this.address = address;
+            this.position = position;
+        }
+        addNewEmployee() {
+            let nametext= prompt("1. Nhập tên:");
+            function ucwords (str) {
+                str = (str + '').toLowerCase();
+                return str.replace(/^([a-z])|\s+([a-z])/g, function ($1) {
+                    return $1.toUpperCase();
+                });
+            }
+            let name = ucwords(nametext);
+            //
+            let cmnd;
+            do {
+                cmnd = prompt("2. CMND: ");
+            }
+            while (!cmnd.match(cmndFormat));
+             //
+            let birthDay;
+            do {
+                birthDay = prompt("3. Ngày sinh: ");
+            }
+            while (!birthDay.match(birthDayFormat));
+            //
+            let email;
+            do {
+                email = prompt("4. Nhập Email:");
+            }
+            while (!email.match(emailFormat));
+            //
+            let address= prompt("5. Nhập địa chỉ:");
+            let position = prompt("6. Nhập chức vụ:");
+            let employee1 = new employee(name,cmnd,birthDay,email,address,position);
+            a= a+1;
+            lisEmployees[a]= new Array(name,cmnd,birthDay,email,address,position);
+        }
+        displayInformationEmployees(a){
+            let content = document.getElementById('table').innerHTML="";
+            content +="<h2><center>Thông tin khách hàng</center></h2>";
+            content +="<table id='table' border=1 width=100%>";
+            for (let i=0;i<(a+1);i++){
+                content+=("<tr>");
+                for (let j=0;j<9;j++){
+                    if (i===0){
+                        content+=("<td>" + lisEmployees[0][j]);
+                        content+=("</td>");
+                    }
+                    if (j===6 && i>0 ){
+                        content += "<td><button onclick='salary("+i+")'> Salary </button></td>";
+                    }
+                    if (j===7 && i>0){
+                        content+= "<td><button onclick='edit("+i+")'>Edit</button></td>";
+                    }
+                    if (j===8 && i>0){
+                        content+= "<td><button onclick='del("+i+")'>delete</button></td>"
+                    }
+                    if (j!==6 && j!==7 && j!==8 && i>0){
+                        content+=("<td>" + lisEmployees[i][j]);
+                        content+=("</td>");
+                    }
+                }
+                content+= ("</tr>")
+            }
+            content+=("</table>");
+            document.getElementById("table").innerHTML= content;
+        }
+        salaryOfEmployees(i) {
+            if(lisEmployees[i][5]==="Manage"){
+                this.position =500;
+                alert("Salary "+ lisEmployees[i][0] +":"+this.position)
+            }
+            if (lisEmployees[i][5]==="Sale"){
+                this.position =300;
+                alert("Salary "+ lisEmployees[i][0] +" :"+this.position)
+            }
+            if (lisEmployees[i][5]==="Marketing"){
+                this.position =200;
+                alert("Salary " + lisEmployees[i][0] +":"+this.position)
+            }
+        }
+        editEmployee(i){
+            let edit= parseInt(prompt("1. Tên Employee"+ "\n"+
+                "2. CMND" + "\n"+
+                "3. Ngày sinh"+ "\n"+
+                "4. Email" + "\n"+
+                "5. Địa chỉ"+ "\n"+
+                "6. Chức vụ"
+            ));
+            switch (edit) {
+                case 1:
+                    let newName = prompt("nhập tên: ");
+                    lisEmployees[i][0]= newName;
+                    break;
+                case 2:
+                    let newCmnd = prompt("Nhập CMND");
+                    lisEmployees[i][1]= newCmnd;
+                    break;
+                case 3:
+                    let newBirthDay = prompt("Nhập ngày sinh");
+                    lisEmployees[i][2]= newBirthDay;
+                    break;
+                case 4:
+                    let newemail = prompt("Nhập email:");
+                    lisEmployees[i][3] = newemail;
+                    break;
+                case 5:
+                    let newAddress = prompt("Nhập địa chỉ: ");
+                    lisEmployees[i][4]= newAddress;
+                    break;
+                 case 6:
+                     let newPosition = prompt("Nhập chức vụ: ");
+                     lisEmployees[i][5]= newPosition;
+                     break;
+            }
+            this.displayInformationEmployees(a);
+        }
+        deleteEmployee(i){
+            if (confirm("Bạn có chắn chắn xoá khách hàng này")){
+                lisEmployees.splice(i,1);
+            }
+            a=a-1;
+            this.displayInformationEmployees(a);
+        }
+    }
+    let employee2 = new employee();
+    function add() {
+        employee2.addNewEmployee();
+    }
+    function display(a) {
+        employee2.displayInformationEmployees(a);
+    }
+    function salary(i) {
+        employee2.salaryOfEmployees(i);
+    }
+    function edit(i) {
+        employee2.editEmployee(i);
+    }
+    function del(i) {
+        employee2.deleteEmployee(i);
+    }
+    function exit() {
+        if (confirm("Bạn có chắc chắn muốn thoát khởi trình duyệt này")){
+            window.close();
+        }
+    }
+</script>
+</body>
+</html>
