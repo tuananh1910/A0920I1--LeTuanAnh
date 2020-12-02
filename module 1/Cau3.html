@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class SoTietKiem{
+        constructor(maSo, loaiTietKiem, hoTenKhachHang, chungMinhNhanDan,
+                    ngayMoSo, soTienGui) {
+            this.maSo = maSo;
+            this.loaiTietKiem = loaiTietKiem;
+            this.hoTenKhachHang=hoTenKhachHang;
+            this.chungMinhNhanDan = chungMinhNhanDan;
+            this.ngayMoSo = ngayMoSo;
+            this.soTienGui=soTienGui;
+        }
+        getMaSo(){
+            return this.maSo;
+        }
+        getLoaiTietKiem(){
+            return this.loaiTietKiem;
+        }
+        getHoTenKhachHang(){
+            return this.hoTenKhachHang;
+        }
+        getChungMinhNhanDan(){
+            return this.chungMinhNhanDan;
+        }
+        getNgayMoSo(){
+            return this.ngayMoSo;
+        }
+        getSoTienGui(){
+            return this.soTienGui;
+        }
+    }
+    let danhSachKhachHang = [];
+    danhSachKhachHang.push(new SoTietKiem(
+        "12345", "Gold" , "Le Van A", "12313546","2000/10/10",25000));
+    let kiemTraNgayMoSo =/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
+    let kiemTraSo= /^[0-9]*$/;
+
+    function hienThiDanhSach() {
+       document.body.innerHTML="";
+       let noiDung = "<h1><center>DANH SÁCH KHÁCH HÀNG</center></h1>"
+        noiDung +="<table border='1' width='100%'>";
+        noiDung+="<tr>";
+        noiDung+="<th >Mã Sổ</th>";
+        noiDung+="<th >Loại Tiết Kiệm</th>";
+        noiDung+="<th>Họ Tên Khách Hàng</th>";
+        noiDung+="<th >CMND</th>";
+        noiDung+="<th >Ngày Mở Sổ</th>";
+        noiDung+="<th>Số Tiền Gửi</th>";
+        noiDung+="<th >Xoá Khách Hàng</th>";
+        noiDung+="</tr>";
+        for(let i= 0;i<danhSachKhachHang.length;i++){
+            noiDung+="<tr>";
+            noiDung+="<td>"+danhSachKhachHang[i].getMaSo()+"</td>";
+            noiDung+="<td>"+danhSachKhachHang[i].getLoaiTietKiem()+"</td>";
+            noiDung+="<td>"+danhSachKhachHang[i].getHoTenKhachHang()+"</td>";
+            noiDung+="<td>"+danhSachKhachHang[i].getChungMinhNhanDan()+"</td>";
+            noiDung+="<td>"+danhSachKhachHang[i].getNgayMoSo()+"</td>";
+            noiDung+="<td>"+danhSachKhachHang[i].getSoTienGui()+"</td>";
+            noiDung+="<td><button onclick='xoaKhachHang("+i+")'>Delete</button></td>";
+            noiDung+="</tr>";
+        }
+        noiDung+="</table>";
+        noiDung+= "<td><button onclick='themKhachHang()'>Thêm mới khách hàng</button></td>";
+        document.writeln(noiDung);
+    }
+    function xoaKhachHang(i) {
+        if(confirm("bạn có muốn xóa "+danhSachKhachHang[i].getHoTenKhachHang()+" này hay không?")) {
+            danhSachKhachHang.splice(i,1);
+            hienThiDanhSach();
+        }
+    }
+    function themKhachHang() {
+        document.body.innerHTML="";
+        let maSo= prompt("Nhập mã sổ:");
+        while (maSo.length>5){
+            alert("Bạn đã nhập quá số kí tự (tối đa 5 kí tự)");
+            maSo= prompt("Mời bạn nhập lại mã sổ:");
+        }
+        let loaiTietKiem = prompt("Nhập loại tiết kiệm:");
+        while (loaiTietKiem.length>10){
+            alert("Bạn đã nhập quá số kí tự (tối đa 10 kí tự)");
+            loaiTietKiem= prompt("Mời bạn nhập lại loại tiết kiệm:");
+        }
+        let hoTen = prompt("Nhập họ tên khách hàng :");
+        while (hoTen.length>30 || hoTen.match(kiemTraSo)){
+            if (hoTen.length>30) {
+                alert("Bạn đã nhập quá số kí tự (tối đa 30 kí tự):");
+            }
+            if (hoTen.match(kiemTraSo)){
+                alert("Tên khách hàng không được chứa số");
+            }
+            hoTen= prompt("Mời bạn nhập lại tên khách hàng:");
+        }
+        let chungMinh= prompt("Nhập chứng minh nhân dân:");
+        while (!chungMinh.match(kiemTraSo)){
+            alert("Chứng minh thư phải là số");
+            chungMinh = prompt("Bạn nhập lại chứng minh thư");
+        }
+        let ngayMoSo = prompt("Nhập ngày mở sổ : ","YYYY/MM/DD");
+        while (!ngayMoSo.match(kiemTraNgayMoSo)){
+            alert("Ngày mở sổ  phải đúng định dạng");
+            ngayMoSo= prompt("Mời bạn nhập lại ngày mở sổ");
+        }
+        let soTienGui= prompt("Nhập số tiền gửi:");
+        while (!soTienGui.match(kiemTraSo)){
+            alert("Số tiền gửi phải là số");
+            soTienGui = prompt("Mời bạn nhập lại số tiền gửi");
+        }
+        danhSachKhachHang.push(new SoTietKiem(maSo,loaiTietKiem,hoTen,chungMinh,ngayMoSo,soTienGui));
+        alert("Đã thêm khách hàng mới");
+        hienThiDanhSach();
+    }
+    hienThiDanhSach();
+</script>
+</body>
+</html>

@@ -6,84 +6,28 @@
 </head>
 <body>
 <script>
-class AppManage{
-    constructor(name, age, address, mark) {
-        this.name = name;
-        this.age = age;
-        this.address = address;
-        this.mark = mark;
-    }
-    getName(){
-        return this.name;
-    }
-    getAge(){
-        return this.age;
-    }
-    getAddress(){
-        return this.address;
-    }
-    getMark(){
-        return this.mark;
-    }
-}
-let listStudent = [];
-listStudent.push(new AppManage("Tuan Anh",20,"DN",9));
-function succesAddStudent() {
-    let name = document.getElementById('name').value;
-    let age = document.getElementById('age').value;
-    let address = document.getElementById('address').value;
-    let mark = document.getElementById('mark').value;
-    listStudent.push(new AppManage(name,age, address, mark));
-    displayInformation();
-}
-function addStudent() {
-    let content = "<input type='text' id='name'>";
-    content += "<input type='number' id='age'>";
-    content += "<input type='text' id='address'>";
-    content += "<input type='number' id='mark'>";
-    content +="<button onclick='succesAddStudent()'>Add</button>";
-    document.writeln(content);
+    class Fish {
+        constructor(habitat, length) {
+            this.habitat = habitat
+            this.length = length
+        }
 
-}
-function displayInformation() {
-    document.body.innerHTML="";
-    let content = "<table border='1' width='50%'>";
-    content += "<tr>";
-    content += "<th width='100px'>Name</th>";
-    content += "<th width='100px'>Age</th>";
-    content += "<th width='100px'>Address</th>";
-    content += "<th width='100px'>Mark</th>";
-    content += "</tr>";
-    for (let i=0; i<listStudent.length;i++){
-        content += "<tr>";
-        content += "<td>"+ listStudent[i].getName() + "</td>";
-        content += "<td>"+ listStudent[i].getAge() + "</td>";
-        content += "<td>"+ listStudent[i].getAddress() + "</td>";
-        content += "<td>"+ listStudent[i].getMark() + "</td>";
-        content += "<td><button onclick='edit("+i+")'>Edit</button></td>";
-        content += "<tr>";
+        renderProperties(element) {
+            element.innerHTML = JSON.stringify(this)
+        }
     }
-    content += "</table>";
-    content += "<button onclick='addStudent()'>Add Student</button>";
-    document.writeln(content);
-}
-function edit(i) {
-    let content = "<input type='text' id='name' value='"+listStudent[i].getName()+"'><br>";
-    content += "<input type='text' id='age' value='"+listStudent[i].getAge()+"'><br>";
-    content += "<input type='text' id='address' value='"+listStudent[i].getAddress()+"'><br>";
-    content += "<input type='text' id='mark' value='"+listStudent[i].getMark()+"'><br>";
-    content += "<button onclick='succesEdit("+i+")'>Edit</button>";
-    document.writeln(content);
-}
-function succesEdit(i) {
-    let name = document.getElementById('name').value;
-    let age = document.getElementById('age').value;
-    let address = document.getElementById('address').value;
-    let mark = document.getElementById('mark').value;
-    listStudent[i] = new AppManage(name,age,address,mark);
-    displayInformation();
-}
-displayInformation();
+
+    class Trout extends Fish {
+        constructor(habitat, length, variety) {
+            super(habitat, length)
+            this.variety = variety
+        }
+
+        renderPropertiesWithSuper(element) {
+            element.className="green"
+            super.renderProperties(element);
+        }
+    }
 </script>
 </body>
 </html>

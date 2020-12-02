@@ -10,10 +10,7 @@
         <h1><center>MENU</center></h1>
         <button class='btn btn-dark btn-space btn-block' onclick='addNewCustomer()'>Add New Customer</button>
         <button class='btn btn-primary btn-space btn-block' onclick='displayInformationCustomer(a)'>Display Information Customer</button>
-        <button class='btn btn-dark btn-space btn-block' onclick='displayInformationCustomer(a)'>Display Total Pay Of Customer</button>
-        <button class='btn btn-primary btn-space btn-block' onclick='displayInformationCustomer(a)'>Edit Information Customer</button>
-        <button class='btn btn-dark btn-space btn-block' onclick='displayInformationCustomer(a)'>Delete Customer</button>
-        <button class='btn btn-primary btn-space btn-block' onclick='exit()'>Exit</button>
+        <button class='btn btn-dark btn-space btn-block' onclick='exit()'>Exit</button>
     </div>
     <div id="table"></div>
 
@@ -23,6 +20,16 @@
     let rentDay;
     let service;
     let discount;
+    let discountFormat= /^[0-9]*$/;
+    let cmnd;
+    let cmndFormat = /^[0-9]*$/;
+    let birthday;
+    let birthDayFormat =/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
+    let mailFormat= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let peopleTogether;
+    let peopleTogetherFormat=  /^[0-9]*$/;
+    let rentDayFormat= /^[0-9]*$/;
+    let email;
     let a=0;
     let arrListCustomers= new Array();
     arrListCustomers[0]= new Array("Tên","CMND","Ngày sinh","Email","Địa chỉ",
@@ -38,23 +45,24 @@
             });
         }
          let name=ucwords(nametext);
+        name.trim();
 //
-        let cmnd;
-        let cmndFormat = /^[0-9]*$/;
+//         let cmnd;
+//         let cmndFormat = /^[0-9]*$/;
         do {
             cmnd = prompt("2. CMND: ");
         }
         while (!cmnd.match(cmndFormat));
 //
-        let birthday;
-        let birthDayFormat =/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
+//         let birthday;
+//         let birthDayFormat =/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/;
         do {
             birthday= prompt("3. Ngày sinh :","YY/MM/DD");
         }
         while (!birthday.match(birthDayFormat));
 
-        let mailFormat= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        let email;
+        // let mailFormat= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        // let email;
         do {
             email = prompt("4. Email: ");
         }
@@ -62,17 +70,22 @@
 
         address= prompt("5. Địa chỉ(Đà Nẵng,Huế,Quảng Nam): ",);
         customer= prompt("6. Loại Customer(Diamond,Platinum,Gold,Silver,Member: ");
-        discount= parseInt(prompt("7. Giảm giá: "));
+        //
+        do {
+            discount= (prompt("7. Giảm giá: "));
+        }
+        while (!discount.match(discountFormat));
+        discount = parseInt(discount);
 
-        let peopleTogether;
-        let peopleTogetherFormat=  /^[0-9]*$/;
+        // let peopleTogether;
+        // let peopleTogetherFormat=  /^[0-9]*$/;
         do {
             peopleTogether= prompt("8. Số người đi cùng: ");
         }
         while (!peopleTogether.match(peopleTogetherFormat));
 
 
-        let rentDayFormat= /^[0-9]*$/;
+        // let rentDayFormat= /^[0-9]*$/;
         do {
             rentDay= prompt("9. Số ngày thuê: ");
         }
@@ -194,20 +207,35 @@
         switch (edit) {
             case 1:{
                 let newName= prompt("Nhập tên: ");
-                arrListCustomers[i].splice(0,1,newName);
+                function ucwords (str) {
+                    str = (str + '').toLowerCase();
+                    return str.replace(/^([a-z])|\s+([a-z])/g, function ($1) {
+                        return $1.toUpperCase();
+                    });
+                }
+                let name=ucwords(newName);
+                arrListCustomers[i].splice(0,1,name.trim());
                 break;
             }
             case 2:{
-                let newCmnd= prompt("Nhập CMND: ");
+                let newCmnd;
+                do {
+                    newCmnd= prompt("Nhập CMND: ");
+                }
+                while (!newCmnd.match(cmndFormat));
                 arrListCustomers[i].splice(1,1,newCmnd);
                 break;
             }
             case 3:{
-                let newBirthDay= prompt("Nhập ngày sinh:");
+                let newBirthDay;
+                do {
+                    newBirthDay= prompt("Nhập ngày sinh:");
+                }
+                while (!newBirthDay.match(birthDayFormat));
                 arrListCustomers[i].splice(2,1,newBirthDay);
                 break;
             }
-            case 4:{
+            case 4:{            // them format vào
                 let newEmail = prompt("Nhập Email:");
                 arrListCustomers[i].splice(3,1,newEmail);
                 break;

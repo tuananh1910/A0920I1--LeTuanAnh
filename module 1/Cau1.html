@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="arrayA"></p>
+<p id="arrayB"></p>
+<script>
+    let arrayA = new Array();
+    let arrayB= new Array();
+    let n;
+    do{
+        n =parseInt(prompt("nhâp n"));
+    }
+    while (n>50);
+    for (let i=0; i<n;i++){
+        arrayA[i] = prompt("Nhập giá trị phần tử thứ "+i+ "=");
+    }
+    document.getElementById('arrayA').innerHTML = arrayA;
+    for (let i=0;i<n;i++){
+        let check=0;
+        for (let j=1;j<=arrayA[i];j++) {
+            if ((arrayA[i] % j) === 0) {
+                check++;
+            }
+        }
+        if (check === 2) {
+            arrayB.push(arrayA[i]);
+        }
+    }
+    document.getElementById('arrayB').innerHTML = arrayB;
+
+</script>
+</body>
+</html>
