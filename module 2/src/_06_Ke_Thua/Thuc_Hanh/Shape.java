@@ -13,11 +13,6 @@ public class Shape {
         this.filled = true;
     }
 
-    public Shape(double side) {
-    }
-
-    public Shape(double side, String color, boolean filled) {
-    }
 
     public String getColor() {
         return color;
