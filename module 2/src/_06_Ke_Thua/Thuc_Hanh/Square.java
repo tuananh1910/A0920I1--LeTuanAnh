@@ -1,11 +1,12 @@
 package _06_Ke_Thua.Thuc_Hanh;
 
-import java.awt.*;
+import _07_Abstract_Interface.Bai_Tap.Interface_Colorable.Interface_Colorable;
+import _07_Abstract_Interface.Bai_Tap.Interface_Resizeable.Interface_Resizeable;
 
-public class Square extends Rectangle {
+public class Square extends Rectangle
+        implements Interface_Resizeable, Interface_Colorable {
     public Square() {
     }
-
     public Square(double side) {
         super(side, side);
     }
@@ -39,5 +40,15 @@ public class Square extends Rectangle {
                 + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+    @Override
+    public void resize(double percent) {
+        double size = getSide()*(percent/100);
+        System.out.println("side =" + getSide());
+    }
+
+    @Override
+    public void HowToColor() {
+        System.out.println("Color all four sides...");
     }
 }

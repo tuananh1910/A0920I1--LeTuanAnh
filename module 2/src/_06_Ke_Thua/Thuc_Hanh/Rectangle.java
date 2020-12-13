@@ -1,6 +1,8 @@
 package _06_Ke_Thua.Thuc_Hanh;
 
-public class Rectangle extends Shape{
+import _07_Abstract_Interface.Bai_Tap.Interface_Resizeable.Interface_Resizeable;
+
+public class Rectangle extends Shape implements Interface_Resizeable {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -50,5 +52,13 @@ public class Rectangle extends Shape{
                 + getLength()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        this.length = length*(percent/100);
+        this.width = width*(percent/100);
+        System.out.println("length = "+length + "" +
+                "width = "+width);
     }
 }
