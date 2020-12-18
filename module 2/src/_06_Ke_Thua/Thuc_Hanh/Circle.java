@@ -33,8 +33,9 @@ public class Circle extends Shape implements Interface_Resizeable {
 
     public String toString(){
         return "A circle with radius ="
-                + getRadius()+", which is a subclass of"+
-                super.toString();
+                + getRadius()+" Area = "
+                +getArea()+", which is a subclass of"
+                + super.toString();
     }
 
     @Override

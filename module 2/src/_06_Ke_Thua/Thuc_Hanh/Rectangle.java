@@ -49,7 +49,7 @@ public class Rectangle extends Shape implements Interface_Resizeable {
         return "A Rectangle with width="
                 + getWidth()
                 + " and length="
-                + getLength()
+                + getLength() + " Area =" + getArea()
                 + ", which is a subclass of "
                 + super.toString();
     }

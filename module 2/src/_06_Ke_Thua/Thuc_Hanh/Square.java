@@ -23,6 +23,10 @@ public class Square extends Rectangle
         setWidth(side);
         setLength(side);
     }
+    public double getArea() {
+        return (getWidth() * getWidth());
+    }
+
 
     @Override
     public void setWidth(double width) {
