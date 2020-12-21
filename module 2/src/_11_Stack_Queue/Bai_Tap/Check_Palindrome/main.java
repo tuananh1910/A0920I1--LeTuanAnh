@@ -25,7 +25,6 @@ public class main {
         else{
             System.out.println("Not is Palidrome");
         }
-
     }
 }
 
