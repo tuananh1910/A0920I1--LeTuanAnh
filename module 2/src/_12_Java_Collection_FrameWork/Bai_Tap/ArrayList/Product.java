@@ -1,4 +1,4 @@
-package _12_Java_Collection_FrameWork.Bai_Tap;
+package _12_Java_Collection_FrameWork.Bai_Tap.ArrayList;
 
 public class Product {
     private int id;
