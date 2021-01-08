@@ -2,7 +2,7 @@ package _16_IO.Thuc_Hanh;
 import java.io.*;
 
 public class ReadFile {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         FileInputStream fis ;
         DataInputStream dis;
         try {

@@ -5,13 +5,14 @@ public class Villa extends Services{
     private String description;
     private double pool_Area;
     private int number_Of_Floors;
+
     // constructor
 
-    public Villa(String name_Service, double areaUse,
+    public Villa(String codeServices,String name_Service, double areaUse,
                  double price, double max_Number_Of_People, String rental_Type,
                  String standard_Room, String description, double pool_Area,
                  int number_Of_Floors) {
-        super(name_Service, areaUse, price, max_Number_Of_People, rental_Type);
+        super(codeServices,name_Service, areaUse, price, max_Number_Of_People, rental_Type);
         this.standard_Room = standard_Room;
         this.description = description;
         this.pool_Area = pool_Area;
@@ -51,15 +52,15 @@ public class Villa extends Services{
 
     @Override
     public String showInfor() {
-        System.out.println("Villas : \n");
-        return "Name Service : "+this.getName_Service()+"\n"+
-                "Area Use : "+ this.getAreaUse()+"\n"+
-                "Price : "+this.getPrice()+"\n" +
-                "Max Number Of People : "+this.getMax_Number_Of_People()+"\n"+
-                "Rental Type : "+this.getRental_Type() +"\n"+
-                "Standard Room : "+this.getStandard_Room()+"\n"+
-                "Description : "+this.getDescription()+"\n" +
-                "Pool Area : "+this.getPool_Area()+"\n"+
-                "Number Of Floors"+this.getNumber_Of_Floors();
+        return  "Vila : \n"+
+                "Name Service : "+this.getName_Service()+"--"+
+                "Area Use : "+ this.getAreaUse()+"--"+
+                "Price : "+this.getPrice()+"--" +
+                "Max Number Of People : "+this.getMax_Number_Of_People()+"--"+
+                "Rental Type : "+this.getRental_Type() +"--"+
+                "Standard Room : "+this.getStandard_Room()+"--"+
+                "Description : "+this.getDescription()+"--" +
+                "Pool Area : "+this.getPool_Area()+"--"+
+                "Number Of Floors : "+this.getNumber_Of_Floors();
     }
 }

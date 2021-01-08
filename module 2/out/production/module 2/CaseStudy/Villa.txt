@@ -1,0 +1,2 @@
+Vila : 
+Name Service : Villa Area Use : 20.0 Price : 30.0 Max Number Of People : 40.0 Rental Type : zc Standard Room : ad Description : qe Pool Area : 50.0 Number Of Floors : 60

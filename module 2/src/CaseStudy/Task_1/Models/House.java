@@ -5,11 +5,11 @@ public class House extends Services {
     private String description;
     private int number_Of_Floors;
 
-    public House(String name_Service, double areaUse,
+    public House(String codeServices,String name_Service, double areaUse,
                  double price, double max_Number_Of_People,
                  String rental_Type, String standard_Room,
                  String description, int number_Of_Floors) {
-        super(name_Service, areaUse, price, max_Number_Of_People, rental_Type);
+        super(codeServices,name_Service, areaUse, price, max_Number_Of_People, rental_Type);
         this.standard_Room = standard_Room;
         this.description = description;
         this.number_Of_Floors = number_Of_Floors;

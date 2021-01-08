@@ -1,21 +1,25 @@
 package CaseStudy.Task_1.Models;
 
 public abstract class Services {
+    private String codeServices;
     private String name_Service;
     private double areaUse;
     private double price;
     private double max_Number_Of_People;
     private String rental_Type;
 
-    public Services(String name_Service, double areaUse,
+    public Services(String codeServices, String name_Service, double areaUse,
                     double price, double max_Number_Of_People,
                     String rental_Type) {
+        this.codeServices = codeServices;
         this.name_Service = name_Service;
         this.areaUse = areaUse;
         this.price = price;
         this.max_Number_Of_People = max_Number_Of_People;
         this.rental_Type = rental_Type;
     }
+    public String get_CodeService(){return codeServices;}
+    public void set_CodeService(String codeServices){this.codeServices=codeServices;}
 
     public String getName_Service() {
         return name_Service;

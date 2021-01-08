@@ -2,9 +2,7 @@ package CaseStudy.Task_1.Controllers;
 
 import CaseStudy.Task_1.Models.House;
 import CaseStudy.Task_1.Models.Room;
-import CaseStudy.Task_1.Models.Services;
 import CaseStudy.Task_1.Models.Villa;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,14 +13,15 @@ public class main_Controllers {
     static ArrayList<Villa> villas = new ArrayList<>();
     static ArrayList<House> houses = new ArrayList<>();
     static ArrayList<Room> rooms = new ArrayList<>();
-
-    public static void main(String[] args) throws FileNotFoundException {
+    static Write_Read_File write_read_file = new Write_Read_File();
+    static Regex regex = new Regex();
+    static final String PATH = "E:\\DATA\\A0920I1--LeTuanAnh\\module 2\\src\\CaseStudy";
+    public static void main(String[] args) throws IOException {
         displayMenu();
     }
 
     // menu
-    public static void displayMenu()  {
-        ArrayList<Services> services = new ArrayList<>();
+    public static void displayMenu() throws IOException {
         do {
             System.out.println("Menu\n 1.Add New Services \n" +
                     "2.Show Services\n 3.Add New Customer\n" +
@@ -58,7 +57,7 @@ public class main_Controllers {
 
 
     // add new services
-    private static void add_New_Services() {
+    private static void add_New_Services() throws IOException {
         do {
             System.out.println("Menu\n 1.Add New Villa \n" +
                     "2.Add New House\n 3.Add New Room\n" +
@@ -83,81 +82,171 @@ public class main_Controllers {
             }
         }while (out_Menu);
     }
-    private static void add_New_Villa() {
+    private static void add_New_Villa() throws IOException {
         System.out.println("Enter Information Villa :");
-        System.out.println("Area will use :");
-        double area_Use = scanner.nextDouble();
-        System.out.println("Price :");
-        double price = scanner.nextDouble();
-        System.out.println("Max number of people :");
-        int max_People = scanner.nextInt();
+        String code_Service;
+        do {
+            System.out.println("Enter code service :");
+            code_Service = scanner.nextLine();
+        }
+        while (!regex.check_Format_Code_Service(code_Service,"Villa"));
+        String nameService;
+        do {
+            System.out.println("Enter name service :");
+            nameService = scanner.nextLine();
+        }
+        while (!regex.check_Name_Service(nameService,"Villa"));
+        double area_Use;
+        do {
+            System.out.println("Area will use :");
+            area_Use = scanner.nextDouble();
+        }while (!regex.check_Number(String.valueOf(area_Use),"Villa")&&area_Use>30);
+        double price;
+        do {
+            System.out.println("Price :");
+            price = scanner.nextDouble();
+        }while (!regex.check_Number(String.valueOf(price),"Villa"));
+        int max_People;
+        do {
+            System.out.println("Max number of people :");
+            max_People = scanner.nextInt();
+        }while (!regex.check_Number(String.valueOf(max_People),"Villa")
+                &&max_People<20);
         scanner.nextLine();
-        System.out.println("Rental Type :");
-        String rental_Type = scanner.nextLine();
-        System.out.println("Standard Room :");
-        String standard_Room = scanner.nextLine();
+        String rental_Type;
+        do {
+            System.out.println("Rental Type :");
+            rental_Type = scanner.nextLine();
+        }while (!regex.check_Name_Service(rental_Type,"Villa"));
+        String standard_Room;
+        do {
+            System.out.println("Standard Room :");
+            standard_Room = scanner.nextLine();
+        }while (!regex.check_Name_Service(standard_Room,"Villa"));
         System.out.println("Description :");
         String description = scanner.nextLine();
-        System.out.println("Pool Area :");
-        double pool_Area = scanner.nextDouble();
-        System.out.println("Number Of Floor :");
-        int number_Of_Floor = scanner.nextInt();
+        double pool_Area;
+        do {
+            System.out.println("Pool Area :");
+            pool_Area = scanner.nextDouble();
+        }while (!regex.check_Number(String.valueOf(pool_Area),"Villa")&&pool_Area>30);
+        int number_Of_Floor;
+        do {
+            System.out.println("Number Of Floor :");
+            number_Of_Floor = scanner.nextInt();
+        }
+        while (!regex.check_Number(String.valueOf(number_Of_Floor),"Villa"));
         scanner.nextLine();
-        villas.add(new Villa("Villa",area_Use,price,
+        villas.add(new Villa(code_Service,nameService,area_Use,price,
                 max_People,rental_Type,standard_Room,description,
                 pool_Area,number_Of_Floor));
-        String dong;
-        try {
-            File file = new File("E:\\DATA\\A0920I1--LeTuanAnh\\" +
-                    "module 2\\src\\CaseStudy\\Villa.txt");
-            BufferedReader fileReader = new BufferedReader(
-                    new FileReader(file));
-            
-        }catch (Exception e){
-
-        }
+        String string = villas.get(villas.size()-1).showInfor();
+        System.out.println("--------");
+        System.out.println(PATH+"\\Villa.txt");
+        write_read_file.write_File(PATH+"\\Villa.txt",string);
     }
-    private static void add_New_House(){
+    private static void add_New_House() throws IOException {
         System.out.println("Enter Information House :");
-        System.out.println("Area will use :");
-        double area_Use = scanner.nextDouble();
-        System.out.println("Price :");
-        double price = scanner.nextDouble();
-        System.out.println("Max number of people :");
-        int max_People = scanner.nextInt();
+        String code_Service;
+        do {
+            System.out.println("Enter code service :");
+            code_Service = scanner.nextLine();
+        }
+        while (!regex.check_Format_Code_Service(code_Service,"House"));
+        String nameService;
+        do {
+            System.out.println("Enter name service :");
+            nameService = scanner.nextLine();
+        }
+        while (!regex.check_Name_Service(nameService,"House"));
+        double area_Use;
+        do {
+            System.out.println("Area will use :");
+            area_Use = scanner.nextDouble();
+        }while (!regex.check_Number(String.valueOf(area_Use),"House")&&area_Use>30);
+        double price;
+        do {
+            System.out.println("Price :");
+            price = scanner.nextDouble();
+        }while (!regex.check_Number(String.valueOf(price),"House"));
+        int max_People;
+        do {
+            System.out.println("Max number of people :");
+            max_People = scanner.nextInt();
+        }while (!regex.check_Number(String.valueOf(max_People),"House")
+                &&max_People<20);
         scanner.nextLine();
-        System.out.println("Rental Type :");
-        String rental_Type = scanner.nextLine();
-        System.out.println("Standard Room :");
-        String standard_Room = scanner.nextLine();
+        String rental_Type;
+        do {
+            System.out.println("Rental Type :");
+            rental_Type = scanner.nextLine();
+        }while (!regex.check_Name_Service(rental_Type,"House"));
+        String standard_Room;
+        do {
+            System.out.println("Standard Room :");
+            standard_Room = scanner.nextLine();
+        }while (!regex.check_Name_Service(standard_Room,"House"));
         System.out.println("Description :");
         String description = scanner.nextLine();
         System.out.println("Number Of Floor :");
         int number_Of_Floor = scanner.nextInt();
         scanner.nextLine();
-        houses.add(new House("House",area_Use,price,max_People,
+        houses.add(new House(code_Service,nameService,area_Use,price,max_People,
                 rental_Type,standard_Room,description,number_Of_Floor));
+        String string = villas.get(villas.size()-1).showInfor();
+        System.out.println("--------");
+        System.out.println(PATH+"\\House.txt");
+        write_read_file.write_File(PATH+"\\House.txt",string);
     }
-    private static void add_New_Room(){
-        System.out.println("Enter Information House :");
-        System.out.println("Area will use :");
-        double area_Use = scanner.nextDouble();
-        System.out.println("Price :");
-        double price = scanner.nextDouble();
-        System.out.println("Max number of people :");
-        int max_People = scanner.nextInt();
+    private static void add_New_Room() throws IOException {
+        System.out.println("Enter Information Room :");
+        String code_Service;
+        do {
+            System.out.println("Enter code service :");
+            code_Service = scanner.nextLine();
+        }
+        while (!regex.check_Format_Code_Service(code_Service,"Room"));
+        String nameService;
+        do {
+            System.out.println("Enter name service :");
+            nameService = scanner.nextLine();
+        }
+        while (!regex.check_Name_Service(nameService,"Room"));
+        double area_Use;
+        do {
+            System.out.println("Area will use :");
+            area_Use = scanner.nextDouble();
+        }while (!regex.check_Number(String.valueOf(area_Use),"Room")&&area_Use>30);
+        double price;
+        do {
+            System.out.println("Price :");
+            price = scanner.nextDouble();
+        }while (!regex.check_Number(String.valueOf(price),"Room"));
+        int max_People;
+        do {
+            System.out.println("Max number of people :");
+            max_People = scanner.nextInt();
+        }while (!regex.check_Number(String.valueOf(max_People),"Room")
+                &&max_People<20);
         scanner.nextLine();
-        System.out.println("Rental Type :");
-        String rental_Type = scanner.nextLine();
+        String rental_Type;
+        do {
+            System.out.println("Rental Type :");
+            rental_Type = scanner.nextLine();
+        }while (!regex.check_Name_Service(rental_Type,"Room"));
         System.out.println("Free For Service");
         String free_For_Service = scanner.nextLine();
-        rooms.add(new Room("Room",area_Use,price,max_People
+        rooms.add(new Room(code_Service,nameService,area_Use,price,max_People
                 ,rental_Type,free_For_Service));
+        String string = villas.get(villas.size()-1).showInfor();
+        System.out.println("--------");
+        System.out.println(PATH+"\\Room.txt");
+        write_read_file.write_File(PATH+"\\Room.txt",string);
     }
 
 
     // show services
-    private static void show_Services() {
+    private static void show_Services() throws IOException {
         do {
             System.out.println("Menu\n 1.Show All Villa \n" +
                     "2.Show All House\n 3.Show All Room\n" +
@@ -208,28 +297,29 @@ public class main_Controllers {
 
     }
 
-    private static void show_All_Room() {
-        for (Room room : rooms){
-            System.out.println(room.showInfor());
-        }
+    private static void show_All_Room() throws IOException {
+        System.out.println(PATH+"\\Villa.txt");
+        System.out.println(write_read_file.read_File(PATH+"\\Room.txt"));
+        System.out.println("---------------");
     }
 
-    private static void show_ALl_House() {
-        for (House house : houses){
-            System.out.println(house.showInfor());
-        }
+    private static void show_ALl_House() throws IOException {
+        System.out.println(PATH+"\\Villa.txt");
+        System.out.println(write_read_file.read_File(PATH+"\\House.txt"));
+        System.out.println("---------------");
     }
 
-    private static void show_All_Villa() {
-        for (Villa villa : villas){
-            System.out.println(villa.showInfor());
-        }
+    private static void show_All_Villa() throws IOException {
+        System.out.println(PATH+"\\Villa.txt");
+        System.out.println(write_read_file.read_File(PATH+"\\Villa.txt"));
+        System.out.println("---------------");
     }
 
 
 
     // add new customer
     private static void add_New_Customer() {
+        System.out.println("Enter Information Customer :");
 
     }
     // show information of custumer
