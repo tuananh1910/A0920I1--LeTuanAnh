@@ -18,6 +18,11 @@ public abstract class Services {
         this.max_Number_Of_People = max_Number_Of_People;
         this.rental_Type = rental_Type;
     }
+
+    public Services(String name_service) {
+        this.name_Service = name_service;
+    }
+
     public String get_CodeService(){return codeServices;}
     public void set_CodeService(String codeServices){this.codeServices=codeServices;}
 

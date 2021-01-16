@@ -18,6 +18,9 @@ public class Villa extends Services{
         this.pool_Area = pool_Area;
         this.number_Of_Floors = number_Of_Floors;
     }
+    public Villa(String name_Service){
+        super(name_Service);
+    }
     //getter setter
     public String getStandard_Room() {
         return standard_Room;

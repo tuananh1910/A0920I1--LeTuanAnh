@@ -6,13 +6,13 @@ public class Customer {
     private String name;
     private String date;
     private String gender;
-    private int indentity_Card;
+    private String indentity_Card;
     private int phone_Number;
     private String email;
     private String type_Customer;
     private String address;
     private Services use_Service;
-
+    // getter setter
     public String getName() {
         return name;
     }
@@ -37,11 +37,11 @@ public class Customer {
         this.gender = gender;
     }
 
-    public int getIndentity_Card() {
+    public String getIndentity_Card() {
         return indentity_Card;
     }
 
-    public void setIndentity_Card(int indentity_Card) {
+    public void setIndentity_Card(String indentity_Card) {
         this.indentity_Card = indentity_Card;
     }
 
@@ -84,10 +84,10 @@ public class Customer {
     public void setUse_Service(Services use_Service) {
         this.use_Service = use_Service;
     }
-
+    // constructor
     public Customer(String name, String date, String gender,
-                    int indentity_Card, int phone_Number, String email,
-                    String type_Customer, String address, Services use_Service) {
+                    String indentity_Card, int phone_Number, String email,
+                    String type_Customer, String address) {
         this.name = name;
         this.date = date;
         this.gender = gender;
@@ -96,18 +96,18 @@ public class Customer {
         this.email = email;
         this.type_Customer = type_Customer;
         this.address = address;
-        this.use_Service = use_Service;
+        this.use_Service = null;
     }
     public String showInfor(){
         return  "Information Customer : \n"+
-                "Name : " + this.getName()+ "--" +
-                "Date : " + this.getDate()+ "--"+
-                "Gender : "+this.getGender()+"--"+
-                "Identity Card : "+ this.getIndentity_Card()+"--"+
-                "Phone number : "+this.getPhone_Number()+"--"+
-                "Email : "+this.getEmail()+"--"+
-                "Type customer : "+this.getType_Customer()+"--"+
-                "Address : "+this.getAddress()+"--"+
+                "Name : " + this.getName()+ " -- " +
+                "Date : " + this.getDate()+ " -- "+
+                "Gender : "+this.getGender()+" -- "+
+                "Identity Card : "+ this.getIndentity_Card()+" -- "+
+                "Phone number : "+this.getPhone_Number()+" -- "+
+                "Email : "+this.getEmail()+" -- "+
+                "Type customer : "+this.getType_Customer()+" -- "+
+                "Address : "+this.getAddress()+" -- "+
                 "Service : "+this.getUse_Service();
     }
 }

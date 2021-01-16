@@ -1,4 +1,4 @@
-package CaseStudy.Task_1.Controllers;
+package CaseStudy.Task_1.Controllers.Regex;
 
 import java.io.FileInputStream;
 import java.util.regex.Matcher;

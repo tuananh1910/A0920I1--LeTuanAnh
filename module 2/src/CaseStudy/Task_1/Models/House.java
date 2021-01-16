@@ -4,7 +4,7 @@ public class House extends Services {
     private String standard_Room;
     private String description;
     private int number_Of_Floors;
-
+    // constructor
     public House(String codeServices,String name_Service, double areaUse,
                  double price, double max_Number_Of_People,
                  String rental_Type, String standard_Room,
@@ -14,7 +14,9 @@ public class House extends Services {
         this.description = description;
         this.number_Of_Floors = number_Of_Floors;
     }
-
+    public House(String name_Service){
+        super(name_Service);
+    }
     public String getStandard_Room() {
         return standard_Room;
     }
