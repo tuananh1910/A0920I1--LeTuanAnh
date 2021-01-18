@@ -56,6 +56,7 @@ public class Villa extends Services{
     @Override
     public String showInfor() {
         return  "Vila : \n"+
+                "Code Service : " + this.get_CodeService()+
                 "Name Service : "+this.getName_Service()+"--"+
                 "Area Use : "+ this.getAreaUse()+"--"+
                 "Price : "+this.getPrice()+"--" +

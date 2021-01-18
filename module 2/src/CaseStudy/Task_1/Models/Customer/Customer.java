@@ -98,16 +98,16 @@ public class Customer {
         this.address = address;
         this.use_Service = null;
     }
-    public String showInfor(){
-        return  "Information Customer : \n"+
-                "Name : " + this.getName()+ " -- " +
+    public String showInfor(int index){
+        return  "Information Customer : \n"+ (index+1)+
+                ". Name : " + this.getName()+ " -- " +
                 "Date : " + this.getDate()+ " -- "+
                 "Gender : "+this.getGender()+" -- "+
                 "Identity Card : "+ this.getIndentity_Card()+" -- "+
                 "Phone number : "+this.getPhone_Number()+" -- "+
                 "Email : "+this.getEmail()+" -- "+
                 "Type customer : "+this.getType_Customer()+" -- "+
-                "Address : "+this.getAddress()+" -- "+
-                "Service : "+this.getUse_Service();
+                "Address : "+ this.getAddress()+" -- "+
+                "Service : "+ (this.getUse_Service() != null ? this.getUse_Service().showInfor(): "");
     }
 }

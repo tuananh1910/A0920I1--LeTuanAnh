@@ -43,8 +43,10 @@ public class House extends Services {
 
     @Override
     public String showInfor() {
-        System.out.println("Houses : \n");
-        return "Name Service : "+this.getName_Service()+"\n"+
+
+        return  "House : \n"+
+                "Code Service : " + this.get_CodeService()+
+                "Name Service : "+this.getName_Service()+"\n"+
                 "Area Use : "+ this.getAreaUse()+"\n"+
                 "Price : "+this.getPrice()+"\n" +
                 "Max Number Of People : "+this.getMax_Number_Of_People()+"\n"+

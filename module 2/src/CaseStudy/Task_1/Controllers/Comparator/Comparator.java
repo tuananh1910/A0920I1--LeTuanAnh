@@ -1,10 +1,10 @@
-package CaseStudy.Task_1.Controllers;
+package CaseStudy.Task_1.Controllers.Comparator;
 
 import CaseStudy.Task_1.Controllers.User_Exception.Birthday_Exception;
 import CaseStudy.Task_1.Models.Customer.Customer;
 
 public class Comparator implements java.util.Comparator<Customer> {
-    Birthday_Exception birthday_exception = new Birthday_Exception();
+//    Birthday_Exception birthday_exception = new Birthday_Exception();
     @Override
     public int compare(Customer o1, Customer o2) {
         String date_1;

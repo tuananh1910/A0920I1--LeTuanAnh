@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 
 public class Regex {
     String FORMAT_CODE_SERVICE ;
-    String FORMAT_NAME_SERVICE = "^[A-Z][a-z]$";
-    String FORMAT_NUMBER = "^[0-9]$";
+    String FORMAT_NAME_SERVICE = "^[A-Z]+[a-z]+$";
+    String FORMAT_NUMBER = "^[0-9]+.[0-9]+$";
     Matcher matcher;
     public boolean check_Format_Code_Service(String string, String name) {
         if (name.equals("Villa")) {
@@ -48,7 +48,6 @@ public class Regex {
     public boolean check_Number(String string, String name){
         if (name.equals("Villa")) {
             Pattern pattern = Pattern.compile(FORMAT_NUMBER);
-
             matcher = pattern.matcher(string);
         }
         if (name.equals("House")){

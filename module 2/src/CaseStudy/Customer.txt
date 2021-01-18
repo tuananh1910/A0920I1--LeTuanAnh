@@ -1,8 +1,0 @@
-Information Customer : 
-Name : L -- Date : 19/10/2000 -- Gender : Male -- Identity Card : 123 123 123 -- Phone number : 97894164 -- Email : ngocson_jp@yahoo.co.jp -- Type customer : zxc -- Address : zxc -- Service : null
-Information Customer : 
-Name : A -- Date : 19/10/2000 -- Gender : Male -- Identity Card : 123 123 123 -- Phone number : 97894164 -- Email : ngocson_jp@yahoo.co.jp -- Type customer : zxc -- Address : zxc -- Service : null
-Information Customer : 
-Name : B -- Date : 19/10/2000 -- Gender : Male -- Identity Card : 123 123 123 -- Phone number : 97894164 -- Email : ngocson_jp@yahoo.co.jp -- Type customer : zxc -- Address : zxc -- Service : null
-Information Customer : 
-Name : A -- Date : 19/10/2001 -- Gender : Male -- Identity Card : 123 123 123 -- Phone number : 97894164 -- Email : ngocson_jp@yahoo.co.jp -- Type customer : zxc -- Address : zxc -- Service : null
