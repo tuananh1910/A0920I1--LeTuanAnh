@@ -31,6 +31,6 @@ public class Room extends Services{
                 "Price : "+this.getPrice()+"\n" +
                 "Max Number Of People : "+this.getMax_Number_Of_People()+"\n"+
                 "Rental Type : "+this.getRental_Type() +"\n"+
-                "Free For Service : "+this.getService_Free();
+                "Free For Service : "+this.getService_Free()+"\n";
     }
 }

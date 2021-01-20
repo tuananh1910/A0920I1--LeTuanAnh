@@ -1,7 +1,11 @@
 package CaseStudy.Task_1.Controllers;
 
+import CaseStudy.Task_1.Models.Employee;
+
 import java.util.Calendar;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,14 +28,26 @@ public class test {
 //        boolean match = matcher.matches();
 //        System.out.println(match);
 //        System.out.println((false&&true));
-        String string;
-        System.out.println("Nhap String");
-        string = scanner.nextLine();
-        string += " ";
-        System.out.println(string);
-        Pattern pattern = Pattern.compile("([A-Z]+[a-z]+ )");
-        Matcher matcher = pattern.matcher(string);
-        boolean match = matcher.matches();
-        System.out.println(match);
+//        String string;
+//        System.out.println("Nhap String");
+//        string = scanner.nextLine();
+//        string += " ";
+//        System.out.println(string);
+//        Pattern pattern = Pattern.compile("([A-Z]+[a-z]+ )");
+//        Matcher matcher = pattern.matcher(string);
+//        boolean match = matcher.matches();
+//        System.out.println(match);
+//        Map<Integer, Employee> employees = new TreeMap<>();
+//        employees.put(1,new Employee("Le A",20,"DN"));
+//        employees.put(2,new Employee("Le A",20,"DN"));
+//        employees.put(3,new Employee("Le A",20,"DN"));
+//        employees.put(4,new Employee("Le A",20,"DN"));
+//        employees.put(5,new Employee("Le A",20,"DN"));
+//        employees.put(6,new Employee("Le A",20,"DN"));
+//        employees.put(7,new Employee("Le A",20,"DN"));
+//        employees.put(008,new Employee("Le A",20,"DN"));
+//        employees.put(009,new Employee("Le A",20,"DN"));
+//        employees.put(10,new Employee("Le A",20,"DN"));
+
     }
 }

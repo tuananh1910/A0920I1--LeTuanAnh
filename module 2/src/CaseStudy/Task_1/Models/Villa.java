@@ -65,6 +65,6 @@ public class Villa extends Services{
                 "Standard Room : "+this.getStandard_Room()+"--"+
                 "Description : "+this.getDescription()+"--" +
                 "Pool Area : "+this.getPool_Area()+"--"+
-                "Number Of Floors : "+this.getNumber_Of_Floors();
+                "Number Of Floors : "+this.getNumber_Of_Floors()+"\n";
     }
 }

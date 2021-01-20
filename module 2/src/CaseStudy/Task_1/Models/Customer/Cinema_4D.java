@@ -18,7 +18,6 @@ public class Cinema_4D {
     }
     public static void list_Customer_Bought_Ticket(int size, Queue list_tickets){
         while (size>0){
-
             System.out.println(list_tickets.poll());
             size--;
         }

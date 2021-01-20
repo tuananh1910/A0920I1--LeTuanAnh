@@ -108,6 +108,6 @@ public class Customer {
                 "Email : "+this.getEmail()+" -- "+
                 "Type customer : "+this.getType_Customer()+" -- "+
                 "Address : "+ this.getAddress()+" -- "+
-                "Service : "+ (this.getUse_Service() != null ? this.getUse_Service().showInfor(): "");
+                "Service : "+ (this.getUse_Service() != null ? this.getUse_Service().showInfor(): null);
     }
 }
