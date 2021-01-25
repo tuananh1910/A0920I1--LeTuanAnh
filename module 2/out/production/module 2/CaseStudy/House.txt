@@ -1,1 +1,9 @@
-nullCaseStudy.Task_1.Models.House@439f5b3d
+House : 
+Code Service : SVHO-0123Name Service : Ho
+Area Use : 30.0
+Price : 20.0
+Max Number Of People : 20.0
+Rental Type : Ho
+Standard Room : Ho
+Description : Ho
+Number Of Floors1
