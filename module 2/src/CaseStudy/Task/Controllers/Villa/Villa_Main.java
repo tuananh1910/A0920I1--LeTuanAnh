@@ -31,8 +31,7 @@ public class Villa_Main {
         do {
             System.out.println("Area will use :");
             area_Use = scanner.nextDouble();
-            boolean check = area_Use < 30;
-            System.out.println(check);
+
         } while (regex.check_Number(String.valueOf(area_Use), "Villa") && area_Use < 30);
         double price;
         do {

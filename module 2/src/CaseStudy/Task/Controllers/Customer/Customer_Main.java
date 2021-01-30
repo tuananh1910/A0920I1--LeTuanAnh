@@ -31,7 +31,7 @@ public class Customer_Main {
                     break;
                 }
             } catch (Name_Exception e) {
-                e.getMessage();
+                System.out.println(e.getMessage());
             }
         }
 

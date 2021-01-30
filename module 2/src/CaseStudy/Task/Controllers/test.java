@@ -1,5 +1,6 @@
 package CaseStudy.Task.Controllers;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class test {
@@ -41,6 +42,18 @@ public class test {
 //        employees.put(008,new Employee("Le A",20,"DN"));
 //        employees.put(009,new Employee("Le A",20,"DN"));
 //        employees.put(10,new Employee("Le A",20,"DN"));
-
+//        String string = "Anh,Date,20,String";
+//        String[] strings = string.split(",");
+//        System.out.println(strings.length);
+//        System.out.println(strings[1]);
+//        System.out.println(Double.parseDouble(strings[2]));
+//        System.out.println(strings[3]);
+//        ArrayList<String> arrayList = new ArrayList<>();
+//        String st ;
+//        for (int index =0;index<(strings.length/4);index++){
+//            st = new String(strings[index],strings[index+1],
+//                    Double.parseDouble(strings[index+2]),strings[index+3]);
+//            arrayList.add(st);
+//        }
     }
 }

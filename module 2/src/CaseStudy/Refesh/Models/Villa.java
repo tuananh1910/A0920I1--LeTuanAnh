@@ -26,6 +26,12 @@ public class Villa extends Services {
         this.number_Of_Floors = number_Of_Floors;
     }
 
+    public Villa(String codeServices, String name_Service,
+                 double areaUse, double price, double max_Number_Of_People,
+                 String rental_Type) {
+        super(codeServices, name_Service, areaUse, price, max_Number_Of_People, rental_Type);
+    }
+
     public String getStandard_Room() {
         return standard_Room;
     }
@@ -71,5 +77,19 @@ public class Villa extends Services {
                 "Description : "+this.getDescription()+"\n" +
                 "Pool Area : "+this.getPool_Area()+"\n"+
                 "Number Of Floors : "+this.getNumber_Of_Floors()+"\n";
+    }
+
+    @Override
+    public String toString() {
+        return super.getCodeServices()+","+
+                super.getName_Service()+","+
+                super.getAreaUse()+","+
+                super.getPrice()+","+
+                super.getMax_Number_Of_People()+","+
+                super.getRental_Type()+","+
+                this.getStandard_Room()+","+
+                this.getDescription()+","+
+                this.getPool_Area()+","+
+                this.getNumber_Of_Floors();
     }
 }
