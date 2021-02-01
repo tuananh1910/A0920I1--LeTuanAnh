@@ -109,7 +109,7 @@ public class Customer_Service {
 
     }
     public static void show_Customer(){
-        customerArrayList = Get_Data.get_Data_Customer();
+//        customerArrayList = Get_Data.get_Data_Customer();
         int index=0;
         for (Customer customer : customerArrayList){
             System.out.println(customer.showInfor(index));

@@ -1,6 +1,6 @@
 package CaseStudy.Refesh.Models;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
     private String name;
     private int age;
     private String address;
@@ -10,7 +10,6 @@ public class Employee {
         this.age = age;
         this.address = address;
     }
-    public Employee(){}
 
     public String getName() {
         return name;
@@ -36,12 +35,18 @@ public class Employee {
         this.address = address;
     }
 
+
+
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", address='" + address + '\''
-                +"\n";
+        return this.getName()+","+
+                this.getAge()+","+
+                this.getAddress();
+
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return this.getName().compareTo(o.getName());
     }
 }

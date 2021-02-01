@@ -24,7 +24,7 @@ public class Read_Write_File {
         FileReader fileReader;
         BufferedReader br;
         String temp = "";
-        String[] string_list = null;
+        String[] string_list;
         ArrayList<String> arrayList = new ArrayList<>();
         String line;
         try {
@@ -45,10 +45,10 @@ public class Read_Write_File {
         }
 
         // check bug
-        System.out.println("list----");
-        for (String value : arrayList){
-            System.out.println(value);
-        }
+//        System.out.println("list----");
+//        for (String value : arrayList){
+//            System.out.println(value);
+//        }
 //        if (string_list != null) {
 //            for (String value : string_list) {
 //                System.out.println(value);

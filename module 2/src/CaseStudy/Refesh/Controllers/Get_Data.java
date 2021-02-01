@@ -17,7 +17,9 @@ public class Get_Data {
         ArrayList<String> Customer_List = Read_Write_File.read_File(PATH_CUSTOMER);
         Customer customer;
         ArrayList<Customer> customerArrayList = new ArrayList<>();
-        for (int index = 0; index < (Customer_List.size() / 8); index++) {
+
+        int index =0;
+        for (int i = 0; index < (Customer_List.size() / 8); i++) {
 
             customer = new Customer(Customer_List.get(index),
                     Customer_List.get(index + 1),
@@ -27,6 +29,7 @@ public class Get_Data {
                     Customer_List.get(index+5),
                     Customer_List.get(index+6),
                     Customer_List.get(index+7));
+            index+=8;
             customerArrayList.add(customer);
         }
 
@@ -38,12 +41,16 @@ public class Get_Data {
             Villa villa;
 
             ArrayList<Villa> villaArrayList = new ArrayList<>();
+//            System.out.println("----------");
+//            System.out.println("size: "+Villa_List_String.size()); // check bug
 
-            System.out.println("size: "+Villa_List_String.size()); // check bug
+            int index=0;
+            for (int i = 0; i < (Villa_List_String.size() / 10); i++){ // bug ở for
 
-            for (int index = 0; index < (Villa_List_String.size() / 10); index++){ // bug ở for
-
-                System.out.println(Villa_List_String.get(index+5)); // check bug
+//                System.out.println("------------");
+//                System.out.println(Villa_List_String.get(index+5)); // check bug
+//                System.out.println(Villa_List_String.get(index+6));
+//                System.out.println("++++++++");
 
                 villa = new Villa(Villa_List_String.get(index), Villa_List_String.get(index + 1),
                         Double.parseDouble(Villa_List_String.get(index + 2)),
@@ -53,6 +60,7 @@ public class Get_Data {
                         Villa_List_String.get(index + 7),
                         Double.parseDouble(Villa_List_String.get(index + 8)),
                         Integer.parseInt(Villa_List_String.get(index + 9)));
+                index = index+10;
                 villaArrayList.add(villa);
             }return villaArrayList;
         }
@@ -62,12 +70,15 @@ public class Get_Data {
             ArrayList<String> Room_List=Read_Write_File.read_File(PATH_ROOM);
             Room room;
             ArrayList<Room> roomArrayList = new ArrayList<>();
-            for (int index = 0; index < (Room_List.size() / 7); index++) {
+
+            int index =0;
+            for (int i = 0; index < (Room_List.size() / 7); i++) {
                 room = new Room(Room_List.get(index), Room_List.get(index + 1),
                         Double.parseDouble(Room_List.get(index + 2)),
                         Double.parseDouble(Room_List.get(index + 3)),
                        Double.parseDouble(Room_List.get(index + 4)),
                         Room_List.get(index + 5), Room_List.get(index + 6));
+                index +=7;
                 roomArrayList.add(room);
             }return roomArrayList;
         }
@@ -77,7 +88,8 @@ public class Get_Data {
         ArrayList<String> House_List=Read_Write_File.read_File(PATH_HOUSE);
         House house;
         ArrayList<House> houseArrayList = new ArrayList<>();
-        for (int index=0;index<(House_List.size()/9);index++ ){
+        int index =0 ;
+        for (int i=0;index<(House_List.size()/9);i++ ){
             house = new House(House_List.get(index),
                     House_List.get(index + 1),
                     Double.parseDouble(House_List.get(index + 2)),
@@ -85,9 +97,9 @@ public class Get_Data {
                     Double.parseDouble(House_List.get(index + 4)),
                     House_List.get(index + 5), House_List.get(index + 6), House_List.get(index + 7),
                     Integer.parseInt(House_List.get(index + 8)));
+            index+=9;
             houseArrayList.add(house);
         }
-
         return houseArrayList;
     }
 }

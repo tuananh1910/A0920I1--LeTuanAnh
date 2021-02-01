@@ -4,9 +4,7 @@ import CaseStudy.Refesh.Common.Read_Write_File;
 import CaseStudy.Refesh.Common.Regex;
 import CaseStudy.Refesh.Controllers.Get_Data;
 import CaseStudy.Refesh.Models.House;
-import CaseStudy.Refesh.Models.Villa;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -46,7 +44,6 @@ public class House_Service {
 
     }
     public static void show_House() {
-
         for (House house : houseArrayList){
             System.out.println(house.showInfor());
         }
