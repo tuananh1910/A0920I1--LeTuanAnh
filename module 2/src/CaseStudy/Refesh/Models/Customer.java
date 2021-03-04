@@ -11,7 +11,9 @@ public class Customer {
     private String email;
     private String type_Customer;
     private String address;
-    private Services use_Service;
+    private String use_Service;
+
+
     // getter setter
     public String getName() {
         return name;
@@ -77,17 +79,17 @@ public class Customer {
         this.address = address;
     }
 
-    public Services getUse_Service() {
+    public String getUse_Service() {
         return use_Service;
     }
 
-    public void setUse_Service(Services use_Service) {
+    public void setUse_Service(String use_Service) {
         this.use_Service = use_Service;
     }
     // constructor
     public Customer(String name, String date, String gender,
                     String indentity_Card, int phone_Number, String email,
-                    String type_Customer, String address) {
+                    String type_Customer, String address, String services) {
         this.name = name;
         this.date = date;
         this.gender = gender;
@@ -96,7 +98,7 @@ public class Customer {
         this.email = email;
         this.type_Customer = type_Customer;
         this.address = address;
-        this.use_Service = null;
+        this.use_Service = services;
     }
     public String showInfor(int index){
         return  "Information Customer : \n"+ (index+1)+
@@ -108,7 +110,7 @@ public class Customer {
                 "Email : "+this.getEmail()+"\n"+
                 "Type customer : "+this.getType_Customer()+"\n"+
                 "Address : "+ this.getAddress()+"\n"+
-                "Service : "+ (this.getUse_Service() != null ? this.getUse_Service().showInfor(): null);
+                "Service : "+ (this.getUse_Service());
     }
 
     @Override
@@ -121,6 +123,6 @@ public class Customer {
                 this.getEmail()+","+
                 this.getType_Customer()+","+
                 this.getAddress()+","+
-                (this.getUse_Service()!=null?this.getUse_Service().showInfor():null)+"\n";
+                this.getUse_Service();
     }
 }

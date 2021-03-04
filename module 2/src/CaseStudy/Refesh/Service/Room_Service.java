@@ -1,7 +1,8 @@
 package CaseStudy.Refesh.Service;
 
 import CaseStudy.Refesh.Common.Read_Write_File;
-import CaseStudy.Refesh.Controllers.Get_Data;
+import CaseStudy.Refesh.Common.Regex;
+import CaseStudy.Refesh.Common.Get_Data;
 import CaseStudy.Refesh.Models.Room;
 
 import java.util.ArrayList;
@@ -14,16 +15,31 @@ public class Room_Service {
 
     public static void input_Room() {
         Room room = (Room) Common_Service.input_Service(3);
+        StringBuilder alert = new StringBuilder();
+
         String Service_Free;
-        System.out.println("Free For Service:");
-        Service_Free = scanner.nextLine();
+
+        do {
+            System.out.println("Free For Service:");
+            Service_Free = scanner.nextLine();
+            if (Regex.check_Service_Free(Service_Free)){
+                alert.append("Dịch vụ đi kèm : massage, karaoke, food, drink, car");
+            }
+            else {
+                break;
+            }
+            System.out.println(alert);
+            alert = new StringBuilder();
+        }while (true);
+
         assert room != null;
         room.setService_Free(Service_Free);
         roomArrayList.add(room);
 
-        for (Room value : roomArrayList){
-            Read_Write_File.write_File(PATH,value.toString());
-        }
+// bug The process cannot access the file because it is being used by another process)
+//	at java.base/java.io.FileOutputStream.open0(Native Method)
+        Read_Write_File.write_File(PATH,room.toString());
+
         System.out.println("Success !");
 
     }

@@ -11,7 +11,8 @@ public class Read_Write_File {
             fileWriter = new FileWriter(path, true);
             bw = new BufferedWriter(fileWriter);
             bw.write(data);
-            bw.flush();
+            bw.newLine();
+//            bw.flush();
             bw.close();
             fileWriter.close();
         } catch (IOException e) {
@@ -33,12 +34,14 @@ public class Read_Write_File {
             while ((line = br.readLine()) != null) {
                 temp += line;
                 System.out.println(temp);
-                string_list = temp.split(","); //bug doc file bị ghi đè lên string[] -> thiếu dữ liệu -> tra ve arraylist de tranh ghi de
+                string_list = temp.split(",");
                 temp = "";
-                for (int index =0; index<string_list.length;index++){ // do index = 0 khi while lại sẽ bị đảo thứ tự trong data villa khi đẩy lên
+                for (int index =0; index<string_list.length;index++){
                     arrayList.add(index,string_list[index]);
                 }
             }
+//            br.close();
+//            fileReader.close();
 
         } catch (IOException e) {
             e.printStackTrace();

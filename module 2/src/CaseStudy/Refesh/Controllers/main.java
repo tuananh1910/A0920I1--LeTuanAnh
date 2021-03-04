@@ -17,8 +17,9 @@ public class main {
     }
     public static void display_Menu() { // method hien ra trinh don menu
 
+        System.out.println("-----------MENU--------------");
         do { // cho phép người dùng chọn chức năng
-            System.out.println("Menu\n 1.Add New Services \n" +
+            System.out.println( "1.Add New Services \n" +
                     "2.Show Services\n 3.Add New Customer\n" +
                     "4.Show Information of Customer\n 5.Add New Booking\n" +
                     "6. Show Information of Employee\n 7. Exit");

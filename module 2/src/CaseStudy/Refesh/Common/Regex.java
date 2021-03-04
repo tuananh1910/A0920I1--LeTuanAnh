@@ -7,6 +7,7 @@ public class Regex {
     static String FORMAT_ID_SERVICE;
     static String FORMAT_NAME_SERVICE = "^[A-Z]+[a-z]+$";
     static String FORMAT_NUMBER = "^[0-9]+.[0-9]+$";
+    static String FORMAT_SERVICE_FREE = "massage||karaoke||food||drink||car";
     static Pattern pattern;
     static Matcher matcher;
     static boolean match;
@@ -44,6 +45,11 @@ public class Regex {
     }
     public static boolean check_Number_Int(String string){
         pattern = Pattern.compile("^[0-9]+$");
+        matcher = pattern.matcher(string);
+        return !matcher.matches();
+    }
+    public static boolean check_Service_Free(String string){
+        pattern=Pattern.compile(FORMAT_SERVICE_FREE);
         matcher = pattern.matcher(string);
         return !matcher.matches();
     }

@@ -69,6 +69,6 @@ public class House extends Services{
                 super.getRental_Type() + "," +
                 this.getStandard_Room() +","+
                 this.getDescription()+ ","+
-                this.getNumber_Of_Floors()+"\n";
+                this.getNumber_Of_Floors();
     }
 }

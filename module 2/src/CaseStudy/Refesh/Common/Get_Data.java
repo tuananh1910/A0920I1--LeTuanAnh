@@ -1,6 +1,5 @@
-package CaseStudy.Refesh.Controllers;
+package CaseStudy.Refesh.Common;
 
-import CaseStudy.Refesh.Common.Read_Write_File;
 import CaseStudy.Refesh.Models.Customer;
 import CaseStudy.Refesh.Models.House;
 import CaseStudy.Refesh.Models.Room;
@@ -15,12 +14,12 @@ public class Get_Data {
     private static final String PATH_HOUSE ="E:\\DATA\\A0920I1--LeTuanAnh\\module 2\\src\\CaseStudy\\Refesh\\Data\\House.csv" ;
     public static ArrayList<Customer> get_Data_Customer() {
         ArrayList<String> Customer_List = Read_Write_File.read_File(PATH_CUSTOMER);
+            // tra ve 1 mang string . update customer sau khi booking bi loi .
+
         Customer customer;
         ArrayList<Customer> customerArrayList = new ArrayList<>();
-
         int index =0;
-        for (int i = 0; index < (Customer_List.size() / 8); i++) {
-
+        for (int i = 0; i < (Customer_List.size() / 9); i++) {
             customer = new Customer(Customer_List.get(index),
                     Customer_List.get(index + 1),
                     Customer_List.get(index+2),
@@ -28,8 +27,10 @@ public class Get_Data {
                     Integer.parseInt(Customer_List.get(index+4)),
                     Customer_List.get(index+5),
                     Customer_List.get(index+6),
-                    Customer_List.get(index+7));
-            index+=8;
+                    Customer_List.get(index+7),
+                    null);
+
+            index+=9;
             customerArrayList.add(customer);
         }
 
@@ -72,7 +73,7 @@ public class Get_Data {
             ArrayList<Room> roomArrayList = new ArrayList<>();
 
             int index =0;
-            for (int i = 0; index < (Room_List.size() / 7); i++) {
+            for (int i = 0; i < (Room_List.size() / 7); i++) {
                 room = new Room(Room_List.get(index), Room_List.get(index + 1),
                         Double.parseDouble(Room_List.get(index + 2)),
                         Double.parseDouble(Room_List.get(index + 3)),
@@ -89,13 +90,14 @@ public class Get_Data {
         House house;
         ArrayList<House> houseArrayList = new ArrayList<>();
         int index =0 ;
-        for (int i=0;index<(House_List.size()/9);i++ ){
+        for (int i=0;i<(House_List.size()/9);i++ ){
             house = new House(House_List.get(index),
                     House_List.get(index + 1),
                     Double.parseDouble(House_List.get(index + 2)),
                     Double.parseDouble(House_List.get(index + 3)),
                     Double.parseDouble(House_List.get(index + 4)),
-                    House_List.get(index + 5), House_List.get(index + 6), House_List.get(index + 7),
+                    House_List.get(index + 5), House_List.get(index + 6),
+                    House_List.get(index + 7),
                     Integer.parseInt(House_List.get(index + 8)));
             index+=9;
             houseArrayList.add(house);

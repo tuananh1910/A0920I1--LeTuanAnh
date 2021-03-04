@@ -3,7 +3,7 @@ package CaseStudy.Refesh.Service;
 import CaseStudy.Refesh.Common.Comparator;
 import CaseStudy.Refesh.Common.Read_Write_File;
 import CaseStudy.Refesh.Common.Regex;
-import CaseStudy.Refesh.Controllers.Get_Data;
+import CaseStudy.Refesh.Common.Get_Data;
 import CaseStudy.Refesh.Models.Customer;
 import CaseStudy.Refesh.User_Exception.*;
 
@@ -96,15 +96,15 @@ public class Customer_Service {
         String address = scanner.nextLine();
 
         Customer customer = new Customer(name,date,gender,identity_Card
-        ,phone_Number,email,type_Customer,address);
+        ,phone_Number,email,type_Customer,address,null);
         // sau khi add vào list customer thì sẽ tiến hành ghi vào file customer.csv
         customerArrayList.add(customer);
 
         Collections.sort(customerArrayList, comparator);
 // nghi bug !
-        for (Customer value : customerArrayList){
-            Read_Write_File.write_File(PATH,value.toString());
-        }
+
+            Read_Write_File.write_File(PATH,customer.toString());
+
         System.out.println("Success !");
 
     }
