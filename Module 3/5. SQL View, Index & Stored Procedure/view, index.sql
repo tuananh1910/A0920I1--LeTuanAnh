@@ -8,9 +8,12 @@ create table products(
     product_price int ,
     product_amount int,
     product_description varchar(20),
-    product_status char
+    product_status varchar(20)
 );
+explain select * from products;
 
 create unique index product_code on products(product_name, product_price);
+explain select * from products;
 
-show index from products;
+-- drop index product_code ;
+-- show index from products;
