@@ -1,0 +1,60 @@
+
+.contain{
+    display: grid;
+    grid-template-columns: 10% auto
+                            auto auto
+                           auto 10% ;
+}
+.header{
+
+    text-align: center;
+    grid-column: 1/7;
+    background: gray;
+    color: white;
+    display: grid;
+    grid-template-columns:  auto auto auto auto
+                            auto auto auto auto
+                            auto auto auto auto
+                            auto auto auto auto
+                            auto auto auto auto ;
+}
+.Home,.About,.Project,.Contact,.login{
+    padding-top: 8px;
+}
+.Logo{
+    padding-top: 5px;
+    font-size: 20px;
+}
+.header :hover{
+    background: cornflowerblue ;
+}
+.Link_left :hover{
+    background: white;
+}
+.ads_right :hover{
+    background: aqua;
+}
+.login{
+    grid-column: 20/21;
+}
+.Link_left{
+    text-align: center;
+    grid-column: 1/3;
+    background:darkgray;
+    color: blue;
+}
+.ads_right{
+    text-align: center;
+    grid-column: 5/7;
+    background: darkgray;
+}
+.footer{
+    grid-column: 1/7;
+    text-align: center;
+    background: gray;
+}
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}

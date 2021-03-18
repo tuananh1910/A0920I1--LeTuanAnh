@@ -1,0 +1,36 @@
+.contain > div {
+    background: blue;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+.contain{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: 10px;
+}
+.header, .nav{
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+/*.nav{*/
+/*    grid-column: 1;*/
+/*    grid-row: 2/4;*/
+/*}*/
+.section, .article{
+    /*display: inline-block;*/
+    grid-column-start: 1;
+    grid-column-end: 4;
+
+}
+.footer{
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+.aisle{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 5;
+}
