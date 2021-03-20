@@ -1,0 +1,25 @@
+#navbarSupportedContent::before {
+    border-left: 2px solid #000;
+    height: 30px;
+    content: " ";
+    margin-left: 195px;
+    position: absolute;
+    top: 15px;
+    left: 0;
+}
+#navbar_1{
+    margin-left: 20px;
+}
+#file-person{
+    font-size: 100px;
+}
+.gallerys{
+    display: grid;
+    grid-template-columns: 49.8% 0.4% 49.8%;
+}
+#row1{
+    grid-column: 1/2;
+}
+#row2{
+    grid-column: 3/4;
+}
