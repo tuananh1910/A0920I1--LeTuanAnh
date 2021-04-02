@@ -143,6 +143,8 @@ public class CustomerServlet extends HttpServlet {
 
     private void deleteCustomer(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("id"));
+
+        System.out.println(id);
         Customer customer = this.customerServices.findById(id);
         RequestDispatcher dispatcher;
         if(customer == null){
@@ -151,7 +153,7 @@ public class CustomerServlet extends HttpServlet {
             this.customerServices.remove(id);
         }
         try {
-            resp.sendRedirect("/customer");
+            resp.sendRedirect("customer");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -183,13 +185,13 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    static int id_static=0;
+    static int id_Customer_static =0;
     private void createCustomer(HttpServletRequest req, HttpServletResponse resp) {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String address = req.getParameter("address");
 
-        int id=id_static+1;
+        int id= id_Customer_static +1;
 
         Customer customer = new Customer(id,name,email,address);
 
@@ -199,9 +201,7 @@ public class CustomerServlet extends HttpServlet {
 
         try {
             dispatcher.forward(req, resp);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }
