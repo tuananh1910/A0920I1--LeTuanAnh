@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: TY
@@ -13,15 +14,21 @@
 <body>
 <div align="center">
     <h1>Create New User</h1>
+    <p>
+        <a href="/users?action=users">List All Users</a>
+    </p>
+    <p>
+        <c:if test='${requestScope["message"]!=null}'>
+            <span>${requestScope["message"]}</span>
+        </c:if>
+    </p>
     <form method="post">
-        ID :
-        <input type="text" id="id"/>
-        Name :
-        <input type="text" id="name"/>
-        Email :
-        <input type="text" id="email"/>
-        Country :
-        <input type="text" id="country"/>
+
+        Name : <input type="text" name="name"/>
+
+        Email : <input type="text" name="email"/>
+
+        Country : <input type="text" name="country"/> <br>
         <input type="submit" value="Submit"/>
     </form>
 </div>
