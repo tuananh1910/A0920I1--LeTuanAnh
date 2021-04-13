@@ -157,7 +157,7 @@ FOREIGN KEY (contact_id) REFERENCES contact(contact_id),
 ADD CONSTRAINT FK_attach_service_id_details
 FOREIGN KEY (attach_service_id) REFERENCES attach_service(attach_service_id);
 
-INSERT INTO positions VALUES ('1', 'Le Tan');
+INSERT INTO positions VALUES (1, 'Le Tan');
 INSERT INTO positions VALUES ('2', 'Phuc vu');
 INSERT INTO positions VALUES ('3', 'Chuyen Vien');
 INSERT INTO positions VALUES ('4', 'Giam sat');

@@ -8,14 +8,14 @@ public class Customer {
     private String customer_gender;
     private String customer_id_card;
     private String customer_phone;
-    private String customer_emnai;
+    private String customer_email;
     private String customer_address;
 
     public Customer(){}
-    public Customer( int customer_type_id, String customer_name,
+    public Customer(int customer_type_id, String customer_name,
                     String customer_birthday, String customer_gender,
                     String customer_id_card, String customer_phone,
-                    String customer_emnai, String customer_address) {
+                    String customer_email, String customer_address) {
 
         this.customer_type_id = customer_type_id;
         this.customer_name = customer_name;
@@ -23,13 +23,13 @@ public class Customer {
         this.customer_gender = customer_gender;
         this.customer_id_card = customer_id_card;
         this.customer_phone = customer_phone;
-        this.customer_emnai = customer_emnai;
+        this.customer_email = customer_email;
         this.customer_address = customer_address;
     }
-    public Customer( int customer_id,int customer_type_id, String customer_name,
-                     String customer_birthday, String customer_gender,
-                     String customer_id_card, String customer_phone,
-                     String customer_emnai, String customer_address) {
+    public Customer(int customer_id, int customer_type_id, String customer_name,
+                    String customer_birthday, String customer_gender,
+                    String customer_id_card, String customer_phone,
+                    String customer_email, String customer_address) {
         this.customer_id=customer_id;
         this.customer_type_id = customer_type_id;
         this.customer_name = customer_name;
@@ -37,7 +37,7 @@ public class Customer {
         this.customer_gender = customer_gender;
         this.customer_id_card = customer_id_card;
         this.customer_phone = customer_phone;
-        this.customer_emnai = customer_emnai;
+        this.customer_email = customer_email;
         this.customer_address = customer_address;
     }
 
@@ -97,12 +97,12 @@ public class Customer {
         this.customer_phone = customer_phone;
     }
 
-    public String getCustomer_emnai() {
-        return customer_emnai;
+    public String getCustomer_email() {
+        return customer_email;
     }
 
-    public void setCustomer_emnai(String customer_emnai) {
-        this.customer_emnai = customer_emnai;
+    public void setCustomer_email(String customer_email) {
+        this.customer_email = customer_email;
     }
 
     public String getCustomer_address() {

@@ -14,6 +14,9 @@
 <body>
 <div align="center">
     <h1>List User</h1>
+    <p>
+        <a href="http://localhost:8080">Home</a>
+    </p>
     <table border="1" cellpadding="5" width="80%">
         <tr>
             <th>ID</th>
@@ -25,6 +28,8 @@
             <th>Phone</th>
             <th>Email</th>
             <th>Address</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
         <c:forEach var="customers" items="${customers}">
             <tr>
@@ -35,8 +40,10 @@
                 <td><c:out value="${customers.customer_gender}"/></td>
                 <td><c:out value="${customers.customer_id_card}"/></td>
                 <td><c:out value="${customers.customer_phone}"/></td>
-                <td><c:out value="${customers.customer_emnai}"/></td>
+                <td><c:out value="${customers.customer_email}"/></td>
                 <td><c:out value="${customers.customer_address}"/></td>
+                <td><a href="/customers?action=edit&id=${customers.customer_id}">Edit</a></td>
+                <td><a href="/customers?action=delete&id=${customers.customer_id}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>

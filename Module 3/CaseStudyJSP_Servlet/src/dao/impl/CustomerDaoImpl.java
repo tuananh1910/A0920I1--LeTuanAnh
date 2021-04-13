@@ -2,6 +2,7 @@ package dao.impl;
 
 import dao.ICustomerDao;
 import model.Customer;
+import model.Customer_Type;
 import untils.ConnectionDB;
 
 import java.sql.Connection;
@@ -18,8 +19,8 @@ public class CustomerDaoImpl implements ICustomerDao {
     private static final String SELECT_CUSTOMER_BY_ID = "Select * from CUSTOMER where customer_id = ?";
     private static final String SELECT_ALL_CUSTOMER = "Select * from CUSTOMER";
     private static final String DELETE_CUSTOMER_BY_ID = "Delete from CUSTOMER where customer_id = ?";
-    private static final String UPDATE_CUSTOMER = "Update STUDENT set customer_type_id=? , customer_name = ?, customer_birthday = ?, " +
-            "custoemr_gender = ?, customer_id_card = ?, customer_phone = ?,customer_email = ?, customer_address= ?" +
+    private static final String UPDATE_CUSTOMER = "Update CUSTOMER set customer_type_id=? , customer_name = ?, customer_birthday = ?, " +
+            "customer_gender = ?, customer_id_card = ?, customer_phone = ?,customer_email = ?, customer_address= ?" +
             "where customer_id = ?";
 
     //customertypeid
@@ -43,26 +44,6 @@ public class CustomerDaoImpl implements ICustomerDao {
         }
     }
 
-    public List<Integer> customer_type_id(){
-        List<Integer> list_customer_type_id=new ArrayList<>();
-        try {
-            Connection connection=ConnectionDB.getConnection();
-            PreparedStatement preparedStatement=connection.prepareStatement(SELECT_CUSTOMER_TYPE);
-            System.out.println(preparedStatement);
-
-            // Execute the query or update query
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
-                int customer_id = resultSet.getInt("customer_id");
-
-                list_customer_type_id.add(customer_id);
-                }
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-        return list_customer_type_id;
-
-    }
 
     @Override
     public void insertCustomer(Customer customer) {
@@ -78,7 +59,7 @@ public class CustomerDaoImpl implements ICustomerDao {
             statement.setString(4, customer.getCustomer_gender());
             statement.setString(5, customer.getCustomer_id_card());
             statement.setString(6, customer.getCustomer_phone());
-            statement.setString(7, customer.getCustomer_emnai());
+            statement.setString(7, customer.getCustomer_email());
             statement.setString(8, customer.getCustomer_address());
         } catch (SQLException e) {
             printSQLException(e);
@@ -104,7 +85,7 @@ public class CustomerDaoImpl implements ICustomerDao {
                  PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CUSTOMER_BY_ID)) {
 
                 //Create a statement using connection object
-
+                preparedStatement.setInt(1,id);
                 System.out.println(preparedStatement);
 
                 // Execute the query or update query
@@ -117,7 +98,7 @@ public class CustomerDaoImpl implements ICustomerDao {
                     String customer_gender = resultSet.getString("customer_gender");
                     String customer_id_card = resultSet.getString("customer_id_card");
                     String customer_phone = resultSet.getString("customer_phone");
-                    String customer_emnai = resultSet.getString("customer_emnai");
+                    String customer_emnai = resultSet.getString("customer_email");
                     String customer_address = resultSet.getString("customer_address");
 
                     customer=new Customer(customer_id,customer_type_id,customer_name,customer_birthday,customer_gender,
@@ -135,10 +116,6 @@ public class CustomerDaoImpl implements ICustomerDao {
     public List<Customer> getAllCustomer() {
         List<Customer> customers = new ArrayList<>();
 
-        for (Customer value : customers)
-        {
-            System.out.println(value.getCustomer_name());
-        }
         //Establishing a Connection
         try (Connection connection = ConnectionDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_CUSTOMER)) {
@@ -178,20 +155,23 @@ public class CustomerDaoImpl implements ICustomerDao {
         try {
             connection = ConnectionDB.getConnection();
             statement = connection.prepareStatement(UPDATE_CUSTOMER);
-
+//            System.out.println(customer.getCustomer_id());
             statement.setInt(1, customer.getCustomer_type_id());
             statement.setString(2, customer.getCustomer_name());
             statement.setString(3, customer.getCustomer_birthday());
-            statement.setString(4, customer.getCustomer_gender());
+            statement.setString(4, customer.getCustomer_gender());    // Data too long for column 'customer_gender' at row 1
             statement.setString(5, customer.getCustomer_id_card());
             statement.setString(6, customer.getCustomer_phone());
-            statement.setString(7, customer.getCustomer_emnai());
+            statement.setString(7, customer.getCustomer_email());
             statement.setString(8, customer.getCustomer_address());
+            statement.setInt(9,customer.getCustomer_id());
+            System.out.println(statement.executeUpdate());
             rowUpdate = statement.executeUpdate()>0;
 
         } catch (SQLException e) {
             printSQLException(e);
         }
+        System.out.println(rowUpdate);
         return rowUpdate;
     }
 
@@ -206,5 +186,26 @@ public class CustomerDaoImpl implements ICustomerDao {
             printSQLException(e);
         }
         return rowDelete;
+    }
+
+    @Override
+    public List<Customer_Type> getAllCustomerType() {
+        List<Customer_Type> list_customer_type=new ArrayList<>();
+        try {
+            Connection connection=ConnectionDB.getConnection();
+            PreparedStatement preparedStatement=connection.prepareStatement(SELECT_CUSTOMER_TYPE);
+            System.out.println(preparedStatement);
+
+            // Execute the query or update query
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int customer_type_id = resultSet.getInt("customer_type_id");
+                String customer_type_name = resultSet.getString("customer_type_name");
+                list_customer_type.add(new Customer_Type(customer_type_id,customer_type_name));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return list_customer_type;
     }
 }

@@ -40,9 +40,10 @@
                 <td><c:out value="${customers.customer_gender}"/></td>
                 <td><c:out value="${customers.customer_id_card}"/></td>
                 <td><c:out value="${customers.customer_phone}"/></td>
-                <td><c:out value="${customers.customer_emnai}"/></td>
+                <td><c:out value="${customers.customer_email}"/></td>
                 <td><c:out value="${customers.customer_address}"/></td>
-                
+                <td><a href="/customers?action=edit&id=${customers.customer_id}">Edit</a></td>
+                <td><a href="/customers?action=delete&id=${customers.customer_id}">Delete</a></td>
             </tr>
         </c:forEach>
     </table>
