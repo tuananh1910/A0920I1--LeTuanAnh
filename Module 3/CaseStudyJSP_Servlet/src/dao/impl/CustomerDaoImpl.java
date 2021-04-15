@@ -159,7 +159,11 @@ public class CustomerDaoImpl implements ICustomerDao {
             statement.setInt(1, customer.getCustomer_type_id());
             statement.setString(2, customer.getCustomer_name());
             statement.setString(3, customer.getCustomer_birthday());
-            statement.setString(4, customer.getCustomer_gender());    // Data too long for column 'customer_gender' at row 1
+
+            statement.setString(4, customer.getCustomer_gender());
+            // Data too long for column 'customer_gender' at row 1
+            System.out.println(customer.getCustomer_gender());
+
             statement.setString(5, customer.getCustomer_id_card());
             statement.setString(6, customer.getCustomer_phone());
             statement.setString(7, customer.getCustomer_email());
