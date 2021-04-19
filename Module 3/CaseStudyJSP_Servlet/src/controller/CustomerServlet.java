@@ -31,15 +31,41 @@ public class CustomerServlet extends HttpServlet {
         }
         switch (action){
             case "create":
+                showCreateForm(req,resp);
                 break;
             case "edit":
                 showEditForm(req,resp);
                 break;
             case "delete":
+                showDeleteForm(req,resp);
                 break;
             default:
                 listCustomer(req,resp);
                 break;
+        }
+    }
+
+    private void showCreateForm(HttpServletRequest req, HttpServletResponse resp) {
+//        List<Customer_Type> customerTypeList = customerDao.getAllCustomerType();
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("customer/create.jsp");
+//        req.setAttribute("customerTypeList", customerTypeList);
+        try {
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void showDeleteForm(HttpServletRequest req, HttpServletResponse resp) {
+        int id  = Integer.parseInt(req.getParameter("id"));
+        Customer customer = customerDao.getCustomer(id);
+        RequestDispatcher dispatcher = req.getRequestDispatcher("customer/delete.jsp");
+        req.setAttribute("customer", customer);
+        try {
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
         }
     }
 
@@ -74,14 +100,54 @@ public class CustomerServlet extends HttpServlet {
         }
         switch (action){
             case "create":
+                createCustomer(req,resp);
                 break;
             case "edit":
                 UpdateCustomer(req,resp);
                 break;
             case "delete":
+                DeleteCustomer(req,resp);
                 break;
             default:
                 break;
+        }
+    }
+
+    private void createCustomer(HttpServletRequest req, HttpServletResponse resp) {
+        int customer_type_id = Integer.parseInt(req.getParameter("customer_type_id"));
+        String customer_name = req.getParameter("customer_name");
+        String customer_birthday = req.getParameter("customer_birthday");
+        String customer_gender = req.getParameter("customer_gender");
+        String customer_id_card = req.getParameter("customer_id_card");
+        String customer_phone = req.getParameter("customer_phone");
+        String customer_email = req.getParameter("customer_email");
+        String customer_address = req.getParameter("customer_address");
+
+        Customer customer = new Customer(customer_type_id,customer_name,customer_birthday
+        ,customer_gender,customer_id_card,customer_phone,customer_email,customer_address);
+
+        customerDao.insertCustomer(customer);
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("customer/list.jsp");
+        try{
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    private void DeleteCustomer(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("customer_id"));
+
+        customerDao.deleteCustomer(id);
+
+        RequestDispatcher dispatcher= req.getRequestDispatcher("customer/list.jsp");
+
+        try {
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
         }
     }
 
@@ -91,7 +157,10 @@ public class CustomerServlet extends HttpServlet {
         int customer_type_id = 0;
         String customer_name = req.getParameter("customer_name");
         String customer_birthday = req.getParameter("customer_birthday");
+
         String customer_gender = req.getParameter("customer_gender");
+
+
         String customer_id_card = req.getParameter("customer_id_card");
         String customer_phone = req.getParameter("customer_phone");
         String customer_email = req.getParameter("customer_email");

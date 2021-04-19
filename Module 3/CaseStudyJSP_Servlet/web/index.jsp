@@ -35,8 +35,15 @@
             <li class="nav-item" style="margin-left: 30px">
               <a class="nav-link" href="#">Employee</a>
             </li>
-            <li class="nav-item" style="margin-left: 30px">
-              <a class="nav-link" href="http://localhost:8080/customers">Customer</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://localhost:8080/customers" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Csutomer
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="http://localhost:8080/customers?action=create">Create Customer</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="http://localhost:8080/customers?action=customers">List Customer</a>
+              </div>
             </li>
             <li class="nav-item" style="margin-left: 30px">
               <a class="nav-link" href="#">Service</a>

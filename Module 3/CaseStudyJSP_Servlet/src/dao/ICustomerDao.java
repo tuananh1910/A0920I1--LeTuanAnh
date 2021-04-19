@@ -14,4 +14,5 @@ public interface ICustomerDao {
     boolean upodateCustomer(Customer custoemr);
     boolean deleteCustomer(int id);
     List<Customer_Type> getAllCustomerType();
+//    Customer_Type getCustomerType(int id);
 }

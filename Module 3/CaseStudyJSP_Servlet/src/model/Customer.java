@@ -1,5 +1,7 @@
 package model;
 
+import java.util.BitSet;
+
 public class Customer {
     private int customer_id;
     private int customer_type_id;

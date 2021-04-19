@@ -25,7 +25,7 @@ public class CustomerDaoImpl implements ICustomerDao {
 
     //customertypeid
     private static final String SELECT_CUSTOMER_TYPE = "Select * from CUSTOMER_TYPE";
-
+    private static final String SELECT_CUSTOMER_TYPE_BY_ID = "Select * from CUSTOMER_TYPE where customer_id = ?";
 
 
     private void printSQLException(SQLException ex) {
@@ -181,6 +181,8 @@ public class CustomerDaoImpl implements ICustomerDao {
 
     @Override
     public boolean deleteCustomer(int id) {
+
+        // Fk customer id contract !!
         boolean rowDelete= false;
         try (Connection connection = ConnectionDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CUSTOMER_BY_ID)){
@@ -189,6 +191,7 @@ public class CustomerDaoImpl implements ICustomerDao {
         } catch (SQLException e) {
             printSQLException(e);
         }
+        //System.out.println(rowDelete);
         return rowDelete;
     }
 
@@ -212,4 +215,32 @@ public class CustomerDaoImpl implements ICustomerDao {
         }
         return list_customer_type;
     }
+
+//    @Override
+//    public Customer_Type getCustomerType(int id) {
+//        Customer_Type customer_type = null;
+//        try {
+//            try (Connection connection = ConnectionDB.getConnection();
+//                 PreparedStatement preparedStatement = connection.prepareStatement(SELECT_CUSTOMER_TYPE_BY_ID)) {
+//
+//                //Create a statement using connection object
+//                preparedStatement.setInt(1,id);
+//                System.out.println(preparedStatement);
+//
+//                // Execute the query or update query
+//                ResultSet resultSet = preparedStatement.executeQuery();
+//                while (resultSet.next()){
+//                    int customer_type_id = resultSet.getInt("customer_type_id");
+//
+//                    String customer_type_name = resultSet.getString("customer_type_name");
+//
+//                    customer_type=new Customer_Type(customer_type_id,customer_type_name);
+//                }
+//            }
+//        } catch (SQLException e) {
+//            printSQLException(e);
+//        }
+//
+//        return customer_type;
+//    }
 }

@@ -23,7 +23,7 @@ create table customer(
     customer_type_id int,
     customer_name varchar(45),
     customer_birthday date,
-    customer_gender bit(1),
+    customer_gender varchar(10),
     customer_id_card varchar(45),
     customer_phone varchar(45),
     customer_email varchar(45),

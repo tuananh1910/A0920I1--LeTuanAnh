@@ -15,7 +15,7 @@
 <div align="center">
     <h1>Edit Customer</h1>
     <p>
-        <a href="http://localhost:8080">Home</a>
+        <a href="http://localhost:8080">Home</a> <br>
         <a href="/customers?action=customers">List All Customer</a>
     </p>
     <form method="post">
