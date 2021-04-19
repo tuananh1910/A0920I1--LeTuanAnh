@@ -127,13 +127,7 @@ public class CustomerServlet extends HttpServlet {
         ,customer_gender,customer_id_card,customer_phone,customer_email,customer_address);
 
         customerDao.insertCustomer(customer);
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("customer/list.jsp");
-        try{
-            dispatcher.forward(req,resp);
-        }catch (ServletException|IOException e){
-            e.printStackTrace();
-        }
+        listCustomer(req,resp);
 
     }
 

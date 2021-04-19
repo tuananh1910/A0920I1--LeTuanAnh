@@ -14,7 +14,7 @@ import java.util.List;
 
 public class CustomerDaoImpl implements ICustomerDao {
     private static final String INSERT_CUSTOMER_SQL = "Insert into CUSTOMER(customer_type_id, customer_name," +
-            " customer_birthday, customer_gender,customer_id_card,customer_phone,customer_emnai,customer_address) " +
+            " customer_birthday, customer_gender,customer_id_card,customer_phone,customer_email,customer_address) " +
             "values (?, ?, ?, ?,?, ?, ?, ?)";
     private static final String SELECT_CUSTOMER_BY_ID = "Select * from CUSTOMER where customer_id = ?";
     private static final String SELECT_ALL_CUSTOMER = "Select * from CUSTOMER";
@@ -61,6 +61,8 @@ public class CustomerDaoImpl implements ICustomerDao {
             statement.setString(6, customer.getCustomer_phone());
             statement.setString(7, customer.getCustomer_email());
             statement.setString(8, customer.getCustomer_address());
+            System.out.println(statement);
+            statement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
         } finally {
