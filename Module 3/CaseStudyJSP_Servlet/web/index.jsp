@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
-  <body>
+  <body style="background: gray">
   <div class="contain">
     <div class="header">
       <img src="logo.png" height="150" width="600">
@@ -32,11 +32,22 @@
             <li class="nav-item active" style="margin-left: 20px">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item" style="margin-left: 30px">
-              <a class="nav-link" href="#">Employee</a>
-            </li>
+
+
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://localhost:8080/customers" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="http://localhost:8080/employees" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Employee
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="http://localhost:8080/employees?action=create">Create Employee</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="http://localhost:8080/employees?action=employees">List Employee</a>
+              </div>
+            </li>
+
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://localhost:8080/customers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Customer
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -45,13 +56,28 @@
                 <a class="dropdown-item" href="http://localhost:8080/customers?action=customers">List Customer</a>
               </div>
             </li>
-            <li class="nav-item" style="margin-left: 30px">
-              <a class="nav-link" href="#">Service</a>
+
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="http://localhost:8080/services" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Service
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="http://localhost:8080/services?action=create">Create Service</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="http://localhost:8080/services?action=services">List Service</a>
+              </div>
             </li>
+
+
+
             <li class="nav-item" style="margin-left: 30px">
               <a class="nav-link" href="#">Contact</a>
             </li>
+
           </ul>
+
+
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>

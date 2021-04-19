@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: TY
-  Date: 4/12/2021
-  Time: 8:54 PM
+  Date: 4/19/2021
+  Time: 9:23 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,38 +20,42 @@
     <h1>List User</h1>
     <p>
         <a href="http://localhost:8080" class="badge badge-light">Home</a> <br>
-        <a href="/customers?action=create" class="badge badge-light">Create Customer</a>
+        <a href="/employees?action=create" class="badge badge-light">Create Empoyee</a>
     </p>
     <table class="table table-dark">
         <thead>
         <tr>
             <th scope="col">ID</th>
-            <th scope="col">Type id</th>
             <th scope="col">Name</th>
             <th scope="col">Birthday</th>
-            <th scope="col">Gender</th>
             <th scope="col">ID Card</th>
+            <th scope="col">Salary</th>
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
             <th scope="col">Address</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+            <th scope="col">Position ID</th>
+            <th scope="col">Education Degree ID</th>
+            <th scope="col">Division ID</th>
+            <th scope="col">Username</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="customers" items="${customers}">
+        <c:forEach var="employees" items="${employees}">
             <tr>
-                <td scope="row"><c:out value="${customers.customer_id}"/></td>
-                <td><c:out value="${customers.customer_type_id}"/></td>
-                <td><c:out value="${customers.customer_name}"/></td>
-                <td><c:out value="${customers.customer_birthday}"/></td>
-                <td><c:out value="${customers.customer_gender}"/></td>
-                <td><c:out value="${customers.customer_id_card}"/></td>
-                <td><c:out value="${customers.customer_phone}"/></td>
-                <td><c:out value="${customers.customer_email}"/></td>
-                <td><c:out value="${customers.customer_address}"/></td>
-                <td><a href="/customers?action=edit&id=${customers.customer_id}">Edit</a></td>
-                <td><a href="/customers?action=delete&id=${customers.customer_id}">Delete</a></td>
+                <td scope="row"><c:out value="${employees.employee_id}"/></td>
+                <td><c:out value="${employees.employee_name}"/></td>
+                <td><c:out value="${employees.employee_birthday}"/></td>
+                <td><c:out value="${employees.employee_id_card}"/></td>
+                <td><c:out value="${employees.employee_salary}"/></td>
+                <td><c:out value="${employees.employee_phone}"/></td>
+                <td><c:out value="${employees.employee_email}"/></td>
+                <td><c:out value="${employees.employee_address}"/></td>
+                <td><c:out value="${employees.position_id}"/></td>
+                <td><c:out value="${employees.education_degree_id}"/></td>
+                <td><c:out value="${employees.division_id}"/></td>
+                <td><c:out value="${employees.username}"/></td>
+                <td><a href="/employees?action=edit&id=${employees.employee_id}">Edit</a></td>
+                <td><a href="/employees?action=delete&id=${employees.employee_id}">Delete</a></td>
             </tr>
         </c:forEach>
         </tbody>
@@ -59,3 +63,4 @@
 </div>
 </body>
 </html>
+

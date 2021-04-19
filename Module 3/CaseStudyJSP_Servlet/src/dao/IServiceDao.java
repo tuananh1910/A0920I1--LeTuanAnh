@@ -9,7 +9,7 @@ public interface IServiceDao {
     void insertService(Service service);
     Service getService(int id);
     List<Service> getAllService();
-    void updateService(Service service);
-    void deleteService(int id);
+    boolean updateService(Service service);
+    boolean deleteService(int id);
 
 }

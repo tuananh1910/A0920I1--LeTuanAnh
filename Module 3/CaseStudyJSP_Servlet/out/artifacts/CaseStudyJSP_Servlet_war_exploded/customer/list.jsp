@@ -10,30 +10,38 @@
 <html>
 <head>
     <title>List Customer</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-<body>
-<div align="center">
+<body style="background: gray">
+<div align="center" >
     <h1>List User</h1>
     <p>
-        <a href="http://localhost:8080">Home</a>
+        <a href="http://localhost:8080" class="badge badge-light">Home</a> <br>
+        <a href="/customers?action=create" class="badge badge-light">Create Customer</a>
     </p>
-    <table border="1" cellpadding="5" width="80%">
+    <table class="table table-dark">
+        <thead>
         <tr>
-            <th>ID</th>
-            <th>Type id</th>
-            <th>Name</th>
-            <th>Birthday</th>
-            <th>Gender</th>
-            <th>ID Card</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th scope="col">ID</th>
+            <th scope="col">Type id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Birthday</th>
+            <th scope="col">Gender</th>
+            <th scope="col">ID Card</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach var="customers" items="${customers}">
             <tr>
-                <td><c:out value="${customers.customer_id}"/></td>
+                <td scope="row"><c:out value="${customers.customer_id}"/></td>
                 <td><c:out value="${customers.customer_type_id}"/></td>
                 <td><c:out value="${customers.customer_name}"/></td>
                 <td><c:out value="${customers.customer_birthday}"/></td>
@@ -46,6 +54,7 @@
                 <td><a href="/customers?action=delete&id=${customers.customer_id}">Delete</a></td>
             </tr>
         </c:forEach>
+        </tbody>
     </table>
 </div>
 </body>
