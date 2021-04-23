@@ -1,9 +1,8 @@
 package dao.impl;
 
-import common.PrintSQLException;
+import exception.PrintSQLException;
 import dao.IEmployeeDao;
-import model.Employee;
-import model.User;
+import model.*;
 import untils.ConnectionDB;
 
 import java.sql.Connection;
@@ -22,11 +21,18 @@ public class EmployeeDaoImpl implements IEmployeeDao {
     private static final String SELECT_ALL_EMPLOYEE = "Select * from EMPLOYEE";
     private static final String DELETE_EMPLOYEE_BY_ID = "Delete from EMPLOYEE where employee_id = ?";
     private static final String UPDATE_EMPLOYEE = "Update EMPLOYEE set employee_name=? , employee_birthday = ?, employee_id_card = ?, " +
-            "employee_salary = ?, employee_phone = ?, employee_email = ?,employee_address = ?, position_id= ?" +
+            "employee_salary = ?, employee_phone = ?, employee_email = ?,employee_address = ?, position_id= ?," +
             "education_degree_id=? ,division_id=?,username=? where employee_id = ?";  //12
 
     // user
     private static final String INSERT_USER_SQL = "Insert into USER values (?,?)";
+
+    //position
+    private static final String SELECT_POSITIONS ="Select * from POSITIONS where position_id = ?";
+    // education degree
+    private static final String SELECT_EDUCATION_DEGREE ="Select * from EDUCATION_DEGREE where education_degree_id =?";
+    //division
+    private static final String SELECT_DIVISION ="Select * from DIVISION where division_id =?";
 
     @Override
     public void insertUser(User user){
@@ -46,6 +52,84 @@ public class EmployeeDaoImpl implements IEmployeeDao {
             PrintSQLException.printSQLException(e);
         }
     }
+
+    @Override
+    public Position getPosition(int id) {
+        Position position = null;
+
+        try (Connection connection = ConnectionDB.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_POSITIONS)) {
+
+            //Create a statement using connection object
+            preparedStatement.setInt(1,id);
+            System.out.println(preparedStatement);
+
+            // Execute the query or update query
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int position_id = resultSet.getInt("position_id");
+                String position_nme = resultSet.getString("position_name");
+
+                position =new Position(position_id,position_nme);
+            }
+        } catch (SQLException e) {
+            PrintSQLException.printSQLException(e);
+        }
+        return position;
+    }
+
+    @Override
+    public Education_Degree getEducationDegree(int id) {
+        Education_Degree education_degree = null;
+
+        try (Connection connection = ConnectionDB.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_EDUCATION_DEGREE)) {
+
+            //Create a statement using connection object
+            preparedStatement.setInt(1,id);
+
+            System.out.println(preparedStatement);
+
+            // Execute the query or update query
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int education_degree_id = resultSet.getInt("education_degree_id");
+                String education_degree_name = resultSet.getString("education_degree_name");
+
+                education_degree=new Education_Degree(education_degree_id,education_degree_name);
+            }
+        } catch (SQLException e) {
+            PrintSQLException.printSQLException(e);
+        }
+        return education_degree;
+    }
+
+    @Override
+    public Division getDivision(int id) {
+        Division division =null;
+
+        try (Connection connection = ConnectionDB.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_DIVISION)) {
+
+            //Create a statement using connection object
+            preparedStatement.setInt(1,id);
+
+            System.out.println(preparedStatement);
+
+            // Execute the query or update query
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int division_id = resultSet.getInt("division_id");
+                String division_name = resultSet.getString("division_name");
+
+                division=new Division(division_id,division_name);
+            }
+        } catch (SQLException e) {
+            PrintSQLException.printSQLException(e);
+        }
+        return division;
+    }
+
     @Override
     public void insertEmployee(Employee employee) {
         Connection connection = null;
@@ -179,20 +263,23 @@ public class EmployeeDaoImpl implements IEmployeeDao {
             statement.setString(3, employee.getEmployee_id_card());
 
             statement.setDouble(4, employee.getEmployee_salary());
-            // Data too long for column 'customer_gender' at row 1
+
 
 
             statement.setString(5, employee.getEmployee_phone());
             statement.setString(6, employee.getEmployee_email());
             statement.setString(7, employee.getEmployee_address());
             statement.setInt(8, employee.getPosition_id());
+
+
+
             statement.setInt(9,employee.getEducation_degree_id());
             statement.setInt(10,employee.getDivision_id());
             statement.setString(11, employee.getUsername());
             statement.setInt(12,employee.getEmployee_id());
 
 
-
+            System.out.println(statement);
             System.out.println(statement.executeUpdate());
             rowUpdate = statement.executeUpdate()>0;
 

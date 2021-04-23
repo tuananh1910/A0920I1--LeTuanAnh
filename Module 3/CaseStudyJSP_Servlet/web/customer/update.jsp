@@ -18,13 +18,14 @@
         <a href="http://localhost:8080">Home</a> <br>
         <a href="/customers?action=customers">List All Customer</a>
     </p>
+    <p>
+        <c:if test="${requestScope['message']!=null}">
+            <span>${requestScope['message']}</span>
+        </c:if>
+    </p>
     <form method="post">
         <table>
-            <p>
-                <c:if test="${requestScope['message']!=null}">
-                    <span>${requestScope['message']}</span>
-                </c:if>
-            </p>
+
             <c:if test="${customer!=null}">
                 <input type="hidden" name="customer_id" value="<c:out value='${customer.customer_id}'/>">
             </c:if>

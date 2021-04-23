@@ -17,10 +17,16 @@
     <a href="http://localhost:8080"> Home </a> <br>
     <a href="/customers?action=customers">List All Customer</a>
 </p>
+<p>
+    <c:if test="${requestScope['message']!= null}}">
+        <span>${requestScope['message']}</span>
+    </c:if>
+</p>
 <form method="post">
     <fieldset>
         <legend>Delete Customer</legend>
         <h2> Information Of Customer </h2>
+
         <table>
             <tr>
                 <td>Customer ID :</td>

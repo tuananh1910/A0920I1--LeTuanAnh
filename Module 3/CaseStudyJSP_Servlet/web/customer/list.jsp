@@ -20,7 +20,7 @@
     <h1>List User</h1>
     <p>
         <a href="http://localhost:8080" class="badge badge-light">Home</a> <br>
-        <a href="/customers?action=create" class="badge badge-light">Create Customer</a>
+        <a href="/customers?action=create" class="badge badge-light">Add New Customer</a>
     </p>
     <table class="table table-dark">
         <thead>

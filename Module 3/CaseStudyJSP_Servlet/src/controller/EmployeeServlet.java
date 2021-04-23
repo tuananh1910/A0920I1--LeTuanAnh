@@ -2,8 +2,7 @@ package controller;
 
 import dao.IEmployeeDao;
 import dao.impl.EmployeeDaoImpl;
-import model.Employee;
-import model.User;
+import model.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.rmi.ServerError;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/employees" , name = "employees")
@@ -21,10 +21,11 @@ public class EmployeeServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         employeeDao = new EmployeeDaoImpl();
+
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         String action = req.getParameter("action");
         if (action==null){
             action ="";
@@ -34,14 +35,51 @@ public class EmployeeServlet extends HttpServlet {
                 showCreateForm(req,resp);
                 break;
             case "edit":
-
+                showEditForm(req,resp);
                 break;
             case "delete":
-
+                showDeleteForm(req,resp);
                 break;
             default:
                 listEmployee(req,resp);
                 break;
+        }
+    }
+
+    private void showDeleteForm(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        Employee employee = employeeDao.getEmployee(id);
+
+        Position position = employeeDao.getPosition(employee.getPosition_id());
+        Education_Degree education_degree = employeeDao.getEducationDegree(employee.getEducation_degree_id());
+        Division division = employeeDao.getDivision(employee.getDivision_id());
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("employee/delete.jsp");
+
+
+        req.setAttribute("employee", employee);
+        req.setAttribute("position" , position);
+        req.setAttribute("education_degree",education_degree);
+        req.setAttribute("division",division);
+        try {
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    private void showEditForm(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        Employee employee = employeeDao.getEmployee(id);
+        req.setAttribute("employee" , employee);
+
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("employee/update.jsp");
+
+        try {
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
         }
     }
 
@@ -67,7 +105,7 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String action = req.getParameter("action");
         if (action==null){
             action ="";
@@ -77,14 +115,65 @@ public class EmployeeServlet extends HttpServlet {
                 createEmployee(req,resp);
                 break;
             case "edit":
-
+                editEmployee(req,resp);
                 break;
             case "delete":
-
+                deleteEmployee(req,resp);
                 break;
             default:
-
                 break;
+        }
+    }
+
+    private void deleteEmployee(HttpServletRequest req, HttpServletResponse resp) {
+            int id = Integer.parseInt(req.getParameter("employee_id"));
+
+            RequestDispatcher dispatcher;
+
+            try {
+                if (employeeDao.deleteEmployee(id)){
+                    dispatcher = req.getRequestDispatcher("employee/delete.jsp");
+                    req.setAttribute("message","Employee was deleted");
+                }else {
+                    dispatcher = req.getRequestDispatcher("error-404.jsp");
+                }
+                dispatcher.forward(req,resp);
+            }catch (ServletException|IOException e){
+                e.printStackTrace();
+            }
+    }
+
+    private void editEmployee(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("employee_id"));
+        String employee_name = req.getParameter("employee_name");
+        String employee_birthday = req.getParameter("employee_birthday");
+        String employee_id_card = req.getParameter("employee_id_card");
+        double employee_salary = Double.parseDouble(req.getParameter("employee_salary"));
+        String employee_phone = req.getParameter("employee_phone");
+        String employee_email = req.getParameter("employee_email");
+        String employee_address = req.getParameter("employee_address");
+        int position_id = Integer.parseInt(req.getParameter("position_id"));
+        int education_degree_id = Integer.parseInt(req.getParameter("education_degree_id"));
+        int division_id = Integer.parseInt(req.getParameter("division_id"));
+        String username = req.getParameter("username");
+
+        // FK role - user role - user
+
+        Employee employee = new Employee(id,employee_name,employee_birthday,employee_id_card
+        ,employee_salary,employee_phone,employee_email,employee_address,position_id,
+                education_degree_id,division_id,username);
+
+        RequestDispatcher dispatcher ;
+        try {
+            if (employeeDao.updateEmployee(employee)){
+                dispatcher = req.getRequestDispatcher("employee/update.jsp");
+                req.setAttribute("message","Succesful");
+            }else {
+                dispatcher = req.getRequestDispatcher("error-404.jsp");
+            }
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
         }
     }
 

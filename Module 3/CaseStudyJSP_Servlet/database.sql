@@ -65,12 +65,12 @@ create table user_role(
     username varchar(255)
     );
 
-create table contact(
-	contact_id int primary key auto_increment,
-    contact_start_date datetime,
-    contact_end_date datetime,
-    contact_deposit double,
-    contact_total_money double,
+create table contract(
+	contract_id int primary key auto_increment,
+    contract_start_date datetime,
+    contract_end_date datetime,
+    contract_deposit double,
+    contract_total_money double,
     employee_id int,
     customer_id int,
     service_id int
@@ -101,9 +101,9 @@ create table rent_type(
     rent_type_cost double
 );
 
-create table contact_details(
-	contact_details_id int primary key auto_increment,
-    contact_id int,
+create table contract_details(
+	contract_details_id int primary key auto_increment,
+    contract_id int,
     attach_service_id int,
     quality int
 );
@@ -137,12 +137,12 @@ FOREIGN KEY (role_id) REFERENCES role(role_id),
 ADD CONSTRAINT FK_username_user_role
 FOREIGN KEY (username) REFERENCES user(username);
 
-ALTER TABLE contact
-ADD CONSTRAINT FK_employee_id_contact
+ALTER TABLE contract
+ADD CONSTRAINT FK_employee_id_contract
 FOREIGN KEY (employee_id) REFERENCES employee(employee_id),
-ADD CONSTRAINT FK_customer_id_contact
+ADD CONSTRAINT FK_customer_id_contract
 FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
-ADD CONSTRAINT FK_service_id_contact
+ADD CONSTRAINT FK_service_id_contract
 FOREIGN KEY (service_id) REFERENCES service(service_id);
 
 ALTER TABLE service
@@ -151,9 +151,9 @@ FOREIGN KEY (rent_type_id) REFERENCES rent_type(rent_type_id),
 ADD CONSTRAINT FK_service_type_id_service
 FOREIGN KEY (service_type_id) REFERENCES service_type(service_type_id);
 
-ALTER TABLE contact_details
-ADD CONSTRAINT FK_contact_id_details
-FOREIGN KEY (contact_id) REFERENCES contact(contact_id),
+ALTER TABLE contract_details
+ADD CONSTRAINT FK_contract_id_details
+FOREIGN KEY (contract_id) REFERENCES contract(contract_id),
 ADD CONSTRAINT FK_attach_service_id_details
 FOREIGN KEY (attach_service_id) REFERENCES attach_service(attach_service_id);
 
@@ -222,10 +222,10 @@ VALUES ('2', 'House', '2000', '2000', '20', '2', '2', 'House', 'close to nature'
 INSERT INTO service 
 VALUES ('3', 'Villa', '3000', '3000', '30', '3', '3', 'Villa', 'close to nature', '50', '3');
 
-INSERT INTO contact VALUES ('1', '2021-10-10', '2021-10-15', '100', '1000', '1', '1', '1');
-INSERT INTO contact VALUES ('2',' 2021-10-10', '2021-10-15', '200', '2000', '2', '2', '2');
-INSERT INTO contact VALUES ('3',' 2021-10-10',' 2021-10-15', '300', '3000', '3', '3', '3');
-INSERT INTO contact VALUES ('4', '2021-10-10', '2021-10-15', '400', '4000', '4', '4', '3');
+INSERT INTO contract VALUES ('1', '2021-10-10', '2021-10-15', '100', '1000', '1', '1', '1');
+INSERT INTO contract VALUES ('2',' 2021-10-10', '2021-10-15', '200', '2000', '2', '2', '2');
+INSERT INTO contract VALUES ('3',' 2021-10-10',' 2021-10-15', '300', '3000', '3', '3', '3');
+INSERT INTO contract VALUES ('4', '2021-10-10', '2021-10-15', '400', '4000', '4', '4', '3');
 
 INSERT INTO user_role VALUES ('1', 'Anh');
 INSERT INTO user_role VALUES ('2', 'Ha');
@@ -238,10 +238,12 @@ INSERT INTO attach_service VALUES ('3', 'food,drink', '300', '30', 'on');
 INSERT INTO attach_service VALUES ('4', 'rent vehicle', '400', '40', 'on');
 
 
-INSERT INTO contact_details VALUES ('1', '1', '1', '2');
-INSERT INTO contact_details VALUES ('2', '2', '2', '3');
-INSERT INTO contact_details VALUES ('3', '3', '3', '4');
-INSERT INTO contact_details VALUES ('4', '4', '4', '5');
+INSERT INTO contract_details VALUES ('1', '1', '1', '2');
+INSERT INTO contract_details VALUES ('2', '2', '2', '3');
+INSERT INTO contract_details VALUES ('3', '3', '3', '4');
+INSERT INTO contract_details VALUES ('4', '4', '4', '5');
+
+
 
 
 

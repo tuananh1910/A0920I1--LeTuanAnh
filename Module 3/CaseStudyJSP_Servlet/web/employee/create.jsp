@@ -24,9 +24,14 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<p>
+    <a href="http://localhost:8080"> Home </a> <br>
+    <a href="/employees?action=employees">List All Employee</a>
+</p>
 <form method="post">
     <fieldset>
         <legend>Fill Information Customer</legend>
+
         <div class="form" style="width: 50%">
 
             <%--     employee_name--%>
@@ -140,7 +145,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="password">Password</label>
                 </div>
-                <input type="text" class="form-control" id="password" name="password">
+                <input type="password" class="form-control" id="password" name="password">
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>

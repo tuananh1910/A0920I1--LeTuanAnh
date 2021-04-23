@@ -1,7 +1,6 @@
 package dao;
 
-import model.Employee;
-import model.User;
+import model.*;
 
 import java.util.List;
 
@@ -12,4 +11,8 @@ public interface IEmployeeDao {
     boolean updateEmployee(Employee employee);
     boolean deleteEmployee(int id);
     void insertUser (User user);
+    Position getPosition(int id);
+    Education_Degree getEducationDegree(int id);
+    Division getDivision(int id);
+
 }

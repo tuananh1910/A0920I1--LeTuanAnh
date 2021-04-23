@@ -24,7 +24,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         String action = req.getParameter("action");
         if (action==null){
             action ="";
@@ -93,7 +93,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         String action = req.getParameter("action");
         if (action==null){
             action ="";
@@ -134,11 +134,17 @@ public class CustomerServlet extends HttpServlet {
     private void DeleteCustomer(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("customer_id"));
 
-        customerDao.deleteCustomer(id);
 
-        RequestDispatcher dispatcher= req.getRequestDispatcher("customer/list.jsp");
+
+        RequestDispatcher dispatcher;
 
         try {
+            if (customerDao.deleteCustomer(id)){
+                dispatcher =req.getRequestDispatcher("customer/delete.jsp");
+                req.setAttribute("message" ,"Customer was Deleted");
+            }else {
+                dispatcher =req.getRequestDispatcher("error-404.jsp");
+            }
             dispatcher.forward(req,resp);
         }catch (ServletException|IOException e){
             e.printStackTrace();
@@ -146,7 +152,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void UpdateCustomer(HttpServletRequest req, HttpServletResponse resp) {
-        int customer_id = Integer.parseInt(req.getParameter("customer_id"));
+
         String customer_type_name = req.getParameter("customer_type");
         int customer_type_id = 0;
         String customer_name = req.getParameter("customer_name");
@@ -169,7 +175,7 @@ public class CustomerServlet extends HttpServlet {
             }
         }
 
-        Customer customer = new Customer(customer_id,customer_type_id,customer_name,customer_birthday
+        Customer customer = new Customer(customer_type_id,customer_name,customer_birthday
         ,customer_gender,customer_id_card,customer_phone,customer_email,customer_address);
 
         RequestDispatcher dispatcher;
