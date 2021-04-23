@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.rmi.ServerError;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/employees" , name = "employees")
@@ -127,11 +126,13 @@ public class EmployeeServlet extends HttpServlet {
 
     private void deleteEmployee(HttpServletRequest req, HttpServletResponse resp) {
             int id = Integer.parseInt(req.getParameter("employee_id"));
+            Employee employee = employeeDao.getEmployee(id);
 
             RequestDispatcher dispatcher;
 
             try {
                 if (employeeDao.deleteEmployee(id)){
+//                    employeeDao.deleteUser(employee.getUsername());
                     dispatcher = req.getRequestDispatcher("employee/delete.jsp");
                     req.setAttribute("message","Employee was deleted");
                 }else {
@@ -158,14 +159,19 @@ public class EmployeeServlet extends HttpServlet {
         String username = req.getParameter("username");
 
         // FK role - user role - user
+        Employee employee = employeeDao.getEmployee(id);
+        String old_username = employee.getUsername();
 
-        Employee employee = new Employee(id,employee_name,employee_birthday,employee_id_card
+
+        Employee update_employee = new Employee(id,employee_name,employee_birthday,employee_id_card
         ,employee_salary,employee_phone,employee_email,employee_address,position_id,
                 education_degree_id,division_id,username);
 
         RequestDispatcher dispatcher ;
         try {
-            if (employeeDao.updateEmployee(employee)){
+            if (employeeDao.updateUser(username,old_username)){
+                employeeDao.updateEmployee(update_employee);
+                employeeDao.updateUserRole(username,old_username);
                 dispatcher = req.getRequestDispatcher("employee/update.jsp");
                 req.setAttribute("message","Succesful");
             }else {
@@ -190,12 +196,16 @@ public class EmployeeServlet extends HttpServlet {
         int division_id = Integer.parseInt(req.getParameter("division_id"));
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        int role_id = Integer.parseInt(req.getParameter("role_id"));
 
         Employee employee = new Employee(employee_name,employee_birthday,employee_id_card,employee_salary
         ,employee_phone,employee_email,employee_address,position_id,education_degree_id,division_id,username);
 
         User user = new User(username,password);
 
+        User_role user_role = new User_role(role_id,username);
+
+        employeeDao.insertUserRole(user_role);
         employeeDao.insertUser(user);
         employeeDao.insertEmployee(employee);
 

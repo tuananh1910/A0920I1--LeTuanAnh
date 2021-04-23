@@ -122,14 +122,14 @@
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect03">Division</label>
+                    <label class="input-group-text" for="inputGroupSelect04">Username Role</label>
                 </div>
-                <select class="custom-select" id="inputGroupSelect03" name="division_id">
+                <select class="custom-select" id="inputGroupSelect04" name="role_id">
                     <option selected>Choose...</option>
-                    <option value="1">Sale-Marketing</option>
-                    <option value="2">Hanh Chinh</option>
-                    <option value="3">Phuc Vu</option>
-                    <option value="4">Quan Li</option>
+                    <option value="1">Role A</option>
+                    <option value="2">Role B</option>
+                    <option value="3">Role C</option>
+                    <option value="4">Role D</option>
 
                 </select>
             </div>
@@ -147,6 +147,21 @@
                 </div>
                 <input type="password" class="form-control" id="password" name="password">
             </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="inputGroupSelect03">Division</label>
+                </div>
+                <select class="custom-select" id="inputGroupSelect03" name="division_id">
+                    <option selected>Choose...</option>
+                    <option value="1">Sale-Marketing</option>
+                    <option value="2">Hanh Chinh</option>
+                    <option value="3">Phuc Vu</option>
+                    <option value="4">Quan Li</option>
+
+                </select>
+            </div>
+
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>

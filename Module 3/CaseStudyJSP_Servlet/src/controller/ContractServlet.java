@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(urlPatterns = "/contracts" , name = "contract")
@@ -25,7 +24,42 @@ public class ContractServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String action = req.getParameter("action");
+        if (action==null){
+            action ="";
+        }
+        switch (action){
+            case "create":
+                createContract(req,resp);
+                break;
+            case "edit":
 
+                break;
+            case "delete":
+
+                break;
+            default:
+                listContract(req,resp);
+                break;
+        }
+    }
+
+    private void createContract(HttpServletRequest req, HttpServletResponse resp) {
+        int contract_id = Integer.parseInt(req.getParameter("contract_id"));
+        String contract_start_date = req.getParameter("contract_start_date");
+        String contract_end_date = req.getParameter("contract_end_date");
+        double contract_deposit = Double.parseDouble(req.getParameter("contract_deposit"));
+        double contract_total_money = Double.parseDouble(req.getParameter("contract_total_money"));
+        int employee_id = Integer.parseInt(req.getParameter("employee_id"));
+        int customer_id = Integer.parseInt(req.getParameter("customer_id"));
+        int service_id = Integer.parseInt(req.getParameter("service_id"));
+
+        Contract contract = new Contract(contract_id,contract_start_date,contract_end_date,contract_deposit,contract_total_money,
+                employee_id,customer_id,service_id);
+
+        contractDao.insertContract(contract);
+
+        listContract(req,resp);
     }
 
     @Override

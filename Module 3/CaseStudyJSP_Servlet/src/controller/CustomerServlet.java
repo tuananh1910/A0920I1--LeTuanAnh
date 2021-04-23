@@ -134,8 +134,6 @@ public class CustomerServlet extends HttpServlet {
     private void DeleteCustomer(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("customer_id"));
 
-
-
         RequestDispatcher dispatcher;
 
         try {

@@ -1,6 +1,7 @@
 package dao.impl;
 
 import dao.ICustomerDao;
+import exception.PrintSQLException;
 import model.Customer;
 import model.Customer_Type;
 import untils.ConnectionDB;
@@ -28,21 +29,6 @@ public class CustomerDaoImpl implements ICustomerDao {
     private static final String SELECT_CUSTOMER_TYPE_BY_ID = "Select * from CUSTOMER_TYPE where customer_id = ?";
 
 
-    private void printSQLException(SQLException ex) {
-        for (Throwable e : ex) {
-            if (e instanceof SQLException) {
-                e.printStackTrace(System.err);
-                System.err.println("SQL state : " + ((SQLException) e).getSQLState());
-                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
-                System.err.println("Message: " + e.getMessage());
-                Throwable t = ex.getCause();
-                while (t != null) {
-                    System.out.println("Cause: " + t);
-                    t = t.getCause();
-                }
-            }
-        }
-    }
 
 
     @Override
@@ -64,7 +50,7 @@ public class CustomerDaoImpl implements ICustomerDao {
             System.out.println(statement);
             statement.executeUpdate();
         } catch (SQLException e) {
-            printSQLException(e);
+            PrintSQLException.printSQLException(e);
         } finally {
             try {
                 if (statement != null) {
@@ -108,7 +94,7 @@ public class CustomerDaoImpl implements ICustomerDao {
                     }
             }
         } catch (SQLException e) {
-            printSQLException(e);
+            PrintSQLException.printSQLException(e);
         }
 
         return customer;
@@ -143,7 +129,7 @@ public class CustomerDaoImpl implements ICustomerDao {
                         customer_id_card, customer_phone, customer_emnai, customer_address));
             }
         } catch (SQLException e) {
-            printSQLException(e);
+            PrintSQLException.printSQLException(e);
         }
         return customers;
     }
@@ -175,7 +161,7 @@ public class CustomerDaoImpl implements ICustomerDao {
             rowUpdate = statement.executeUpdate()>0;
 
         } catch (SQLException e) {
-            printSQLException(e);
+            PrintSQLException.printSQLException(e);
         }
         System.out.println(rowUpdate);
         return rowUpdate;
@@ -191,7 +177,7 @@ public class CustomerDaoImpl implements ICustomerDao {
             preparedStatement.setInt(1,id);
             rowDelete = preparedStatement.executeUpdate()>0; // excuteUpdate
         } catch (SQLException e) {
-            printSQLException(e);
+            PrintSQLException.printSQLException(e);
         }
         //System.out.println(rowDelete);
         return rowDelete;
@@ -213,7 +199,7 @@ public class CustomerDaoImpl implements ICustomerDao {
                 list_customer_type.add(new Customer_Type(customer_type_id,customer_type_name));
             }
         } catch (SQLException e) {
-            printSQLException(e);
+            PrintSQLException.printSQLException(e);
         }
         return list_customer_type;
     }
@@ -240,7 +226,7 @@ public class CustomerDaoImpl implements ICustomerDao {
 //                }
 //            }
 //        } catch (SQLException e) {
-//            printSQLException(e);
+//            PrintSQLException.printSQLException(e);
 //        }
 //
 //        return customer_type;

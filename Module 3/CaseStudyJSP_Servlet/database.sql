@@ -61,7 +61,7 @@ create table role(
 );
 
 create table user_role(
-	role_id int primary key auto_increment,
+	role_id int ,
     username varchar(255)
     );
 
@@ -231,6 +231,8 @@ INSERT INTO user_role VALUES ('1', 'Anh');
 INSERT INTO user_role VALUES ('2', 'Ha');
 INSERT INTO user_role VALUES ('3', 'Quan');
 INSERT INTO user_role VALUES ('4', 'Mai');
+INSERT INTO user_role VALUES ('2', 'Tri');
+INSERT INTO user_role VALUES ('2', 'Hue');
 
 INSERT INTO attach_service VALUES ('1', 'massage', '100', '10', 'on');
 INSERT INTO attach_service VALUES ('2', 'karaoke', '200', '20', 'on');

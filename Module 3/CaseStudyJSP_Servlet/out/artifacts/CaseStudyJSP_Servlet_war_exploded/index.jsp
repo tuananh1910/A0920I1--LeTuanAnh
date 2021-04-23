@@ -92,8 +92,10 @@
         </div>
       </nav>
     </div>
-    <div class="section"></div>
-    <div class="main"></div>
+    <div class="section" style="background: white;"></div>
+    <div class="main" style="background: aquamarine;">
+
+    </div>
     <div class="footer"></div>
   </div>
   </div>

@@ -23,6 +23,10 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
+<p>
+    <a href="http://localhost:8080"> Home </a> <br>
+    <a href="/employees?action=customers">List All Customer</a>
+</p>
 <form method="post">
     <fieldset>
         <legend>Fill Information Customer</legend>
