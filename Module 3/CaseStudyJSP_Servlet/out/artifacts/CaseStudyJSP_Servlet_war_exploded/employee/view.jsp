@@ -20,73 +20,79 @@
     <h1>Details Employee</h1>
     <p>
         <a href="http://localhost:8080" class="badge badge-light">Home</a> <br>
-        <a href="/employees?action=create" class="badge badge-light">Add New Empoyee</a><br>
-        <a href="employees?action=employees" class="badge badge-light">Back To List</a>
+
+        <a href="/employees?action=create" class="badge badge-light">Add New Employee</a>
+        <a href="/employees?action=employees "class="badge badge-light">Back To List</a>
     </p>
-    <table class="table table-dark">
-
-        <tr>
-            <td scope="col">ID</td>
-            <td scope="row"><c:out value="${employee.employee_id}"/></td>
-        </tr>
-        <tr>
-            <td scope="col">Name</td>
-            <td scope="col"><c:out value="${employee.employee_name}"/></td>
-
-        </tr>
-        <tr>
-            <td scope="col">Birthday</td>
-            <td scope="col"><c:out value="${employee.employee_birthday}"/></td>
-
-        </tr>
-        <tr>
-            <td scope="col">ID Card</td>
-            <td scope="col"><c:out value="${employee.employee_id_card}"/></td>
-
-        </tr>
-        <tr>
-            <td scope="col">Salary</td>
-            <td scope="col"><c:out value="${employee.employee_salary}"/></td>
-
-        </tr>
-        <tr>
-            <td scope="col">Phone</td>
-            <td scope="col"><c:out value="${employee.employee_phone}"/></td>
-
-        </tr>
-        <tr>
-            <td scope="col">Email</td>
-            <td scope="col"><c:out value="${employee.employee_email}"/></td>
-
-        </tr>
-        <tr>
-            <td scope="col">Address</td>
-            <td scope="col"><c:out value="${employee.employee_address}"/></td>
-
-        </tr>
-        <tr>
-            <td scope="col">Position ID</td>
-            <td scope="col"><c:out value="${employee.position_id}"/></td>
-
-        </tr>
-        <tr>
-            <td scope="col">Education Degree ID</td>
-            <td scope="col"><c:out value="${employee.education_degree_id}"/></td>
-
-        </tr>
-        <tr>
-            <td scope="col">Division ID</td>
-            <td scope="col"><c:out value="${employee.division_id}"/></td>
-
-        </tr>
-        <tr>
-            <td scope="col">Username</td>
-            <td scope="col"><c:out value="${employee.username}"/></td>
-
-        </tr>
 
 
-    </table>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <div class="container bootdey flex-grow-1 container-p-y">
+
+        <div class="media align-items-center py-3 mb-3" >
+            <div class="media-body ml-4">
+                <a href="/employees?action=edit" class="btn btn-primary btn-sm" >Edit</a>&nbsp;
+                <a href="/employees?action=Delete" class="btn btn-default btn-sm">Delete</a>&nbsp;
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <table class="table user-view-table m-0">
+                    <tbody>
+                    <tr>
+                        <td>ID :</td>
+                        <td><c:out value="${employee.employee_id}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Name:</td>
+                        <td><c:out value="${employee.employee_name}"/></td>
+                    </tr>
+                    <tr>
+                        <td>BithDay :</td>
+                        <td><c:out value="${employee.employee_birthday}"/></td>
+                    </tr>
+                    <tr>
+                        <td>ID Card</td>
+                        <td><c:out value="${employee.employee_id_card}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Salary:</td>
+                        <td><c:out value="${employee.employee_salary}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td><c:out value="${employee.employee_phone}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><c:out value="${employee.employee_email}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Address : </td>
+                        <td><c:out value="${employee.employee_address}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Position ID: </td>
+                        <td><c:out value="${employee.position_id}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Education Degree ID: </td>
+                        <td><c:out value="${employee.education_degree_id}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Division ID: </td>
+                        <td><c:out value="${employee.division_id}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Username: </td>
+                        <td><c:out value="${employee.username}"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

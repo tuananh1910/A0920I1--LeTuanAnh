@@ -155,13 +155,45 @@ public class ContractDaoImpl implements IContractDao {
 
     @Override
     public boolean updateContract(Contract contract) {
-        return false;
+        boolean rowUpdate=false;               //!!!!!!
+        Connection connection;
+        PreparedStatement statement;
+
+        try {
+            connection = ConnectionDB.getConnection();
+            statement = connection.prepareStatement(UPDATE_CONTRACT);
+//            System.out.println(customer.getCustomer_id());
+            statement.setString(1, contract.getContract_start_date());
+            statement.setString(2, contract.getContract_end_date());
+            statement.setDouble(3, contract.getContract_deposit());
+
+            statement.setDouble(4, contract.getContract_total_money());
+
+
+            statement.setInt(5, contract.getEmployee_id());
+            statement.setInt(6, contract.getCustomer_id());
+            statement.setInt(7, contract.getService_id());
+            statement.setInt(8, contract.getContract_id());
+
+            System.out.println(statement.executeUpdate());
+            rowUpdate = statement.executeUpdate()>0;
+
+        } catch (SQLException e) {
+            PrintSQLException.printSQLException(e);
+        }
+        System.out.println(rowUpdate);
+        return rowUpdate;
+
     }
 
     @Override
     public boolean deleteContract(int id) {
         return false;
     }
+
+
+
+
 
     @Override
     public boolean deleteContractByCustomerID(int customer_id) {

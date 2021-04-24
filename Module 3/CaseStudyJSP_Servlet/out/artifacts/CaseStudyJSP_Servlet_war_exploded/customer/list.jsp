@@ -34,6 +34,7 @@
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
             <th scope="col">Address</th>
+            <th scope="col">Details</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
         </tr>
@@ -50,6 +51,7 @@
                 <td><c:out value="${customers.customer_phone}"/></td>
                 <td><c:out value="${customers.customer_email}"/></td>
                 <td><c:out value="${customers.customer_address}"/></td>
+                <td><a href="/customers?action=details&id=${customers.customer_id}">Details</a> </td>
                 <td><a href="/customers?action=edit&id=${customers.customer_id}">Edit</a></td>
                 <td><a href="/customers?action=delete&id=${customers.customer_id}">Delete</a></td>
             </tr>

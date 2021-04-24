@@ -35,7 +35,7 @@ public class ContractServlet extends HttpServlet {
                 createContract(req,resp);
                 break;
             case "edit":
-
+                updateContract(req,resp);
                 break;
             case "delete":
 
@@ -47,6 +47,11 @@ public class ContractServlet extends HttpServlet {
                 listContract(req,resp);
                 break;
         }
+    }
+
+    private void updateContract(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        
     }
 
     private void AddContractDetails(HttpServletRequest req, HttpServletResponse resp) {
@@ -97,10 +102,10 @@ public class ContractServlet extends HttpServlet {
 
                 break;
             case "edit":
-
+                
                 break;
             case "delete":
-
+                
                 break;
             case "contract_details":
                 showContractDetailsForm(req,resp);

@@ -44,9 +44,26 @@ public class CustomerServlet extends HttpServlet {
             case "delete":
                 showDeleteForm(req,resp);
                 break;
+            case "details":
+                details(req,resp);
+                break;
             default:
                 listCustomer(req,resp);
                 break;
+        }
+    }
+
+    private void details(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        Customer customer = customerDao.getCustomer(id);
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("customer/view.jsp");
+        req.setAttribute("customer",customer);
+
+        try {
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
         }
     }
 

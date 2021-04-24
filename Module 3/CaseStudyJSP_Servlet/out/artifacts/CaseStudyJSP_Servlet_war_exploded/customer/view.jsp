@@ -25,46 +25,63 @@
         <a href="customers?action=customers "class="badge badge-light">Back To List</a>
     </p>
 
-    <table class="table table-dark">
-        <thead>
-        <tr>
-            <td scope="row">ID</td>
-            <td scope="row"><c:out value="${customer.customer_id}"/></td>
-        </tr>
-        <tr>
-            <td scope="row">Type id</td>
-            <td scope="row"><c:out value="${customer.customer_type_id}"/></td>
-        </tr>
-        <tr>
-            <td scope="row">Name</td>
-            <td scope="row"><c:out value="${customer.customer_name}"/></td>
-        </tr>
-        <tr>
-            <td scope="row">Birthday</td>
-            <td><c:out value="${customer.customer_birthday}"/></td>
-        </tr>
-        <tr>
-            <td scope="row">Gender</td>
-            <td scope="row"><c:out value="${customer.customer_gender}"/></td>
-        </tr>
-        <tr>
-            <td scope="row">ID Card</td>
-            <td scope="row"><c:out value="${customer.customer_id_card}"/></td>
-        </tr>
-        <tr>
-            <td scope="row">Phone</td>
-            <td scope="row"><c:out value="${customer.customer_phone}"/></td>
-        </tr>
-        <tr>
-            <td scope="row">Email</td>
-            <td scope="row"><c:out value="${customer.customer_email}"/></td>
-        </tr>
-        <tr>
-            <td scope="row">Address</td>
-            <td scope="row"><c:out value="${customer.customer_address}"/></td>
-        </tr>
 
-    </table>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <div class="container bootdey flex-grow-1 container-p-y">
+
+        <div class="media align-items-center py-3 mb-3" >
+            <div class="media-body ml-4">
+                <a href="/customers?action=edit" class="btn btn-primary btn-sm" >Edit</a>&nbsp;
+                <a href="/customers?action=Delete" class="btn btn-default btn-sm">Delete</a>&nbsp;
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <table class="table user-view-table m-0">
+                    <tbody>
+                    <tr>
+                        <td>ID :</td>
+                        <td><c:out value="${customer.customer_id}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Type ID:</td>
+                        <td><c:out value="${customer.customer_type_id}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Name :</td>
+                        <td><c:out value="${customer.customer_name}"/></td>
+                    </tr>
+                    <tr>
+                        <td>BirhDay</td>
+                        <td><c:out value="${customer.customer_birthday}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Gender:</td>
+                        <td><c:out value="${customer.customer_gender}"/></td>
+                    </tr>
+                    <tr>
+                        <td>ID Card:</td>
+                        <td><c:out value="${customer.customer_id_card}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Phone:</td>
+                        <td><c:out value="${customer.customer_phone}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Email : </td>
+                        <td><c:out value="${customer.customer_email}"/></td>
+                    </tr>
+                    <tr>
+                        <td>Address: </td>
+                        <td><c:out value="${customer.customer_address}"/></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

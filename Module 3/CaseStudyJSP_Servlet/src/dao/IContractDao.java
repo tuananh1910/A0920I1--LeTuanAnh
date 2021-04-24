@@ -3,7 +3,6 @@ package dao;
 import model.Attach_service;
 import model.Contract;
 import model.Contract_details;
-import model.Service;
 
 import java.util.List;
 
