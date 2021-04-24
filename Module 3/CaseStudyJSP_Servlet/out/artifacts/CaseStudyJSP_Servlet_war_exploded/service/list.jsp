@@ -57,6 +57,7 @@
                 <td><c:out value="${services.pool_area}"/></td>
                 <td><c:out value="${services.number_of_floors}"/></td>
 
+
                 <td><a href="/employees?action=edit&id=${services.service_id}">Edit</a></td>
                 <td><a href="/employees?action=delete&id=${services.service_id}">Delete</a></td>
             </tr>

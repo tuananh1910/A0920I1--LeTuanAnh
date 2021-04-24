@@ -2,8 +2,10 @@ package dao.impl;
 
 import exception.PrintSQLException;
 import dao.IContractDao;
+import model.Attach_service;
 import model.Contract;
 
+import model.Contract_details;
 import untils.ConnectionDB;
 
 import java.sql.Connection;
@@ -12,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class ContractDaoImpl implements IContractDao {
     private static final String INSERT_CONTRACT_SQL = "Insert into CONTRACT(contract_start_day, contract_end_day," +
@@ -23,6 +26,11 @@ public class ContractDaoImpl implements IContractDao {
     private static final String UPDATE_CONTRACT = "Update CONTRACT set contract_start_day=? , contract_end_day = ?, contract_deposit = ?, " +
             "contract_total_money = ?, employee_id = ?, customer_id = ?,service_id = ? where contract_id = ?"; //8 value
 
+    //contract details
+    private static final String INSERT_CONTRACT_DETAILS_SQL = "Insert into CONTRACT_DETAILS (contract_id," +
+            "attach_service_id, quality) values (?,?,?)";
+    //attach service
+//    private static final String SELECT_ATTACH_SERVICE_NAME ="Select attach_service_name from ATTACH_SERVICE where attach_service_id=?";
     @Override
     public void insertContract(Contract contract) {
         Connection connection = null;
@@ -154,4 +162,66 @@ public class ContractDaoImpl implements IContractDao {
     public boolean deleteContract(int id) {
         return false;
     }
+
+    @Override
+    public void insertContractDetails(Contract_details contract_details) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = ConnectionDB.getConnection();
+            statement = connection.prepareStatement(INSERT_CONTRACT_DETAILS_SQL);
+
+            statement.setInt(1,contract_details.getContrac_id());
+            statement.setInt(2,contract_details.getAttach_service_id());
+            statement.setInt(3,contract_details.getQuality());
+
+            System.out.println(statement);
+            statement.executeUpdate();
+        }catch (SQLException e){
+            PrintSQLException.printSQLException(e);
+        }finally {
+            try{
+                if (connection!=null){
+                    connection.close();
+                }if (statement!=null){
+                    statement.close();
+                }
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
+        }
+    }
+
+//    @Override
+//    public String getAttachServiceName(int attach_service_id) {
+//        String attach_service_name = "";
+//        Connection connection = null;
+//        PreparedStatement statement = null;
+//        try {
+//            connection = ConnectionDB.getConnection();
+//            statement = connection.prepareStatement(SELECT_ATTACH_SERVICE_NAME);
+//
+//            statement.setInt(1,attach_service_id);
+//            System.out.println(statement);
+//
+//            ResultSet resultSet = statement.executeQuery();
+//            while (resultSet.next()){
+//                attach_service_name = resultSet.getString("attach_service_name");
+//                System.out.println(attach_service_name);
+//            }
+//        }catch (SQLException e){
+//            PrintSQLException.printSQLException(e);
+//        }finally {
+//            try {
+//                if (connection!=null){
+//                    connection.close();
+//                }if (statement!=null){
+//                    statement.close();
+//                }
+//            }catch (Exception ex){
+//                ex.printStackTrace();
+//            }
+//        }
+//        return attach_service_name;
+//    }
 }

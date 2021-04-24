@@ -28,7 +28,7 @@
 </p>
 <form method="post">
     <fieldset>
-        <legend>Fill Information Contract</legend>
+        <legend>Fill In Contract Information</legend>
 
         <div class="form" style="width: 50%">
 

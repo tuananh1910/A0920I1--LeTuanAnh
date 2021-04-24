@@ -39,9 +39,26 @@ public class EmployeeServlet extends HttpServlet {
             case "delete":
                 showDeleteForm(req,resp);
                 break;
+            case "views":
+                showviewForm(req,resp);
+                break;
             default:
                 listEmployee(req,resp);
                 break;
+        }
+    }
+
+    private void showviewForm(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+        Employee employee = employeeDao.getEmployee(id);
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("employee/view.jsp");
+        req.setAttribute("employee", employee);
+
+        try{
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
         }
     }
 
@@ -156,22 +173,17 @@ public class EmployeeServlet extends HttpServlet {
         int position_id = Integer.parseInt(req.getParameter("position_id"));
         int education_degree_id = Integer.parseInt(req.getParameter("education_degree_id"));
         int division_id = Integer.parseInt(req.getParameter("division_id"));
-        String username = req.getParameter("username");
 
-        // FK role - user role - user
-        Employee employee = employeeDao.getEmployee(id);
-        String old_username = employee.getUsername();
 
 
         Employee update_employee = new Employee(id,employee_name,employee_birthday,employee_id_card
         ,employee_salary,employee_phone,employee_email,employee_address,position_id,
-                education_degree_id,division_id,username);
+                education_degree_id,division_id);
 
         RequestDispatcher dispatcher ;
         try {
-            if (employeeDao.updateUser(username,old_username)){
-                employeeDao.updateEmployee(update_employee);
-                employeeDao.updateUserRole(username,old_username);
+            if (employeeDao.updateEmployee(update_employee)){
+
                 dispatcher = req.getRequestDispatcher("employee/update.jsp");
                 req.setAttribute("message","Succesful");
             }else {

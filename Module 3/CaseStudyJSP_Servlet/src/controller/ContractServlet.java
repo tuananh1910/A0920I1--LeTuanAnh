@@ -3,6 +3,7 @@ package controller;
 import dao.IContractDao;
 import dao.impl.ContractDaoImpl;
 import model.Contract;
+import model.Contract_details;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,9 +39,32 @@ public class ContractServlet extends HttpServlet {
             case "delete":
 
                 break;
+            case "contract_details":
+                AddContractDetails(req,resp);
+                break;
             default:
                 listContract(req,resp);
                 break;
+        }
+    }
+
+    private void AddContractDetails(HttpServletRequest req, HttpServletResponse resp) {
+        int contract_id = Integer.getInteger(req.getParameter("contract_id"));
+
+        int attach_service_id = Integer.parseInt(req.getParameter("attach_serivce_id"));
+        int quality =Integer.parseInt(req.getParameter("quality"));
+
+        Contract_details contract_details = new Contract_details(contract_id,attach_service_id,quality);
+        contractDao.insertContractDetails(contract_details);
+
+
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("contract_details/create.jsp");
+        req.setAttribute("message","Succeful");
+        try {
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
         }
     }
 
@@ -78,10 +102,28 @@ public class ContractServlet extends HttpServlet {
             case "delete":
 
                 break;
+            case "contract_details":
+                showContractDetailsForm(req,resp);
+                break;
             default:
                 listContract(req,resp);
                 break;
         }
+    }
+
+    private void showContractDetailsForm(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+
+        RequestDispatcher dispatcher= req.getRequestDispatcher("contract_details/create.jsp");
+
+        req.setAttribute("id", id);
+
+        try{
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
+        }
+
     }
 
     private void listContract(HttpServletRequest req, HttpServletResponse resp) {

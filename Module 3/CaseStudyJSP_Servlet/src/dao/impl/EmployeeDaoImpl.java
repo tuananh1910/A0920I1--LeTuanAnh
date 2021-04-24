@@ -27,8 +27,6 @@ public class EmployeeDaoImpl implements IEmployeeDao {
     // user
     private static final String INSERT_USER_SQL = "Insert into USER values (?,?)";
     private static final String DELETE_USER_SQL = "Delete * from USER where username =?";
-    private static final String SELECT_USER_BY_USERNAME = "Select * from USER where username=?";
-    private static final String UPDATE_USER = "Update USER set username = ? where username=?"; // can them dieu kien de set username
     //position
     private static final String SELECT_POSITIONS = "Select * from POSITIONS where position_id = ?";
     // education degree
@@ -38,7 +36,6 @@ public class EmployeeDaoImpl implements IEmployeeDao {
     //user role
     private static final String INSERT_USER_ROLE_SQL = "Insert into USER_ROLE value(?,?)";
     private static final String DELETE_USER_ROLE_SQL = "Delete * from USER_ROLE where username=?";
-    private static final String UPDATE_USER_ROLE_SQL = "Update USER_ROLE set username=? where username=?";
     //role
 //    private static final String INSERT_ROLE_SQL = "Insert into ROLE value (?,?)";
 
@@ -313,59 +310,19 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 
         } catch (SQLException e) {
             PrintSQLException.printSQLException(e);
+        }finally {
+            try {
+                if (connection!=null){
+                    connection.close();
+                }if (statement!=null){
+                    statement.close();
+                }
+            }catch (SQLException e){
+                PrintSQLException.printSQLException(e);
+            }
         }
     }
 
-    @Override
-    public boolean deleteUser(String username, String old_username) {
-        boolean rowDelete = false;
-        try (Connection connection = ConnectionDB.getConnection();
-             PreparedStatement statement = connection.prepareStatement(DELETE_USER_SQL);) {
-            statement.setString(1, username);
-
-            System.out.println(statement);
-            rowDelete = statement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            PrintSQLException.printSQLException(e);
-        }
-        return rowDelete;
-    }
-
-    @Override
-    public User getUser(String username) {
-        User user = null;
-        Connection connection = null;
-        PreparedStatement statement = null;
-//        try {
-//            connection = ConnectionDB.getConnection();
-//            statement = connection.prepareStatement()
-//        }
-        return user;
-    }
-
-    @Override
-    public boolean updateUser(String username, String old_username) {
-        boolean rowUpdate = false;
-        Connection connection;
-        PreparedStatement statement;
-
-        try {
-            connection = ConnectionDB.getConnection();
-            statement = connection.prepareStatement(UPDATE_USER);
-//            System.out.println(customer.getCustomer_id());
-            statement.setString(1,username);
-            statement.setString(2,old_username);
-
-            System.out.println(statement);
-
-            rowUpdate = statement.executeUpdate() > 0;
-
-        } catch (SQLException e) {
-            PrintSQLException.printSQLException(e);
-        }
-        System.out.println(rowUpdate);
-        return rowUpdate;
-    }
 
     //user_role
     @Override
@@ -398,49 +355,5 @@ public class EmployeeDaoImpl implements IEmployeeDao {
         }
     }
 
-    @Override
-    public boolean deleteUserRole(String username, String old_username) {
-        boolean rowDelete = false;
-        try (Connection connection = ConnectionDB.getConnection();
-             PreparedStatement statement = connection.prepareStatement(DELETE_USER_ROLE_SQL);) {
-
-            statement.setString(1, username);
-            statement.setString(2,old_username);
-
-            System.out.println(statement);
-            rowDelete = statement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            PrintSQLException.printSQLException(e);
-        }
-        return rowDelete;
-    }
-
-    @Override
-    public User_role getUserRole(String username) {
-        return null;
-    }
-
-    @Override
-    public boolean updateUserRole(String username, String old_username) {
-        boolean rowUpdate = false;      //!!!!!!
-        Connection connection;
-        PreparedStatement statement;
-
-        try {
-            connection = ConnectionDB.getConnection();
-            statement = connection.prepareStatement(UPDATE_USER_ROLE_SQL);
-//            System.out.println(customer.getCustomer_id());
-            statement.setString(1,username);
-            statement.setString(2,old_username);
-
-            System.out.println(statement);
-            rowUpdate = statement.executeUpdate() > 0;
-
-        } catch (SQLException e) {
-            PrintSQLException.printSQLException(e);
-        }
-        System.out.println(rowUpdate);
-        return rowUpdate;
-    }
 
 }

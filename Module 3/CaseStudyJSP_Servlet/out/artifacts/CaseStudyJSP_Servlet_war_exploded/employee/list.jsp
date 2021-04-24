@@ -37,6 +37,7 @@
             <th scope="col">Education Degree ID</th>
             <th scope="col">Division ID</th>
             <th scope="col">Username</th>
+            <th scope="col">Details</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
         </tr>
@@ -56,6 +57,7 @@
                 <td><c:out value="${employees.education_degree_id}"/></td>
                 <td><c:out value="${employees.division_id}"/></td>
                 <td><c:out value="${employees.username}"/></td>
+                <td><a href="employees?action=views&id=${employees.employee_id}">Details</a> </td>
                 <td><a href="/employees?action=edit&id=${employees.employee_id}">Edit</a></td>
                 <td><a href="/employees?action=delete&id=${employees.employee_id}">Delete</a></td>
             </tr>

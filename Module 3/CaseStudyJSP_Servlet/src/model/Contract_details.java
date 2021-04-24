@@ -14,6 +14,13 @@ public class Contract_details {
     }
     public Contract_details(){}
 
+    public Contract_details( int contrac_id, int attach_service_id, int quality) {
+
+        this.contrac_id = contrac_id;
+        this.attach_service_id = attach_service_id;
+        this.quality = quality;
+    }
+
     public int getContract_deteails_id() {
         return contract_deteails_id;
     }

@@ -139,12 +139,7 @@
                 </td>
             </tr>
 
-            <tr>
-                <td>Username :</td>
-                <td>
-                    <input type="text" name="username" value="<c:out value="${employee.username}"/>">
-                </td>
-            </tr>
+
 
             <tr>
                 <td></td>
