@@ -34,6 +34,7 @@
             <th scope="col">Employee ID</th>
             <th scope="col">Customer ID</th>
             <th scope="col">Service ID</th>
+            <th scope="col">Details</th>
             <th scope="col">Add Contract Details</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
@@ -50,7 +51,7 @@
                 <td><c:out value="${contracts.employee_id}"/></td>
                 <td><c:out value="${contracts.customer_id}"/></td>
                 <td><c:out value="${contracts.service_id}"/></td>
-
+                <td><a href="/contracts?action=details&id=${contracts.contract_id}">Details</a> </td>
                 <td><a href="/contracts?action=contract_details&id=${contracts.contract_id}">Add Contract Details</a> </td>
                 <td><a href="/contracts?action=edit&id=${contracts.contract_id}">Edit</a></td>
                 <td><a href="/contracts?action=delete&id=${contracts.contract_id}">Delete</a></td>

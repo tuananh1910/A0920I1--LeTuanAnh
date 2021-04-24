@@ -1,7 +1,10 @@
 package controller;
 
+import dao.IContractDao;
 import dao.ICustomerDao;
+import dao.impl.ContractDaoImpl;
 import dao.impl.CustomerDaoImpl;
+import model.Contract;
 import model.Customer;
 import model.Customer_Type;
 
@@ -17,10 +20,12 @@ import java.util.List;
 @WebServlet(urlPatterns ="/customers",name = "customer")
 public class CustomerServlet extends HttpServlet {
     private ICustomerDao customerDao;
+    private IContractDao contractDao;
 
     @Override
     public void init() {
         customerDao=new CustomerDaoImpl();
+        contractDao = new ContractDaoImpl();
     }
 
     @Override
@@ -138,6 +143,9 @@ public class CustomerServlet extends HttpServlet {
 
         try {
             if (customerDao.deleteCustomer(id)){
+                contractDao.deleteContractByCustomerID(id);
+                Contract contract = contractDao.getContract(id);
+                contractDao.deleteContratDetailsByContractID(contract.getContract_id());
                 dispatcher =req.getRequestDispatcher("customer/delete.jsp");
                 req.setAttribute("message" ,"Customer was Deleted");
             }else {

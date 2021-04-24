@@ -2,6 +2,7 @@ package controller;
 
 import dao.IContractDao;
 import dao.impl.ContractDaoImpl;
+import model.Attach_service;
 import model.Contract;
 import model.Contract_details;
 
@@ -19,7 +20,7 @@ public class ContractServlet extends HttpServlet {
     private IContractDao contractDao;
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
         contractDao = new ContractDaoImpl();
     }
 
@@ -56,7 +57,6 @@ public class ContractServlet extends HttpServlet {
 
         Contract_details contract_details = new Contract_details(contract_id,attach_service_id,quality);
         contractDao.insertContractDetails(contract_details);
-
 
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("contract_details/create.jsp");
@@ -105,9 +105,34 @@ public class ContractServlet extends HttpServlet {
             case "contract_details":
                 showContractDetailsForm(req,resp);
                 break;
+            case "details":
+                details(req,resp);
+                break;
             default:
                 listContract(req,resp);
                 break;
+        }
+    }
+
+    private void details(HttpServletRequest req, HttpServletResponse resp) {
+        int id = Integer.parseInt(req.getParameter("id"));
+
+        Contract contract = contractDao.getContract(id);
+
+        Contract_details contract_details = contractDao.getContracDetails(id);
+
+        Attach_service attach_service = contractDao.getAttachService(contract_details.getAttach_service_id());
+
+        RequestDispatcher  dispatcher = req.getRequestDispatcher("contract/view.jsp");
+
+        req.setAttribute("contract",contract);
+        req.setAttribute("contract_details", contract_details);
+        req.setAttribute("attach_service",attach_service);
+
+        try {
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
         }
     }
 

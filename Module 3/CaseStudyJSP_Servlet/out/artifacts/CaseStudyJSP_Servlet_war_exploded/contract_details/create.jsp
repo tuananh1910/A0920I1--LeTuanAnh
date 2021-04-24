@@ -29,6 +29,13 @@
     <a href="http://localhost:8080"> Home </a> <br>
     <a href="/employees?action=contracts">List All Contracts</a>
 </p>
+<p>
+<p>
+    <c:if test="${requestScope['message']!= null}}">
+        <span>${requestScope['message']}</span>
+    </c:if>
+</p>
+</p>
 <form method="post">
     <fieldset>
         <legend>Fill in contract details</legend>
