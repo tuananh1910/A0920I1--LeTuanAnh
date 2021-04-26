@@ -32,19 +32,20 @@
 
         <div class="form" style="width: 50%">
 
+
             <%--     contract_start_date--%>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="contract_start_date">Contract Start Date</label>
                 </div>
-                <input type="text" class="form-control" id="contract_start_date" name="contract_start_date">
+                <input type="date" class="form-control" id="contract_start_date" name="contract_start_date" placeholder="2000-10-10">
             </div>
             <%--      contract_end_date--%>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="contract_end_date">Contract End Date</label>
                 </div>
-                <input type="text" class="form-control" id="contract_end_date" name="contract_end_date">
+                <input type="date" class="form-control" id="contract_end_date" name="contract_end_date" placeholder="2000-10-10">
             </div>
 
             <%--            contract_deposit--%>

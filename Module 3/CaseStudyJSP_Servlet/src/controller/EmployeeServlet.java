@@ -89,6 +89,13 @@ public class EmployeeServlet extends HttpServlet {
         Employee employee = employeeDao.getEmployee(id);
         req.setAttribute("employee" , employee);
 
+        Position position = employeeDao.getPosition(employee.getPosition_id());
+        Education_Degree education_degree= employeeDao.getEducationDegree(employee.getEducation_degree_id());
+        Division division = employeeDao.getDivision(employee.getDivision_id());
+
+        req.setAttribute("position", position);
+        req.setAttribute("education_degree", education_degree);
+        req.setAttribute("division", division);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("employee/update.jsp");
 
@@ -173,12 +180,13 @@ public class EmployeeServlet extends HttpServlet {
         int position_id = Integer.parseInt(req.getParameter("position_id"));
         int education_degree_id = Integer.parseInt(req.getParameter("education_degree_id"));
         int division_id = Integer.parseInt(req.getParameter("division_id"));
+        String username =req.getParameter("username");
 
 
 
         Employee update_employee = new Employee(id,employee_name,employee_birthday,employee_id_card
         ,employee_salary,employee_phone,employee_email,employee_address,position_id,
-                education_degree_id,division_id);
+                education_degree_id,division_id,username);
 
         RequestDispatcher dispatcher ;
         try {

@@ -80,8 +80,8 @@ public class ContractServlet extends HttpServlet {
         double contract_deposit = Double.parseDouble(req.getParameter("contract_deposit"));
         double contract_total_money = Double.parseDouble(req.getParameter("contract_total_money"));
         int employee_id = Integer.parseInt(req.getParameter("employee_id"));
-        int customer_id = Integer.parseInt(req.getParameter("customer_id"));
-        int service_id = Integer.parseInt(req.getParameter("service_id"));
+        String customer_id = req.getParameter("customer_id");
+        String service_id =req.getParameter("service_id");
 
         Contract contract = new Contract(contract_id,contract_start_date,contract_end_date,contract_deposit,contract_total_money,
                 employee_id,customer_id,service_id);

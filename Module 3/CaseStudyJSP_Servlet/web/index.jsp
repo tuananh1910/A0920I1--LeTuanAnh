@@ -9,11 +9,14 @@
 <html>
   <head>
     <title>Home</title>
-    <link rel="stylesheet" href="css.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css.css">
   </head>
   <body style="background: gray">
   <div class="contain">
@@ -92,11 +95,47 @@
         </div>
       </nav>
     </div>
-    <div class="section" style="background: white;"></div>
+    <div class="section" style="background: whitesmoke;">
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+
+
+
+
+      </ul>
+    </div>
     <div class="main" style="background: aquamarine;">
 
     </div>
-    <div class="footer"></div>
+    <div class="footer" style="font-size: 10px;">
+
+        <div class="splitter"></div>
+        <div class="bar">
+          <div class="bar-wrap" >
+
+              <a href="#">Home</a>
+              <a href="#">License</a>
+              <a href="#">Contact Us</a>
+              <a href="#">Advertise</a>
+              <a href="#">About</a>
+
+
+            <div class="social">
+              <!-- social icons are here -->
+            </div>
+            <div class="clear"></div>
+            <div class="copyright">&copy;  2014 All Rights Reserved</div>
+          </div>
+        </div>
+
+    </div>
   </div>
   </div>
   </body>

@@ -1,5 +1,6 @@
 package controller;
 
+import com.mysql.cj.exceptions.ClosedOnExpiredPasswordException;
 import dao.IContractDao;
 import dao.ICustomerDao;
 import dao.impl.ContractDaoImpl;
@@ -54,7 +55,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void details(HttpServletRequest req, HttpServletResponse resp) {
-        int id = Integer.parseInt(req.getParameter("id"));
+        String id = req.getParameter("id");
         Customer customer = customerDao.getCustomer(id);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("customer/view.jsp");
@@ -80,7 +81,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void showDeleteForm(HttpServletRequest req, HttpServletResponse resp) {
-        int id  = Integer.parseInt(req.getParameter("id"));
+        String id = req.getParameter("id");
         Customer customer = customerDao.getCustomer(id);
         RequestDispatcher dispatcher = req.getRequestDispatcher("customer/delete.jsp");
         req.setAttribute("customer", customer);
@@ -92,10 +93,12 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void showEditForm(HttpServletRequest req, HttpServletResponse resp) {
-        int id = Integer.parseInt(req.getParameter("id"));
+        String id = req.getParameter("id");
         Customer customer = customerDao.getCustomer(id);
+        Customer_Type customer_type = customerDao.getCustomerType(customer.getCustomer_type_id());
         RequestDispatcher dispatcher = req.getRequestDispatcher("customer/update.jsp");
         req.setAttribute("customer", customer);
+        req.setAttribute("customer_type", customer_type);
         try {
             dispatcher.forward(req,resp);
         }catch (ServletException|IOException e){
@@ -136,16 +139,18 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void createCustomer(HttpServletRequest req, HttpServletResponse resp) {
+        String customer_id = req.getParameter("customer_id");
         int customer_type_id = Integer.parseInt(req.getParameter("customer_type_id"));
         String customer_name = req.getParameter("customer_name");
         String customer_birthday = req.getParameter("customer_birthday");
+        System.out.println(customer_birthday);
         String customer_gender = req.getParameter("customer_gender");
         String customer_id_card = req.getParameter("customer_id_card");
         String customer_phone = req.getParameter("customer_phone");
         String customer_email = req.getParameter("customer_email");
         String customer_address = req.getParameter("customer_address");
 
-        Customer customer = new Customer(customer_type_id,customer_name,customer_birthday
+        Customer customer = new Customer(customer_id,customer_type_id,customer_name,customer_birthday
         ,customer_gender,customer_id_card,customer_phone,customer_email,customer_address);
 
         customerDao.insertCustomer(customer);
@@ -154,15 +159,20 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void DeleteCustomer(HttpServletRequest req, HttpServletResponse resp) {
-        int id = Integer.parseInt(req.getParameter("customer_id"));
+        String id = req.getParameter("customer_id");
 
         RequestDispatcher dispatcher;
-
+        Contract contract = contractDao.getContractByCustomerId(id);
+        List<Contract> contractList = contractDao.getAllContract();
         try {
             if (customerDao.deleteCustomer(id)){
-                contractDao.deleteContractByCustomerID(id);
-                Contract contract = contractDao.getContract(id);
-                contractDao.deleteContratDetailsByContractID(contract.getContract_id());
+                for (Contract value : contractList){
+                    if (value.getCustomer_id().equals(id)){
+                        contractDao.deleteContractByCustomerID(id);
+                        contractDao.deleteContratDetailsByContractID(contract.getContract_id());
+                    }
+                }
+
                 dispatcher =req.getRequestDispatcher("customer/delete.jsp");
                 req.setAttribute("message" ,"Customer was Deleted");
             }else {
@@ -176,8 +186,11 @@ public class CustomerServlet extends HttpServlet {
 
     private void UpdateCustomer(HttpServletRequest req, HttpServletResponse resp) {
 
-        String customer_type_name = req.getParameter("customer_type");
-        int customer_type_id = 0;
+        String id = req.getParameter("customer_id");
+        int customer_type_id = Integer.parseInt(req.getParameter("customer_type_id"));
+
+
+
         String customer_name = req.getParameter("customer_name");
         String customer_birthday = req.getParameter("customer_birthday");
 
@@ -189,21 +202,13 @@ public class CustomerServlet extends HttpServlet {
         String customer_email = req.getParameter("customer_email");
         String customer_address = req.getParameter("customer_address");
 
-        List<Customer_Type> customer_types = customerDao.getAllCustomerType();
-        for (Customer_Type value : customer_types){
-            System.out.println(value.getCustomer_type_name());
-            if (value.getCustomer_type_name().equals(customer_type_name)){
-                customer_type_id = value.getCustomer_type_id();
-                break;
-            }
-        }
 
-        Customer customer = new Customer(customer_type_id,customer_name,customer_birthday
+        Customer customer = new Customer(id,customer_type_id,customer_name,customer_birthday
         ,customer_gender,customer_id_card,customer_phone,customer_email,customer_address);
 
         RequestDispatcher dispatcher;
         try {
-            if (customerDao.upodateCustomer(customer)){
+            if (customerDao.updateCustomer(customer)){
                 dispatcher =  req.getRequestDispatcher("customer/update.jsp");
                     req.setAttribute("message", "Successful");
             }else {

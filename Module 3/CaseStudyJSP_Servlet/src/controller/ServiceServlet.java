@@ -2,7 +2,9 @@ package controller;
 
 import dao.IServiceDao;
 import dao.impl.ServiceDaoImpl;
+import model.Rent_type;
 import model.Service;
+import model.Service_type;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,9 +36,31 @@ public class ServiceServlet extends HttpServlet {
                 break;
             case "delete":
                 break;
+            case "details":
+                details(req,resp);
+                break;
             default:
                 listService(req,resp);
                 break;
+        }
+    }
+
+    private void details(HttpServletRequest req, HttpServletResponse resp) {
+        String id = req.getParameter("id");
+        Service service = serviceDao.getService(id);
+
+        Service_type service_type = serviceDao.getServiceType(service.getService_type_id()) ;
+        Rent_type rent_type = serviceDao.getRentType(service.getRent_type_id());
+
+        req.setAttribute("service", service);
+        req.setAttribute("service_type",service_type);
+        req.setAttribute("rent_type", rent_type);
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("service/view.jsp");
+        try {
+            dispatcher.forward(req,resp);
+        }catch (ServletException|IOException e){
+            e.printStackTrace();
         }
     }
 

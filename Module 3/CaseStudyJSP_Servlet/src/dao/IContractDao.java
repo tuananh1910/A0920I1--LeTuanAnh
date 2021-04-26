@@ -12,7 +12,8 @@ public interface IContractDao {
     List<Contract> getAllContract();
     boolean updateContract(Contract contract);
     boolean deleteContract(int id);
-    boolean deleteContractByCustomerID(int customer_id);
+    boolean deleteContractByCustomerID(String customer_id);
+    Contract getContractByCustomerId(String customer_id);
 
     //contract details
     void insertContractDetails(Contract_details contract_details);

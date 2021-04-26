@@ -25,12 +25,20 @@
 <body>
 <p>
     <a href="http://localhost:8080"> Home </a> <br>
-    <a href="/employees?action=customers">List All Customer</a>
+    <a href="/customers?action=customers">List All Customer</a>
 </p>
 <form method="post">
     <fieldset>
         <legend>Fill Information Customer</legend>
         <div class="form" style="width: 50%">
+<%--            customer ID--%>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="customer_id">Customer ID</label>
+                </div>
+                <input type="text" class="form-control" id="customer_id" name="customer_id" placeholder="KH-XXXX">
+            </div>
+
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="inputGroupSelect01">Customer Types</label>
@@ -56,7 +64,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="customer_birthday">Customer BirthDay</label>
                 </div>
-                <input type="text" class="form-control" id="customer_birthday" name="customer_birthday">
+                <input type="date" class="form-control" id="customer_birthday" name="customer_birthday">
             </div>
 
 <%--            gender customer--%>

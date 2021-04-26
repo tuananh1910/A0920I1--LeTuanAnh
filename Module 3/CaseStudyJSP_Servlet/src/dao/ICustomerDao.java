@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface ICustomerDao {
     void insertCustomer(Customer customer);
-    Customer getCustomer(int id);
+    Customer getCustomer(String id);
     List<Customer> getAllCustomer();
-    boolean upodateCustomer(Customer customer);
-    boolean deleteCustomer(int id);
-    List<Customer_Type> getAllCustomerType();
-//    Customer_Type getCustomerType(int id);
+    boolean updateCustomer(Customer customer);
+    boolean deleteCustomer(String id);
+//    List<Customer_Type> getAllCustomerType();
+    Customer_Type getCustomerType(int id);
 }

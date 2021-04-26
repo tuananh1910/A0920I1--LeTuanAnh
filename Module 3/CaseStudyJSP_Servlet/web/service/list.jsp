@@ -15,6 +15,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
 </head>
 
 <body style="background: gray">
@@ -22,9 +25,9 @@
     <h1>List Service</h1>
     <p>
         <a href="http://localhost:8080" class="badge badge-light">Home</a> <br>
-        <a href="/services?action=create" class="badge badge-light">Add New Service</a>
+<%--        <a href="/services?action=create" class="badge badge-light">Add New Service</a>--%>
     </p>
-    <table class="table table-dark">
+    <table id="table_id" class="display">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -38,8 +41,8 @@
             <th scope="col">Description Orther Convenience</th>
             <th scope="col">Pool Area</th>
             <th scope="col">Number Of Floors</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+            <th scope="col">Details</th>
+
         </tr>
         </thead>
         <tbody>
@@ -57,13 +60,18 @@
                 <td><c:out value="${services.pool_area}"/></td>
                 <td><c:out value="${services.number_of_floors}"/></td>
 
+                
+                <td><a href="/services?action=details&id=${services.service_id}">Details</a></td>
 
-                <td><a href="/employees?action=edit&id=${services.service_id}">Edit</a></td>
-                <td><a href="/employees?action=delete&id=${services.service_id}">Delete</a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <script>
+        $(document).ready( function () {
+            $('#table_id').DataTable();
+        } );
+    </script>
 </div>
 </body>
 </html>

@@ -36,13 +36,13 @@
                     </div>
                 </td>
                 <td>
-                    <select class="custom-select" id="inputGroupSelect01" name="customer_type">
-                        <option selected>Choose...</option>
-                        <option value="Member">Member</option>
-                        <option value="Silver">Silver</option>
-                        <option value="Gold">Gold</option>
-                        <option value="Platinum">Platinum</option>
-                        <option value="Diamond">Diamond</option>
+                    <select class="custom-select" id="inputGroupSelect01" name="customer_type_id">
+                        <option selected><c:out value="${customer_type.customer_type_name}"/></option>
+                        <option value="1">Member</option>
+                        <option value="2">Silver</option>
+                        <option value="3">Gold</option>
+                        <option value="4">Platinum</option>
+                        <option value="5">Diamond</option>
                     </select>
                 </td>
             </tr>

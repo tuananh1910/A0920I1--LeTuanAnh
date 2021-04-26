@@ -46,7 +46,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="employee_birthday">Employee BirthDay</label>
                 </div>
-                <input type="text" class="form-control" id="employee_birthday" name="employee_birthday">
+                <input type="date" class="form-control" id="employee_birthday" name="employee_birthday">
             </div>
 
             <%--            employee_id_card--%>

@@ -2,7 +2,9 @@ package dao.impl;
 
 import exception.PrintSQLException;
 import dao.IServiceDao;
+import model.Rent_type;
 import model.Service;
+import model.Service_type;
 import untils.ConnectionDB;
 
 import java.sql.Connection;
@@ -24,6 +26,11 @@ public class ServiceDaoImpl implements IServiceDao {
     private static final String UPDATE_SERVICE = "Update SERVICE set service_name=? , service_area = ?, service_cost = ?, " +
             "service_max_people = ?, rent_type_id = ?, service_type_id = ?,standard_room = ?, description= ?," +
             "pool_area=? ,number_of_floor=? where service_id = ?"; //11 value
+
+    // service type
+    private static final String SELECT_SERVICE_TYPE = "Select * from SERVICE_TYPE where service_type_id=?";
+    // rent type
+    private static final String SELECT_RENT_TYPE = "Select * from RENT_TYPE where rent_type_id =?";
     @Override
     public void insertService(Service service) {
         Connection connection = null;
@@ -61,7 +68,7 @@ public class ServiceDaoImpl implements IServiceDao {
     }
 
     @Override
-    public Service getService(int id) {
+    public Service getService(String id) {
         Service service = null;
         Connection connection = null;
         PreparedStatement statement=null;
@@ -69,12 +76,12 @@ public class ServiceDaoImpl implements IServiceDao {
             connection = ConnectionDB.getConnection();
             statement = connection.prepareStatement(SELECT_SERVICE_BY_ID);
 
-            statement.setInt(1,id);
+            statement.setString(1,id);
             System.out.println(statement);
 
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()){
-                int service_id = resultSet.getInt("service_id");
+
                 String service_name = resultSet.getString("service_name");
                 int service_area = resultSet.getInt("service_area");
                 double service_cost = resultSet.getDouble("service_cost");
@@ -86,7 +93,7 @@ public class ServiceDaoImpl implements IServiceDao {
                 double pool_area = resultSet.getDouble("pool_area");
                 int number_of_floors = resultSet.getInt("number_of_floor");
 
-                service = new Service(service_id,service_name,service_area,service_cost,
+                service = new Service(id,service_name,service_area,service_cost,
                         service_max_people,rent_type_id,service_type_id,standard_room,
                         description_orther_convenience,pool_area,number_of_floors);
 
@@ -124,7 +131,7 @@ public class ServiceDaoImpl implements IServiceDao {
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()){
-                int service_id = resultSet.getInt("service_id");
+                String service_id = resultSet.getString("service_id");
                 String service_name = resultSet.getString("service_name");
                 int service_area = resultSet.getInt("service_area");
                 double service_cost = resultSet.getDouble("service_cost");
@@ -165,5 +172,53 @@ public class ServiceDaoImpl implements IServiceDao {
     @Override
     public boolean deleteService(int id) {
         return false;
+    }
+
+    @Override
+    public Service_type getServiceType(int service_type_id) {
+        Service_type service_type = null;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = ConnectionDB.getConnection();
+            statement = connection.prepareStatement(SELECT_SERVICE_TYPE);
+
+            statement.setInt(1,service_type_id);
+            System.out.println(statement);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                String service_type_name = resultSet.getString("service_type_name");
+
+                service_type = new Service_type(service_type_id,service_type_name);
+            }
+        }catch (SQLException e){
+            PrintSQLException.printSQLException(e);
+        }
+        return service_type;
+    }
+
+    @Override
+    public Rent_type getRentType(int rent_type_id) {
+        Rent_type rent_type = null;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = ConnectionDB.getConnection();
+            statement = connection.prepareStatement(SELECT_RENT_TYPE);
+
+            statement.setInt(1,rent_type_id);
+            System.out.println(statement);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                String rent_type_name = resultSet.getString("rent_type_name");
+                double rent_type_cost = resultSet.getDouble("rent_type_cost");
+                rent_type = new Rent_type(rent_type_id,rent_type_name,rent_type_cost);
+            }
+        }catch (SQLException e){
+            PrintSQLException.printSQLException(e);
+        }
+        return rent_type;
     }
 }

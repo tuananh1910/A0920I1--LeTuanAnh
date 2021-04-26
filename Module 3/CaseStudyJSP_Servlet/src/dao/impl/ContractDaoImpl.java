@@ -24,6 +24,7 @@ public class ContractDaoImpl implements IContractDao {
     private static final String UPDATE_CONTRACT = "Update CONTRACT set contract_start_day=? , contract_end_day = ?, contract_deposit = ?, " +
             "contract_total_money = ?, employee_id = ?, customer_id = ?,service_id = ? where contract_id = ?"; //8 value
     private static final String DELETE_CONTRACT_BY_CUSTOMER_ID ="Delete from CONTRACT where customer_id =?";
+    private static final String SELECT_CONTRACT_BY_CUSTOMER_ID = "Select * from CONTRACT where customer_id=?";
     //contract details
     private static final String INSERT_CONTRACT_DETAILS_SQL = "Insert into CONTRACT_DETAILS (contract_id," +
             "attach_service_id, quality) values (?,?,?)";
@@ -45,8 +46,8 @@ public class ContractDaoImpl implements IContractDao {
             statement.setDouble(3,contract.getContract_deposit());
             statement.setDouble(4,contract.getContract_total_money());
             statement.setInt(5,contract.getEmployee_id());
-            statement.setInt(6,contract.getCustomer_id());
-            statement.setInt(7,contract.getService_id());
+            statement.setString(6,contract.getCustomer_id());
+            statement.setString(7,contract.getService_id());
 
             System.out.println(statement);
             statement.executeUpdate();
@@ -86,8 +87,8 @@ public class ContractDaoImpl implements IContractDao {
                 double contract_deposit = resultSet.getDouble("contract_deposit");
                 double contract_total_money = resultSet.getDouble("contract_total_money");
                 int employee_id = resultSet.getInt("employee_id");
-                int customer_id = resultSet.getInt("customer_id");
-                int service_id = resultSet.getInt("service_id");
+                String customer_id = resultSet.getString("customer_id");
+                String service_id = resultSet.getString("service_id");
                 contract = new Contract(contract_id,contract_start_date,contract_end_date,contract_deposit,
                         contract_total_money,employee_id,customer_id,service_id);
             }
@@ -129,8 +130,8 @@ public class ContractDaoImpl implements IContractDao {
                 double contract_deposit = resultSet.getDouble("contract_deposit");
                 double contract_total_money = resultSet.getDouble("contract_total_money");
                 int employee_id = resultSet.getInt("employee_id");
-                int customer_id = resultSet.getInt("customer_id");
-                int service_id = resultSet.getInt("service_id");
+                String customer_id = resultSet.getString("customer_id");
+                String service_id = resultSet.getString("service_id");
 
                 contractList.add(new Contract(contract_id,contract_start_date,contract_end_date,
                         contract_deposit,contract_total_money,employee_id,customer_id,service_id));
@@ -162,7 +163,7 @@ public class ContractDaoImpl implements IContractDao {
         try {
             connection = ConnectionDB.getConnection();
             statement = connection.prepareStatement(UPDATE_CONTRACT);
-//            System.out.println(customer.getCustomer_id());
+
             statement.setString(1, contract.getContract_start_date());
             statement.setString(2, contract.getContract_end_date());
             statement.setDouble(3, contract.getContract_deposit());
@@ -171,8 +172,8 @@ public class ContractDaoImpl implements IContractDao {
 
 
             statement.setInt(5, contract.getEmployee_id());
-            statement.setInt(6, contract.getCustomer_id());
-            statement.setInt(7, contract.getService_id());
+            statement.setString(6, contract.getCustomer_id());
+            statement.setString(7, contract.getService_id());
             statement.setInt(8, contract.getContract_id());
 
             System.out.println(statement.executeUpdate());
@@ -196,11 +197,11 @@ public class ContractDaoImpl implements IContractDao {
 
 
     @Override
-    public boolean deleteContractByCustomerID(int customer_id) {
+    public boolean deleteContractByCustomerID(String customer_id) {
         boolean rowDelete= false;
         try (Connection connection = ConnectionDB.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_CONTRACT_BY_CUSTOMER_ID)){
-            preparedStatement.setInt(1,customer_id);
+            preparedStatement.setString(1,customer_id);
             rowDelete = preparedStatement.executeUpdate()>0; // excuteUpdate
         } catch (SQLException e) {
             PrintSQLException.printSQLException(e);
@@ -208,6 +209,50 @@ public class ContractDaoImpl implements IContractDao {
         //System.out.println(rowDelete);
         return rowDelete;
 
+    }
+
+    @Override
+    public Contract getContractByCustomerId(String customer_id) {
+        Contract contract = null;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try {
+            connection = ConnectionDB.getConnection();
+            statement = connection.prepareStatement(SELECT_CONTRACT_BY_CUSTOMER_ID);
+
+            statement.setString(1,customer_id);
+            System.out.println(statement);
+
+            ResultSet resultSet = statement.executeQuery();
+            while(resultSet.next()){
+                int contract_id = resultSet.getInt("contract_id");
+                String contract_start_date = resultSet.getString("contract_start_date");
+                String contract_end_date = resultSet.getString("contract_end_date");
+                double contract_deposit = resultSet.getDouble("contract_deposit");
+                double contract_total_money = resultSet.getDouble("contract_total_money");
+                int employee_id = resultSet.getInt("employee_id");
+
+                String service_id = resultSet.getString("service_id");
+                contract = new Contract(contract_id,contract_start_date,contract_end_date,contract_deposit,
+                        contract_total_money,employee_id,customer_id,service_id);
+            }
+
+
+        }catch (SQLException e){
+            PrintSQLException.printSQLException(e);
+        }finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        return contract;
     }
 
     @Override

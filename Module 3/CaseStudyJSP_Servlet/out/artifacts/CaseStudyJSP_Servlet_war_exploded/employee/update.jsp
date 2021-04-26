@@ -36,7 +36,7 @@
         </c:if>
     </p>
     <form method="post">
-        <table>
+        <table>h c
             <c:if test="${employee!=null}">
                 <input type="hidden" name="employee_id" value="<c:out value='${employee.employee_id}'/>">
             </c:if>
@@ -94,7 +94,7 @@
                 </td>
                 <td>
                     <select class="custom-select" id="inputGroupSelect01" name="position_id">
-                        <option selected>Choose...</option>
+                        <option selected><c:out value="position.position_name"/></option>
                         <option value="1">Le Tan</option>
                         <option value="2">Phuc Vu</option>
                         <option value="3">Chuyen Vien</option>
@@ -113,7 +113,7 @@
                 </td>
                 <td>
                     <select class="custom-select" id="inputGroupSelect02" name="education_degree_id">
-                        <option selected>Choose...</option>
+                        <option selected><c:out value="education_degree.education_degree_name"></c:out></option>
                         <option value="1">Trung Cap</option>
                         <option value="2">Cao Dang</option>
                         <option value="3">Dai Hoc</option>
@@ -130,7 +130,7 @@
                 </td>
                 <td>
                     <select class="custom-select" id="inputGroupSelect03" name="division_id">
-                        <option selected>Choose...</option>
+                        <option selected><c:out value="division.division_name"></c:out></option>
                         <option value="1">Sale-Marketing</option>
                         <option value="2">Hanh Chinh</option>
                         <option value="3">Phuc Vu</option>
@@ -138,8 +138,12 @@
                     </select>
                 </td>
             </tr>
-
-
+            <tr>
+                <td>Username :</td>
+                <td>
+                    <c:out value="${employee.username}"/>
+                </td>
+            </tr>
 
             <tr>
                 <td></td>

@@ -19,7 +19,7 @@ create table employee(
 );
 
 create table customer(
-	customer_id int primary key auto_increment,
+	customer_id varchar(50) primary key ,
     customer_type_id int,
     customer_name varchar(45),
     customer_birthday date,
@@ -72,12 +72,12 @@ create table contract(
     contract_deposit double,
     contract_total_money double,
     employee_id int,
-    customer_id int,
-    service_id int
+    customer_id varchar(50),
+    service_id varchar(50)
 );
 
 create table service(
-	service_id int primary key auto_increment,
+	service_id varchar(50) primary key ,
     service_name varchar(45),
     service_area int,
     service_cost double,
@@ -207,25 +207,25 @@ INSERT INTO employee  VALUES ('4', 'Mai','2000-10-19', '126', '500', '0231321023
 INSERT INTO employee  VALUES ('5', 'Tri', '2000-10-19', '125', '400', '0123456655', 'quan@gmail.com', 'Da Nang', '5', '3', '3', 'Tri');
 INSERT INTO employee  VALUES ('6', 'Hue','2000-10-19', '126', '500', '0231321023', 'mai@gmail.com', 'Hue', '6', '4', '4', 'Hue');
 
-INSERT INTO customer VALUES ('1', '1', 'Hung', '2000-10-19', 0, '1', '123151321', 'hung@gmail.com', 'Da Nang');
-INSERT INTO customer VALUES ('2', '2', 'Huyen', '2000-10-19', 1, '2', '123112311', 'huyen@gmail.com', 'Hue');
-INSERT INTO customer  VALUES ('3', '3', 'Hai','2000-10-19', 0, '3', '156188899', 'hai@gmail.com', 'Quang Nam');
-INSERT INTO customer VALUES ('4', '4', 'Linh', '2000-10-19', 1, '4', '641563123', 'linh@gmail.com', 'Quang Tri');
+INSERT INTO customer VALUES ('KH-0001', '1', 'Hung', '2000-10-19', 0, '1', '123151321', 'hung@gmail.com', 'Da Nang');
+INSERT INTO customer VALUES ('KH-0002', '2', 'Huyen', '2000-10-19', 1, '2', '123112311', 'huyen@gmail.com', 'Hue');
+INSERT INTO customer  VALUES ('KH-0003', '3', 'Hai','2000-10-19', 0, '3', '156188899', 'hai@gmail.com', 'Quang Nam');
+INSERT INTO customer VALUES ('KH-0004', '4', 'Linh', '2000-10-19', 1, '4', '641563123', 'linh@gmail.com', 'Quang Tri');
 
 
 
 
 INSERT INTO service(service_id, service_name, service_area, service_cost, service_max_people, rent_type_id, service_type_id) 
-VALUES ('1', 'Room', '1000', '1000', '10', '1', '1');
+VALUES ('DV-00001', 'Room', '1000', '1000', '10', '1', '1');
 INSERT INTO service (service_id, service_name, service_area, service_cost, service_max_people, rent_type_id, service_type_id, standard_room, description_orther_convenience, number_of_floor)
-VALUES ('2', 'House', '2000', '2000', '20', '2', '2', 'House', 'close to nature', '2');
+VALUES ('DV-00002', 'House', '2000', '2000', '20', '2', '2', 'House', 'close to nature', '2');
 INSERT INTO service 
-VALUES ('3', 'Villa', '3000', '3000', '30', '3', '3', 'Villa', 'close to nature', '50', '3');
+VALUES ('DV-00003', 'Villa', '3000', '3000', '30', '3', '3', 'Villa', 'close to nature', '50', '3');
 
-INSERT INTO contract VALUES ('1', '2021-10-10', '2021-10-15', '100', '1000', '1', '1', '1');
-INSERT INTO contract VALUES ('2',' 2021-10-10', '2021-10-15', '200', '2000', '2', '2', '2');
-INSERT INTO contract VALUES ('3',' 2021-10-10',' 2021-10-15', '300', '3000', '3', '3', '3');
-INSERT INTO contract VALUES ('4', '2021-10-10', '2021-10-15', '400', '4000', '4', '4', '3');
+INSERT INTO contract VALUES ('1', '2021-10-10', '2021-10-15', '100', '1000', '1', 'KH-0001', 'DV-00001');
+INSERT INTO contract VALUES ('2',' 2021-10-10', '2021-10-15', '200', '2000', '2', 'KH-0002', 'DV-00002');
+INSERT INTO contract VALUES ('3',' 2021-10-10',' 2021-10-15', '300', '3000', '3', 'KH-0003', 'DV-00003');
+INSERT INTO contract VALUES ('4', '2021-10-10', '2021-10-15', '400', '4000', '4', 'KH-0004', 'DV-00003');
 
 INSERT INTO user_role VALUES ('1', 'Anh');
 INSERT INTO user_role VALUES ('2', 'Ha');
@@ -244,6 +244,9 @@ INSERT INTO contract_details VALUES ('1', '1', '1', '2');
 INSERT INTO contract_details VALUES ('2', '2', '2', '3');
 INSERT INTO contract_details VALUES ('3', '3', '3', '4');
 INSERT INTO contract_details VALUES ('4', '4', '4', '5');
+
+
+
 
 
 
