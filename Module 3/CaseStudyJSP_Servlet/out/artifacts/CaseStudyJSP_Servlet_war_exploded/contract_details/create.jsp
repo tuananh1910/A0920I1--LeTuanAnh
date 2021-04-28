@@ -38,44 +38,45 @@
 </p>
 <form method="post">
     <fieldset>
-        <legend>Fill in contract details</legend>
-
-        <input type="hidden" name="contract_id" value="<c:out value='${id}'/>">
+        <legend>Fill In Contract Details</legend>
 
 
-        <div class="form" style="width: 50%">
+                <input type="hidden" name="contract_id" value="<c:out value='${id}'/>">
 
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">Attach Service </label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect01" name="attach_serivce_id">
-                    <option selected>Choose...</option>
-                    <option value="1">Massage - 100$/10</option>
-                    <option value="2">Karaoke - 200$/20</option>
-                    <option value="3">Food and Drink - 300$/30</option>
-                    <option value="4">Rent Vehicle - 400$/40</option>
-                </select>
-            </div>
+                <div class="form" style="width: 50%">
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect02">Quality </label>
-                </div>
-                <select class="custom-select" id="inputGroupSelect02" name="quality">
-                    <option selected>Choose...</option>
-                    <option value="1">*</option>
-                    <option value="2">**</option>
-                    <option value="3">***</option>
-                    <option value="4">****</option>
-                    <option value="5">*****</option>
-                </select>
-            </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Attach Service </label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01" name="attach_serivce_id">
+                            <c:forEach var="attachServices" items="${attachServiceList}">
+                                <option value="${attachServices.attach_service_id}">${attachServices.attach_service_name}-
+                                        ${attachServices.attach_service_cost}$</option>
+                            </c:forEach>
+                        </select>
+                    </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect02">Quality </label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect02" name="quality">
+                            <option selected>Choose...</option>
+                            <option value="1">*</option>
+                            <option value="2">**</option>
+                            <option value="3">***</option>
+                            <option value="4">****</option>
+                            <option value="5">*****</option>
+                        </select>
+                    </div>
+
+</div>
+
     </fieldset>
+    <button type="submit" class="btn btn-primary">Submit</button>
+
 </form>
 </body>
 </html>

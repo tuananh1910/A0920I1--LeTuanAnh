@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: TY
@@ -24,7 +25,7 @@
 <body>
 <p>
     <a href="http://localhost:8080"> Home </a> <br>
-    <a href="/employees?action=contracts">List All Contracts</a>
+    <a href="/contracts?action=contracts">List All Contracts</a>
 </p>
 <form method="post">
     <fieldset>
@@ -65,32 +66,46 @@
             </div>
 
             <%--   employee_id--%>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="employee_id">Employee ID</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect03">Employee : </label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect03" name="employee_id">
+                        <c:forEach items="${employeeList}" var="employees">
+                            <option value="${employees.employee_id}">${employees.employee_name}</option>
+                        </c:forEach>
+                    </select>
                 </div>
-                <input type="text" class="form-control" id="employee_id" name="employee_id">
-            </div>
 
             <%--  customer_id--%>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="customer_id">Customer ID</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect04">Customer : </label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect04" name="customer_id">
+                        <c:forEach items="${customerList}" var="customers">
+                            <option value="${customers.customer_id}">${customers.customer_id}</option>
+                        </c:forEach>
+                    </select>
                 </div>
-                <input type="text" class="form-control" id="customer_id" name="customer_id">
-            </div>
 
             <%--  service_id--%>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <label class="input-group-text" for="service_id">Service ID</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect05">Service : </label>
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect05" name="service_id">
+                        <c:forEach items="${serviceList}" var="services">
+                            <option value="${services.service_id}">${services.service_name}</option>
+                        </c:forEach>
+                    </select>
                 </div>
-                <input type="text" class="form-control" id="service_id" name="service_id">
-            </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+
         </div>
     </fieldset>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </body>
 </html>

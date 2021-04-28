@@ -1,10 +1,14 @@
 package controller;
 
 import dao.IContractDao;
+import dao.ICustomerDao;
+import dao.IEmployeeDao;
+import dao.IServiceDao;
 import dao.impl.ContractDaoImpl;
-import model.Attach_service;
-import model.Contract;
-import model.Contract_details;
+import dao.impl.CustomerDaoImpl;
+import dao.impl.EmployeeDaoImpl;
+import dao.impl.ServiceDaoImpl;
+import model.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,10 +22,16 @@ import java.util.List;
 @WebServlet(urlPatterns = "/contracts" , name = "contract")
 public class ContractServlet extends HttpServlet {
     private IContractDao contractDao;
+    private IEmployeeDao employeeDao;
+    private ICustomerDao customerDao;
+    private IServiceDao serviceDao;
 
     @Override
     public void init() {
         contractDao = new ContractDaoImpl();
+        employeeDao = new EmployeeDaoImpl();
+        customerDao = new CustomerDaoImpl();
+        serviceDao = new ServiceDaoImpl();
     }
 
     @Override
@@ -74,7 +84,7 @@ public class ContractServlet extends HttpServlet {
     }
 
     private void createContract(HttpServletRequest req, HttpServletResponse resp) {
-        int contract_id = Integer.parseInt(req.getParameter("contract_id"));
+
         String contract_start_date = req.getParameter("contract_start_date");
         String contract_end_date = req.getParameter("contract_end_date");
         double contract_deposit = Double.parseDouble(req.getParameter("contract_deposit"));
@@ -83,8 +93,9 @@ public class ContractServlet extends HttpServlet {
         String customer_id = req.getParameter("customer_id");
         String service_id =req.getParameter("service_id");
 
-        Contract contract = new Contract(contract_id,contract_start_date,contract_end_date,contract_deposit,contract_total_money,
+        Contract contract = new Contract(contract_start_date,contract_end_date,contract_deposit,contract_total_money,
                 employee_id,customer_id,service_id);
+
 
         contractDao.insertContract(contract);
 
@@ -99,7 +110,7 @@ public class ContractServlet extends HttpServlet {
         }
         switch (action){
             case "create":
-
+                showCreateContrat(req,resp);
                 break;
             case "edit":
                 
@@ -117,6 +128,21 @@ public class ContractServlet extends HttpServlet {
                 listContract(req,resp);
                 break;
         }
+    }
+
+    private void showCreateContrat(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher dispatcher = req.getRequestDispatcher("contract/create.jsp");
+
+        List<Employee> employeeList = employeeDao.getAllEmployee();
+        List<Customer> customerList = customerDao.getAllCustomer();
+        List<Service> serviceList = serviceDao.getAllService();
+
+
+        req.setAttribute("employeeList",employeeList);
+        req.setAttribute("customerList",customerList);
+        req.setAttribute("serviceList",serviceList);
+
+        dispatcher.forward(req,resp);
     }
 
     private void details(HttpServletRequest req, HttpServletResponse resp) {
@@ -143,9 +169,12 @@ public class ContractServlet extends HttpServlet {
 
     private void showContractDetailsForm(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("id"));
+        List<Attach_service> attachServiceList =contractDao.getAllAttachService();
+
 
         RequestDispatcher dispatcher= req.getRequestDispatcher("contract_details/create.jsp");
 
+        req.setAttribute("attachServiceList", attachServiceList);
         req.setAttribute("id", id);
 
         try{

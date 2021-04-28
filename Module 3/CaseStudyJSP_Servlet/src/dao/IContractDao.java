@@ -22,4 +22,5 @@ public interface IContractDao {
 
     //attach_service
     Attach_service getAttachService(int attach_service_id);
+    List<Attach_service> getAllAttachService();
 }

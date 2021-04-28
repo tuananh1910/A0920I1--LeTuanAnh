@@ -32,6 +32,7 @@ public class ContractDaoImpl implements IContractDao {
     private static final String DELETE_CONTRACT_DETAILS_BY_CONTRACT_ID_SQL = "Delete from CONTRACT_DETAILS where contract_id=?";
     //attach service
     private static final String SELECT_ATTACH_SERVICE ="Select * from ATTACH_SERVICE where attach_service_id=?";
+   private static final String SELECT_ALL_ATTACH_SERVICE = "Select * from ATTACH_SERVICE";
     @Override
     public void insertContract(Contract contract) {
         Connection connection = null;
@@ -365,5 +366,33 @@ public class ContractDaoImpl implements IContractDao {
             }
         }
         return attach_service;
+    }
+
+    @Override
+    public List<Attach_service> getAllAttachService() {
+        List<Attach_service> attachServiceList = new ArrayList<>();
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        try {
+            connection = ConnectionDB.getConnection();
+            statement = connection.prepareStatement(SELECT_ALL_ATTACH_SERVICE);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                int attach_service_id = resultSet.getInt("attach_service_id");
+                String attach_service_name = resultSet.getString("attach_service_name");
+                double attach_service_cost = resultSet.getDouble("attach_service_cost");
+                int attach_service_unit = resultSet.getInt("attach_service_unit");
+                String attach_service_status = resultSet.getString("attach_service_status");
+
+                attachServiceList.add(new Attach_service(attach_service_id,attach_service_name,
+                        attach_service_cost,attach_service_unit,attach_service_status));
+            }
+        }catch (SQLException e){
+            PrintSQLException.printSQLException(e);
+        }
+        return attachServiceList;
     }
 }

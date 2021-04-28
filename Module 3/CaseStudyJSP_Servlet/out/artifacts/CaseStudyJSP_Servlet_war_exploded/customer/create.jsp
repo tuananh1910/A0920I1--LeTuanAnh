@@ -10,6 +10,14 @@
 <html>
 <head>
     <title>Create Customer</title>
+
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+
+
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
@@ -27,7 +35,9 @@
     <a href="http://localhost:8080"> Home </a> <br>
     <a href="/customers?action=customers">List All Customer</a>
 </p>
-<form method="post">
+<%--name="formCustomer" onsubmit="return(validate());"--%>
+
+<form method="post" id="formCustomer" role="form" >
     <fieldset>
         <legend>Fill Information Customer</legend>
         <div class="form" style="width: 50%">
@@ -84,7 +94,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="customer_id_card">Customer ID Card</label>
                 </div>
-                <input type="text" class="form-control" id="customer_id_card" name="customer_id_card">
+                <input type="text" class="form-control" id="customer_id_card" name="customer_id_card" required>
             </div>
 
 <%--            Customer Phone--%>
@@ -92,7 +102,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="customer_phone">Customer Phone</label>
                 </div>
-                <input type="text" class="form-control" id="customer_phone" name="customer_phone">
+                <input type="text" class="form-control" id="customer_phone" name="customer_phone" required>
             </div>
 
 <%--            Email--%>
@@ -100,7 +110,7 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="customer_email">Customer Email</label>
                 </div>
-                <input type="text" class="form-control" id="customer_email" name="customer_email">
+                <input type="text" class="form-control" id="customer_email" name="customer_email" required>
             </div>
 
 <%--            Address--%>
@@ -108,12 +118,61 @@
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="customer_address">Customer Address</label>
                 </div>
-                <input type="text" class="form-control" id="customer_address" name="customer_address">
+                <input type="text" class="form-control" id="customer_address" name="customer_address" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </fieldset>
 </form>
+<script>
+    $(document).ready(function () {
+        $("#formCustomer").validate({
+            rules : {
+                customer_id_card :" required",
+                customer_phone : "required",
+                customer_email : "required",
+                customer_address:{
+                    required :true,
+                    minLength : 2
+                }
+            },
+            message:{
+                customer_id_card: "Vui long nhap ID Card",
+                customer_phone : "Vui long nhap so dien thoai",
+                customer_email : "Vui long nhap email",
+                customer_address:{
+                    required :"Vui long nhap dia chi",
+                    minLength : "Vui long nhap lai dia chi"
+                }
+            },
+            submitHandler: function (form) {
+                form.submit();
+            }
+        })
+    })
+</script>
+
+<%--<script>--%>
+
+<%--    $(document).ready(function () {--%>
+<%--        $('#customer_email').on('input', function () {--%>
+<%--            let input = $(this);--%>
+<%--            let re = "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/";--%>
+<%--            let is_email = re.test(input.val());--%>
+<%--            if (is_email){--%>
+<%--                input.removeClass("invalid").addClass("valid");--%>
+<%--            }else {--%>
+<%--                input.removeClass("valid").addClass("invalid");--%>
+<%--            }--%>
+<%--        })--%>
+<%--    })--%>
+<%--    $('#customer_name').on('input', function() {--%>
+<%--        var input=$(this);--%>
+<%--        var is_name=input.val();--%>
+<%--        if(is_name){input.removeClass("invalid").addClass("valid");}--%>
+<%--        else{input.removeClass("valid").addClass("invalid");}--%>
+<%--    });--%>
+<%--</script>--%>
 </body>
 </html>

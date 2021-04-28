@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
 
+
 </head>
 <body style="background: gray">
 <div align="center" >
@@ -55,17 +56,54 @@
                 <td><c:out value="${customers.customer_phone}"/></td>
                 <td><c:out value="${customers.customer_email}"/></td>
                 <td><c:out value="${customers.customer_address}"/></td>
-                <td><a href="/customers?action=details&id=${customers.customer_id}">Details</a> </td>
+<%--                <td><a href="/customers?action=details&id=${customers.customer_id}">Details</a> </td>--%>
+                <td><button class="btn btn-info" data-toggle="modal" data-target="#detailsModal">Details</button> </td>
                 <td><a href="/customers?action=edit&id=${customers.customer_id}">Edit</a></td>
-                <td><a href="/customers?action=delete&id=${customers.customer_id}">Delete</a></td>
+<%--                <td><a href="/customers?action=delete&id=${customers.customer_id}">Delete</a></td>--%>
+                <td><button class="btn btn-info" data-toggle="modal" data-target="#deleteModal" onclick="callServlet(
+                   'GET')">Delete</button> </td>
+
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Are you sure delete ?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc chắn muốn xoá ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         $(document).ready( function () {
             $('#table_id').DataTable();
         } );
+    </script>
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
+    </script>
+
+<%--    call method get 'delete--%>
+    <script>
+        function callServlet(methodType) {
+            document.getElementById("table_id").actions = "/customer?action=delete";
+            document.getElementById("table_id").method = methodType;
+            document.getElementById("table_id").submit();
+        }
     </script>
 </div>
 </body>

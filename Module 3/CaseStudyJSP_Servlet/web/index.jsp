@@ -10,6 +10,11 @@
   <head>
     <title>Home</title>
 
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/app-ajax.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -50,11 +55,12 @@
 
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://localhost:8080/customers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" id="btn-customer" href="http://localhost:8080/customers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Customer
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="http://localhost:8080/customers?action=create">Add New Customer</a>
+
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="http://localhost:8080/customers?action=customers">List Customer</a>
               </div>
@@ -111,7 +117,7 @@
 
       </ul>
     </div>
-    <div class="main" style="background: aquamarine;">
+    <div class="main" style="background: aquamarine;" id="content">
 
     </div>
     <div class="footer" style="font-size: 10px;">
@@ -131,12 +137,29 @@
               <!-- social icons are here -->
             </div>
             <div class="clear"></div>
-            <div class="copyright">&copy;  2014 All Rights Reserved</div>
+            <div class="copyright">&copy;  2021 All Rights Reserved</div>
           </div>
         </div>
 
     </div>
   </div>
-  </div>
+  <script  >
+    $(document).ready(function () {
+      $('#btn-customer').click(function () {
+        $.ajax({
+          type:'GET',
+          url:'customers',
+          success :function (result) {
+            $('#content').html(result);
+          }
+        })
+      })
+    })
+  </script>
+
+
   </body>
 </html>
+
+
+

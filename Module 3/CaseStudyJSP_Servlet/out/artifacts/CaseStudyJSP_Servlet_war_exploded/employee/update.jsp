@@ -141,7 +141,7 @@
             <tr>
                 <td>Username :</td>
                 <td>
-                    <c:out value="${employee.username}"/>
+                    <input type="text" value="<c:out value="${employee.username}"/>" readonly>
                 </td>
             </tr>
 
