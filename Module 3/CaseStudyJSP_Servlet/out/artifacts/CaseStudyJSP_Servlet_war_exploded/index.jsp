@@ -10,17 +10,23 @@
   <head>
     <title>Home</title>
 
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<%--    <script src="http://code.jquery.com/jquery-latest.min.js"></script>--%>
 
-    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="js/app-ajax.js"></script>
+<%--    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>--%>
+<%--    <script type="text/javascript" src="js/app-ajax.js"></script>--%>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<%--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--%>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<%--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>--%>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">--%>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="css.css">
   </head>
   <body style="background: gray">
@@ -55,14 +61,14 @@
 
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="btn-customer" href="http://localhost:8080/customers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" id="" href="http://localhost:8080/customers" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Customer
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="http://localhost:8080/customers?action=create">Add New Customer</a>
+                <a class="dropdown-item" id="btn-customer_create" role="button">Add New Customer</a>
 
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="http://localhost:8080/customers?action=customers">List Customer</a>
+                <a class="dropdown-item" id="btn-customer" role="button" >List Customer</a>
               </div>
             </li>
 
@@ -149,6 +155,26 @@
         $.ajax({
           type:'GET',
           url:'customers',
+          success :function (result) {
+            $('#content').html(result);
+          }
+        })
+      })
+    })
+
+    $(document).ready(function () {
+      $('#btn-customer_create').click(function () {
+
+        $.ajax({
+          type:'GET',
+          url:'customers',
+            // data: function (params) {
+            //   var queryParameters = {
+            //     q: params.term
+            //   }
+            //
+            //   return queryParameters;
+            // },
           success :function (result) {
             $('#content').html(result);
           }

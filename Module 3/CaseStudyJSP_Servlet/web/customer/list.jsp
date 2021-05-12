@@ -10,13 +10,17 @@
 <html>
 <head>
     <title>List Customer</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
+
+
+<%--    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>--%>
+<%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>--%>
+<%--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>--%>
+<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--%>
+
+<%--    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">--%>
+<%--    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>--%>
 
 
 </head>
@@ -27,6 +31,11 @@
         <a href="http://localhost:8080" class="badge badge-light">Home</a> <br>
         <a href="/customers?action=create" class="badge badge-light">Add New Customer</a>
     </p>
+<%--    <p>--%>
+<%--        <c:if test="${requestScope['message']!= null}}">--%>
+<%--            <span>${requestScope['message']}</span>--%>
+<%--        </c:if>--%>
+<%--    </p>--%>
     <table  id="table_id" class="display">
         <thead>
         <tr>
@@ -56,13 +65,11 @@
                 <td><c:out value="${customers.customer_phone}"/></td>
                 <td><c:out value="${customers.customer_email}"/></td>
                 <td><c:out value="${customers.customer_address}"/></td>
-<%--                <td><a href="/customers?action=details&id=${customers.customer_id}">Details</a> </td>--%>
-                <td><button class="btn btn-info" data-toggle="modal" data-target="#detailsModal">Details</button> </td>
+                <td><a href="/customers?action=details&id=${customers.customer_id}">Details</a> </td>
+<%--                <td><button class="btn btn-info" data-toggle="modal" data-target="#detailsModal">Details</button> </td>--%>
                 <td><a href="/customers?action=edit&id=${customers.customer_id}">Edit</a></td>
-<%--                <td><a href="/customers?action=delete&id=${customers.customer_id}">Delete</a></td>--%>
-                <td><button class="btn btn-info" data-toggle="modal" data-target="#deleteModal" onclick="callServlet(
-                   'GET')">Delete</button> </td>
-
+                <td><a href="/customers?action=delete&id=${customers.customer_id}">Delete</a></td>
+<%--                <td><button class="btn btn-info" data-toggle="modal" data-target="#deleteModal" >Delete</button> </td>--%>
             </tr>
         </c:forEach>
         </tbody>
@@ -81,7 +88,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick="callServlet(
+                   'GET')">Delete</button>
                 </div>
             </div>
         </div>
@@ -100,7 +108,7 @@
 <%--    call method get 'delete--%>
     <script>
         function callServlet(methodType) {
-            document.getElementById("table_id").actions = "/customer?action=delete";
+            document.getElementById("table_id").actions = "/customers?action=delete";
             document.getElementById("table_id").method = methodType;
             document.getElementById("table_id").submit();
         }
