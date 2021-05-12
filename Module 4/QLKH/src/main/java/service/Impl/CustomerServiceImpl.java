@@ -6,7 +6,6 @@ import service.ICustomerService;
 
 import java.util.List;
 
-//@Service
 public class CustomerServiceImpl implements ICustomerService {
     @Override
     public List<Customer> findAll() {
