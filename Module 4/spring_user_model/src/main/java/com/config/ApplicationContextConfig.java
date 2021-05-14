@@ -10,13 +10,13 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-//@ComponentScans("org.o7planning.springmvcinternationalization.*") !!!!!!!
+@ComponentScans("com.*")
 public class ApplicationContextConfig {
     @Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 
-        viewResolver.setPrefix("/WEB-INF/pages/");
+        viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
 
         return viewResolver;
@@ -26,9 +26,6 @@ public class ApplicationContextConfig {
     public MessageSource getMessageResource()  {
         ReloadableResourceBundleMessageSource messageResource= new ReloadableResourceBundleMessageSource();
 
-
-        // Đọc vào file i18n/messages_xxx.properties
-        // Ví dụ: i18n/message_en.properties
         messageResource.setBasename("classpath:i18n/messages");
         messageResource.setDefaultEncoding("UTF-8");
         return messageResource;
