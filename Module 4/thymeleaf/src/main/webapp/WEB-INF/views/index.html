@@ -30,7 +30,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="row,rowStat : ${customers}">
+
+    <tr th:if="customers!=null" th:each="row,rowStat : ${customers}">
         <td th:text="${row.getName()}"></td>
         <td th:text="${row.getEmail()}"></td>
         <td th:text="${row.getAddress()}"></td>

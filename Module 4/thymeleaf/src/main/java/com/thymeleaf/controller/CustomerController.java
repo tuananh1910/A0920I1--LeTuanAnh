@@ -16,10 +16,15 @@ import java.util.List;
 public class CustomerController {
     private CustomerService customerService = new CustomerServiceImpl();
 
-    @GetMapping("/thymeleaf")
+    @GetMapping("/")
     public String index(Model model) {
+        System.out.println(1);
+        System.out.println(3);
 
-        List customerList = customerService.findAll();
+        List<Customer> customerList = customerService.findAll();    //null exception
+
+        System.out.println(2);
+
         model.addAttribute("customers", customerList);
         return "index";
     }
@@ -30,17 +35,18 @@ public class CustomerController {
         return "create";
     }
 
+    static Long id;
     @PostMapping("/customer/save")
     public String save(Customer customer, Model model) {
-        customer.setId((int)(Math.random() * 10000));
+        customer.setId(id++);
         customerService.save(customer);
         System.out.println("done");
         model.addAttribute("success","added");   // chua nhan duoc message
-        return "redirect:/thymeleaf";
+        return "redirect:/";
     }
 
     @GetMapping("/customer/{id}/edit")
-    public String edit(@PathVariable int id, Model model) {
+    public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("customer", customerService.findById(id));
         return "edit";
     }
@@ -48,11 +54,11 @@ public class CustomerController {
     @PostMapping("/customer/update")
     public String update(Customer customer) {
         customerService.update(customer.getId(), customer);
-        return "redirect:/thymeleaf";
+        return "redirect:/";
     }
 
     @GetMapping("/customer/{id}/delete")
-    public String delete(@PathVariable int id, Model model) {
+    public String delete(@PathVariable Long id, Model model) {
         model.addAttribute("customer", customerService.findById(id));
         return "delete";
     }
@@ -61,11 +67,11 @@ public class CustomerController {
     public String delete(Customer customer, RedirectAttributes redirect) {
         customerService.remove(customer.getId());
         redirect.addFlashAttribute("success", "Removed customer successfully!");
-        return "redirect:/thymeleaf";
+        return "redirect:/";
     }
 
     @GetMapping("/customer/{id}/view")
-    public String view(@PathVariable int id, Model model) {
+    public String view(@PathVariable Long id, Model model) {
         model.addAttribute("customer", customerService.findById(id));
         return "view";
     }
