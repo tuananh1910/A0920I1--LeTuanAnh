@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -22,6 +23,9 @@ public class CustomerController {
         System.out.println(3);
 
         List<Customer> customerList = customerService.findAll();    //null exception
+
+//        List<Customer> customerList = new ArrayList<>();
+//        customerList.add(new Customer(1L,"Anh","email","adđres"));
 
         System.out.println(2);
 
