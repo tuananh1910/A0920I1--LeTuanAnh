@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Province List</title>
+</head>
+<body>
+<a href="/create-province">Create</a>
+<a href="/">Customer List</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="province,start:${provinces}">
+        <td th:text="${start.count}"></td>
+        <td th:text="${province.name}"></td>
+
+        <td>
+            <a th:href="@{/edit/{id}(id=${province.getId()})}">Edit | </a>
+            <a th:href="@{/delete/{id}(id=${province.getId()})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

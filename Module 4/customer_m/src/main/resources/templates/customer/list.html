@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<h1>Customer Manager</h1>
+<a href="/create">Create</a>
+<a href="/provinces">Provinces</a>
+<form action="/" method="get">
+    <label>
+        <input type="text" name="key_search">
+    </label>
+    <input type="submit" value="Search">
+</form>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Province</th>
+
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer,start:${customers}">
+        <td th:text="${start.count}"></td>
+        <td th:text="${customer.name}"></td>
+        <td th:text="${customer.email}"></td>
+        <td th:text="${customer.phone}"></td>
+        <td th:text="${customer.province.name}"></td>
+        <td>
+            <a th:href="@{/edit/{id}(id=${customer.getId()})}">Edit | </a>
+            <a th:href="@{/delete/{id}(id=${customer.getId()})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <!--    <a th:href="@{'/'(page=${blogs.number - 1},key_search=${key_search})}" th:if="${blogs.hasPrevious()}">Previous</a>-->
+    <!--    <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>-->
+    <!--    <a th:href="@{'/'(page=${blogs.number + 1},key_search=${key_search})}" th:if="${blogs.hasNext()}">Next</a>-->
+
+    <a th:href="@{'/'(page=${customers.number - 1}, key_search=${key_search})}" th:if="${customers.hasPrevious()}">Previous</a>
+    <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>
+    <a th:href="@{'/'(page=${customers.number + 1}, key_search=${key_search})}" th:if="${customers.hasNext()}">Next</a>
+</div>
+</body>
+</html>
