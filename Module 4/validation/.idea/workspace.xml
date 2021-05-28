@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="48321386-156d-4ced-bfb2-142ee479fba9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/6.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/6.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/6.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/6.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/build/classes/java/main/controllers/customerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/build/classes/java/main/model/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/build/classes/java/main/service/ICustomerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/build/classes/java/main/service/Impl/CustomerServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/build/libs/QLKH-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/src/main/java/controllers/customerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/src/main/java/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/src/main/java/repository/Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/src/main/java/service/ICustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/src/main/java/service/Impl/CustomerServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/src/main/webapp/WEB-INF/views/customers/list.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QLKH/src/main/webapp/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/BlogApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/controller/BlogController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/model/Blog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/repository/BlogRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/repository/Converter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/repository/CrudRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/repository/PagingAndSortingRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/service/BlogService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/java/com/example/blog/service/impl/BlogServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/main/resources/templates/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../blog/src/test/java/com/example/blog/BlogApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/CustomerMApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/config/ApplicationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/controller/customerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/controller/provinceController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/formatter/ProvinceFormatter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/model/Province.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/repository/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/repository/ProvinceRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/service/CustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/service/ProvinceService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/service/impl/CustomerServiecImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/java/com/example/customer_m/service/impl/ProvinceServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/resources/templates/customer/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/resources/templates/customer/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/resources/templates/customer/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/resources/templates/province/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/resources/templates/province/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/resources/templates/province/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/main/resources/templates/province/view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../customer_m/src/test/java/com/example/customer_m/CustomerMApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/6.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/6.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/6.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/6.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/classes/java/main/com/thymeleaf/controller/AppConfiguration.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/classes/java/main/com/thymeleaf/controller/AppInitializer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/classes/java/main/com/thymeleaf/controller/CustomerController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/classes/java/main/com/thymeleaf/model/Customer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/classes/java/main/com/thymeleaf/repository/CustomerRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/classes/java/main/com/thymeleaf/repository/Repository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/classes/java/main/com/thymeleaf/repository/impl/CustomerRepositoryImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/classes/java/main/com/thymeleaf/service/CustomerService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/classes/java/main/com/thymeleaf/service/impl/CustomerServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/libs/thymeleaf-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/java/com/thymeleaf/controller/AppConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/java/com/thymeleaf/controller/AppInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/java/com/thymeleaf/controller/CustomerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/java/com/thymeleaf/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/java/com/thymeleaf/repository/CustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/java/com/thymeleaf/repository/Repository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/java/com/thymeleaf/repository/impl/CustomerRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/java/com/thymeleaf/service/CustomerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/java/com/thymeleaf/service/impl/CustomerServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/webapp/WEB-INF/views/create.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/webapp/WEB-INF/views/delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/webapp/WEB-INF/views/edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/webapp/WEB-INF/views/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/webapp/WEB-INF/views/layout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thymeleaf/src/main/webapp/WEB-INF/views/view.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1t5oh5ExzEt5y9HQQ0KF3TwDcaa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RunManager">
+    <configuration name="ValidationInforUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="validation-infor-user.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.validationinforuser.ValidationInforUserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="48321386-156d-4ced-bfb2-142ee479fba9" name="Default Changelist" comment="" />
+      <created>1622068426936</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1622068426936</updated>
+      <workItem from="1622068433362" duration="918000" />
+      <workItem from="1622186516457" duration="6249000" />
+      <workItem from="1622192974314" duration="2515000" />
+      <workItem from="1622198569277" duration="10045000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622190705622">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1622190705622" />
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1622201209027">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1622201209027" />
+    <state x="418" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1622201908287">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="418" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1622201908287" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1622189070565">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1622189070565" />
+    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1622207421848">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622207421848" />
+    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1622207421848">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1622207421848" />
+    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1622207421848">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1622207421848" />
+    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1622207421848">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1622207421848" />
+    <state width="1493" height="2" key="GridCell.Tab.1.bottom" timestamp="1622207421849">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="2" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622207421849" />
+    <state width="1493" height="2" key="GridCell.Tab.1.center" timestamp="1622207421849">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="2" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1622207421849" />
+    <state width="1493" height="2" key="GridCell.Tab.1.left" timestamp="1622207421848">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="2" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1622207421848" />
+    <state width="1493" height="2" key="GridCell.Tab.1.right" timestamp="1622207421849">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="2" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1622207421849" />
+  </component>
+</project>
