@@ -2,14 +2,11 @@ package com.example.validationinforuser.service.impl;
 
 import com.example.validationinforuser.model.Province;
 import com.example.validationinforuser.repository.ProvinceRepository;
-import com.example.validationinforuser.repository.UserRepository;
 import com.example.validationinforuser.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ProvinceServiceImpl implements ProvinceService {

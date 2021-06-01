@@ -1,14 +1,15 @@
 package com.example.validationinforuser.service;
 
+import com.example.validationinforuser.exception.DuplicateEmailException;
 import com.example.validationinforuser.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface UserService {
-    Page<User> findAllUser(Pageable pageable);
-    User findUserById(int id);
+    Page<User> findAllUser(Pageable pageable) ;
+    User findUserById(int id) ;
 
-    void save (User user);
+    void save (User user) throws DuplicateEmailException;
 
     void removeById (int id);
 

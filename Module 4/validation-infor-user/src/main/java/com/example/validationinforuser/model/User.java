@@ -5,6 +5,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 @Entity
 public class User {
@@ -31,6 +32,31 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "province_id")
     private Province province;
+
+
+    //
+    private LocalDate timeCreated;
+
+    public LocalDate getTimeCreated() {
+        return timeCreated;
+    }
+
+    public void setTimeCreated(LocalDate timeCreated) {
+        this.timeCreated = timeCreated;
+    }
+
+    public User(int ID, @NotEmpty @Size(max = 45, min = 5) String first_Name, @NotEmpty @Size(max = 45, min = 5) String last_Name, @Min(18) int age, @Email(regexp = "^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$") String email, Province province, LocalDate timeCreated) {
+        this.ID = ID;
+        this.first_Name = first_Name;
+        this.last_Name = last_Name;
+        this.age = age;
+        this.email = email;
+        this.province = province;
+        this.timeCreated = timeCreated;
+    }
+
+    //
+
 
     public User() {
     }
