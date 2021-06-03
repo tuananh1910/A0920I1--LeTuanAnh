@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Give Book Back</title>
+</head>
+<body>
+<h1>Give Book Back</h1>
+<form th:action="@{/give-book-back}" method="post" th:object="${rentBook}">
+    <label>ID: </label>
+    <input type="text" th:field="*{id}">
+    <br>
+    <th:block th:if="${message}!=null">
+
+        <input type="text" th:value="${message}">
+
+    </th:block>
+
+
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

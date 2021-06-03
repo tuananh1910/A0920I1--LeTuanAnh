@@ -18,12 +18,12 @@ public class UserServiceImpl implements UserService {
     UserRepository userRepository;
 
     @Override
-    public Page<User> findAllUser( Pageable pageable)  {
+    public Page<User> findAllUser( Pageable pageable) throws Exception {
 //
 //        if (true) {
 //            throw new Exception("a dummy exception");
 //        }
-
+        System.out.println("find All");
         return userRepository.findAll(pageable);
     }
     @Override

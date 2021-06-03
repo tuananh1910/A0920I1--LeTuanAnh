@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface UserService {
-    Page<User> findAllUser(Pageable pageable) ;
+    Page<User> findAllUser(Pageable pageable) throws Exception;
     User findUserById(int id) ;
 
     void save (User user) throws DuplicateEmailException;

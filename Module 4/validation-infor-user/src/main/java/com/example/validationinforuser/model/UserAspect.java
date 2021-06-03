@@ -7,6 +7,11 @@ import java.util.Arrays;
 
 @Aspect
 public class UserAspect {
+    @After(value="execution(* com.example.validationinforuser.service.impl.UserServiceImpl.*(..))")
+    public void getUserServiceAfter(){
+        System.out.println("After call method get :");
+    }
+
 
 //    @AfterThrowing(pointcut = "execution(public * com.example.validationinforuser.*.*(..))", throwing = "e")
 //    public void log(JoinPoint joinPoint,Exception e){
@@ -20,7 +25,7 @@ public class UserAspect {
 //        System.out.println("[CMS] ERROR!");
 //    }
 
-//    @Before("execution(*.com.example.validationinforuser.*.get*())")
+//    @Before("execution(*.com.example.validationinforuser.service.impl.get*())")
 //    public void getAllUserServiceBefore(JoinPoint joinPoint){
 //        System.out.println("Before Call method get + " + joinPoint.toString());
 //    }
@@ -33,9 +38,5 @@ public class UserAspect {
 //    @Pointcut("execution(* com.example.validationinforuser.service.impl.UserServiceImpl.*(..))")
 //    private void getUserService(){}
 
-    @After(value = "execution(* com.example.validationinforuser.service.impl.UserServiceImpl.*())")
-    public void getUserServiceAfter(){
-        System.out.println("After call method get :");
-    }
 
 }
