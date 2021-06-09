@@ -19,7 +19,6 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Optional;
 
 @Controller
-
 public class userController {
     @Autowired
     UserServiceImpl userService;
@@ -41,7 +40,7 @@ public class userController {
 
     @GetMapping("/")
     public ModelAndView getHome(
-            @RequestParam Optional<String> key_search, Model model,
+             Model model,
             @RequestParam(name = "page", required = false, defaultValue = "0")Integer page,
             @RequestParam(name = "size", required = false, defaultValue = "5")Integer size,
             @RequestParam(name = "sort", required = false, defaultValue = "ASC")String sort) throws Exception {
@@ -54,13 +53,13 @@ public class userController {
         }
         assert sortable != null;
         Pageable pageable = PageRequest.of(page,size,sortable);
-        if (!key_search.isPresent()) {
-            return new ModelAndView("user/list", "users", userService.findAllUser(pageable));
-        } else {
-            model.addAttribute("key_search", key_search.get());
-            return new ModelAndView("user/list", "users", userService.findByLast_NameContains(key_search.get(), pageable));
-        }
-
+//        if (!key_search.isPresent()) {
+//            return new ModelAndView("user/list", "users", userService.findAllUser(pageable));
+//        } else {
+//            model.addAttribute("key_search", key_search.get());
+//            return new ModelAndView("user/list", "users", userService.findByLast_NameContains(key_search.get(), pageable));
+//        }
+        return new ModelAndView("user/list", "users", userService.findAllUser(pageable));
     }
 
 

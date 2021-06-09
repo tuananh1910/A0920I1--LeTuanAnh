@@ -49,11 +49,11 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
-    @Override
-    public Page<User> findByLast_NameContains(String name, Pageable pageable) {
-//
-//        List<User> users = new ArrayList<>();
-//        users = (List<User>) userRepository.findByLast_NameContains(name,pageable);
-        return userRepository.findByLastNameContains(name, pageable);
-    }
+//    @Override
+//    public Page<User> findByLast_NameContains(String name, Pageable pageable) {
+////
+////        List<User> users = new ArrayList<>();
+////        users = (List<User>) userRepository.findByLast_NameContains(name,pageable);
+//        return userRepository.findByLastNameContains(name, pageable);
+//    }
 }

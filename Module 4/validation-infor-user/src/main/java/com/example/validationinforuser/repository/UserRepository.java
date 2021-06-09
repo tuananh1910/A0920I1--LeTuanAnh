@@ -11,10 +11,10 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-        @Query(
-            value = "SELECT * FROM User WHERE last_name like :last_name%",
-            nativeQuery = true)
-    Page<User> findByLastNameContains(@Param("last_name") String name, Pageable pageable);
+//        @Query(
+//            value = "SELECT * FROM User WHERE last_name like :last_name%",
+//            nativeQuery = true)
+//    Page<User> findByLastNameContains(@Param("last_name") String name, Pageable pageable);
 
 
 //    @Query(
