@@ -3,6 +3,7 @@ package com.example.blog.controller;
 import com.example.blog.model.Blog;
 import com.example.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -24,7 +27,7 @@ public class BlogController {
 //        return "list";
 //    }
     // find all blog
-   @GetMapping("")
+   @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView getHome(
             @RequestParam Optional<String> key_search,
             @PageableDefault(value = 2)Pageable pageable,
@@ -37,6 +40,17 @@ public class BlogController {
             model.addAttribute("key_search", key_search.get());
             return new ModelAndView("list","blogs", blogService.findByNameContains(key_search.get(),pageable));
         }
+    }
+
+    @RequestMapping(value = "/key-search",method = RequestMethod.GET,
+    produces = {MediaType.APPLICATION_JSON_VALUE,MediaType.APPLICATION_ATOM_XML_VALUE})
+    @ResponseBody
+    public List<Blog> searchBlog(
+            @RequestParam("key_search")String key_search,
+            Model model){
+        System.out.println("test");
+       model.addAttribute("key_search", key_search.getBytes());
+       return blogService.findByNameContains(key_search);
     }
 
 //    @RequestMapping(value = "/blogs", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE
@@ -69,7 +83,7 @@ public class BlogController {
         return new ModelAndView("create","blog",new Blog());
     }
 
-    @RequestMapping(value = "/blogs", //
+    @RequestMapping(value = "/create-new-blog", //
             method = RequestMethod.POST, //
             produces = { MediaType.APPLICATION_JSON_VALUE, //
                     MediaType.APPLICATION_XML_VALUE })

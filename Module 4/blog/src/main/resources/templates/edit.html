@@ -7,10 +7,9 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('#editBlogForm').submit(function (event) {
-                var id = $('#id').val();
                 var name = $('#name').val();
                 var content = $('#content').val();
-                var json = {"id":id, "name":name, "content":content};
+                var json = { "name":name, "content":content};
                 $.ajax({
                     url: $("#editBlogForm").attr("action"),
                     data: JSON.stringify(json),
@@ -24,7 +23,6 @@
                         var respContent = "";
 
                         respContent += "<span class='success'>BLog was edited: [";
-                        respContent += blog.id + " : ";
                         respContent += blog.name + " : ";
                         respContent += blog.content + "]</span>";
                         $("#blogFromResponse").html(respContent);

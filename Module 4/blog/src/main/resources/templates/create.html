@@ -3,17 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Blog</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#newBlogForm').submit(function (event) {
+                var name = $('#name').val();
+                var content = $('#content').val();
+                var json = { "name": name, "content": content};
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    type: "POST",
+                    data: JSON.stringify(json),
+                    url: "/blogs/create-new-blog",
+                    success: function (blog) {
+                        var respContent = "";
+                        respContent += "<span class='success'>BLog was created: [";
+                        respContent += blog.name + " : ";
+                        respContent += blog.content + "]</span>";
+                        $("#blogFromResponse").html(respContent);
+                    }
+                });
+                event.preventDefault();
+            });
+        });
+    </script>
 </head>
 <body>
-<h1>Create Blog</h1>
-<form th:action="@{/blogs}" method="POST" th:object="${blog}">
-    <label> Name :</label></br>
-    <input type="text" th:field="*{name}"/>
-    </br>
-    <label> Content :</label></br>
-    <input type="text" th:field="*{content}"/>
-    </br>
-    <input type="submit" value="Save">
-</form>
+<div id="container">
+    <a href="/blogs/">Blogs</a>
+    <h1>Create Blog</h1>
+    <div>
+        <p>Here you can create Blog info:</p>
+        <div id="blogFromResponse"></div>
+    </div>
+    <form id="newBlogForm" th:object="${blog}">
+        <label> Name :</label></br>
+        <input id="name" type="text" th:field="*{name}"/>
+        </br>
+        <label> Content :</label></br>
+        <input id="content" type="text" th:field="*{content}"/>
+        </br>
+        <input type="submit" value="Save">
+    </form>
+</div>
 </body>
 </html>

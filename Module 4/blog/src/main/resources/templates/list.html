@@ -11,17 +11,21 @@
     <h1>All Blog</h1>
     <a th:href="@{/blogs}">Blogs</a>
     <a th:href="@{/blogs/create}">Create</a>
-    <form action="/" method="get">
+
+    <form id="searchBlog">
         <label>
-            <input type="text" name="key_search">
+            <input type="text" name="key_search" id="key_search">
         </label>
         <input type="submit" value="Search">
     </form>
+
+
     <div>
         <p>Here you can see a list of Blogs:</p>
         <div id="blogFromResponse"></div>
     </div>
-    <table border="1px">
+
+    <table border="1px" id="table">
         <thead>
         <tr>
             <th>ID</th>
@@ -30,16 +34,20 @@
             <th>Action</th>
         </tr>
         </thead>
-        <tbody>
+
+        <tbody id="tbody">
+
         <tr th:each="blog :${blogs}">
             <td th:text="${blog.id}"></td>
             <td th:text="${blog.name}"></td>
             <td th:text="${blog.content}"></td>
             <td>
                 <a th:href="@{/blogs/edit/{id}(id=${blog.getId()})}">Edit | </a>
-                <a th:href="@{/blogs/delete/{id}(id=${blog.getId()})}">Delete</a>
+                <a th:href="@{/blogs/delete/__${blog.id}__}">Delete</a>
+<!--                // chua nhay vao jquery-->
             </td>
         </tr>
+
         </tbody>
     </table>
     <div>
@@ -59,7 +67,7 @@
         $(deletelink).click(function (event) {
             $.ajax({
                 url: $(event.target).attributes("href"),
-                type:"DELETE",
+                type: "DELETE",
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader("Accept", "application/json");
                     xhr.setRequestHeader("Content-Type", "application/json");
@@ -69,8 +77,7 @@
                     var respContent = "";
                     var rowToDelete = $(event.target).closest("tr");
                     rowToDelete.remove();
-                    respContent += "<span class='success'>Smartphone was deleted: [";
-                    respContent += blog.id + " : ";
+                    respContent += "<span class='success'>Blog was deleted: [";
                     respContent += blog.name + " : ";
                     respContent += blog.content + "]</span>";
                     $("#blogFromResponse").html(respContent);
@@ -79,6 +86,53 @@
             event.preventDefault();
         });
     });
+
+
+    $(document).ready(function () {
+        $('#searchBlog').submit(function (event) {
+            $('#key_search').val();
+            $.ajax({
+                url: '/blogs/key-search',
+                dataType: 'json',
+                data: {key_search: $("#key_search").val()},
+                type: "GET",
+
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("Accept", "application/json");
+                    xhr.setRequestHeader("Content-Type", "application/json");
+                },
+                success: function (data) {
+                    var str="";
+                    if (data === "fail") {
+
+                        alert('error');
+
+                    } else {
+
+                        $.each(data, function (i) {
+
+                            str += "<tr>";
+                            str += "<td>" + data[i].id + "</td>";
+                            str += "<td>" + data[i].name + "</td>";
+                            str += "<td>" + data[i].content + "</td>";
+                            str += "<td><a class='btn btn-success btnView' href='edit.html'>Edit |</a>" +
+                               " <a href='/blogs/delete/{id}(id='+data[i].id+')'>Delete</a>" +
+                                "</td>";
+
+                            //{id}(id=${blog.getId()})
+                            str += "</tr>";
+
+                        });
+                        // id của thẻ tbody để hiển thị tất cả cá tr ra
+                        $('#tbody').html(str);
+                    }
+                }
+            });
+            event.preventDefault();
+        });
+    });
 </script>
+
+
 </body>
 </html>
