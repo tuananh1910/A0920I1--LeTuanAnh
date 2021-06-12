@@ -47,7 +47,7 @@ public class customerController {
         customerService.save(customer);
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("/customers/{id}").buildAndExpand(customer.getId()).toUri());
-        return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
     //------------------- Update a Customer --------------------------------------------------------

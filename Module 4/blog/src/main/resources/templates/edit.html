@@ -3,21 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Update BLog</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#editBlogForm').submit(function (event) {
+                var id = $('#id').val();
+                var name = $('#name').val();
+                var content = $('#content').val();
+                var json = {"id":id, "name":name, "content":content};
+                $.ajax({
+                    url: $("#editBlogForm").attr("action"),
+                    data: JSON.stringify(json),
+                    type: "PUT",
+
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("Accept", "application/json");
+                        xhr.setRequestHeader("Content-Type", "application/json");
+                    },
+                    success: function (blog) {
+                        var respContent = "";
+
+                        respContent += "<span class='success'>BLog was edited: [";
+                        respContent += blog.id + " : ";
+                        respContent += blog.name + " : ";
+                        respContent += blog.content + "]</span>";
+                        $("#blogFromResponse").html(respContent);
+                    }
+                });
+                event.preventDefault();
+            });
+        });
+    </script>
 </head>
 <body>
+<div id="container">
 <h1>Update Blog</h1>
-<form th:action="@{/update}" method="post" th:object="${blog}" >
+    <a th:href="@{/blogs}">BLogs</a>
+    <div>
+        <p>Here you can edit Blog info:</p>
+        <div id="blogFromResponse"></div>
+    </div>
+<form id="editBlogForm" th:object="${blog}" >
     <label> ID :</label></br>
-        <input type="text" th:field="*{id}" th:value="${blog.id}"  readonly/>
+        <input id="id" type="text" th:field="*{id}" th:value="${blog.id}"  readonly/>
     </br>
     <label> Name :</label></br>
-        <input type="text" th:field="*{name}" th:value="${blog.name}"/>
+        <input id="name" type="text" th:field="*{name}" th:value="${blog.name}"/>
     </br>
     <label> Content :</label></br>
-        <input type="text" th:field="*{content}" th:value="${blog.content}"/>
+        <input id="content" type="text" th:field="*{content}" th:value="${blog.content}"/>
     </br>
-
-    <input type="submit" value="Submit">
+    <input type="submit" value="Update">
 </form>
+</div>
 </body>
 </html>

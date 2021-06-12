@@ -2,7 +2,6 @@ package com.example.blog.service.impl;
 
 import com.example.blog.model.Blog;
 import com.example.blog.repository.BlogRepository;
-import com.example.blog.repository.CrudRepository;
 import com.example.blog.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class BlogServiceImpl implements BlogService {
     @Autowired
     BlogRepository blogRepository;
-    CrudRepository<Blog, Integer> crudRepository;
+
 
     @Override
     public Page<Blog> findAllBlog(Pageable pageable) {
@@ -28,15 +27,15 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public void save(Blog blog) {
-        blogRepository.save(blog);
+    public Blog save(Blog blog) {
+        return blogRepository.save(blog);
     }
 
     @Override
-    public void delete(int id) {
+    public Blog delete(int id) {
         blogRepository.deleteById(id);
+        return findBlogById(id);
     }
-
 
     @Override
     public Page<Blog> findByNameContains(String name, Pageable pageable) {

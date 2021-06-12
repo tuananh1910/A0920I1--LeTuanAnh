@@ -7,8 +7,8 @@ import org.springframework.data.domain.Pageable;
 public interface BlogService {
     Page<Blog> findAllBlog(Pageable pageable);
     Blog findBlogById(int id);
-    void save(Blog blog);
-    void delete(int id);
+    Blog save(Blog blog);
+    Blog delete(int id);
 
 
     Page<Blog> findByNameContains(String name,Pageable pageable);
