@@ -46,12 +46,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public Long borrowBook(Book book) throws BorrowBookException {
 
-
         RentBook rentBook = new RentBook();
 
         assert false;
         long idRentBook = 10000L + (long) (Math.random() * (99999L - 10000L));
-        rentBook.setId(idRentBook);     // set idrent
+        rentBook.setId(idRentBook);     // set idRentBook
         rentBook.setBook(book);  // set book for rent
         rentBookRepository.save(rentBook);
         decreaseAmount(book);
@@ -68,7 +67,6 @@ public class BookServiceImpl implements BookService {
         }else {
             book = bookRepository.findById(rentBook.getBook().getId()).orElse(null);
             assert book != null;
-            System.out.println(book.getTitle());
             increaseAmount(book);
         }
         bookRepository.save(book);
