@@ -24,6 +24,11 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public List<Blog> findAllListBlog() {
+        return blogRepository.findAll();
+    }
+
+    @Override
     public Blog findBlogById(int id) {
         return blogRepository.findById(id).orElse(null);
     }
@@ -40,12 +45,12 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public List<Blog> findByNameContains(String name) {
+    public List<Blog> findByNameContainsList(String name) {
         return blogRepository.findByNameContains(name);
     }
 
     @Override
-    public Page<Blog> findByNameContains(String name, Pageable pageable) {
+    public Page<Blog> findByNameContainsPage(String name, Pageable pageable) {
         return blogRepository.findByNameContains(name,pageable);
     }
 }

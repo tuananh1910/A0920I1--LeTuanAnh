@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface BlogService {
     Page<Blog> findAllBlog(Pageable pageable);
+    List<Blog> findAllListBlog();
 
     Blog findBlogById(int id);
 
@@ -16,6 +17,7 @@ public interface BlogService {
     Blog delete(int id);
 
 
-        Page<Blog> findByNameContains(String name,Pageable pageable);
-    List<Blog> findByNameContains(String name);
+    Page<Blog> findByNameContainsPage(String name,Pageable pageable);
+    List<Blog> findByNameContainsList(String name);
+
 }

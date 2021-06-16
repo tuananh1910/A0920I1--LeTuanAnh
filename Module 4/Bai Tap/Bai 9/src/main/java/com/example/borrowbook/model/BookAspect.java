@@ -7,23 +7,9 @@ import org.aspectj.lang.annotation.Before;
 
 @Aspect
 public class BookAspect {
-    //display list book log
-    @Before(value = "execution(* com.example.borrowbook.service.impl.BookServiceImpl.findAll(..))")
-    public void getAllBookBefore(JoinPoint joinPoint){
-        System.out.println("Before call method : " + joinPoint.toString());
-        System.out.println("Before , Display List Book");
-    }
-
-    @After(value = "execution(* com.example.borrowbook.service.impl.BookServiceImpl.findAll(..))")
-    public void getAllBookAfter(JoinPoint joinPoint){
-        System.out.println("After call method : " + joinPoint.toString());
-        System.out.println("After , Display List Book Success");
-    }
-
-
     // borrow book log
     @Before(value="execution(* com.example.borrowbook.service.impl.BookServiceImpl.borrowBook(..))")
-    public void getBorrowBookBefore(JoinPoint joinPoint){
+    public void BorrowBookBefore(JoinPoint joinPoint){
         System.out.println("Before call method get :"+ joinPoint.toString());
         System.out.println("Before method borrow book");
     }
@@ -39,6 +25,23 @@ public class BookAspect {
         System.out.println("After call method get :"+ joinPoint.toString());
         System.out.println("After borrow book success : decrease Amount`");
     }
+
+
+    //display list book log
+    @Before(value = "execution(* com.example.borrowbook.service.impl.BookServiceImpl.findAll(..))")
+    public void getAllBookBefore(JoinPoint joinPoint){
+        System.out.println("Before call method : " + joinPoint.toString());
+        System.out.println("Before , Display List Book");
+    }
+
+    @After(value = "execution(* com.example.borrowbook.service.impl.BookServiceImpl.findAll(..))")
+    public void getAllBookAfter(JoinPoint joinPoint){
+        System.out.println("After call method : " + joinPoint.toString());
+        System.out.println("After , Display List Book Success");
+    }
+
+
+
 
 
 

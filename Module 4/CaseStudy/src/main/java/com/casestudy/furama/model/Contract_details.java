@@ -13,7 +13,11 @@ public class Contract_details {
     private Contract contract;
 
 
-    private int attach_service_id;
+    @ManyToOne
+    @JoinColumn(name = "attach_service_id")
+    private Attach_service attach_service;
+
+
     private int quality;
 
     public Contract_details() {

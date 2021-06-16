@@ -14,7 +14,7 @@
 
     <form id="searchBlog">
         <label>
-            <input type="text" name="key_search" id="key_search">
+            <input type="text" name="key_search" id="key_search" th:value="${key_search}">
         </label>
         <input type="submit" value="Search">
     </form>
@@ -25,7 +25,7 @@
         <div id="blogFromResponse"></div>
     </div>
 
-    <table border="1px" id="table">
+    <table border="1px" id="table" class="table table-responsive table-hover table-bordered">
         <thead>
         <tr>
             <th>ID</th>
@@ -51,6 +51,9 @@
         </tbody>
     </table>
     <div>
+        <button id="more" value="--More--">--More--</button>
+    </div>
+    <div id="page">
         <!--    <a th:href="@{'/'(page=${blogs.number - 1},key_search=${key_search})}" th:if="${blogs.hasPrevious()}">Previous</a>-->
         <!--    <span th:text="${blogs.number + 1}"></span>/<span th:text="${blogs.totalPages}"></span>-->
         <!--    <a th:href="@{'/'(page=${blogs.number + 1},key_search=${key_search})}" th:if="${blogs.hasNext()}">Next</a>-->
@@ -71,7 +74,6 @@
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader("Accept", "application/json");
                     xhr.setRequestHeader("Content-Type", "application/json");
-
                 },
                 success: function (blog) {
                     var respContent = "";
@@ -87,7 +89,7 @@
         });
     });
 
-
+    // search
     $(document).ready(function () {
         $('#searchBlog').submit(function (event) {
             $('#key_search').val();
@@ -104,11 +106,8 @@
                 success: function (data) {
                     var str="";
                     if (data === "fail") {
-
                         alert('error');
-
                     } else {
-
                         $.each(data, function (i) {
 
                             str += "<tr>";
@@ -118,21 +117,60 @@
                             str += "<td><a class='btn btn-success btnView' href='edit.html'>Edit |</a>" +
                                " <a href='/blogs/delete/{id}(id='+data[i].id+')'>Delete</a>" +
                                 "</td>";
-
                             //{id}(id=${blog.getId()})
                             str += "</tr>";
-
                         });
                         // id của thẻ tbody để hiển thị tất cả cá tr ra
                         $('#tbody').html(str);
+                        // $('#page').twbsPagination()
                     }
                 }
             });
             event.preventDefault();
         });
     });
-</script>
 
+    //
+    // //more list
+    // $(document).ready(function(){
+    //     $("#more").click(function () {
+    //         $.ajax({
+    //             url: "/blogs/more",
+    //             dataType: 'json',
+    //             type: 'GET',
+    //             data: {key_search: $("#key_search").val()},
+    //             // cache:false,
+    //             beforeSend: function (xhr) {
+    //                 xhr.setRequestHeader("Accept", "application/json");
+    //                 xhr.setRequestHeader("Content-Type", "application/json");
+    //             },
+    //             success: function(data){
+    //                 /*console.log(data);*/
+    //                 var event_data = '';
+    //                 $.each(data, function(index){
+    //                     /*console.log(value);*/
+    //                     event_data += '<tr>';
+    //                     event_data += '<td>'+data[index].id+'</td>';
+    //                     event_data += '<td>'+data[index].name+'</td>';
+    //                     event_data += '<td>' + data[index].content + '</td>';
+    //                     event_data += "<td><a class='btn btn-success btnView' href='edit.html'>Edit |</a>" +
+    //                         " <a href='/blogs/delete/{id}(id='+data[i].id+')'>Delete</a>" +
+    //                         "</td>";
+    //                     event_data += '</tr>';
+    //                 });
+    //                 $("#tbody").append(event_data);
+    //             },
+    //             error: function(){
+    //                 /*console.log("error");*/
+    //                 alert("404. Please wait until the File is Loaded.");
+    //             }
+    //         });
+    //     })
+    //
+    // });
+
+
+</script>
 
 </body>
 </html>
