@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <title>Blog</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
+    <script src="Js.js"></script>
 </head>
 <body>
+
 <div id="container">
-    <h1>All Blog</h1>
+    <div style="text-align: right;padding:5px;margin:5px 0px;background:#ccc;">
+        <a th:href="@{/blogs?lang=en}">Locale (English)</a>
+        &nbsp;|&nbsp;
+        <a th:href="@{/blogs?lang=vi}">Locale (Vietnamese)</a>
+    </div>
+    <h1><strong th:utext="#{label.title}"/></h1>
     <a th:href="@{/blogs}">Blogs</a>
-    <a th:href="@{/blogs/create}">Create</a>
+    <a th:if="${lang}" th:href="${'/blogs-create?lang='+ lang}" th:utext="#{label.create}"></a>
 
     <form id="searchBlog">
         <label>
@@ -42,16 +48,16 @@
             <td th:text="${blog.name}"></td>
             <td th:text="${blog.content}"></td>
             <td>
-                <a th:href="@{/blogs/edit/{id}(id=${blog.getId()})}">Edit | </a>
-                <a th:href="@{/blogs/delete/__${blog.id}__}">Delete</a>
-<!--                // chua nhay vao jquery-->
+                <a th:href="@{/blogs-edit/{id}(id=${blog.getId()})}">Edit | </a>
+                <a th:href="@{/blogs-delete/__${blog.id}__}">Delete</a>
+                <!--                // chua nhay vao jquery-->
             </td>
         </tr>
 
         </tbody>
     </table>
     <div>
-        <button id="more" value="--More--">--More--</button>
+        <button id="more" >--More--</button>
     </div>
     <div id="page">
         <!--    <a th:href="@{'/'(page=${blogs.number - 1},key_search=${key_search})}" th:if="${blogs.hasPrevious()}">Previous</a>-->
@@ -63,114 +69,53 @@
         <a th:href="@{'/blogs'(page=${blogs.number + 1}, key_search=${key_search})}" th:if="${blogs.hasNext()}">Next</a>
     </div>
 </div>
-
 <script type="text/javascript">
-    $(document).ready(function () {
-        let deletelink = $("a:contains('Delete')");
-        $(deletelink).click(function (event) {
+    //more list
+    $(document).ready(function(){
+        let element = 2;
+        $("#more").click(function () {
             $.ajax({
-                url: $(event.target).attributes("href"),
-                type: "DELETE",
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader("Accept", "application/json");
-                    xhr.setRequestHeader("Content-Type", "application/json");
-                },
-                success: function (blog) {
-                    var respContent = "";
-                    var rowToDelete = $(event.target).closest("tr");
-                    rowToDelete.remove();
-                    respContent += "<span class='success'>Blog was deleted: [";
-                    respContent += blog.name + " : ";
-                    respContent += blog.content + "]</span>";
-                    $("#blogFromResponse").html(respContent);
-                }
-            });
-            event.preventDefault();
-        });
-    });
-
-    // search
-    $(document).ready(function () {
-        $('#searchBlog').submit(function (event) {
-            $('#key_search').val();
-            $.ajax({
-                url: '/blogs/key-search',
+                url: "/load-more",
                 dataType: 'json',
+                type: 'GET',
                 data: {key_search: $("#key_search").val()},
-                type: "GET",
-
+                // cache:false,
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader("Accept", "application/json");
                     xhr.setRequestHeader("Content-Type", "application/json");
                 },
-                success: function (data) {
-                    var str="";
-                    if (data === "fail") {
-                        alert('error');
-                    } else {
-                        $.each(data, function (i) {
+                success: function(data){
+                    var event_data = '';
 
-                            str += "<tr>";
-                            str += "<td>" + data[i].id + "</td>";
-                            str += "<td>" + data[i].name + "</td>";
-                            str += "<td>" + data[i].content + "</td>";
-                            str += "<td><a class='btn btn-success btnView' href='edit.html'>Edit |</a>" +
-                               " <a href='/blogs/delete/{id}(id='+data[i].id+')'>Delete</a>" +
-                                "</td>";
-                            //{id}(id=${blog.getId()})
-                            str += "</tr>";
-                        });
-                        // id của thẻ tbody để hiển thị tất cả cá tr ra
-                        $('#tbody').html(str);
-                        // $('#page').twbsPagination()
+                    let count = 1;
+
+                    for (let index=element;index<data.length;index++){
+                        event_data += '<tr>';
+                        event_data += '<td>'+data[index].id+'</td>';
+                        event_data += '<td>'+data[index].name+'</td>';
+                        event_data += '<td>' + data[index].content + '</td>';
+                        event_data += "<td><a class='btn btn-success btnView' href='edit.html'>Edit |</a>" +
+                            " <a href='/blogs/delete/{id}(id="+data[index].id+")'>Delete</a>" +
+                            "</td>";
+                        event_data += '</tr>';
+                        if (count===2){
+                            break;
+                        }
+                        count++;
+                        element++;
                     }
+                    element++;
+
+                    $("#tbody").append(event_data);
+                },
+                error: function(){
+                    /*console.log("error");*/
+                    alert("404. Please wait until the File is Loaded.");
                 }
             });
-            event.preventDefault();
-        });
+        })
+
     });
-
-    //
-    // //more list
-    // $(document).ready(function(){
-    //     $("#more").click(function () {
-    //         $.ajax({
-    //             url: "/blogs/more",
-    //             dataType: 'json',
-    //             type: 'GET',
-    //             data: {key_search: $("#key_search").val()},
-    //             // cache:false,
-    //             beforeSend: function (xhr) {
-    //                 xhr.setRequestHeader("Accept", "application/json");
-    //                 xhr.setRequestHeader("Content-Type", "application/json");
-    //             },
-    //             success: function(data){
-    //                 /*console.log(data);*/
-    //                 var event_data = '';
-    //                 $.each(data, function(index){
-    //                     /*console.log(value);*/
-    //                     event_data += '<tr>';
-    //                     event_data += '<td>'+data[index].id+'</td>';
-    //                     event_data += '<td>'+data[index].name+'</td>';
-    //                     event_data += '<td>' + data[index].content + '</td>';
-    //                     event_data += "<td><a class='btn btn-success btnView' href='edit.html'>Edit |</a>" +
-    //                         " <a href='/blogs/delete/{id}(id='+data[i].id+')'>Delete</a>" +
-    //                         "</td>";
-    //                     event_data += '</tr>';
-    //                 });
-    //                 $("#tbody").append(event_data);
-    //             },
-    //             error: function(){
-    //                 /*console.log("error");*/
-    //                 alert("404. Please wait until the File is Loaded.");
-    //             }
-    //         });
-    //     })
-    //
-    // });
-
-
 </script>
-
 </body>
 </html>

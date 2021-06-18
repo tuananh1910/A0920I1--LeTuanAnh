@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/blogs")
 public class BlogController {
 
     @Autowired
@@ -26,10 +25,15 @@ public class BlogController {
 //        return "list";
 //    }
     // find all blog
-    @RequestMapping(value = "",method = RequestMethod.GET)
+    @RequestMapping(value = "/blogs",method = RequestMethod.GET)
     public ModelAndView getHome(
             @RequestParam Optional<String> key_search,
-            @PageableDefault(value = 2)Pageable pageable, Model model){
+            @PageableDefault(value = 2)Pageable pageable, Model model,
+            @RequestParam(value = "lang", required = false) String lang){
+        if (lang == null) {
+            lang = "en";
+        }
+        model.addAttribute("lang", lang);
         if (!key_search.isPresent()){
             System.out.println("all list");
             return new ModelAndView("list","blogs",blogService.findAllBlog(pageable));
@@ -40,23 +44,22 @@ public class BlogController {
         }
     }
 
-//    @RequestMapping(value = "/more", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-//    @ResponseBody
-//    public List<Blog> moreList(
-//            @RequestParam("key_search")String key_search,
-//            @PageableDefault(value = 2)Pageable pageable,
-//            Model model){
-//        if (key_search.equals("")) {
-//            System.out.println("all list");
-//            model.addAttribute("blogs", blogService.findAllBlog(pageable));
-//            return blogService.findByNameContainsList(key_search);
-//        }else {
-//            System.out.println("key search:"+key_search);
-//            model.addAttribute("key_search", key_search);
-//            return blogService.findByNameContainsList(key_search);
-//        }
-//    }
-    // bug phan trang. luc tra ve list chua xet phan trang
+    @RequestMapping(value = "/load-more", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    @ResponseBody
+    public List<Blog> moreList(
+            @RequestParam("key_search")String key_search,
+            @PageableDefault(value = 2)Pageable pageable,
+            Model model){
+        if (key_search.equals("")) {
+            System.out.println("all list more");
+            model.addAttribute("blogs", blogService.findAllBlog(pageable));
+            return blogService.findByNameContainsList(key_search);
+        }else {
+            System.out.println("key search:"+key_search);
+            model.addAttribute("key_search", key_search);
+            return blogService.findByNameContainsList(key_search);
+        }
+    }
 
     //key search
     @RequestMapping(value = "/key-search",method = RequestMethod.GET,
@@ -81,8 +84,14 @@ public class BlogController {
 
     // create
     // target form create
-    @GetMapping("/create")
-    public ModelAndView getCreatePage(){
+    @GetMapping("/blogs-create")
+    public ModelAndView getCreatePage(
+            @RequestParam(value = "lang", required = false) String lang,
+            Model model){
+        if (lang==null){
+            lang="en";
+        }
+        model.addAttribute("lang",lang);
         return new ModelAndView("create","blog",new Blog());
     }
 
@@ -97,8 +106,14 @@ public class BlogController {
     }
 
     // target form edit
-    @GetMapping("/edit/{id}")
-    public ModelAndView getEdit(@PathVariable(value = "id") int id){
+    @GetMapping("/blogs-edit/{id}")
+    public ModelAndView getEdit(
+            @PathVariable(value = "id") int id,Model model,
+            @RequestParam(value = "lang", required = false) String lang){
+        if (lang==null){
+            lang="en";
+        }
+        model.addAttribute("lang",lang);
         return new ModelAndView("edit","blog",blogService.findBlogById(id));
     }
     //update
@@ -114,7 +129,7 @@ public class BlogController {
     }
 
     //delete
-    @RequestMapping(value = "/delete/{id}", //
+    @RequestMapping(value = "/blogs-delete/{id}", //
             method = RequestMethod.DELETE, //
             produces = { MediaType.APPLICATION_JSON_VALUE,
                     MediaType.APPLICATION_XML_VALUE })
@@ -123,8 +138,6 @@ public class BlogController {
         System.out.println("(Service Side) Deleting blog: " + id);
         return blogService.delete(id);
     }
-
-
 
 
 //    @PostMapping("/update")

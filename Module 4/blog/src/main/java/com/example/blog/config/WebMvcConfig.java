@@ -1,4 +1,4 @@
-package com.example.i18n.config;
+package com.example.blog.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -24,6 +24,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Bean(name = "messageSource")
     public MessageSource getMessageResource()  {
         ReloadableResourceBundleMessageSource messageResource= new ReloadableResourceBundleMessageSource();
+
         // Đọc vào file i18n/messages_xxx.properties
         // Ví dụ: i18n/messages_en.properties
         messageResource.setBasename("classpath:i18n/messages");
