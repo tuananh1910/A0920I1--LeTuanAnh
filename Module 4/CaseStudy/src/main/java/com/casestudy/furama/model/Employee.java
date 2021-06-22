@@ -54,6 +54,22 @@ public class Employee {
         this.user = user;
     }
 
+    public Employee(int employee_id, String employee_name, String employee_birthday, String employee_id_card, double employee_salary, String employee_phone, String employee_email, String employee_address, Position position, Education_Degree education_degree, Division division, User user, List<Contract> contracts) {
+        this.employee_id = employee_id;
+        this.employee_name = employee_name;
+        this.employee_birthday = employee_birthday;
+        this.employee_id_card = employee_id_card;
+        this.employee_salary = employee_salary;
+        this.employee_phone = employee_phone;
+        this.employee_email = employee_email;
+        this.employee_address = employee_address;
+        this.position = position;
+        this.education_degree = education_degree;
+        this.division = division;
+        this.user = user;
+        this.contracts = contracts;
+    }
+
     public int getEmployee_id() {
         return employee_id;
     }
@@ -148,5 +164,13 @@ public class Employee {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 }

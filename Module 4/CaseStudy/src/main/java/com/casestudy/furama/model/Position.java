@@ -22,6 +22,12 @@ public class Position {
         this.position_name = position_name;
     }
 
+    public Position(int position_id, String position_name, List<Employee> employees) {
+        this.position_id = position_id;
+        this.position_name = position_name;
+        this.employees = employees;
+    }
+
     public int getPosition_id() {
         return position_id;
     }
@@ -36,5 +42,13 @@ public class Position {
 
     public void setPosition_name(String position_name) {
         this.position_name = position_name;
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
     }
 }
