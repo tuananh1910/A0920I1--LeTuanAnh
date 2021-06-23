@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <!--    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>-->
+
+
+    <!--    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h1 style="text-align: center">List Employee</h1>
+<table class="table table-striped table-dark" style="text-align: center; width: 100%; font-size: 10px">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Birthday</th>
+        <th scope="col">Id Card</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+        <th scope="col">Address</th>
+        <th scope="col">Position</th>
+        <th scope="col">Education Degree</th>
+        <th scope="col">Division</th>
+        <th scope="col">Username</th>
+
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee:${employees}">
+        <td scope="row" th:text="${employee.employee_id}"></td>
+        <td scope="row" th:text="${employee.employee_name}"></td>
+        <td scope="row" th:text="${employee.employee_birthday}"></td>
+        <td scope="row" th:text="${employee.employee_id_card}"></td>
+        <td scope="row" th:text="${employee.employee_salary}"></td>
+        <td scope="row" th:text="${employee.employee_phone}"></td>
+        <td scope="row" th:text="${employee.employee_email}"></td>
+        <td scope="row" th:text="${employee.employee_address}"></td>
+        <td scope="row" th:text="${employee.position.position_name}"></td>
+        <td scope="row" th:text="${employee.education_degree.education_degree_name}"></td>
+        <td scope="row" th:text="${employee.division.division_name}"></td>
+        <td scope="row" th:text="${employee.user.username}"></td>
+
+        <td>
+            <a class="btn btn-danger" th:href="@{/employee-edit/{id}(id=${employee.getEmployee_id()})}">Edit  </a> |
+            <a class="btn btn-primary" th:href="@{/employee-delete/{id}(id=${employee.getEmployee_id()})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
