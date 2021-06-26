@@ -24,6 +24,11 @@ public class User_role {    // ko co primary key
     public User_role() {
     }
 
+    public User_role(int role_id, String username) {
+        this.role_id = role_id;
+        this.username = username;
+    }
+
     public User_role(int userRoleId, int role_id, String username, User user, Role role) {
         this.userRoleId = userRoleId;
         this.role_id = role_id;

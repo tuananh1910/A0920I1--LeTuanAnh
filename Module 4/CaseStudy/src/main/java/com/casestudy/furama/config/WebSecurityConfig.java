@@ -45,6 +45,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return bCryptPasswordEncoder;
     }
 
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("admin").password(new BCryptPasswordEncoder().encode("admin")).roles("ADMIN");
+    }
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -56,14 +60,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //các trang không yêu cầu login
         httpSecurity.authorizeRequests().antMatchers("/", "/login");
 
-        //trang employee yêu cầu phải login với vai trò ROLE_USER, ROLE_ADMIN
+        //trang customer yêu cầu phải login với vai trò ROLE_USER, ROLE_ADMIN
         //Nếu chưa login , nó sẽ redirect tới trang /login , dùng hasAnyRole để cho phép ai có quyền vào
         // ROLE user và admin lấy từ database ra cái mà mình chèn vô ở bước 1
-        httpSecurity.authorizeRequests().antMatchers("/employee-list").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
+        httpSecurity.authorizeRequests().antMatchers("/furama-customer/**").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
 
 
         //Trang chỉ dành cho ADMIN
-        httpSecurity.authorizeRequests().antMatchers("/admin").access("hasAnyRole('ROLE_ADMIN')");
+//        httpSecurity.authorizeRequests().antMatchers("/admin").access("hasAnyRole('ROLE_ADMIN')");
+        httpSecurity.authorizeRequests().antMatchers("/admin","/furama-employee/**").access("hasAnyRole('ROLE_ADMIN')");
 
 
         //khi người dùng đã login , với vai trò là user

@@ -1,11 +1,15 @@
 function onclickListEmployeeFunction() {
     $.ajax({
-        url: "/employee-list",
+        url: "/furama-employee/employee-list",
         type: "GET",
         dataType: 'HTML',
         success: function (data) {
             $("#content").html(data);
+        },
+        error: function () {
+            alert("ERROR PAGE !")
         }
+
     });
 }
 
@@ -23,6 +27,23 @@ function onclickAdminFunction() {
 
     });
 }
+
+function onclickCreateNewEmployee() {
+    $.ajax({
+        url: "/furama-employee/create-new-employee",
+        type: "GET",
+        dataType: 'HTML',
+        success: function (data) {
+            $("#content").html(data);
+        },
+        error: function () {
+            alert("ERROR PAGE !")
+        }
+    });
+}
+
+
+
 
 
 

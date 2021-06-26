@@ -29,7 +29,7 @@
 <body>
 <div class="wrapper">
 
-    <div id="header" style="height: 120px">
+    <div id="header" style="height: 120px" >
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="/">
@@ -50,11 +50,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Danh Mục
+                            Employee
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="javascript:onclickListEmployeeFunction()">Employee List</a>
-                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="javascript:onclickCreateNewEmployee()">Create New
+                                Employee</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
@@ -74,6 +75,8 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+                <th:block sec:authorize="isAnonymous()">
+                    <span>
                 <ul class="navbar-nav mr-auto" id="login">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Đăng Ký</a>
@@ -83,47 +86,30 @@
                         <button onclick="window.location.href='/login'" class="btn btn-primary">Đăng Nhập</button>
                     </li>
                 </ul>
+                        </span>
+                </th:block>
+
+                </th:if>
                 <th:block sec:authorize="!isAnonymous()">
+                    <span>
                     <ul class="navbar-nav mr-auto" id="logout">
                         <li class="nav-item">
-                            Chào,
-                            <span sec:authentication="name"></span>
+                            <a class="nav-link" readonly="">Chào,
+                            <span sec:authentication="name"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a  href="/logout" class="btn btn-primary">Log Out</a>
+                            <a href="/logout" class="btn btn-primary">Log Out</a>
                         </li>
                     </ul>
+                        </span>
                 </th:block>
 
             </div>
         </nav>
     </div>
 
-    <div class="section">
-        <div class="grid" style="width: 10%; float: left; display: none"> // bat su kien click vao chuc nang tren nav =>
-            display = block
-            <div class="grid_row">
-                <div class="grid_column-2">
-                    <nav class="category">
-                        <h3 class="category_heading">
-                            <i class="category_heading-icon fas fa-list"></i>
-                            Danh Mục
-                        </h3>
 
-                        <ul class="category-list">
-                            <li class="category-item category-item-active">
-                                <a href="#" class="category-item-link">Tạo Mới</a>
-                            </li>
-
-                        </ul>
-
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="content" class="container" style="width: 90%; float: right">
-
+    <div id="content" class="container" style="width: 100%;">
     </div>
 
     <!--    <div class="footer" style="font-size: 15px; text-align: center ">-->

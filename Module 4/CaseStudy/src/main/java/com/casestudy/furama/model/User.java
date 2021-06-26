@@ -5,12 +5,17 @@ import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
 public class User {
     @Id
     private String username;
+
+    @NotEmpty
+    @Size(min = 6)
     private String password;
 
     @OneToMany(targetEntity = Employee.class)
@@ -25,7 +30,12 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, List<Employee> employees, List<User_role> user_roles) {
+    public User(String username, @NotEmpty @Size(min = 6) String password) {
+        this.username = username;
+        this.password = password;
+    }
+
+    public User(String username, @NotEmpty @Size(min = 6) String password, List<Employee> employees, List<User_role> user_roles) {
         this.username = username;
         this.password = password;
         this.employees = employees;

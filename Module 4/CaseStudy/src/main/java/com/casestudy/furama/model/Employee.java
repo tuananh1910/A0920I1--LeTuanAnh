@@ -1,6 +1,10 @@
 package com.casestudy.furama.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -9,28 +13,39 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int employee_id;
 
+    @Size(min = 1, max = 45)
     private String employee_name;
+
+    @NotNull
     private String employee_birthday;
+
+    @Size(min = 6, max = 12)
     private String employee_id_card;
+
+    @NotNull
     private double employee_salary;
+
+    @Size(min = 8, max = 10)
     private String employee_phone;
+
+    @Email(regexp = "^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$")
     private String employee_email;
     private String employee_address;
 
     @ManyToOne
-    @JoinColumn(name = "position_id")
+    @JoinColumn(name = "position_id", updatable = false)
     private Position position;
 
     @ManyToOne
-    @JoinColumn(name = "education_degree_id")
+    @JoinColumn(name = "education_degree_id", updatable = false)
     private Education_Degree education_degree;
 
     @ManyToOne
-    @JoinColumn(name = "division_id")
+    @JoinColumn(name = "division_id", updatable = false)
     private Division division;
 
     @ManyToOne
-    @JoinColumn(name = "username")
+    @JoinColumn(name = "username", updatable = false)
     private User user;
 
     @OneToMany(targetEntity = Contract.class)
@@ -39,7 +54,7 @@ public class Employee {
     public Employee(){
     }
 
-    public Employee(int employee_id, String employee_name, String employee_birthday, String employee_id_card, double employee_salary, String employee_phone, String employee_email, String employee_address, Position position, Education_Degree education_degree, Division division, User user) {
+    public Employee(int employee_id, @NotEmpty @Size(min = 1, max = 45) String employee_name, @NotEmpty String employee_birthday, @NotEmpty @Size(min = 6, max = 12) String employee_id_card, @NotEmpty double employee_salary, @NotEmpty @Size(min = 8, max = 10) String employee_phone, @Email(regexp = "^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$") String employee_email, String employee_address, Position position, Education_Degree education_degree, Division division, User user) {
         this.employee_id = employee_id;
         this.employee_name = employee_name;
         this.employee_birthday = employee_birthday;
@@ -54,7 +69,7 @@ public class Employee {
         this.user = user;
     }
 
-    public Employee(int employee_id, String employee_name, String employee_birthday, String employee_id_card, double employee_salary, String employee_phone, String employee_email, String employee_address, Position position, Education_Degree education_degree, Division division, User user, List<Contract> contracts) {
+    public Employee(int employee_id, @Size(min = 1, max = 45) String employee_name, @NotNull String employee_birthday, @Size(min = 6, max = 12) String employee_id_card, @NotNull double employee_salary, @Size(min = 8, max = 10) String employee_phone, @Email(regexp = "^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$") String employee_email, String employee_address, Position position, Education_Degree education_degree, Division division, User user, List<Contract> contracts) {
         this.employee_id = employee_id;
         this.employee_name = employee_name;
         this.employee_birthday = employee_birthday;
