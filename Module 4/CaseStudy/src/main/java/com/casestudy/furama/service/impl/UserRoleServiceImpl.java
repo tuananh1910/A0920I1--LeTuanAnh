@@ -22,4 +22,9 @@ public class UserRoleServiceImpl implements UserRoleService {
     public void save(User_role user_role) {
         userRoleRepository.save(user_role);
     }
+
+    @Override
+    public void remove(String username) {
+        userRoleRepository.deleteByUsername(username);
+    }
 }

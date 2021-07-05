@@ -4,6 +4,8 @@ import com.casestudy.furama.model.Employee;
 import com.casestudy.furama.repository.EmployeeRepository;
 import com.casestudy.furama.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +16,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
     @Override
-    public List<Employee> findAll() {
+    public List<Employee> findAll( ) {
         return employeeRepository.findAll();
     }
 
@@ -29,8 +31,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void remove(int id) {
+    public Employee remove(int id) {
+        Employee employee = findById(id);
         employeeRepository.deleteById(id);
-
+        return employee;
     }
 }

@@ -9,4 +9,6 @@ public interface UserRoleService {
     List<User_role> findAll();
 
     void save(User_role user_role);
+
+    void remove(String username);
 }

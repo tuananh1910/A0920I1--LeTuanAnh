@@ -8,4 +8,6 @@ public interface UserService {
     List<User> findAll();
 
     void save(User user);
+
+    void remove (String username);
 }
