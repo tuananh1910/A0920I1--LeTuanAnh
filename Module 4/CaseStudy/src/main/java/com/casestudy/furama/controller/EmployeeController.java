@@ -9,6 +9,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -72,45 +74,56 @@ public class EmployeeController {
     public ModelAndView createEmployeePage(Model model) {
 //        model.addAttribute("user", new User());
         model.addAttribute("userRole", new User_role());
-        return new ModelAndView("employee/create", "employee", new DTOEmployeeCreate());
+        return new ModelAndView("employee/create", "employee", new Employee());
     }
 
-//    @PostMapping(value = "/addNewEmployee")
-//    public ModelAndView createEmployee(
-//            @ModelAttribute("userRole") User_role user_role,
-//            @Validated @ModelAttribute("employee") Employee employee, BindingResult result){
-//
-//        if (result.hasFieldErrors()){
-//            return new ModelAndView("employee/create","employee", new Employee());
-//        }
-//        User user = new User(employee.getUser().getUsername(),employee.getUser().getPassword());
-//        userService.save(user);
-//        userRoleService.save(new User_role(user_role.getRole_id(),user.getUsername()));
-//        employeeService.save(employee);
-//        return new ModelAndView("employee/list","employees",employeeService.findAll());
-//
-//    }
+    @PostMapping(value = "/addNewEmployee")
+    public ModelAndView createEmployee(
+            @ModelAttribute("usserRole") User_role user_role,
+            @Validated @ModelAttribute("employee") Employee employee, BindingResult result){
 
-    @RequestMapping(value = "/addNewEmployee", method = RequestMethod.POST,
-            produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public Employee createEmployee(
-            @RequestBody DTOEmployeeCreate employee) {
-        System.out.println("create");
+        System.out.println("Create");
+        System.out.println(employee.getEmployee_name());
 
-        User user = new User(employee.getUsername().getUsername(),employee.getPassword());
+        if (result.hasFieldErrors()){
+            System.out.println("Validate error");
+            return new ModelAndView("employee/create","employee", new Employee());
+        }
+
+        System.out.println("User");
+        User user = new User(employee.getUser().getUsername(),employee.getUser().getPassword());
+        System.out.println(user.getUsername());
+
+        System.out.println("Save user");
         userService.save(user);
+        System.out.println("Saved user");
 
-        User_role user_role = new User_role(employee.getRole_id(),employee.getUsername().getUsername());
-        userRoleService.save(user_role);
+        System.out.println("Save User Role");
+        System.out.println("Chua save dc");
+        userRoleService.save(new User_role(user_role.getRole(),employee.getUser()));
+        System.out.println("Saved User Role");
 
 
-        Employee employee1 = new Employee(employee.getEmployee_name(),employee.getEmployee_birthday(),employee.getEmployee_id_card()
-        ,employee.getEmployee_salary(),employee.getEmployee_phone(),employee.getEmployee_email(),employee.getEmployee_address()
-        ,employee.getPosition_id(),employee.getEducation_degree_id(),employee.getDivision_id(),employee.getUsername());
+        Employee employee1 =  new Employee(
+                employee.getEmployee_name(),
+                employee.getEmployee_birthday(),
+                employee.getEmployee_id_card(),
+                employee.getEmployee_salary(),
+                employee.getEmployee_phone(),
+                employee.getEmployee_email(),
+                employee.getEmployee_address(),
+                employee.getPosition()
+        ,employee.getEducation_degree(),employee.getDivision(),employee.getUser());
 
-        return employeeService.save(employee1);
+        System.out.println("Save employee");
+        employeeService.save(employee1);
+        System.out.println("Saved employee");
+
+
+        return new ModelAndView("employee/list","employees",employeeService.findAll());
+
     }
+
 
 //    ------------------------------------
 

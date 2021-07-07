@@ -8,39 +8,22 @@ public class User_role {    // ko co primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userRoleId;
 
-    private int role_id;
-
-    private String username;
-
     @ManyToOne
-    @JoinColumn(name = "username", insertable = false, updatable = false)
+    @JoinColumn(name = "username", updatable = false)
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "role_id",insertable = false, updatable = false)
+    @JoinColumn(name = "role_id", updatable = false)
     private Role role;
 
 
     public User_role() {
     }
 
-    public User_role(int role_id, String username) {
-        this.role_id = role_id;
-        this.username = username;
-    }
+    public User_role(Role role_id, User username) {
 
-    public User_role(int userRoleId, int role_id, String username, User user, Role role) {
-        this.userRoleId = userRoleId;
-        this.role_id = role_id;
-        this.username = username;
-        this.user = user;
-        this.role = role;
-    }
-
-    public User_role(int userRoleId, int role_id, String username) {
-        this.userRoleId = userRoleId;
-        this.role_id = role_id;
-        this.username = username;
+        this.role = role_id;
+        this.user = username;
     }
 
     public int getUserRoleId() {
@@ -49,22 +32,6 @@ public class User_role {    // ko co primary key
 
     public void setUserRoleId(int userRoleId) {
         this.userRoleId = userRoleId;
-    }
-
-    public int getRole_id() {
-        return role_id;
-    }
-
-    public void setRole_id(int role_id) {
-        this.role_id = role_id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public User getUser() {
