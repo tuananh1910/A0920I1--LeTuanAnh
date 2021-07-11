@@ -2,12 +2,11 @@ package com.casestudy.furama.model;
 
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class User {
@@ -21,10 +20,13 @@ public class User {
     @OneToMany(targetEntity = Employee.class)
     private List<Employee> employees;
 
-    @OneToMany(targetEntity = User_role.class)
-    private List<User_role> user_roles;
-
-
+    //    @OneToMany(targetEntity = User_role.class)
+//    private List<User_role> user_roles;
+    @ManyToMany
+    @JoinTable(name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> role;
 
 
     public User() {
@@ -35,16 +37,20 @@ public class User {
         this.password = password;
     }
 
-    public User(String username, @NotEmpty @Size(min = 6) String password, List<Employee> employees, List<User_role> user_roles) {
+    public User(String username, @NotEmpty @Size(min = 6) String password, Set<Role> role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User(String username, @NotEmpty @Size(min = 6) String password, List<Employee> employees, Set<Role> role) {
         this.username = username;
         this.password = password;
         this.employees = employees;
-        this.user_roles = user_roles;
+        this.role = role;
     }
 
-    public User(String username, String password, List<GrantedAuthority> grantList) {
 
-    }
 
 
 //    public User(String username, String password, GrantedAuthority authority) { ??
@@ -74,11 +80,11 @@ public class User {
         this.employees = employees;
     }
 
-    public List<User_role> getUser_roles() {
-        return user_roles;
+    public Set<Role> getRole() {
+        return role;
     }
 
-    public void setUser_roles(List<User_role> user_roles) {
-        this.user_roles = user_roles;
+    public void setRole(Set<Role> role) {
+        this.role = role;
     }
 }

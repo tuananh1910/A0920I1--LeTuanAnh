@@ -2,6 +2,7 @@ package com.casestudy.furama.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Role {
@@ -11,17 +12,20 @@ public class Role {
 
     private String role_name;
 
-    @OneToMany(targetEntity = User_role.class)
-    private List<User_role> user_roles;
-
+    @ManyToMany(mappedBy = "role",cascade = CascadeType.ALL)
+    private Set<User> users;
 
     public Role() {
     }
 
-    public Role(int role_id, String role_name, List<User_role> user_roles) {
+    public Role(int role_id, String role_name, Set<User> users) {
         this.role_id = role_id;
         this.role_name = role_name;
-        this.user_roles = user_roles;
+        this.users = users;
+    }
+
+    public Role(String role_name) {
+        this.role_name = role_name;
     }
 
     public int getRole_id() {
@@ -40,11 +44,11 @@ public class Role {
         this.role_name = role_name;
     }
 
-    public List<User_role> getUser_roles() {
-        return user_roles;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setUser_roles(List<User_role> user_roles) {
-        this.user_roles = user_roles;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 }

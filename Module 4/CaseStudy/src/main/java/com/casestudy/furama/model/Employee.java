@@ -1,34 +1,35 @@
 package com.casestudy.furama.model;
 
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+
 import java.util.List;
 
 @Entity
-public class Employee {
+public class Employee implements Validator {
+    private static final String BIRTHDAY_REGEX="([12]\\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01]))";
+    private static final String ID_CARD_REGEX="\\d{9}|\\d{12}";
+    private static final String PHONE_REGEX="090\\d{7}|091\\d{7}|\\(84\\)\\+91\\d{7}|\\(84\\)\\+90\\d{7}";
+    private static final String EMAIL_REGEX =   "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int employee_id;
 
-    @Size(min = 1, max = 45)
     private String employee_name;
 
-    @NotNull
     private String employee_birthday;
 
-    @Size(min = 6, max = 12)
     private String employee_id_card;
 
-    @NotNull
     private double employee_salary;
 
-    @Size(min = 8, max = 10)
     private String employee_phone;
 
-    @Email(regexp = "^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$")
     private String employee_email;
     private String employee_address;
 
@@ -54,9 +55,8 @@ public class Employee {
     public Employee(){
     }
 
+    public Employee( String employee_name, String employee_birthday, String employee_id_card, double employee_salary, String employee_phone, String employee_email, String employee_address, Position position, Education_Degree education_degree, Division division, User user) {
 
-    public Employee(int employee_id, @NotEmpty @Size(min = 1, max = 45) String employee_name, @NotEmpty String employee_birthday, @NotEmpty @Size(min = 6, max = 12) String employee_id_card, @NotEmpty double employee_salary, @NotEmpty @Size(min = 8, max = 10) String employee_phone, @Email(regexp = "^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$") String employee_email, String employee_address, Position position, Education_Degree education_degree, Division division, User user) {
-        this.employee_id = employee_id;
         this.employee_name = employee_name;
         this.employee_birthday = employee_birthday;
         this.employee_id_card = employee_id_card;
@@ -70,7 +70,7 @@ public class Employee {
         this.user = user;
     }
 
-    public Employee(int employee_id, @Size(min = 1, max = 45) String employee_name, @NotNull String employee_birthday, @Size(min = 6, max = 12) String employee_id_card, @NotNull double employee_salary, @Size(min = 8, max = 10) String employee_phone, @Email(regexp = "^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$") String employee_email, String employee_address, Position position, Education_Degree education_degree, Division division, User user, List<Contract> contracts) {
+    public Employee(int employee_id, String employee_name, String employee_birthday, String employee_id_card, double employee_salary, String employee_phone, String employee_email, String employee_address, Position position, Education_Degree education_degree, Division division, User user, List<Contract> contracts) {
         this.employee_id = employee_id;
         this.employee_name = employee_name;
         this.employee_birthday = employee_birthday;
@@ -86,20 +86,6 @@ public class Employee {
         this.contracts = contracts;
     }
 
-    public Employee(@Size(min = 1, max = 45) String employee_name, @NotNull String employee_birthday, @Size(min = 6, max = 12) String employee_id_card, @NotNull double employee_salary, @Size(min = 8, max = 10) String employee_phone, @Email(regexp = "^[a-z][a-z0-9_\\.]{5,32}@[a-z0-9]{2,}(\\.[a-z0-9]{2,4}){1,2}$") String employee_email, String employee_address, Position position, Education_Degree education_degree, Division division, User user) {
-        this.employee_name = employee_name;
-        this.employee_birthday = employee_birthday;
-        this.employee_id_card = employee_id_card;
-        this.employee_salary = employee_salary;
-        this.employee_phone = employee_phone;
-        this.employee_email = employee_email;
-        this.employee_address = employee_address;
-        this.position = position;
-        this.education_degree = education_degree;
-        this.division = division;
-        this.user = user;
-
-    }
 
     public int getEmployee_id() {
         return employee_id;
@@ -203,5 +189,35 @@ public class Employee {
 
     public void setContracts(List<Contract> contracts) {
         this.contracts = contracts;
+    }
+
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Employee.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Employee employee = (Employee) target;
+
+        String phone = employee.getEmployee_phone();
+        String idCard = employee.getEmployee_id_card();
+        String email = employee.getEmployee_email();
+        String birthday = employee.getEmployee_birthday();
+
+        if(!phone.matches(PHONE_REGEX)){
+            errors.rejectValue("employee_phone","employee_phone.form");
+        }
+        if(!idCard.matches(ID_CARD_REGEX)){
+            errors.rejectValue("employee_id_card","employee_id_card.form");
+        }
+        if(!email.matches(EMAIL_REGEX)){
+            errors.rejectValue("employee_email","employee_email.form");
+        }
+        if(!birthday.matches(BIRTHDAY_REGEX)){
+            errors.rejectValue("employee_birthday","employee_birthday.form");
+        }
+
     }
 }

@@ -6,7 +6,7 @@
     <!--    BOOTSTRAP-->
 
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -37,15 +37,17 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css"/>
 
     <style>
-        tfoot input {
+        tfoot select {
             width: 100%;
             padding: 3px;
             box-sizing: border-box;
         }
-        #list_wrapper{
+
+        #list_wrapper {
             font-size: 10px;
         }
-        .dataTables_scroll{
+
+        .dataTables_scroll {
             width: 100%;
             font-size: 10px;
         }
@@ -57,9 +59,9 @@
 
 
 <h1 style="text-align: center">List Employee</h1>
-<table id="list">
+<table id="list" >
     <thead>
-    <tr >
+    <tr>
         <th scope="col">ID</th>
         <th scope="col">Name</th>
         <th scope="col">Birthday</th>
@@ -111,7 +113,7 @@
         <th scope="col">Education Degree</th>
         <th scope="col">Division</th>
         <th scope="col">Username</th>
-        <th scope="col"></th>
+        <th scope="col" ></th>
     </tr>
     </tfoot>
 </table>
@@ -121,78 +123,99 @@
 
 
 <script type="text/javascript">
-    //data table
-    // $(document).ready(function() {
-    //     $('#list').DataTable({
-    //          // Nội dụng của table sẽ hiện thị với with 400px, Nếu quá thì sẽ có thanh scroll
+    // $(document).ready(function () {
+    //     // Setup - add a text input to each footer cell
+    //     $('#list tfoot th').each(function () {
+    //         var title = $(this).text();
+    //         $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+    //     });
+    //
+    //     // DataTable
+    //     var table = $('#list').DataTable({
     //         scrollY: 400,
     //         pageLength: 2,
-    //         bLengthChange: false
+    //         bLengthChange: false,
+    //         initComplete: function () {
+    //             // Apply the search
+    //             console.log("innit search");
+    //             this.api().columns().every(function () {
+    //                 var that = this;
+    //
+    //                 console.log(that);
+    //
+    //                 $('input', this.footer()).on('keyup change clear', function () {
+    //                     if (that.search() !== this.value) {
+    //                         that
+    //                             .search(this.value)
+    //                             .draw();
+    //                     }
+    //                 });
+    //             });
+    //         }
     //     });
+    //
     // });
 
 
     $(document).ready(function () {
-        // Setup - add a text input to each footer cell
-        $('#list tfoot th').each(function () {
-            var title = $(this).text();
-            $(this).html('<input type="text" placeholder="Search ' + title + '" />');
-        });
-
-        // DataTable
-        var table = $('#list').DataTable({
+        $('#list').DataTable({
             scrollY: 400,
-            pageLength: 2,
+            pageLength: 5,
             bLengthChange: false,
             initComplete: function () {
-                // Apply the search
-                console.log("innit search");
                 this.api().columns().every(function () {
-                    var that = this;
+                    var column = this;
+                    var select = $('<select><option value=""></option></select>')
+                        .appendTo($(column.footer()).empty())
+                        .on('change', function () {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
 
-                    console.log(that);
-
-                    $('input', this.footer()).on('keyup change clear', function () {
-                        if (that.search() !== this.value) {
-                            that
-                                .search(this.value)
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
                                 .draw();
-                        }
+                        });
+
+                    column.cells('', column[0]).render('display').sort().unique().each( function ( d, j ){
+                        select.append('<option value="' + d + '">' + d + '</option>')
                     });
                 });
             }
         });
-
     });
+
+
+    <!--    $(document).ready(function () {-->
+    <!--        var deleteLink = $("a:contains('Delete')");-->
+    <!--        $(deleteLink).click(function (event) {-->
+
+    <!--            $.ajax({-->
+    <!--                url: $(event.target).attr("href"),-->
+    <!--                type: "POST",-->
+    <!--                beforeSend: function (xhr) {-->
+    <!--                    xhr.setRequestHeader("Accept", "application/json");-->
+    <!--                    xhr.setRequestHeader("Content-Type", "application/json");-->
+
+    <!--                },-->
+    <!--                success: function (data) {-->
+    <!--                    var rowToDelete = $(event.target).closest("tr");-->
+    <!--                    rowToDelete.remove();-->
+    <!--                    alert("Đã xoá " + data.employee_name);-->
+    <!--                },-->
+    <!--                error: function () {-->
+    <!--                    alert("Lỗi Hệ Thống !!!");-->
+    <!--                }-->
+    <!--            });-->
+    <!--            event.preventDefault();-->
+    <!--        });-->
+    <!--    });-->
 </script>
 
 
-<!--<script type="text/javascript">-->
-<!--    $(document).ready(function () {-->
-<!--        var deleteLink = $("a:contains('Delete')");-->
-<!--        $(deleteLink).click(function (event) {-->
 
-<!--            $.ajax({-->
-<!--                url: $(event.target).attr("href"),-->
-<!--                type: "POST",-->
-<!--                beforeSend: function (xhr) {-->
-<!--                    xhr.setRequestHeader("Accept", "application/json");-->
-<!--                    xhr.setRequestHeader("Content-Type", "application/json");-->
 
-<!--                },-->
-<!--                success: function (data) {-->
-<!--                    var rowToDelete = $(event.target).closest("tr");-->
-<!--                    rowToDelete.remove();-->
-<!--                    alert("Đã xoá " + data.employee_name);-->
-<!--                },-->
-<!--                error: function () {-->
-<!--                    alert("Lỗi Hệ Thống !!!");-->
-<!--                }-->
-<!--            });-->
-<!--            event.preventDefault();-->
-<!--        });-->
-<!--    });-->
-<!--</script>-->
+
 
 
 </body>

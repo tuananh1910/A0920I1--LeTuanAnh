@@ -20,100 +20,104 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02319913-5949-4b13-98c0-4715fd1bba8c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/.idea/artifacts/ExamModule3_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/.idea/libraries/javax_servlet_jstl_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/ExamModule3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/artifacts/ExamModule3_war_exploded/WEB-INF/classes/controller/ManagerProductServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/artifacts/ExamModule3_war_exploded/WEB-INF/classes/model/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/artifacts/ExamModule3_war_exploded/WEB-INF/classes/model/Employee.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/artifacts/ExamModule3_war_exploded/WEB-INF/classes/model/Manager_order_product.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/artifacts/ExamModule3_war_exploded/WEB-INF/classes/model/Manager_prodcut.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/artifacts/ExamModule3_war_exploded/WEB-INF/classes/untils/ConnectionDB.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/artifacts/ExamModule3_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/artifacts/ExamModule3_war_exploded/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/artifacts/ExamModule3_war_exploded/product/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/production/ExamModule3/controller/ManagerProductServlet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/production/ExamModule3/dao/ICustomerDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/production/ExamModule3/dao/IManager_productDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/production/ExamModule3/dao/impl/CustomerImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/production/ExamModule3/dao/impl/Manager_ProductDaoImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/production/ExamModule3/model/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/production/ExamModule3/model/Employee.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/production/ExamModule3/model/Manager_order_product.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/production/ExamModule3/model/Manager_prodcut.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/out/production/ExamModule3/untils/ConnectionDB.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/src/controller/ManagerProductServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/src/dao/ICustomerDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/src/dao/IManager_productDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/src/dao/impl/CustomerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/src/dao/impl/Manager_ProductDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/src/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/src/model/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/src/model/Manager_order_product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/src/model/Manager_prodcut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/src/untils/ConnectionDB.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/web/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/web/product/create.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ExamModule3/web/product/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/src/controller/ManagerProductServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/src/dao/IManager_productDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/src/dao/impl/Manager_ProductDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/src/model/Manager_prodcut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/bootstrap-4.5.3-dist/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/product/create.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/product/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/.idea/artifacts/Spring_Greeting_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/.idea/libraries/Spring_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/.idea/libraries/Spring_MVC_5_2_3_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/Spring_Greeting.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/src/controllers/GreetingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/web/WEB-INF/applicationContext.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/web/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/web/WEB-INF/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/web/WEB-INF/views/home.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module4/web/WEB-INF/views/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/artifacts/CaseStudyJSP_Servlet_war_exploded/WEB-INF/classes/untils/ConnectionDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/artifacts/CaseStudyJSP_Servlet_war_exploded/WEB-INF/classes/untils/ConnectionDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/artifacts/CaseStudyJSP_Servlet_war_exploded/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/artifacts/CaseStudyJSP_Servlet_war_exploded/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/artifacts/CaseStudyJSP_Servlet_war_exploded/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/artifacts/CaseStudyJSP_Servlet_war_exploded/customer/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/artifacts/CaseStudyJSP_Servlet_war_exploded/employee/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/artifacts/CaseStudyJSP_Servlet_war_exploded/employee/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/artifacts/CaseStudyJSP_Servlet_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/artifacts/CaseStudyJSP_Servlet_war_exploded/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/production/CaseStudyJSP_Servlet/untils/ConnectionDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/out/production/CaseStudyJSP_Servlet/untils/ConnectionDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/src/untils/ConnectionDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/src/untils/ConnectionDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/customer/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/customer/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/employee/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/employee/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 3/CaseStudyJSP_Servlet/web/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/resources/ValidationMessages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/controller/CustomerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/controller/EmployeeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/controller/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/CustomerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/Division.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/EducationDegree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/repository/CustomerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/repository/CustomerTypeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/repository/DivisionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/repository/EducationDegreeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/repository/EmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/repository/PositionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/CustomerTypeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/DivisionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/EducationDegreeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/EmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/PositionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/CustomerTypeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/DivisionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/EducationDegreeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/EmployeeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/PositionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/ValidationMessages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/53114-furama-resort-da-nang-11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/CSS/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/img/463255_17010415020050117322.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/img/furama-resort-da-nang-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/img/khu-nghi-duong-furama.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/img/pinky.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/static/wallpapper.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/customer/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/customer/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/employee/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/employee/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/employee/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/date/Date.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/date/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/FuramaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/FuramaApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/model/Contract_details.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/model/Contract_details.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/model/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/model/User_role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/repository/UserRoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/DivisionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/DivisionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/EducationDegreeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/EducationDegreeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/PositionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/PositionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/UserRoleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/impl/DivisionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/impl/DivisionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/impl/EducationDegreeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/impl/EducationDegreeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/impl/PositionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/impl/PositionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/impl/UserRoleServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/java/com/casestudy/furama/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/resources/templates/employee/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/resources/templates/employee/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/resources/templates/employee/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/resources/templates/employee/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/resources/templates/employee/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/CaseStudy/src/main/resources/templates/employee/list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,6 +177,7 @@
       <updated>1618847230797</updated>
       <workItem from="1618847234646" duration="1021000" />
       <workItem from="1620620355528" duration="313000" />
+      <workItem from="1626007751207" duration="471000" />
     </task>
     <servers />
   </component>
@@ -196,10 +201,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1620620377104" />
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1618847355858">
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1626007793541">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1618847355858" />
+    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1626007793541" />
+    <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1626007900085">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1536.824@0.0.1536.824" timestamp="1626007900085" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1618848545074">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

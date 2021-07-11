@@ -34,9 +34,8 @@
             <div class="form-group">
                 <label for="inputName">Name</label>
                 <input type="text" class="form-control" id="inputName" th:field="*{employee_name}"/>
-                <th:block>
-                    <span th:if="${#fields.hasErrors('employee_name')}" th:errors="*{employee_name}">Name Error</span>
-                </th:block>
+                <label class="errorField" th:if="${#fields.hasErrors('employee_name')} " th:errors="*{employee_name}">Description Error</label>
+
             </div>
 
             <div class="form-group">
@@ -69,8 +68,10 @@
             <div class="form-group">
                 <label for="inputPhone">Phone</label>
                 <input type="text" class="form-control" id="inputPhone" th:field="*{employee_phone}">
+<!--                <label class="errorField" th:if="${#fields.hasErrors('employee_phone')} " th:errors="*{employee_phone}">Description Error</label>-->
                 <th:block>
-                    <span th:if="${#fields.hasErrors('employee_phone')}" th:errors="*{employee_phone}">Name Error</span>
+                    <span th:if="${#fields.hasErrors('employee_phone')}"
+                          th:errors="*{employee_phone}">Name Error</span>
                 </th:block>
             </div>
 
@@ -138,17 +139,11 @@
             <div class="form-group">
                 <label for="inputPassword">Password</label>
                 <input type="password" class="form-control" id="inputPassword" th:field="*{user.password}"/>
-                <th:block>
-                    <span th:if="${#fields.hasErrors('user.password')}" th:errors="*{user.password}">Name Error</span>
-                </th:block>
+<!--                <th:block>-->
+<!--                    <span th:if="${#fields.hasErrors('user.password')}" th:errors="*{user.password}">Name Error</span>-->
+<!--                </th:block>-->
             </div>
 
-            <div class="form-group" th:object="${userRole}">
-                <label for="inputUserRole">Role</label>
-                <select id="inputUserRole" class="custom-select" th:field="*{role}" required>
-                    <option th:each="r:${roles}" th:value="${r.role_id}" th:text="${r.role_name}" value=""></option>
-                </select>
-            </div>
 
         </fieldset>
 

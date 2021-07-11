@@ -14,9 +14,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import javax.validation.Valid;
+import java.util.*;
 
 @RestController
 @RequestMapping("/furama-employee")
@@ -26,9 +25,6 @@ public class EmployeeController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private UserRoleService userRoleService;
 
     @Autowired
     private PositionService positionService;
@@ -72,36 +68,39 @@ public class EmployeeController {
 
     @GetMapping("/create-new-employee")
     public ModelAndView createEmployeePage(Model model) {
-//        model.addAttribute("user", new User());
-        model.addAttribute("userRole", new User_role());
+        model.addAttribute("role", new Role());
         return new ModelAndView("employee/create", "employee", new Employee());
     }
 
     @PostMapping(value = "/addNewEmployee")
     public ModelAndView createEmployee(
-            @ModelAttribute("usserRole") User_role user_role,
-            @Validated @ModelAttribute("employee") Employee employee, BindingResult result){
+            @Valid @ModelAttribute("employee") Employee employee, BindingResult result){
 
         System.out.println("Create");
-        System.out.println(employee.getEmployee_name());
+
+        new Employee().validate(employee,result);
 
         if (result.hasFieldErrors()){
             System.out.println("Validate error");
             return new ModelAndView("employee/create","employee", new Employee());
         }
 
+        Role role = new Role("ROLE_USER");
+        Set<Role> roleSet = new HashSet<>();
+        roleSet.add(role);
+
         System.out.println("User");
-        User user = new User(employee.getUser().getUsername(),employee.getUser().getPassword());
-        System.out.println(user.getUsername());
+        User user = new User(employee.getUser().getUsername(),employee.getUser().getPassword(),roleSet);
 
         System.out.println("Save user");
-        userService.save(user);
-        System.out.println("Saved user");
 
-        System.out.println("Save User Role");
-        System.out.println("Chua save dc");
-        userRoleService.save(new User_role(user_role.getRole(),employee.getUser()));
-        System.out.println("Saved User Role");
+        try {
+            userService.save(user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        System.out.println("Saved user");
 
 
         Employee employee1 =  new Employee(
@@ -141,7 +140,7 @@ public class EmployeeController {
 
         Employee employee = employeeService.findById(id);
 
-        userRoleService.remove(employee.getUser().getUsername());
+//        userRoleService.remove(employee.getUser().getUsername());
         employeeService.remove(id);
         userService.remove(employee.getUser().getUsername());
 
@@ -161,7 +160,9 @@ public class EmployeeController {
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Employee updateEmployee(@RequestBody Employee employee) {
+
         System.out.println("update");
+
         return employeeService.save(employee);
     }
 

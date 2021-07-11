@@ -19,4 +19,9 @@ public class EducationDegreeServiceImpl implements EducationDegreeService {
     public List<Education_Degree> findAll() {
         return educationDegreeRepository.findAll();
     }
+
+    @Override
+    public Education_Degree findEducationDegreeById(int educationDegreeId) {
+        return educationDegreeRepository.findById(educationDegreeId).orElse(null);
+    }
 }

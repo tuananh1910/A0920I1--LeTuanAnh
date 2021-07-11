@@ -12,7 +12,6 @@ public class Contract_details {
     @JoinColumn(name = "contract_id" )
     private Contract contract;
 
-
     @ManyToOne
     @JoinColumn(name = "attach_service_id")
     private Attach_service attach_service;
