@@ -161,6 +161,8 @@ public class Employee implements Validator {
         String idCard =  employee.getIdCard();
 //        String birthDay = employee.getBirthDay();
         String email = employee.getEmail();
+
+
         if(!phone.matches(PHONE_REGEX)){
             errors.rejectValue("phone","phone.form");
         }

@@ -37,6 +37,7 @@
         <label>Name:</label>
         <input class="form-control" type="text" th:field="*{name}">
     </div>
+
     <div class="form-group record">
         <label>ID Card:</label>
         <input class="form-control"type="text" th:field="*{id_card}">
@@ -70,7 +71,7 @@
     </div>
     <div class="form-group record">
         <label>Type Customer:</label>
-        <select class="form-control"4 th:field="*{customerType}" >
+        <select class="form-control" th:field="*{customerType}" >
             <option value="" selected disabled hidden>Choose here</option>
             <th:block th:each="type : ${customerTypes}">
                 <option th:value="${type.id}" th:text="${type.name}"  >

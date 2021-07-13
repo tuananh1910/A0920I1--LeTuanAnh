@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //trang customer yêu cầu phải login với vai trò ROLE_USER, ROLE_ADMIN
         //Nếu chưa login , nó sẽ redirect tới trang /login , dùng hasAnyRole để cho phép ai có quyền vào
         // ROLE user và admin lấy từ database ra cái mà mình chèn vô ở bước 1
-        httpSecurity.authorizeRequests().antMatchers("/furama-customer/**").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
+        httpSecurity.authorizeRequests().antMatchers("/customer/**").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
 
 
         //Trang chỉ dành cho ADMIN

@@ -54,29 +54,29 @@ function onclickAdminFunction() {
 
 
 // delete  - 500
-$(document).ready(function () {
-    var deleteLink = $("a:contains('Delete')");
-    $(deleteLink).click(function (event) {
-        console.log("delte");
-        console.log($(event.target).attr("href"))
-        $.ajax({
-            url: $(event.target).attr("href"),
-            type: "POST",
-            success: function (data) {
-                var rowToDelete = $(event.target).closest("tr");
-                rowToDelete.remove();
-
-                alert("Đã xoá " );
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                // When AJAX call has failed
-                console.log('AJAX call failed.');
-                console.log(textStatus + ': ' + errorThrown);
-            }
-        });
-        event.preventDefault();
-    });
-});
+// $(document).ready(function () {
+//     var deleteLink = $("a:contains('Delete')");
+//     $(deleteLink).click(function (event) {
+//         console.log("delte");
+//         console.log($(event.target).attr("href"))
+//         $.ajax({
+//             url: $(event.target).attr("href"),
+//             type: "POST",
+//             success: function (data) {
+//                 var rowToDelete = $(event.target).closest("tr");
+//                 rowToDelete.remove();
+//
+//                 alert("Đã xoá " );
+//             },
+//             error: function(jqXHR, textStatus, errorThrown) {
+//                 // When AJAX call has failed
+//                 console.log('AJAX call failed.');
+//                 console.log(textStatus + ': ' + errorThrown);
+//             }
+//         });
+//         event.preventDefault();
+//     });
+// });
 
 // submit new employee  400 bad request
 

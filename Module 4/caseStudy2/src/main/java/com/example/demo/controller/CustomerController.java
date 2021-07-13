@@ -11,8 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class CustomerController {
@@ -50,29 +53,25 @@ public class CustomerController {
         }
 
     }
-//    @GetMapping("customer/delete/{id}")
-//    public String viewDeleteForm(Model model, @PathVariable String id){
-//        model.addAttribute("customer",customerService.findCustomerById(id));
-//        return "/customer/delete";
-//    }
-//    @PostMapping("customer/delete/{id}")
-//    public RedirectView saveCustomer(Model model,@PathVariable String id,RedirectAttributes redirectAttributes){
-//        customerService.deleteCustomerById(id);
-//        redirectAttributes.addFlashAttribute("message","Delete Success Customer!");
-//        return new RedirectView("/customer");
-//    }
-//    @GetMapping("/customer/edit/{id}")
-//    public String viewEditForm(Model model,@PathVariable String id){
-//        model.addAttribute("customer",customerService.findCustomerById(id));
-//        model.addAttribute("customerTypes",customerTypeService.findAllListCustomerType());
-//        return "/customer/edit";
-//    }
-//    @PostMapping("/customer/edit")
-//    public RedirectView editCustomer(RedirectAttributes redirectAttributes,Customer customer){
-//        System.out.println("customer Id :"+customer.getId());
-//        System.out.println("Customer type"+customer.getCustomerType().getName());
-//        redirectAttributes.addFlashAttribute("message","Edit Customer Success!");
-//        customerService.saveCustomer(customer);
-//        return new RedirectView("/customer");
-//    }
+
+    @GetMapping("/customer/delete/{id}")
+    public String deleteCustomer(@PathVariable("id") String id){
+        customerService.deleteCustomerById(id);
+        return "redirect:/customer";
+    }
+
+
+    @GetMapping("/customer/edit/{id}")
+    public String viewEditForm(Model model,@PathVariable("id") String id){
+        System.out.println("Edit");
+        model.addAttribute("customer",customerService.findCustomerById(id));
+        model.addAttribute("customerTypes",customerTypeService.findAllListCustomerType());
+        return "/customer/edit";
+    }
+
+    @PostMapping("/customer/update")
+    public String editCustomer(Customer customer){
+        customerService.saveCustomer(customer);
+        return "redirect:/customer";
+    }
 }

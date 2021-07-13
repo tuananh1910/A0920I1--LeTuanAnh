@@ -59,7 +59,7 @@
 <div th:replace="/home/home::nav"></div>
 
 <h1 style="text-align: center">List Customer</h1>
-<table id="list" >
+<table id="list">
     <thead>
     <tr>
         <th scope="col">ID</th>
@@ -81,7 +81,7 @@
         <td scope="row" th:text="${customer.customerType.name}"></td>
         <td scope="row" th:text="${customer.name}"></td>
         <td scope="row" th:text="${customer.birthday}"></td>
-        <td scope="row" th:text="${customer.id_card}+'$'"></td>
+        <td scope="row" th:text="${customer.id_card}"></td>
         <td scope="row" th:text="${customer.phone}"></td>
         <td scope="row" th:text="${customer.gender}"></td>
         <td scope="row" th:text="${customer.email}"></td>
@@ -89,8 +89,9 @@
 
 
         <td>
-            <a class="btn btn-danger" th:href="@{/furama-customer/edit/__${customer.id}__}">Edit </a> |
-            <a class="btn btn-primary" th:href="@{/furama-customer/delete/__${customer.id}__}">Delete</a>
+            <a class="btn btn-primary" th:href="@{/customer/edit/__${customer.id}__}">Edit </a> |
+            <a class="btn btn-danger" id="deleteButton"
+               th:href="@{/customer/delete/__${customer.id}__}">Delete</a>
         </td>
     </tr>
     </tbody>
@@ -105,50 +106,38 @@
         <th scope="col">Gender</th>
         <th scope="col">Email</th>
         <th scope="col">Address</th>
-        <th scope="col" ></th>
+        <th scope="col"></th>
     </tr>
     </tfoot>
 </table>
+
+<!--modal-->
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" >
+                <p>Bạn muốn xoá khách hàng này ?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a type="button" class="btn btn-primary" id="delRef" href="">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <script type="text/javascript" src="js/script.js"></script>
 
 
 <script type="text/javascript">
-    // $(document).ready(function () {
-    //     // Setup - add a text input to each footer cell
-    //     $('#list tfoot th').each(function () {
-    //         var title = $(this).text();
-    //         $(this).html('<input type="text" placeholder="Search ' + title + '" />');
-    //     });
-    //
-    //     // DataTable
-    //     var table = $('#list').DataTable({
-    //         scrollY: 400,
-    //         pageLength: 2,
-    //         bLengthChange: false,
-    //         initComplete: function () {
-    //             // Apply the search
-    //             console.log("innit search");
-    //             this.api().columns().every(function () {
-    //                 var that = this;
-    //
-    //                 console.log(that);
-    //
-    //                 $('input', this.footer()).on('keyup change clear', function () {
-    //                     if (that.search() !== this.value) {
-    //                         that
-    //                             .search(this.value)
-    //                             .draw();
-    //                     }
-    //                 });
-    //             });
-    //         }
-    //     });
-    //
-    // });
-
-
     $(document).ready(function () {
         $('#list').DataTable({
             scrollY: 400,
@@ -169,45 +158,26 @@
                                 .draw();
                         });
 
-                    column.cells('', column[0]).render('display').sort().unique().each( function ( d, j ){
+                    column.cells('', column[0]).render('display').sort().unique().each(function (d, j) {
                         select.append('<option value="' + d + '">' + d + '</option>')
                     });
                 });
             }
         });
+
+
+        $('#list #deleteButton').on('click', function (event) {
+            event.preventDefault();
+            let href = $(this).attr('href');
+            $('#deleteModal #delRef').attr('href', href);
+            $('#deleteModal').modal();
+        });
+
+
     });
 
 
-    <!--    $(document).ready(function () {-->
-    <!--        var deleteLink = $("a:contains('Delete')");-->
-    <!--        $(deleteLink).click(function (event) {-->
-
-    <!--            $.ajax({-->
-    <!--                url: $(event.target).attr("href"),-->
-    <!--                type: "POST",-->
-    <!--                beforeSend: function (xhr) {-->
-    <!--                    xhr.setRequestHeader("Accept", "application/json");-->
-    <!--                    xhr.setRequestHeader("Content-Type", "application/json");-->
-
-    <!--                },-->
-    <!--                success: function (data) {-->
-    <!--                    var rowToDelete = $(event.target).closest("tr");-->
-    <!--                    rowToDelete.remove();-->
-    <!--                    alert("Đã xoá " + data.employee_name);-->
-    <!--                },-->
-    <!--                error: function () {-->
-    <!--                    alert("Lỗi Hệ Thống !!!");-->
-    <!--                }-->
-    <!--            });-->
-    <!--            event.preventDefault();-->
-    <!--        });-->
-    <!--    });-->
 </script>
-
-
-
-
-
 
 
 </body>
