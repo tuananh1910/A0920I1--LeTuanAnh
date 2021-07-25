@@ -54,12 +54,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Employee
+                            Product
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/furama-employee/employee-list">Employee List</a>
-                            <a class="dropdown-item" href="/furama-employee/create-new-employee">Create New
-                                Employee</a>
+                            <a class="dropdown-item" href="/product/list">Product List</a>
+                            <a class="dropdown-item" href="/product/create-new">Create New
+                                Product</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a>
                         </div>
@@ -94,34 +94,34 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
-                <th:block sec:authorize="isAnonymous()">
-                    <span>
-                <ul class="navbar-nav mr-auto" id="login">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Đăng Ký</a>
-                    </li>
+<!--                <th:block sec:authorize="isAnonymous()">-->
+<!--                    <span>-->
+<!--                <ul class="navbar-nav mr-auto" id="login">-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="#">Đăng Ký</a>-->
+<!--                    </li>-->
 
-                    <li class="nav-item">
-                        <button onclick="window.location.href='/login'" class="btn btn-primary">Đăng Nhập</button>
-                    </li>
-                </ul>
-                        </span>
-                </th:block>
+<!--                    <li class="nav-item">-->
+<!--                        <button onclick="window.location.href='/login'" class="btn btn-primary">Đăng Nhập</button>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--                        </span>-->
+<!--                </th:block>-->
 
-                </th:if>
-                <th:block sec:authorize="!isAnonymous()">
-                    <span>
-                    <ul class="navbar-nav mr-auto" id="logout">
-                        <li class="nav-item">
-                            <a class="nav-link" readonly="">Chào,
-                            <span sec:authentication="name"></span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/logout" class="btn btn-primary">Log Out</a>
-                        </li>
-                    </ul>
-                        </span>
-                </th:block>
+<!--                </th:if>-->
+<!--                <th:block sec:authorize="!isAnonymous()">-->
+<!--                    <span>-->
+<!--                    <ul class="navbar-nav mr-auto" id="logout">-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" readonly="">Chào,-->
+<!--                            <span sec:authentication="name"></span></a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a href="/logout" class="btn btn-primary">Log Out</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                        </span>-->
+<!--                </th:block>-->
 
             </div>
         </nav>

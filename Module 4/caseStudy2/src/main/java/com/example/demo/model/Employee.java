@@ -33,6 +33,7 @@ public class Employee implements Validator {
      EducationDegree educationDegree;
     @ManyToOne(targetEntity = User.class)
      User user;
+
     public Employee() {
     }
 

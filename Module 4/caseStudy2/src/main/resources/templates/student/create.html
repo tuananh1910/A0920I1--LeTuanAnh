@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Create Student</title>
 </head>
 <body>
-$END$
+<form th:action="@{/student/save}" th:object="${student}" method="post">
+    <label>Phone:</label>
+    <input class="form-control" type="text" th:field="*{phone}">
+    <p th:if="${#fields.hasErrors('phone')} " th:errors="*{phone}">Description Error </p>
+    <button type="submit">Submit</button>
+</form>
 </body>
 </html>

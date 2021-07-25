@@ -1,1 +1,10 @@
-<p>color-pick works!</p>
+<h2>Color Pick</h2>
+
+<label>
+  Color:
+  <input [value]="backGround" type="color" (change)="changeBackGround($event.target.value)">
+</label>
+
+<p>Output:</p>
+<div class="color-preview" [style.background]="backGround" style="height: 500px; width: 500px"></div>
+

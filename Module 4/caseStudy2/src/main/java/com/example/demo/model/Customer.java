@@ -129,19 +129,7 @@ public class Customer implements Validator {
         String idCard = customer.getId_card();
         String email = customer.getEmail();
         String birthday = customer.getBirthday();
-//        if(!id.matches())
-//        String firstName = customer.getFirstName();
-//        String lastName = customer.getLastName();
-//        String phone = customer.getPhoneNumber();
-//        int age = customer.getAge();
-//        String email = customer.getEmail();
-//
-//        if (firstName.length()<5||firstName.length()>45){
-//            errors.rejectValue("firstName", "name.length");
-//        }
-//        if (lastName.length()<5||lastName.length()>45){
-//            errors.rejectValue("lastName", "name.length");
-//        }
+
 
         if (!phone.matches(PHONE_REGEX)) {
             errors.rejectValue("phone", "phone.form");

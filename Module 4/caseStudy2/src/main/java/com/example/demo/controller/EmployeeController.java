@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Set;
 
 @Controller
-@RequestMapping("/furama-employee")
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
@@ -32,20 +31,20 @@ public class EmployeeController {
     @Autowired
     private DivisionService divisionService;
 
-    @ModelAttribute("positions")
-    public List<Position> positions() {
-        return positionService.findAll();
-    }
-
-    @ModelAttribute("educationDegrees")
-    public List<EducationDegree> education_degrees() {
-        return educationDegreeService.findAll();
-    }
-
-    @ModelAttribute("divisions")
-    public List<Division> divisions() {
-        return divisionService.findAll();
-    }
+//    @ModelAttribute("positions")
+//    public List<Position> positions() {
+//        return positionService.findAll();
+//    }
+//
+//    @ModelAttribute("educationDegrees")
+//    public List<EducationDegree> education_degrees() {
+//        return educationDegreeService.findAll();
+//    }
+//
+//    @ModelAttribute("divisions")
+//    public List<Division> divisions() {
+//        return divisionService.findAll();
+//    }
 
     //employee
     @GetMapping("/employee-list")
@@ -54,13 +53,16 @@ public class EmployeeController {
     }
 
 
-    @GetMapping("/create-new-employee")
+    @GetMapping("/furama-employee/create-new-employee")
     public ModelAndView createEmployeePage(Model model) {
 //        model.addAttribute("role", new Role());
+        model.addAttribute("positions",positionService.findAll());
+        model.addAttribute("educationDegrees", educationDegreeService.findAll());
+        model.addAttribute("divisions",divisionService.findAll());
         return new ModelAndView("employee/create", "employee", new Employee());
     }
 
-    @PostMapping("/addNewEmployee")
+    @PostMapping("/furama-employee/addNewEmployee")
     public String addNewEmployee(
             @Validated Employee employee, BindingResult result, Model model){
         new Employee().validate(employee,result);
@@ -70,7 +72,10 @@ public class EmployeeController {
         if (result.hasFieldErrors()){
 //            return new ModelAndView("employee/create", "employee", new Employee());
 
-        model.addAttribute("employee", new Employee());
+        model.addAttribute("employee",employee);
+        model.addAttribute("positions",positionService.findAll());
+        model.addAttribute("educationDegrees", educationDegreeService.findAll());
+        model.addAttribute("divisions",divisionService.findAll());
         return "/employee/create";
         }
         else {
@@ -90,12 +95,12 @@ public class EmployeeController {
     }
 
 
-    @GetMapping("/edit/{id}")
+    @GetMapping("/furama-employee/edit/{id}")
     public ModelAndView editEmployeeForm(@PathVariable int id) {
         return new ModelAndView("employee/edit", "employee", employeeService.findById(id));
     }
 
-    @PostMapping(value = "/update")
+    @PostMapping(value = "/furama-employee/update")
     public Employee updateEmployee(Employee employee) {
         System.out.println("update");
         return employeeService.save(employee);
