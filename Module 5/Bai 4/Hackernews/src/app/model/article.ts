@@ -1,7 +1,9 @@
 export class Article {
+  id: string;
   title: string;
   url: string;
-  constructor(title: string, url: string) {
+  constructor(id: string, title: string, url: string) {
+    this.id = id;
     this.title = title;
     this.url = url;
   }
