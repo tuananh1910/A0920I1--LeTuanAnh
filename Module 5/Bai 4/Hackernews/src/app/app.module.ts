@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import { UpdateArticleComponent } from './article/update-article/update-article.component';
 import {CreateArticleComponent} from './create-article/create-article.component';
 import {LikesComponent} from './likes/likes.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {LikesComponent} from './likes/likes.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

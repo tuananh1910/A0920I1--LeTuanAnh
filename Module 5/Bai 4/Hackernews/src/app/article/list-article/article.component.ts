@@ -12,21 +12,7 @@ export class ArticleComponent implements OnInit {
   }
   articles: Article[] = articles;
   article: Article;
-  saveArticle(article: Article){
-    console.log('nhan data tu createComp');
-    this.articles.push(article);
-  }
   ngOnInit(): void {
+    this.articles = articles;
   }
-// sủ dụng service để lấy list article
-  // articles: Article[];
-
-  // constructor(private articleService: ArticleService) {
-  // }
-  // getArticles(){
-  //   this.articles = this.articleService.getArticles();
-  // }
-
-  // updateArticle(art: Article) {
-  // }
 }

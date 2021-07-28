@@ -1,23 +1,23 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Article} from '../model/article';
+import {ArticleService} from '../service/articleService';
 
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',
-  styleUrls: ['./create-article.component.css']
+  styleUrls: ['./create-article.component.css'],
+  providers: [ArticleService]
 })
 export class CreateArticleComponent implements OnInit {
-  // @Input() article: Article;
 
   @Output() addArticleOutput = new EventEmitter<any>();
-  constructor() { }
+  constructor(private articleService: ArticleService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(createArticle: NgForm) {
-    console.log(createArticle.value);
-    this.addArticleOutput.emit(createArticle.value);
+    this.articleService.createAritcle(createArticle.value);
   }
 }

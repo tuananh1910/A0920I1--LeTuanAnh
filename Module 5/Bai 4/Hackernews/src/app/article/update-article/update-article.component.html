@@ -1,24 +1,37 @@
+<span *ngIf="article">
 <p>update-article works!</p>
-<form style="background-color: whitesmoke">
-      <!--#updateArticle = "ngForm" -->
-<!--      (submit)="onSubmit(updateArticle)"-->
-<!--&gt;-->
+  <input type="button" class="btn btn-info" [routerLink]="['']" value="Article"/>
+<form style="background-color: whitesmoke"
+  #updateArticle = "ngForm"
+        (submit)="onSubmit(updateArticle)"
+  >
   <h2> Edit </h2>
+  <table class="table table-striped table-hover">
 
-  <div>
-    <label>id: </label>
-    <input [(ngModel)]="article.id" readonly>
-  </div>
+    <tr>
+      <td>ID</td>
+      <td>{{article.id}}</td>
+    </tr>
 
-  <div>
-    <label>Title: </label>
-    <input [(ngModel)]="article.title">
-  </div>
+    <tr>
+      <td>Title</td>
+      <td><input type="text" value="{{article.title}}" style="width: 100%"></td>
+    </tr>
 
-  <div>
-    <label>URL: </label>
-    <input [(ngModel)]="article.url">
-  </div>
+    <tr>
+      <td>URL</td>
+      <td><input type="text" value="{{article.url}}" style="width: 100%"></td>
+    </tr>
+
+    <tr>
+      <td>Like</td>
+      <td>
+        <app-likes></app-likes>
+      </td>
+    </tr>
+
+  </table>
 
   <button type="submit" class="btn-dark">Save</button>
 </form>
+</span>

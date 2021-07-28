@@ -1,6 +1,7 @@
 <p>create-article works!</p>
+<input type="button" class="btn btn-info" [routerLink]="['']" value="Article"/>
 <form style="background-color: whitesmoke"
-      #createArticle = "ngForm" (submit)="onSubmit(createArticle)">
+      #createArticle = "ngForm" (submit)="onSubmit(createArticle)" [routerLink]=""  q>
 <label> ID :
   <input type="text"  ngModel name="id">
 </label>
