@@ -10,17 +10,17 @@
 
     <tr>
       <td>ID</td>
-      <td>{{article.id}}</td>
+      <td><input type="text" [ngModel]="id"  name="id"  style="width: 100%"></td>
     </tr>
 
     <tr>
       <td>Title</td>
-      <td><input type="text" value="{{article.title}}" style="width: 100%"></td>
+      <td><input type="text" [ngModel]="article.title" name="title" style="width: 100%"></td>
     </tr>
 
     <tr>
       <td>URL</td>
-      <td><input type="text" value="{{article.url}}" style="width: 100%"></td>
+      <td><input type="text" [ngModel]="article.url" name="url" style="width: 100%"></td>
     </tr>
 
     <tr>

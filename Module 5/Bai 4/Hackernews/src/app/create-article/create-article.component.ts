@@ -18,6 +18,7 @@ export class CreateArticleComponent implements OnInit {
   }
 
   onSubmit(createArticle: NgForm) {
-    this.articleService.createAritcle(createArticle.value);
+    console.log(createArticle.value);
+    this.articleService.createArticle(createArticle.value);
   }
 }

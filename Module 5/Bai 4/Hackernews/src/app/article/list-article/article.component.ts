@@ -11,7 +11,7 @@ export class ArticleComponent implements OnInit {
   constructor() {
   }
   articles: Article[] = articles;
-  article: Article;
+  // article: Article;
   ngOnInit(): void {
     this.articles = articles;
   }

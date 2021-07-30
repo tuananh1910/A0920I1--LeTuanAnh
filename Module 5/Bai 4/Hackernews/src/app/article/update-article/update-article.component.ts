@@ -13,7 +13,7 @@ import {articles} from '../../repository/ArticleRepository';
 
 })
 export class UpdateArticleComponent implements OnInit {
-  @Output() sendArticle = new EventEmitter();
+  // @Output() sendArticle = new EventEmitter();
   article: Article;
   id: any;
   constructor(
@@ -28,6 +28,7 @@ export class UpdateArticleComponent implements OnInit {
     this.article = articles.find(article => article.id = this.id);
   }
   onSubmit(updateArticle: NgForm){
+    console.log(updateArticle.value);
     this.articleService.updateArticle(updateArticle.value);
   }
 }
