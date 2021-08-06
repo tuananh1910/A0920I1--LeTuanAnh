@@ -1,0 +1,82 @@
+<h3>Create Customer</h3>
+<button type="button" class="btn btn-info" [routerLink]="['']">Customers</button>
+<form style="background-color: whitesmoke"
+      [formGroup]="createForm" (ngSubmit)="onSubmit(createForm)" [routerLink]="">
+  <table>
+    <tr>
+      <th>Name :</th>
+      <th>
+        <input type="text"  formControlName="name" name="id" style="width: 100%" >
+      </th>
+    </tr>
+
+    <tr>
+      <th>Date :</th>
+      <th>
+        <input type="date" formControlName="date" name="date"  style="width: 100%">
+      </th>
+    </tr>
+
+    <tr>
+      <th>ID Card :</th>
+      <th>
+        <input type="text" formControlName="idCard" name="idCard">
+      </th>
+    </tr>
+
+    <tr>
+      <th>Phone :</th>
+      <th>
+        <input type="text" formControlName="phone" name="phone">
+
+      </th>
+    </tr>
+
+    <tr>
+      <th>Email :</th>
+      <th>
+        <input type="email" formControlName="email" name="email">
+
+      </th>
+    </tr>
+    <tr>
+      <th>Address :</th>
+      <th>
+        <input type="text" formControlName="address" name="address">
+
+      </th>
+    </tr>
+
+    <tr>
+      <th>Type Customer : </th>
+      <th>
+        <label>
+          <select>
+          <option
+            formArrayName="typeCustomer" name="id"
+             *ngFor="let type of typeCustomers"
+            [ngValue]="type.id"
+          >
+            {{type.nameTypeCustomer}}
+          </option>
+        </select>
+        </label>
+      </th>
+    </tr>
+
+  </table>
+
+  <button type="submit" class="btn btn-dark">Save</button>
+
+</form>
+
+<style>
+  select, input{
+    border:1px solid aquamarine;
+    width: 100%;
+  }
+
+  th{
+    width: 50%;
+  }
+</style>

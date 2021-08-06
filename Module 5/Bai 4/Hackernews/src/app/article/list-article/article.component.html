@@ -13,7 +13,11 @@
       <td>{{art.id}}</td>
       <td><a href="{{art.url}}" target="_blank">{{art.title}}</a></td>
      <td> <app-likes></app-likes> </td>
-      <td><input type="button" [routerLink]="['/update-article/', art.id]" value="Update"/></td>
+      <td>
+        <input type="button" [routerLink]="['/update-article/', art.id]" value="Update"/>
+        <input type="button" mat-button (click)="openDialogDelete(art.id)" value="Delete"/>
+      </td>
+
     </tr>
   </table>
 </div>

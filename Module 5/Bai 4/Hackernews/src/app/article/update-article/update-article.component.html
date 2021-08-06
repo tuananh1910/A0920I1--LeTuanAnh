@@ -2,25 +2,25 @@
 <p>update-article works!</p>
   <input type="button" class="btn btn-info" [routerLink]="['']" value="Article"/>
 <form style="background-color: whitesmoke"
-  #updateArticle = "ngForm"
-        (submit)="onSubmit(updateArticle)"
+  [formGroup]="updateFormArticle"
+        (ngSubmit)="onSubmit(updateFormArticle)"
   >
   <h2> Edit </h2>
   <table class="table table-striped table-hover">
 
     <tr>
       <td>ID</td>
-      <td><input type="text" [ngModel]="id"  name="id"  style="width: 100%"></td>
+      <td><input type="text" formControlName="id"  name="id"  style="width: 100%" readonly></td>
     </tr>
 
     <tr>
       <td>Title</td>
-      <td><input type="text" [ngModel]="article.title" name="title" style="width: 100%"></td>
+      <td><input type="text" formControlName="title" name="title" style="width: 100%"></td>
     </tr>
 
     <tr>
       <td>URL</td>
-      <td><input type="text" [ngModel]="article.url" name="url" style="width: 100%"></td>
+      <td><input type="text" formControlName="url" name="url" style="width: 100%"></td>
     </tr>
 
     <tr>

@@ -1,0 +1,78 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "typeCustomer": "Gold",
+      "name": "Tuấn Anh",
+      "birthDate": "19/10/2000",
+      "idCard": "123456789",
+      "phone": "0948123123",
+      "email": "anh1910@gmail.com",
+      "address": "Quang Tri"
+    },
+    {
+      "id": 2,
+      "typeCustomer": "Silver",
+      "name": "Tân",
+      "birthDate": "10/10/2000",
+      "idCard": "312654978",
+      "phone": "0948456456",
+      "email": "tan1010@gmail.com",
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": 3,
+      "typeCustomer": "TypeCustomer.prototype",
+      "name": "Trí",
+      "birthDate": "10/10/2013",
+      "idCard": "741852963",
+      "phone": "0945123456",
+      "email": "tri2013@gmail.com",
+      "address": "Nghệ An"
+    },
+    {
+      "typeCustomer": "Gold",
+      "name": "Dũng",
+      "birthDate": "19/10/2000",
+      "idCard": "123456789",
+      "phone": "0948123123",
+      "email": "anh1910@gmail.com",
+      "address": "Quang Tri",
+      "id": 4
+    },
+    {
+      "name": "Hoàng Anh",
+      "date": "2000-12-12",
+      "idCard": "123454024",
+      "phone": "0948123361",
+      "email": "anhzxczxct@gmail.com",
+      "address": "Đà Nẵng",
+      "typeCustomer": [],
+      "id": 5
+    },
+    {
+      "name": "Uyên",
+      "date": "2000-12-12",
+      "idCard": "123123123",
+      "phone": "0948123361",
+      "email": "anhzxczxct@gmail.com",
+      "address": "Đà Nẵng",
+      "typeCustomer": [],
+      "id": 6
+    }
+  ],
+  "typeCustomers": [
+    {
+      "id": 1,
+      "nameTypeCustomer": "Gold"
+    },
+    {
+      "id": 2,
+      "nameTypeCustomer": "Platinum"
+    },
+    {
+      "id": 3,
+      "nameTypeCustomer": "Silver"
+    }
+  ]
+}
