@@ -10,32 +10,32 @@
 
     <tr>
       <td>ID :</td>
-      <td><input type="text" formControlName="id"  name="id"  style="width: 100%" readonly></td>
+      <td><input type="text" formControlName="id" style="width: 100%" readonly></td>
     </tr>
 
     <tr>
       <td>Name :</td>
-      <td><input type="text" formControlName="name"  name="name"  style="width: 100%"></td>
+      <td><input type="text" formControlName="name" style="width: 100%"></td>
     </tr>
 
     <tr>
       <th>Date :</th>
       <th>
-        <input type="date" formControlName="date" name="date"  style="width: 100%">
+        <input type="date" formControlName="birthDate" style="width: 100%">
       </th>
     </tr>
 
     <tr>
       <th>ID Card :</th>
       <th>
-        <input type="text" formControlName="idCard" name="idCard">
+        <input type="text" formControlName="idCard" style="width: 100%">
       </th>
     </tr>
 
     <tr>
       <th>Phone :</th>
       <th>
-        <input type="text" formControlName="phone" name="phone">
+        <input type="text" formControlName="phone" style="width: 100%">
 
       </th>
     </tr>
@@ -43,14 +43,14 @@
     <tr>
       <th>Email :</th>
       <th>
-        <input type="email" formControlName="email" name="email">
+        <input type="email" formControlName="email" style="width: 100%">
 
       </th>
     </tr>
     <tr>
       <th>Address :</th>
       <th>
-        <input type="text" formControlName="address" name="address">
+        <input type="text" formControlName="address" style="width: 100%">
 
       </th>
     </tr>
@@ -59,11 +59,11 @@
       <th>Type Customer : </th>
       <th>
         <label>
-          <select>
+          <select formControlName="typeCustomer" style="width: 100%">
+            <option [ngValue]="editCustomer.typeCustomer.nameTypeCustomer" selected></option>
           <option
-            formArrayName="typeCustomer" name="idTypeCustomer"
             *ngFor="let type of typeCustomers"
-            [ngValue]="type.id"
+            [ngValue]="type"
           >
             {{type.nameTypeCustomer}}
           </option>
@@ -77,12 +77,12 @@
 </form>
 </span>
 <style>
-  select, input{
-    border:1px solid aquamarine;
+  select, input {
+    border: 1px solid aquamarine;
     width: 100%;
   }
 
-  th{
+  th {
     width: 50%;
   }
 </style>

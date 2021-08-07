@@ -11,6 +11,9 @@ import {UpdateComponent} from './customer/update/update.component';
 import {DeleteComponent} from './customer/delete/delete.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TypeCustomerService} from './customer/service/TypeCustomerService';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import {TypeCustomerService} from './customer/service/TypeCustomerService';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [CustomerService, TypeCustomerService],
   bootstrap: [AppComponent]

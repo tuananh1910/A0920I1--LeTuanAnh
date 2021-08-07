@@ -36,12 +36,12 @@ export class UpdateComponent implements OnInit {
           this.updateForm = new FormGroup({
             id: new FormControl(this.editCustomer.id),
             name: new FormControl(this.editCustomer.name),
-            date: new FormControl(),
+            birthDate: new FormControl(this.editCustomer.birthDate),
             idCard: new FormControl(this.editCustomer.idCard),
             phone: new FormControl(this.editCustomer.phone),
             email: new FormControl(this.editCustomer.email),
             address: new FormControl(this.editCustomer.address),
-            typeCustomer: new FormArray([])
+            typeCustomer: new FormControl(this.editCustomer.typeCustomer.nameTypeCustomer)
           });
         }
       );
@@ -51,11 +51,6 @@ export class UpdateComponent implements OnInit {
         }
       );
     });
-    // this.updateForm.patchValue({
-    //   id: this.editCustomer.id,
-    //   name: this.editCustomer.name,
-    //   date: this.editCustomer.birthDate
-    // });
   }
 
   onSubmit(updateForm: FormGroup) {

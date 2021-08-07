@@ -6,14 +6,21 @@
     <tr>
       <th>Name :</th>
       <th>
-        <input type="text"  formControlName="name" name="id" style="width: 100%" >
+        <input type="text"  formControlName="name" name="id" >
+      </th>
+      <th>
+        <small *ngIf="createForm.get('name').invalid && createForm.touched" class="text-danger">Name is Required</small>
       </th>
     </tr>
 
     <tr>
       <th>Date :</th>
       <th>
-        <input type="date" formControlName="date" name="date"  style="width: 100%">
+        <input type="date" formControlName="birthDate" name="birthDate" >
+      </th>
+      <th>
+        <small  *ngIf="createForm.get('birthDate').invalid && createForm.touched" class="text-danger">Date is Required</small>
+
       </th>
     </tr>
 
@@ -22,13 +29,18 @@
       <th>
         <input type="text" formControlName="idCard" name="idCard">
       </th>
+      <th>
+        <small  *ngIf="createForm.get('idCard').invalid && createForm.touched" class="text-danger">ID Card is Required</small>
+      </th>
     </tr>
 
     <tr>
       <th>Phone :</th>
       <th>
         <input type="text" formControlName="phone" name="phone">
-
+      </th>
+      <th>
+        <small *ngIf="createForm.get('phone').invalid && createForm.touched" class="text-danger">Phone is Required</small>
       </th>
     </tr>
 
@@ -36,14 +48,18 @@
       <th>Email :</th>
       <th>
         <input type="email" formControlName="email" name="email">
-
+      </th>
+      <th>
+        <small *ngIf="createForm.get('email').invalid && createForm.touched" class="text-danger">Email is Required</small>
       </th>
     </tr>
     <tr>
       <th>Address :</th>
       <th>
         <input type="text" formControlName="address" name="address">
-
+      </th>
+      <th>
+        <small *ngIf="createForm.get('address').invalid && createForm.touched" class="text-danger">Address is Required</small>
       </th>
     </tr>
 
@@ -51,22 +67,24 @@
       <th>Type Customer : </th>
       <th>
         <label>
-          <select>
+          <select  formControlName="typeCustomer">
           <option
-            formArrayName="typeCustomer" name="id"
              *ngFor="let type of typeCustomers"
-            [ngValue]="type.id"
+            [ngValue]="type"
           >
             {{type.nameTypeCustomer}}
           </option>
         </select>
         </label>
       </th>
+      <th>
+        <small *ngIf="createForm.get('typeCustomer').invalid && createForm.touched" class="text-danger">Type Customer is Required</small>
+      </th>
     </tr>
 
   </table>
 
-  <button type="submit" class="btn btn-dark">Save</button>
+  <button [disabled]="createForm.invalid" type="submit" class="btn btn-dark">Save</button>
 
 </form>
 
@@ -77,6 +95,6 @@
   }
 
   th{
-    width: 50%;
+    width: 20%;
   }
 </style>

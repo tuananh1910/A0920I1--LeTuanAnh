@@ -20,6 +20,11 @@ export class CustomerService {
     return this.httpClient.get<Customer>(this.API_URL + '/' + (id));
   }
   public updateCustomer(updateCustomer: Customer): Observable<void>{
-    return this.httpClient.put<void>(this.API_URL, updateCustomer);
+    return this.httpClient.put<void>(this.API_URL + '/' + updateCustomer.id, updateCustomer);
+  }
+  public deleteCustomer(id){
+    console.log(id);
+    console.log(this.API_URL + '/' + id);
+    return this.httpClient.delete(this.API_URL + '/' + id);
   }
 }
