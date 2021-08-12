@@ -15,42 +15,68 @@
     },
     {
       "id": 2,
-      "typeCustomer": {
-        "id": 1,
-        "nameTypeCustomer": "Gold"
-      },
-      "name": "Tân",
+      "name": "Tan",
       "birthDate": "2000-10-10",
       "idCard": "312654978",
       "phone": "0948456456",
       "email": "tan1010@gmail.com",
-      "address": "Đà Nẵng"
-    },
-    {
-      "id": 3,
-      "typeCustomer": {
-        "id": 1,
-        "nameTypeCustomer": "Gold"
-      },
-      "name": "Trí",
-      "birthDate": "2013-10-10",
-      "idCard": "741852963",
-      "phone": "0945123456",
-      "email": "tri2013@gmail.com",
-      "address": "Nghệ An"
-    },
-    {
-      "name": "Hoàng Anh",
-      "birthDate": "2000-12-12",
-      "idCard": "123123123",
-      "phone": "0948123361",
-      "email": "anhzxczxct@gmail.com",
       "address": "Đà Nẵng",
       "typeCustomer": {
         "id": 1,
         "nameTypeCustomer": "Gold"
+      }
+    },
+    {
+      "name": "Hoàng Anh",
+      "birthDate": "2000-12-12",
+      "idCard": "123456789",
+      "phone": "0948123361",
+      "email": "anhzxczxct@gmail.com",
+      "address": "Đà Nẵng",
+      "typeCustomer": {
+        "id": 2,
+        "nameTypeCustomer": "Platinum"
+      },
+      "id": 3
+    },
+    {
+      "name": "Dũng",
+      "birthDate": "2000-12-12",
+      "idCard": "123123123",
+      "phone": "0948123361",
+      "email": "dung123@gmail.com",
+      "address": "Đà Nẵng",
+      "typeCustomer": {
+        "id": 3,
+        "nameTypeCustomer": "Silver"
       },
       "id": 4
+    },
+    {
+      "name": "Trí",
+      "birthDate": "2013-10-20",
+      "idCard": "123123123",
+      "phone": "0948123361",
+      "email": "tri123@gmail.com",
+      "address": "Nghệ An",
+      "typeCustomer": {
+        "id": 1,
+        "nameTypeCustomer": "Gold"
+      },
+      "id": 5
+    },
+    {
+      "name": "Linh",
+      "birthDate": "1999-03-02",
+      "idCard": "123123123",
+      "phone": "0948123361",
+      "email": "linh123@gmail.com",
+      "address": "Vinh",
+      "typeCustomer": {
+        "id": 3,
+        "nameTypeCustomer": "Silver"
+      },
+      "id": 6
     }
   ],
   "typeCustomers": [

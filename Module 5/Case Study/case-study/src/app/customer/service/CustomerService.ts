@@ -2,6 +2,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Customer} from '../model/Customer';
 import {Inject, Injectable} from '@angular/core';
+import {isElementScrolledOutsideView} from '@angular/cdk/overlay/position/scroll-clip';
 
 @Injectable({
   providedIn: 'root'
@@ -27,4 +28,8 @@ export class CustomerService {
     console.log(this.API_URL + '/' + id);
     return this.httpClient.delete(this.API_URL + '/' + id);
   }
+  public searchCustomer(searchKey: string): Observable<Customer[]>{
+      console.log(this.API_URL + '?name=' + searchKey);
+      return this.httpClient.get<Customer[]>(this.API_URL + '?name=' + searchKey);
+    }
 }
