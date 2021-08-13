@@ -77,6 +77,32 @@
         "nameTypeCustomer": "Silver"
       },
       "id": 6
+    },
+    {
+      "name": "Hoàng Anh",
+      "birthDate": "2000-12-12",
+      "idCard": "12312123123",
+      "phone": "0948123361",
+      "email": "anhzxczxct@gmail.com",
+      "address": "Đà Nẵng",
+      "typeCustomer": {
+        "id": 3,
+        "nameTypeCustomer": "Silver"
+      },
+      "id": 7
+    },
+    {
+      "name": "Dũng",
+      "birthDate": "2000-12-12",
+      "idCard": "12312123123",
+      "phone": "0948123361",
+      "email": "dung123@gmail.com",
+      "address": "Nghệ An",
+      "typeCustomer": {
+        "id": 3,
+        "nameTypeCustomer": "Silver"
+      },
+      "id": 8
     }
   ],
   "typeCustomers": [
