@@ -39,10 +39,10 @@ export class CreateComponent implements OnInit {
       birthDate: new FormControl(null, Validators.required),
       idCard: new FormControl(
         null, [
-        Validators.required, Validators.pattern('')]),
+        Validators.required, Validators.pattern('^[0-9]{10}$')]),
       phone: new FormControl(
         null, [
-          Validators.required, Validators.pattern('')]),
+          Validators.required, Validators.pattern('^(\\+?\d{1,4}[\s-])?(?!0+\s+,?$)\\d{10}\s*,?$')]),
       email: new FormControl(
         null, [
           Validators.required, Validators.email]),

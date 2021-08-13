@@ -6,39 +6,38 @@
   <div class="form-group">
     <label>Name :</label>
     <input  placeholder="Name" type="text" formControlName="name" name="id">
-    <small *ngIf="createForm.get('name').invalid && createForm.touched" class="text-danger">Name is Required</small>
+    <small *ngIf="createForm.get('name').invalid && createForm.touched" class="text-danger">Name is Invalid</small>
   </div>
 
   <div class="form-group">
     <label>Date :</label>
       <input type="date" formControlName="birthDate" name="birthDate">
-      <small *ngIf="createForm.get('birthDate').invalid && createForm.touched" class="text-danger">Date is Required</small>
+      <small *ngIf="createForm.get('birthDate').invalid && createForm.touched" class="text-danger">Date is Invalid</small>
   </div>
 
   <div class="form-group">
     <label>ID Card :</label>
       <input type="text" formControlName="idCard" name="idCard">
-      <small *ngIf="createForm.get('idCard').invalid && createForm.touched" class="text-danger">ID Card is Required</small>
+      <small *ngIf="createForm.get('idCard').invalid && createForm.touched" class="text-danger">ID Card is Invalid</small>
   </div>
 
   <div class="form-group">
     <label>Phone :</label>
       <input type="text" formControlName="phone" name="phone">
-      <mat-error *ngIf="createForm.get('phone').invalid && createForm.touched" class="text-danger">Phone is Required</mat-error>
+      <mat-error *ngIf="createForm.get('phone').invalid && createForm.touched" class="text-danger">Phone is Invalid</mat-error>
 <!--      <mat-error *ngIf="" class="text-danger">Phone number does not match the format</mat-error>-->
   </div>
 
   <div class="form-group">
     <label>Email :</label>
       <input type="email" formControlName="email" name="email">
-      <small *ngIf="createForm.get('email').invalid && createForm.touched" class="text-danger">Email is Required</small>
+      <small *ngIf="createForm.get('email').invalid && createForm.touched" class="text-danger">Email is Invalid</small>
   </div>
 
   <div class="form-group">
     <label>Address :</label>
       <input type="text" formControlName="address" name="address">
-      <small *ngIf="createForm.get('address').invalid && createForm.touched" class="text-danger">Address is
-        Required</small>
+      <small *ngIf="createForm.get('address').invalid && createForm.touched" class="text-danger">Address is Invalid</small>
   </div>
 
   <mat-form-field class="form-group">
@@ -52,8 +51,9 @@
         </mat-option>
       </mat-select>
     <br>
-    <small *ngIf="createForm.get('typeCustomer').invalid && createForm.touched" class="text-danger">Type Customer is Required</small>
+    <small *ngIf="createForm.get('typeCustomer').invalid && createForm.touched" class="text-danger">Type Customer is Invalid</small>
   </mat-form-field>
+  <br>
 
   <button [disabled]="createForm.invalid" type="submit" class="btn btn-primary">Save</button>
 
