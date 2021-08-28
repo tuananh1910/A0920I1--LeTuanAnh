@@ -1,8 +1,8 @@
 export class TypeCustomer {
   id: number;
-  nameTypeCustomer: string;
+  name: string;
   constructor(id: number, name: string) {
     this.id = id;
-    this.nameTypeCustomer = name;
+    this.name = name;
   }
 }
