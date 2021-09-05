@@ -3,7 +3,7 @@ import {CustomerService} from '../service/CustomerService';
 import {TypeCustomerService} from '../service/TypeCustomerService';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
-import {TypeCustomer} from '../model/TypeCustomer';
+import {CustomerType} from '../model/CustomerType';
 import {Customer} from '../model/Customer';
 
 @Component({
@@ -14,25 +14,26 @@ import {Customer} from '../model/Customer';
 })
 export class UpdateComponent implements OnInit {
   updateForm = new FormGroup({
-    id: new FormControl(),
+    id: new FormControl(null),
     name: new FormControl(null, [
       Validators.required, Validators.minLength(3)]),
-    birthDate: new FormControl(null, Validators.required),
+    birthday: new FormControl(null, Validators.required),
     idCard: new FormControl(
       null, [
         Validators.required, Validators.pattern('^[0-9]{10}$')]),
     phone: new FormControl(
       null, [
         Validators.required, Validators.pattern('^(\\+?\d{1,4}[\s-])?(?!0+\s+,?$)\\d{10}\s*,?$')]),
+    gender: new FormControl(null, Validators.required),
     email: new FormControl(
       null, [
         Validators.required, Validators.email]),
     address: new FormControl(null, Validators.required),
-    typeCustomer: new FormControl(null, Validators.required)
+    customerType: new FormControl(null, Validators.required)
   });
-  typeCustomers: TypeCustomer[];
+  customerTypes: CustomerType[];
   editCustomer: Customer;
-  id: number;
+  id: string;
   constructor(
     private customerService: CustomerService,
     private typeCustomerService: TypeCustomerService,
@@ -42,28 +43,17 @@ export class UpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap)  => {
       console.log('param' + paramMap.get('id'));
-      this.id = Number(paramMap.get('id'));
-      console.log(this.id);
+      this.id = (paramMap.get('id'));
       this.customerService.findCustomerById(this.id).subscribe(
         (data) => {
           this.editCustomer = data;
           console.log(this.editCustomer);
-          // this.updateForm = new FormGroup({
-          //   id: new FormControl(this.editCustomer.id),
-          //   name: new FormControl(this.editCustomer.name),
-          //   birthDate: new FormControl(this.editCustomer.birthDate),
-          //   idCard: new FormControl(this.editCustomer.idCard),
-          //   phone: new FormControl(this.editCustomer.phone),
-          //   email: new FormControl(this.editCustomer.email),
-          //   address: new FormControl(this.editCustomer.address),
-          //   typeCustomer: new FormControl(this.editCustomer.typeCustomer.nameTypeCustomer)
-          // });
           this.updateForm.setValue(data);
         }
       );
       this.typeCustomerService.getTypeCustomer().subscribe(
         (data) => {
-          this.typeCustomers = data;
+          this.customerTypes = data;
         }
       );
     });

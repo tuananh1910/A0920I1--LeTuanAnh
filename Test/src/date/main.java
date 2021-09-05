@@ -1,14 +1,20 @@
 package date;
 
-import java.util.Arrays;
-
 public class main {
     public static void main(String[] args) {
-        int[] x = new int[]{1, 3, 5, 8};
-        int temp = x[x.length-1];
-        x[x.length - 1] = x[0];
-        x[0] = temp;
-        System.out.print(Arrays.toString(x));
+        System.out.println("Hello World");
+        String S = "abc";
+        String T = "abcabcabc";
+        checkAppear(S,T);
+        int[] A={1,2,3,2,1};
+        System.out.println(A);
     }
-
+    public static void checkAppear(String S, String T){
+        int lengthS = S.length();
+        String hold="";
+        for(int i=0; i<T.length() ;i+= lengthS){
+            hold = T.substring(i,i+lengthS);
+            System.out.println(hold);
+        }
+    }
 }

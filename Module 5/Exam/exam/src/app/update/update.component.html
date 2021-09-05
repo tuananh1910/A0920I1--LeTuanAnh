@@ -1,1 +1,73 @@
-<p>update works!</p>
+<div class="container" style="background-color: whitesmoke">
+
+<span *ngIf="editCaseRecord">
+    <h2 class="text-center">Edit Case Record</h2>
+
+<form style="background-color: whitesmoke"
+      [formGroup]="updateForm"
+      (ngSubmit)="onSubmit(updateForm)">
+
+  <div class="form-group">
+      <label>ID Bệnh Án :</label>
+      <input  placeholder="BA-XXXX" type="text" formControlName="idCase" name="idCase" readonly>
+    </div>
+
+    <div class="form-group">
+      <label>ID Bệnh Nhân :</label>
+      <input placeholder="BN-XXXX" type="text" formControlName="idPatient" name="idPatient" readonly>
+    </div>
+
+    <div class="form-group">
+      <label>Name Patient :</label>
+      <input type="text" formControlName="namePatient" name="namePatient">
+      <small *ngIf="updateForm.get('namePatient').invalid && updateForm.touched" class="text-danger">Name Patient is Invalid</small>
+    </div>
+
+    <div class="form-group">
+      <label>Hospitalized Day :</label>
+      <input type="date" formControlName="hospitalizedDay" name="hospitalizedDay">
+      <mat-error *ngIf="updateForm.get('hospitalizedDay').invalid && updateForm.touched" class="text-danger">Hospitalized Day is Invalid</mat-error>
+      <!--      <mat-error *ngIf="" class="text-danger">Phone number does not match the format</mat-error>-->
+    </div>
+
+    <div class="form-group">
+      <label>Hospital Discharge Date :</label>
+      <input type="date" formControlName="hospitalDischargeDate" name="hospitalDischargeDate">
+      <small *ngIf="updateForm.get('hospitalDischargeDate').invalid && updateForm.touched" class="text-danger">Hospital Discharge Date is Invalid</small>
+      <small *ngIf="updateForm.get('hospitalizedDay').value > updateForm.get('hospitalDischargeDate').value">Hospitalized Day larger </small>
+    </div>
+
+    <div class="form-group">
+      <label>reason :</label>
+      <input type="text" formControlName="reason" name="reason">
+      <small *ngIf="updateForm.get('reason').invalid && updateForm.touched" class="text-danger">reason is Invalid</small>
+    </div>
+
+    <div class="form-group">
+      <label>treatments :</label>
+      <input type="text" formControlName="treatments" name="treatments">
+      <small *ngIf="updateForm.get('treatments').invalid && updateForm.touched" class="text-danger">treatments is Invalid</small>
+    </div>
+
+    <div class="form-group">
+      <label>doctor :</label>
+      <input type="text" formControlName="doctor" name="doctor">
+      <small *ngIf="updateForm.get('doctor').invalid && updateForm.touched" class="text-danger">doctor is Invalid</small>
+    </div>
+  <button [disabled]="updateForm.invalid" type="submit" class="btn btn-dark">Update</button>
+  &nbsp; &nbsp;
+    <button [routerLink]="['']" class="btn btn-dark">Back To Case Record</button>
+
+</form>
+</span>
+</div>
+<style>
+  select, input {
+    border: 1px solid aquamarine;
+    width: 100%;
+  }
+
+  th {
+    width: 50%;
+  }
+</style>

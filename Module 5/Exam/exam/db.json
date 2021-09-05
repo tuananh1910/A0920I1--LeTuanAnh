@@ -1,19 +1,43 @@
 {
-  "posts": [
+  "caseRecords": [
+    {
+      "idCase": "BA-0003",
+      "idPatient": "BN-0001",
+      "namePatient": "Lê Tuấn Anh",
+      "hospitalizedDay": "2021-08-13",
+      "hospitalDischargeDate": "2021-08-14",
+      "reason": "Ung thư",
+      "treatments": "mổ",
+      "doctor": "Dr. John",
+      "id": 3
+    },
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "idCase": "BA-0001",
+      "idPatient": "BN-0001",
+      "namePatient": "Lê Tuấn Anh",
+      "hospitalizedDay": "2000-12-12",
+      "hospitalDischargeDate": "2000-12-14",
+      "reason": "Ruột thừa",
+      "treatments": "Mổ",
+      "doctor": "Dr. John"
     }
   ],
-  "comments": [
+  "patients": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "idPatient": "BN-0001",
+      "namePatient": "Lê Tuấn Anh"
+    },
+    {
+      "id": 2,
+      "idPatient": "BN-0002",
+      "namePatient": "Lê Đức Anh"
+    },
+    {
+      "id": 3,
+      "idPatient": "BN-0003",
+      "namePatient": "Lê Hoàng Anh"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

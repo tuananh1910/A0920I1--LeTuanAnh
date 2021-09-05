@@ -1,1 +1,81 @@
-<p>list works!</p>
+<div class="container" style="background-color: whitesmoke">
+  <h2 style="text-align: center">Case Record</h2>
+  <hr>
+  <div>
+    <div>
+      <a class="btn btn-light" [routerLink]="['/add-CaseRecord']">Create Case Record</a>
+    </div>
+
+<!--    <div>-->
+<!--      <mat-form-field class="search-form-field" floatLabel="never">-->
+<!--        <button mat-button matSuffix mat-icon-button aria-label="Search">-->
+<!--          <mat-icon>search</mat-icon>-->
+<!--        </button>-->
+<!--        <label>-->
+<!--          <input matInput [(ngModel)]="searchContact" placeholder="Search By Name" (change)="search()">-->
+<!--        </label>-->
+<!--        <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchContact" (click)="onSearchClear()">-->
+<!--          <mat-icon>close</mat-icon>-->
+<!--        </button>-->
+<!--      </mat-form-field>-->
+<!--      &lt;!&ndash;      <div class="d-flex">&ndash;&gt;-->
+<!--      &lt;!&ndash;        <input class="form-control" type="text" style="width: 480px" placeholder="Search All"&ndash;&gt;-->
+<!--      &lt;!&ndash;                [(ngModel)]="searchContact">&ndash;&gt;-->
+<!--      &lt;!&ndash;        <button class="btn btn-success" (click)="search()">Search</button>&ndash;&gt;-->
+<!--      &lt;!&ndash;      </div>&ndash;&gt;-->
+<!--    </div>-->
+
+
+
+    <div style="height: 500px">
+      <table class="table table-striped table-hover" style="color: blue; text-align: center">
+        <thead>
+        <tr>
+          <th>ID Case </th>
+          <th>ID Patient</th>
+          <th>Name Patient</th>
+          <th>Hospitalized Day</th>
+          <th>Hospital Discharge Date</th>
+          <th>Reason</th>
+          <th>Treatments</th>
+          <th>Doctor</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr *ngFor="let caseRecord of caseRecords | paginate: {itemsPerPage:6, currentPage: page};"
+            class="col-lg-4 border text-center mt-4 p-1">
+          <td>{{caseRecord.idCase}}</td>
+          <td>{{caseRecord.idPatient}}</td>
+          <td>{{caseRecord.namePatient}}</td>
+          <td>{{caseRecord.hospitalizedDay}}</td>
+          <td>{{caseRecord.hospitalDischargeDate}}</td>
+          <td>{{caseRecord.reason}}</td>
+          <td>{{caseRecord.treatments}}</td>
+          <td>{{caseRecord.doctor}}</td>
+          <td>
+            <button [routerLink]="['/update-CaseRecord/', caseRecord.id]" value="Update">
+              <i class="material-icons">edit</i>
+            </button>
+            |
+            <button mat-button (click)="openDialogDelete(caseRecord.id)" value="Delete">
+              <i class="material-icons">delete</i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <pagination-controls (pageChange)="page = $event" class="text-center"></pagination-controls>
+    </div>
+    <!--  <mat-paginator [pageSizeOptions]="[5,10,25,100]" pageSize="5"></mat-paginator>-->
+  </div>
+  <hr>
+</div>
+<style>
+  tr:hover {
+    background-color: darkgrey;
+  }
+</style>

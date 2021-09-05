@@ -20,64 +20,88 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02319913-5949-4b13-98c0-4715fd1bba8c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/controller/StudentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/student/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/java/com/example/demo/controller/HomeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/java/com/example/demo/controller/ProductController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/java/com/example/demo/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/java/com/example/demo/model/ProductType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/java/com/example/demo/repository/ProductRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/java/com/example/demo/repository/ProductTypeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/java/com/example/demo/service/ProductServie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/java/com/example/demo/service/ProductTypeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/java/com/example/demo/service/impl/ProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/java/com/example/demo/service/impl/ProductTypeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/ValidationMessages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/53114-furama-resort-da-nang-11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-grid.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-grid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-grid.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-reboot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-reboot.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-reboot.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap-reboot.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/css/bootstrap.min.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.bundle.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.bundle.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/bootstrap-4.5.3-dist/js/bootstrap.min.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/CSS/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/img/463255_17010415020050117322.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/img/furama-resort-da-nang-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/img/khu-nghi-duong-furama.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/img/pinky.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/js/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/static/wallpapper.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/templates/home/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/templates/product/create.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/templates/product/edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Module 4/exam/src/main/resources/templates/product/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/controller/CustomerTypeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/.editorconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/angular.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/browserslist" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/db.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/e2e/protractor.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/e2e/src/app.e2e-spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/e2e/src/app.po.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/e2e/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/karma.conf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/app.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/app.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/app.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/app.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/app.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/create/create.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/create/create.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/create/create.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/create/create.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/delete/delete.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/delete/delete.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/delete/delete.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/delete/delete.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/list/list.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/list/list.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/list/list.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/model/CaseRecord.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/model/Patient.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/routing.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/service/CaseRecordService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/service/PatientService.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/update/update.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/update/update.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/update/update.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/app/update/update.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/assets/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/environments/environment.prod.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/environments/environment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/main.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/polyfills.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/src/test.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/tsconfig.app.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/tsconfig.spec.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 5/Exam/exam/tslint.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 6/cancelRegister/cancelRegister.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 6/cancelRegister/cancelRegister.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 6/historyRegister/historyRegister.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 6/historyRegister/historyRegister.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 6/statistical/statistical.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Module 6/statistical/statistical.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/config/WebSecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/controller/EmployeeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/CustomerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/model/CustomerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/java/com/example/demo/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/customer/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/customer/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/customer/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/customer/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 4/caseStudy2/src/main/resources/templates/customer/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/create/create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/create/create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/create/create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/create/create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/list/list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/list/list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/list/list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/list/list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/model/Customer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/model/Customer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/model/TypeCustomer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/model/CustomerType.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/service/CustomerService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/service/CustomerService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/service/TypeCustomerService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/service/TypeCustomerService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/update/update.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/update/update.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/update/update.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../Module 5/Case Study/case-study/src/app/customer/update/update.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/SoPhuc/SoPhuc.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Test/main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/date/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/date/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +172,7 @@
       <workItem from="1626873729637" duration="120000" />
       <workItem from="1626874524400" duration="349000" />
       <workItem from="1626875129745" duration="144000" />
+      <workItem from="1630064566778" duration="896000" />
     </task>
     <servers />
   </component>

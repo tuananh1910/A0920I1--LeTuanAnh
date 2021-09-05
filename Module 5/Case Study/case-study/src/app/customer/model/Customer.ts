@@ -1,21 +1,23 @@
-import {TypeCustomer} from './TypeCustomer';
+import {CustomerType} from './CustomerType';
 
 export class Customer {
-  id: number;
-  typeCustomer: TypeCustomer;
+  id: string;
+  customerType: CustomerType;
   name: string;
-  birthDate: string;
+  birthday: string;
   idCard: string;
   phone: string;
+  gender: string;
   email: string;
   address: string;
-  constructor(id: number, typeCustomer: TypeCustomer, name: string, birthDate: string,
-              idCard: string, phone: string, email: string, address: string) {
+  constructor(id: string, typeCustomer: CustomerType, name: string, birthDate: string,
+              idCard: string, phone: string, gender: string, email: string, address: string) {
     this.id = id;
-    this.typeCustomer = typeCustomer;
-    this.birthDate = birthDate;
+    this.customerType = typeCustomer;
+    this.birthday = birthDate;
     this.idCard = idCard;
     this.phone = phone;
+    this.gender = gender;
     this.email = email;
     this.address = address;
   }

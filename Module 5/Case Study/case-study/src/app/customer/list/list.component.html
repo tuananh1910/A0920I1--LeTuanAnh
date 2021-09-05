@@ -1,80 +1,100 @@
 <div class="container" style="background-color: whitesmoke">
-<h2 style="text-align: center">List Customer</h2>
-<hr>
-<div >
-  <div>
-  <a class="btn btn-light" [routerLink]="['/add-Customer']" >Create Article</a>
+  <!--  <h2 style="text-align: center">List Customer</h2>-->
+  <!--  <hr>-->
+  <!--  <div>-->
+  <!--    <div>-->
+  <!--      <a class="btn btn-light" [routerLink]="['/add-Customer']">Create Article</a>-->
+  <!--    </div>-->
+
+  <!--    <div>-->
+  <!--      <mat-form-field class="search-form-field" floatLabel="never">-->
+  <!--             <button mat-button matSuffix mat-icon-button aria-label="Search">-->
+  <!--               <mat-icon>search</mat-icon>-->
+  <!--             </button>-->
+  <!--             <label>-->
+  <!--               <input matInput [(ngModel)]="searchContact" placeholder="Search By Name" (change)="search()">-->
+  <!--             </label>-->
+  <!--             <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchContact" (click)="onSearchClear()">-->
+  <!--               <mat-icon>close</mat-icon>-->
+  <!--             </button>-->
+  <!--            </mat-form-field>-->
+  <!--&lt;!&ndash;      <div class="d-flex">&ndash;&gt;-->
+  <!--&lt;!&ndash;        <input class="form-control" type="text" style="width: 480px" placeholder="Search All"&ndash;&gt;-->
+  <!--&lt;!&ndash;                [(ngModel)]="searchContact">&ndash;&gt;-->
+  <!--&lt;!&ndash;        <button class="btn btn-success" (click)="search()">Search</button>&ndash;&gt;-->
+  <!--&lt;!&ndash;      </div>&ndash;&gt;-->
+  <!--    </div>-->
+
+
+  <!--    <div style="height: 500px">-->
+  <!--      <table class="table table-striped table-hover" style="color: blue; text-align: center">-->
+  <!--        <thead>-->
+  <!--        <tr>-->
+  <!--          <th>ID</th>-->
+  <!--          <th>Type Customer</th>-->
+  <!--          <th>Name</th>-->
+  <!--          <th>Date</th>-->
+  <!--          <th>ID Card</th>-->
+  <!--          <th>Phone</th>-->
+  <!--          <th>Gender</th>-->
+  <!--          <th>Email</th>-->
+  <!--          <th>Address</th>-->
+  <!--          <th>Action</th>-->
+  <!--        </tr>-->
+  <!--        </thead>-->
+
+  <!--        <tbody>-->
+  <!--        <tr *ngFor="let customer of customers | paginate: {itemsPerPage:6, currentPage: page};"-->
+  <!--            class="col-lg-4 border text-center mt-4 p-1">-->
+  <!--          <td>{{customer.id}}</td>-->
+  <!--          <td>{{customer.customerType.name}}</td>-->
+  <!--          <td>{{customer.name}}</td>-->
+  <!--          <td>{{customer.birthday}}</td>-->
+  <!--          <td>{{customer.idCard}}</td>-->
+  <!--          <td>{{customer.phone}}</td>-->
+  <!--          <td>{{customer.gender}}</td>-->
+  <!--          <td>{{customer.email}}</td>-->
+  <!--          <td>{{customer.address}}</td>-->
+  <!--          <td>-->
+  <!--            <button [routerLink]="['/update-Customer/', customer.id]" value="Update">-->
+  <!--              <i class="material-icons">edit</i>-->
+  <!--            </button>-->
+
+  <!--            <button mat-button (click)="openDialogDelete(customer.id)" value="Delete">-->
+  <!--              <i class="material-icons">delete</i>-->
+  <!--            </button>-->
+  <!--          </td>-->
+  <!--        </tr>-->
+  <!--        </tbody>-->
+  <!--      </table>-->
+  <!--    </div>-->
+  <!--    <div>-->
+  <!--      <pagination-controls (pageChange)="page = $event" class="text-center"></pagination-controls>-->
+  <!--    </div>-->
+  <!--    &lt;!&ndash;  <mat-paginator [pageSizeOptions]="[5,10,25,100]" pageSize="5"></mat-paginator>&ndash;&gt;-->
+  <!--  </div>-->
+  <!--  <hr>-->
+  <!--</div>-->
+  <div class="row">
+    <div class="float-left">
+      <ejs-chart>
+        <e-series-collection>
+          <e-series type="Line" [dataSource]="dataChart"
+                    xName="Name Room" , yName="Performance (%)"
+          >
+
+          </e-series>
+        </e-series-collection>
+      </ejs-chart>
+    </div>
+
+    <div class="float-right">
+
+    </div>
   </div>
-  <div>
-   <mat-form-field class="search-form-field" floatLabel="never">
-     <button mat-button matSuffix mat-icon-button aria-label="Search">
-       <mat-icon>search</mat-icon>
-     </button>
-
-     <label>
-       <input matInput [(ngModel)]="searchContact" placeholder="Search By Name" (change)="search()">
-     </label>
-
-     <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchContact" (click)="onSearchClear()">
-       <mat-icon>close</mat-icon>
-     </button>
-   </mat-form-field>
-  </div>
-
-<!--  <div class="d-flex">-->
-<!--    <input class="form-control" type="text" style="width: 480px" placeholder="Search All"-->
-<!--            [(ngModel)]="searchContact">-->
-<!--    <button class="btn btn-success" (click)="search()">Search</button>-->
-<!--  </div>-->
-
-<div style="height: 500px">
-  <table class="table table-striped table-hover" style="color: blue; text-align: center">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Type Customer</th>
-      <th>Name </th>
-      <th>Date</th>
-      <th>ID Card</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th>Action</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr *ngFor="let customer of customers | paginate: {itemsPerPage:5, currentPage: page};" class="col-lg-4 border text-center mt-4 p-1">
-      <td>{{customer.id}}</td>
-      <td>{{customer.typeCustomer.nameTypeCustomer}}</td>
-      <td>{{customer.name}}</td>
-      <td>{{customer.birthDate}}</td>
-      <td>{{customer.idCard}}</td>
-      <td>{{customer.phone}}</td>
-      <td>{{customer.email}}</td>
-      <td>{{customer.address}}</td>
-      <td>
-        <button  [routerLink]="['/update-Customer/', customer.id]" value="Update">
-          <i class="material-icons">edit</i>
-        </button> |
-
-        <button mat-button (click)="openDialogDelete(customer.id)" value="Delete">
-          <i class="material-icons">delete</i>
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
 </div>
-  <div>
-  <pagination-controls (pageChange)="page = $event" class="text-center"></pagination-controls>
-  </div>
-  <!--  <mat-paginator [pageSizeOptions]="[5,10,25,100]" pageSize="5"></mat-paginator>-->
-</div>
-<hr>
-</div>
-<style>
-  tr:hover{
-    background-color: darkgrey;
-  }
-</style>
+  <style>
+    tr:hover {
+      background-color: darkgrey;
+    }
+  </style>

@@ -3,13 +3,17 @@ package com.example.demo.model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.SimpleFormatter;
 
 @Entity
-public class Customer implements Validator {
-
+public class Customer {
+    // implement Validator
     private static final String ID_REGEX = "KH-\\d{4}";
     private static final String PHONE_REGEX = "090\\d{7}|091\\d{7}|\\(84\\)\\+91\\d{7}|\\(84\\)\\+90\\d{7}";
     private static final String ID_CARD_REGEX = "\\d{9}|\\d{12}";
@@ -22,8 +26,9 @@ public class Customer implements Validator {
     @ManyToOne(targetEntity = CustomerType.class)
     CustomerType customerType;
     String name;
-    String birthday;
-    String id_card;
+    Date birthday;
+    @Column(name = "idCard")
+    String idCard;
     String phone;
     String gender;
     String email;
@@ -32,12 +37,12 @@ public class Customer implements Validator {
     public Customer() {
     }
 
-    public Customer(String id, CustomerType customerType, String name, String birthday, String id_card, String phone, String email, String address, String gender) {
+    public Customer(String id, CustomerType customerType, String name, Date birthday, String idCard, String phone, String email, String address, String gender) {
         this.id = id;
         this.customerType = customerType;
         this.name = name;
         this.birthday = birthday;
-        this.id_card = id_card;
+        this.idCard = idCard;
         this.phone = phone;
         this.email = email;
         this.address = address;
@@ -68,20 +73,20 @@ public class Customer implements Validator {
         this.name = name;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
-    public String getId_card() {
-        return id_card;
+    public String getIdCard() {
+        return idCard;
     }
 
-    public void setId_card(String id_card) {
-        this.id_card = id_card;
+    public void setIdCard(String id_card) {
+        this.idCard = id_card;
     }
 
     public String getPhone() {
@@ -116,36 +121,36 @@ public class Customer implements Validator {
         this.gender = gender;
     }
 
-    @Override
-    public boolean supports(Class<?> clazz) {
-        return Customer.class.isAssignableFrom(clazz);
-    }
+//    @Override
+//    public boolean supports(Class<?> clazz) {
+//        return Customer.class.isAssignableFrom(clazz);
+//    }
 
-    @Override
-    public void validate(Object target, Errors errors) {
-        Customer customer = (Customer) target;
-        String id = customer.getId();
-        String phone = customer.getPhone();
-        String idCard = customer.getId_card();
-        String email = customer.getEmail();
-        String birthday = customer.getBirthday();
-
-
-        if (!phone.matches(PHONE_REGEX)) {
-            errors.rejectValue("phone", "phone.form");
-        }
-        if (!idCard.matches(ID_CARD_REGEX)) {
-            errors.rejectValue("id_card", "idCard.form");
-        }
-        if (!email.matches(EMAIL_REGEX)) {
-            errors.rejectValue("email", "email.form");
-        }
-        if (!id.matches(ID_REGEX)) {
-            errors.rejectValue("id", "id.form");
-        }
-        System.out.println("birthday: " + birthday);
-        if (!birthday.matches(BIRTHDAY_REGEX)) {
-            errors.rejectValue("birthday", "day.form");
-        }
-    }
+//    @Override
+//    public void validate(Object target, Errors errors) {
+//        Customer customer = (Customer) target;
+//        String id = customer.getId();
+//        String phone = customer.getPhone();
+//        String idCard = customer.getIdCard();
+//        String email = customer.getEmail();
+//        String birthday = new SimpleDateFormat().format(customer.getBirthday());
+//
+//
+//        if (!phone.matches(PHONE_REGEX)) {
+//            errors.rejectValue("phone", "phone.form");
+//        }
+//        if (!idCard.matches(ID_CARD_REGEX)) {
+//            errors.rejectValue("id_card", "idCard.form");
+//        }
+//        if (!email.matches(EMAIL_REGEX)) {
+//            errors.rejectValue("email", "email.form");
+//        }
+//        if (!id.matches(ID_REGEX)) {
+//            errors.rejectValue("id", "id.form");
+//        }
+//        System.out.println("birthday: " + birthday);
+//        if (!birthday.matches(BIRTHDAY_REGEX)) {
+//            errors.rejectValue("birthday", "day.form");
+//        }
+//    }
 }

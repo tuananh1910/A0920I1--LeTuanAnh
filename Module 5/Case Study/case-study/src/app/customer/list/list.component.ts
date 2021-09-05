@@ -6,12 +6,14 @@ import {MatDialog} from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {FormGroup} from '@angular/forms';
+import {ChartModule, CategoryService, LineSeriesService} from '@syncfusion/ej2-angular-charts';
+// import {Chart} from 'chart.js';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css'],
-  providers: [CustomerService]
+  providers: [CustomerService, LineSeriesService, CategoryService]
 })
 export class ListComponent implements OnInit {
   customers: Customer[];
@@ -19,10 +21,17 @@ export class ListComponent implements OnInit {
   page = 1;
   // @ViewChild(MatPaginator) paginator: MatPaginator;
   // customerMatTable: MatTableDataSource<Customer>;
+  dataChart: number;
+  // tslint:disable-next-line:ban-types
+  xAxis: Object;
   constructor(
     private customerService: CustomerService,
     public dialog: MatDialog
   ) {
+    this.dataChart = 100;
+    this.xAxis = {
+      valueType: 'Category'
+    };
   }
 
   ngOnInit(): void {
@@ -36,7 +45,7 @@ export class ListComponent implements OnInit {
     );
   }
 
-  openDialogDelete(id: number) {
+  openDialogDelete(id: string) {
     const dialogRef = this.dialog.open(DeleteComponent,
       {
         data: {
@@ -65,5 +74,9 @@ export class ListComponent implements OnInit {
       }, error => console.log(error)
     );
     // this.customerMatTable.filter = this.searchContact.trim().toLowerCase();
+  }
+
+  voiceSearch() {
+
   }
 }

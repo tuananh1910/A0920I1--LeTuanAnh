@@ -7,6 +7,7 @@ import java.util.List;
 public interface CustomerService {
     List<Customer> findAllCustomer();
     Customer findCustomerById(String id);
-    void saveCustomer(Customer customer);
+    Customer saveCustomer(Customer customer);
     void deleteCustomerById(String id);
+    List<Customer> findCustomerByName(String nameSearch);
 }

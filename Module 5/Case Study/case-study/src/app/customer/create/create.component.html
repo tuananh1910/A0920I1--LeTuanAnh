@@ -1,63 +1,89 @@
 <h2 class="text-center">Create Customer</h2>
 <div class="container" style="background-color: whitesmoke">
-<form style="background-color: whitesmoke" class="example-form"
-      [formGroup]="createForm" (ngSubmit)="onSubmit(createForm)" >
+  <form style="background-color: whitesmoke" class="example-form"
+        [formGroup]="createForm" (ngSubmit)="onSubmit(createForm)">
 
-  <div class="form-group">
-    <label>Name :</label>
-    <input  placeholder="Name" type="text" formControlName="name" name="id">
-    <small *ngIf="createForm.get('name').invalid && createForm.touched" class="text-danger">Name is Invalid</small>
-  </div>
+    <div class="form-group">
+      <label>ID :</label>
+      <input placeholder="KH-XXXX" type="text" formControlName="id" name="id">
+      <small *ngIf="createForm.get('id').invalid && createForm.touched" class="text-danger">ID is Invalid</small>
+    </div>
 
-  <div class="form-group">
-    <label>Date :</label>
-      <input type="date" formControlName="birthDate" name="birthDate">
-      <small *ngIf="createForm.get('birthDate').invalid && createForm.touched" class="text-danger">Date is Invalid</small>
-  </div>
+    <div class="form-group">
+      <label>Name :</label>
+      <input placeholder="Name" type="text" formControlName="name" name="name">
+      <small *ngIf="createForm.get('name').invalid && createForm.touched" class="text-danger">Name is Invalid</small>
+    </div>
 
-  <div class="form-group">
-    <label>ID Card :</label>
+    <div class="form-group">
+      <label>Date :</label>
+      <input type="date" formControlName="birthday" name="birthday">
+      <small *ngIf="createForm.get('birthday').invalid && createForm.touched" class="text-danger">Date is
+        Invalid</small>
+    </div>
+
+    <div class="form-group">
+      <label>ID Card :</label>
       <input type="text" formControlName="idCard" name="idCard">
-      <small *ngIf="createForm.get('idCard').invalid && createForm.touched" class="text-danger">ID Card is Invalid</small>
-  </div>
+      <small *ngIf="createForm.get('idCard').invalid && createForm.touched" class="text-danger">ID Card is
+        Invalid</small>
+    </div>
 
-  <div class="form-group">
-    <label>Phone :</label>
+    <div class="form-group">
+      <label>Phone :</label>
       <input type="text" formControlName="phone" name="phone">
-      <mat-error *ngIf="createForm.get('phone').invalid && createForm.touched" class="text-danger">Phone is Invalid</mat-error>
-<!--      <mat-error *ngIf="" class="text-danger">Phone number does not match the format</mat-error>-->
-  </div>
+      <mat-error *ngIf="createForm.get('phone').invalid && createForm.touched" class="text-danger">Phone is Invalid
+      </mat-error>
+      <!--      <mat-error *ngIf="" class="text-danger">Phone number does not match the format</mat-error>-->
+    </div>
 
-  <div class="form-group">
-    <label>Email :</label>
+    <div class="form-group">
+      <label>Gender :</label>
+      <div class="form-check">
+        <input style="width: 10px" class="form-check-input" type="radio" formControlName="gender" name="gender" [value]="1">
+        <label class="form-check-label"> Male</label>
+      </div>
+      <div class="form-check">
+
+        <input style="width: 10px" class="form-check-input" type="radio" formControlName="gender" name="gender" [value]="0">
+        <label class="form-check-label"> Female</label>
+      </div>
+      <mat-error *ngIf="createForm.get('gender').invalid && createForm.touched" class="text-danger">Gender is Invalid
+      </mat-error>
+    </div>
+
+    <div class="form-group">
+      <label>Email :</label>
       <input type="email" formControlName="email" name="email">
       <small *ngIf="createForm.get('email').invalid && createForm.touched" class="text-danger">Email is Invalid</small>
-  </div>
+    </div>
 
-  <div class="form-group">
-    <label>Address :</label>
+    <div class="form-group">
+      <label>Address :</label>
       <input type="text" formControlName="address" name="address">
-      <small *ngIf="createForm.get('address').invalid && createForm.touched" class="text-danger">Address is Invalid</small>
-  </div>
+      <small *ngIf="createForm.get('address').invalid && createForm.touched" class="text-danger">Address is
+        Invalid</small>
+    </div>
 
-  <mat-form-field class="form-group">
-    <mat-label>Type Customer:</mat-label>
-      <mat-select formControlName="typeCustomer" class="form-control" >
+    <mat-form-field class="form-group">
+      <mat-label>Type Customer:</mat-label>
+      <mat-select formControlName="customerType" class="form-control">
         <mat-option
-          *ngFor="let type of typeCustomers"
+          *ngFor="let type of customerTypes"
           [value]="type"
         >
-          {{type.nameTypeCustomer}}
+          {{type.name}}
         </mat-option>
       </mat-select>
+      <br>
+      <small *ngIf="createForm.get('customerType').invalid && createForm.touched" class="text-danger">Type Customer is
+        Invalid</small>
+    </mat-form-field>
     <br>
-    <small *ngIf="createForm.get('typeCustomer').invalid && createForm.touched" class="text-danger">Type Customer is Invalid</small>
-  </mat-form-field>
-  <br>
 
-  <button [disabled]="createForm.invalid" type="submit" class="btn btn-primary">Save</button>
+    <button [disabled]="createForm.invalid" type="submit" class="btn btn-primary">Save</button>
 
-</form>
+  </form>
 </div>
 <style>
   select, input {

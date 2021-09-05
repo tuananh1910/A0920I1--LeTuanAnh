@@ -7,6 +7,12 @@
       [formGroup]="updateForm"
       (ngSubmit)="onSubmit(updateForm)">
 
+    <div class="form-group">
+      <label>ID :</label>
+      <input type="text" formControlName="id" name="id" [value]="editCustomer.id" readonly>
+    </div>
+
+
  <div class="form-group">
     <label>Name :</label>
     <input  placeholder="Name" type="text" formControlName="name" name="id">
@@ -15,8 +21,8 @@
 
   <div class="form-group">
     <label>Date :</label>
-      <input type="date" formControlName="birthDate" name="birthDate">
-      <small *ngIf="updateForm.get('birthDate').invalid && updateForm.touched" class="text-danger">Date is Invalid</small>
+      <input type="date" formControlName="birthday" name="birthday">
+      <small *ngIf="updateForm.get('birthday').invalid && updateForm.touched" class="text-danger">Date is Invalid</small>
   </div>
 
   <div class="form-group">
@@ -33,6 +39,21 @@
   </div>
 
   <div class="form-group">
+      <label>Gender :</label>
+      <div class="form-check">
+        <input style="width: 10px" class="form-check-input" type="radio" formControlName="gender" name="gender" [value]="1">
+        <label class="form-check-label"> Male</label>
+      </div>
+      <div class="form-check">
+
+        <input style="width: 10px" class="form-check-input" type="radio" formControlName="gender" name="gender" [value]="0">
+        <label class="form-check-label"> Female</label>
+      </div>
+      <mat-error *ngIf="updateForm.get('gender').invalid && updateForm.touched" class="text-danger">Gender is Invalid
+      </mat-error>
+    </div>
+
+  <div class="form-group">
     <label>Email :</label>
       <input type="email" formControlName="email" name="email">
       <small *ngIf="updateForm.get('email').invalid && updateForm.touched" class="text-danger">Email is Invalid</small>
@@ -47,17 +68,18 @@
 
   <mat-form-field class="form-group">
     <mat-label>Type Customer:</mat-label>
-      <mat-select formControlName="typeCustomer" class="form-control" >
+      <mat-select formControlName="customerType" class="form-control" >
         <mat-option
-          *ngFor="let type of typeCustomers"
+          *ngFor="let type of customerTypes"
           [value]="type"
         >
-          {{type.nameTypeCustomer}}
+          {{type.name}}
         </mat-option>
       </mat-select>
     <br>
-    <small *ngIf="updateForm.get('typeCustomer').invalid && updateForm.touched" class="text-danger">Type Customer is Invalid</small>
+    <small *ngIf="updateForm.get('customerType').invalid && updateForm.touched" class="text-danger">Type Customer is Invalid</small>
   </mat-form-field>
+  <br>
   <button [disabled]="updateForm.invalid" type="submit" class="btn btn-dark">Update</button>
 </form>
 </span>

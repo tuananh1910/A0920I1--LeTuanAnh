@@ -10,12 +10,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+import java.util.List;
+
+@RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+//@RequestMapping("/customer")
 public class CustomerController {
     @Autowired
     CustomerServiceImpl customerService;
@@ -24,52 +26,50 @@ public class CustomerController {
     @Autowired
     RoleServiceImpl roleService;
 
+//    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/customer")
-    public ModelAndView ViewListCustomer(){
-        return new ModelAndView("customer/list","customers", customerService.findAllCustomer());
+    public List<Customer> ViewListCustomer(){
+        return customerService.findAllCustomer();
     }
 
-    @GetMapping("customer/create")
-    public String viewCreateForm(Model model){
-        model.addAttribute("customer",new Customer());
-        model.addAttribute("customerTypes",customerTypeService.findAllListCustomerType());
-        return "/customer/create";
-    };
-    @PostMapping("customer/save")
-    public String saveCustomer(@Validated Customer customer, BindingResult bindingResult, Model model){
-        new Customer().validate(customer,bindingResult);
-        if(bindingResult.hasFieldErrors()){
-            model.addAttribute("customer",customer);
-            model.addAttribute("customerTypes",customerTypeService.findAllListCustomerType());
-//          redirectAttributes.addFlashAttribute()
-            return "/customer/create";
-        }
-        else{
-//            redirectAttributes.addFlashAttribute("message","Create Success Customer! ");
-            customerService.saveCustomer(customer);
-            return "redirect:/customer";
-        }
-
+    @GetMapping("/customer/{id}")
+    public Customer findCustomerById(@PathVariable("id") String id){
+        return customerService.findCustomerById(id);
     }
-
-    @GetMapping("/customer/delete/{id}")
-    public String deleteCustomer(@PathVariable("id") String id){
+//    @GetMapping("customer/create")
+//    public String viewCreateForm(Model model){
+//        model.addAttribute("customer",new Customer());
+//        model.addAttribute("customerTypes",customerTypeService.findAllListCustomerType());
+//        return "/customer/create";
+//    };
+    @PostMapping("/customer")
+    public Customer saveCustomer(@RequestBody Customer customer){
+      return customerService.saveCustomer(customer);
+    }
+//
+    @DeleteMapping("/customer/{id}")
+    public void deleteCustomer(@PathVariable("id") String id){
+        System.out.println(id);
         customerService.deleteCustomerById(id);
-        return "redirect:/customer";
     }
 
 
-    @GetMapping("/customer/edit/{id}")
-    public String viewEditForm(Model model,@PathVariable("id") String id){
-        System.out.println("Edit");
-        model.addAttribute("customer",customerService.findCustomerById(id));
-        model.addAttribute("customerTypes",customerTypeService.findAllListCustomerType());
-        return "/customer/edit";
+//    @GetMapping("/customer/edit/{id}")
+//    public String viewEditForm(Model model,@PathVariable("id") String id){
+//        System.out.println("Edit");
+//        model.addAttribute("customer",customerService.findCustomerById(id));
+//        model.addAttribute("customerTypes",customerTypeService.findAllListCustomerType());
+//        return "/customer/edit";
+//    }
+
+    @PutMapping("/customer/{id}")
+    public Customer editCustomer(@RequestBody Customer customer,
+                                 @PathVariable("id") String id){
+        return customerService.saveCustomer(customer);
     }
 
-    @PostMapping("/customer/update")
-    public String editCustomer(Customer customer){
-        customerService.saveCustomer(customer);
-        return "redirect:/customer";
+    @GetMapping("/customer/searchName/{nameSearch}")
+    public List<Customer> findCustomerByName(@PathVariable("nameSearch") String nameSearch){
+        return customerService.findCustomerByName(nameSearch);
     }
 }

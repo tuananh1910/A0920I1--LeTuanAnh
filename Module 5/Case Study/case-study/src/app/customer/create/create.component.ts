@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CustomerService} from '../service/CustomerService';
 import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {TypeCustomerService} from '../service/TypeCustomerService';
-import {TypeCustomer} from '../model/TypeCustomer';
+import {CustomerType} from '../model/CustomerType';
 import {Observable} from 'rxjs';
 import {Router} from '@angular/router';
 import {Customer} from '../model/Customer';
@@ -15,7 +15,7 @@ import {Customer} from '../model/Customer';
 })
 export class CreateComponent implements OnInit {
   createForm: FormGroup;
-  typeCustomers: TypeCustomer[];
+  customerTypes: CustomerType[];
 
   constructor(
     private customerService: CustomerService,
@@ -25,8 +25,8 @@ export class CreateComponent implements OnInit {
     this.typeCustomerService.getTypeCustomer().subscribe(
       (data) => {
         console.log(data);
-        this.typeCustomers = data;
-        console.log(this.typeCustomers);
+        this.customerTypes = data;
+        console.log(this.customerTypes);
       }
     );
   }
@@ -34,20 +34,22 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
 
     this.createForm = new FormGroup({
+      id: new FormControl(null, [Validators.required, Validators.pattern('KH-\\d{4}')]),
       name: new FormControl(null, [
         Validators.required, Validators.minLength(3)]),
-      birthDate: new FormControl(null, Validators.required),
+      birthday: new FormControl(null, Validators.required),
       idCard: new FormControl(
         null, [
         Validators.required, Validators.pattern('^[0-9]{10}$')]),
       phone: new FormControl(
         null, [
           Validators.required, Validators.pattern('^(\\+?\d{1,4}[\s-])?(?!0+\s+,?$)\\d{10}\s*,?$')]),
+      gender: new FormControl(null, Validators.required),
       email: new FormControl(
         null, [
           Validators.required, Validators.email]),
       address: new FormControl(null, Validators.required),
-      typeCustomer: new FormControl(null, Validators.required)
+      customerType: new FormControl(null, Validators.required)
     });
   }
 

@@ -8,26 +8,26 @@ import {isElementScrolledOutsideView} from '@angular/cdk/overlay/position/scroll
   providedIn: 'root'
 })
 export class CaseRecordService {
-  private readonly API_URL = 'http://localhost:3000/patients';
+  private readonly API_URL = 'http://localhost:3000/caseRecords';
   constructor(private httpClient: HttpClient) {
   }
-  public getCustomer(): Observable<CaseRecord[]>{
+  public getCaseRecord(): Observable<CaseRecord[]>{
     return this.httpClient.get<CaseRecord[]>(this.API_URL);
   }
-  // public addCustomer(customer: CaseRecord): Observable<void>{
-  //   return this.httpClient.post<void>(this.API_URL, customer);
-  // }
-  // public findCustomerById(id: number): Observable<CaseRecord>{
-  //   return this.httpClient.get<CaseRecord>(this.API_URL + '/' + (id));
-  // }
-  // public updateCustomer(updateCustomer: CaseRecord): Observable<void>{
-  //   return this.httpClient.put<void>(this.API_URL + '/' + updateCustomer.id, updateCustomer);
-  // }
-  // public deleteCustomer(id){
-  //   console.log(id);
-  //   console.log(this.API_URL + '/' + id);
-  //   return this.httpClient.delete(this.API_URL + '/' + id);
-  // }
+  public addCaseRecord(caseRecord: CaseRecord): Observable<void>{
+    return this.httpClient.post<void>(this.API_URL, caseRecord);
+  }
+  public findCaseRecordById(id: number): Observable<CaseRecord>{
+    return this.httpClient.get<CaseRecord>(this.API_URL + '/' + (id));
+  }
+  public updateCaseRecord(updateCaseRecord: CaseRecord): Observable<void>{
+    return this.httpClient.put<void>(this.API_URL + '/' + updateCaseRecord.id, updateCaseRecord);
+  }
+  public deleteCaseRecord(id){
+    console.log(id);
+    console.log(this.API_URL + '/' + id);
+    return this.httpClient.delete(this.API_URL + '/' + id);
+  }
   // public searchCustomer(searchKey: string): Observable<CaseRecord[]>{
   //     console.log(this.API_URL + '?name=' + searchKey);
   //     return this.httpClient.get<CaseRecord[]>(this.API_URL + '?name=' + searchKey);

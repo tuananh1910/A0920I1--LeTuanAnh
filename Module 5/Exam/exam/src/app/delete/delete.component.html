@@ -1,1 +1,13 @@
-<p>delete works!</p>
+
+<h2 mat-dialog-title>Do you want to delete this case?</h2>
+<mat-dialog-content class="mat-typography">
+  <h3>Mã bệnh án :
+<!--    {{data.id}}-->
+    {{data.data.idCase}}
+  </h3>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="onSubmit(id)">Delete</button>
+</mat-dialog-actions>

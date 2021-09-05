@@ -8,10 +8,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, String> {
     @Query(
-            value = "SELECT  * FROM customer as c join customer_type as t where c.customer_type_id = t.id and t.id like %:id% and c.name like %:key_search%",
+            value = "SELECT  * FROM customer as c where c.name like %:key_search%",
             nativeQuery = true)
-    Page<Customer> findAllCustomerByTypeCustomerId(@Param("id") String id, @Param("key_search") String key_search, Pageable pageable);
+    List<Customer> findCustomersByName(@Param("key_search") String key_search);
 }

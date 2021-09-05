@@ -1,1 +1,71 @@
-<p>create works!</p>
+<h2 class="text-center">Create Customer</h2>
+<div class="container" style="background-color: whitesmoke">
+  <form style="background-color: whitesmoke" class="example-form"
+        [formGroup]="createForm" (ngSubmit)="onSubmit(createForm)" >
+
+    <div class="form-group">
+      <label>ID Bệnh Án :</label>
+      <input  placeholder="BA-XXXX" type="text" formControlName="idCase" name="idCase">
+      <small *ngIf="createForm.get('idCase').invalid && createForm.touched" class="text-danger">id is Invalid</small>
+    </div>
+
+    <div class="form-group">
+      <label>ID Bệnh Nhân :</label>
+      <input placeholder="BN-XXXX" type="text" formControlName="idPatient" name="idPatient">
+      <small *ngIf="createForm.get('idPatient').invalid && createForm.touched" class="text-danger">Id Patient is Invalid</small>
+    </div>
+
+    <div class="form-group">
+      <label>Name Patient :</label>
+      <input type="text" formControlName="namePatient" name="namePatient">
+      <small *ngIf="createForm.get('namePatient').invalid && createForm.touched" class="text-danger">Name Patient is Invalid</small>
+    </div>
+
+    <div class="form-group">
+      <label>Hospitalized Day :</label>
+      <input type="date" formControlName="hospitalizedDay" name="hospitalizedDay">
+      <mat-error *ngIf="createForm.get('hospitalizedDay').invalid && createForm.touched" class="text-danger">Hospitalized Day is Invalid</mat-error>
+      <!--      <mat-error *ngIf="" class="text-danger">Phone number does not match the format</mat-error>-->
+    </div>
+
+    <div class="form-group">
+      <label>Hospital Discharge Date :</label>
+      <input type="date" formControlName="hospitalDischargeDate" name="hospitalDischargeDate">
+      <small *ngIf="createForm.get('hospitalDischargeDate').invalid && createForm.touched" class="text-danger">Hospital Discharge Date is Invalid</small>
+      <small class="text-danger" *ngIf="createForm.get('hospitalizedDay').value > createForm.get('hospitalDischargeDate').value">Hospitalized Day larger </small>
+    </div>
+
+    <div class="form-group">
+      <label>reason :</label>
+      <input type="text" formControlName="reason" name="reason">
+      <small *ngIf="createForm.get('reason').invalid && createForm.touched" class="text-danger">reason is Invalid</small>
+    </div>
+
+    <div class="form-group">
+      <label>treatments :</label>
+      <input type="text" formControlName="treatments" name="treatments">
+      <small *ngIf="createForm.get('treatments').invalid && createForm.touched" class="text-danger">treatments is Invalid</small>
+    </div>
+
+    <div class="form-group">
+      <label>doctor :</label>
+      <input type="text" formControlName="doctor" name="doctor">
+      <small *ngIf="createForm.get('doctor').invalid && createForm.touched" class="text-danger">doctor is Invalid</small>
+    </div>
+
+
+
+    <button [disabled]="createForm.invalid" type="submit" class="btn btn-primary">Save</button>
+
+  </form>
+</div>
+<style>
+  select, input {
+    border: 1px solid snow;
+    width: 100%;
+  }
+
+  th {
+    width: 20%;
+  }
+</style>
