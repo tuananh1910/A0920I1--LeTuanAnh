@@ -3,6 +3,10 @@ package problem2;
 import java.util.Scanner;
 
 public class pro2 {
+    // có thể xoay 90 độ mà không cần dùng temp matrix
+    // để xoay 90 độ ta đổi 4 vị trí trong matrix.  đổi từng cặp với nhau 1vs1
+    // ta co ma tran [  d   a  ]   swap a <-> b ->[ d   b ] swap b<-> d ->[ b  d ] swap b <-> c ->[ c  d ]
+    //               [  c   b  ]                  [ c   a ]               [ c  a ]                [ b  a ]
     public static void main(String[] args) {
         int[][] matrixImg;
         matrixImg = new int[][]{{1,2,3}, {4,5,6},{7,8,9}};
