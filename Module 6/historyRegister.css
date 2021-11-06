@@ -14,10 +14,6 @@ label{
     margin-right: auto;
 }
 
-
-
-
-
 #button-addon1 {
     color: white;
 }
@@ -47,4 +43,13 @@ button:focus {
     width: 200px;
 }
 
+#header {
+    background: midnightblue;
+    font-size: 20px;
 
+
+}
+body {
+    background-image:
+            url("https://img4.thuthuatphanmem.vn/uploads/2020/05/12/hinh-anh-xam-khoi_103624490.jpg");
+}
