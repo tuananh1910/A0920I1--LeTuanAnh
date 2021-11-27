@@ -6,7 +6,8 @@ public class Like {
     private Long id;
     private Reaction reaction;
 
-    // OneToOne
+    // ManyToOne
+    // @JoinColumn(name = "account_id" , referencedColumnName = "id")
     private Account account;
 
     // ManyToOne

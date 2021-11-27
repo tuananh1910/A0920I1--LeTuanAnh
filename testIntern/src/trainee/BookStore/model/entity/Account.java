@@ -1,4 +1,4 @@
-package trainee.socicalNetwork.model.entity;
+package trainee.BookStore.model.entity;
 
 import java.util.List;
 import java.util.Set;
@@ -12,13 +12,21 @@ public class Account {
     // ManyToMany (mappedBy = "role")
     private Set<Role> roles;
 
-    // OneToMany
-    private List<Like> likes;
+    //OneToMany
+    private List<SellBook> sellBooks;
 
-    // OneToMany
-    private List<Comment> comments;
+
 
     // getter setter
+
+    public List<SellBook> getSellBooks() {
+        return sellBooks;
+    }
+
+    public void setSellBooks(List<SellBook> sellBooks) {
+        this.sellBooks = sellBooks;
+    }
+
     public Long getId() {
         return id;
     }
@@ -59,36 +67,29 @@ public class Account {
         this.roles = roles;
     }
 
-    public List<Like> getLikes() {
-        return likes;
-    }
 
-    public void setLikes(List<Like> likes) {
-        this.likes = likes;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 
     // constructor
 
 
-    public Account(Long id, String username,
-                   String fullName, String password,
-                   Set<Role> roles, List<Like> likes,
-                   List<Comment> comments) {
+    public Account(Long id, String username, String fullName, String password, Set<Role> roles, List<SellBook> sellBooks) {
         this.id = id;
         this.username = username;
         this.fullName = fullName;
         this.password = password;
         this.roles = roles;
-        this.likes = likes;
-        this.comments = comments;
+        this.sellBooks = sellBooks;
+    }
+
+    public Account(Long id, String username,
+                   String fullName, String password,
+                   Set<Role> roles) {
+        this.id = id;
+        this.username = username;
+        this.fullName = fullName;
+        this.password = password;
+        this.roles = roles;
+
     }
 
     public Account() {

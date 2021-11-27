@@ -6,7 +6,8 @@ public class Comment {
     private Long id;
     private String content;
 
-    // OneToOne
+    // ManyToOne
+    // @JoinColumn(name = "account_id" , referencedColumnName = "id")
     private Account account;
 
     // ManyToOne
