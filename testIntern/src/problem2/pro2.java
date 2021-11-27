@@ -36,13 +36,13 @@ public class pro2 {
 
     }
 
-    private static int[][] rotate90Left(int[][] matrixImg) {
-        int[][] tempMatrix = new int[matrixImg.length][matrixImg.length];
+    private static int[][] rotate90Left(int[][] maxtrix) {
+        int[][] tempMatrix = new int[maxtrix.length][maxtrix.length];
         int count =0;
-        for (int i = 0 ; i <matrixImg.length;i++){
-            for (int j = 0 ; j <matrixImg.length;j++){
+        for (int i = 0 ; i <maxtrix.length;i++){
+            for (int j = 0 ; j <maxtrix.length;j++){
                 if (i==count){
-                    tempMatrix[matrixImg.length-1-j][i] = matrixImg[i][j];
+                    tempMatrix[maxtrix.length-1-j][i] = maxtrix[i][j];
                 }
             } count ++;
         }
