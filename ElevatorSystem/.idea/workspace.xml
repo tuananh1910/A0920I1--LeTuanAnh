@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="da1ec8eb-c6b2-447a-bcf5-c2629a10067e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../BookStore/BookStore.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BookStore/src/BookStore/model/dto/BuyBookRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BookStore/src/BookStore/model/entity/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BookStore/src/BookStore/model/entity/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BookStore/src/BookStore/model/entity/Categories.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BookStore/src/BookStore/model/entity/Payment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BookStore/src/BookStore/model/entity/PublishingCompany.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BookStore/src/BookStore/model/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BookStore/src/BookStore/model/entity/SellBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BookStore/src/BookStore/service/IPaymentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BookStore/src/BookStore/service/ISellBookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Spring_5_2_3_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ElevatorSystem.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/common/Direction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/control/ElevatorControl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/model/dto/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/model/entity/Button.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/model/entity/CarCallButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/model/entity/Door.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/model/entity/Elevator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/model/entity/HallCallButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/model/entity/Indicator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/model/entity/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/service/DoorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/service/ElevatorRequestHandle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/service/ElevatorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/service/StatusService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/elevators/service/impl/ElevatorRequestHandleImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/common/PlaceShare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/common/Reaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/model/dto/CommentRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/model/dto/LikeRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/model/dto/PostNewsRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/model/dto/ShareNewsRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/model/entity/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/model/entity/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/model/entity/Like.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/model/entity/News.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/model/entity/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/service/ICommentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/service/ILikeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/service/INewsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SocicalNetworkSystem/src/socicalNetwork/service/ShareService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/BookComposite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/IVietnameseBookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/VietnameseBook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/AutoPaymentMomoRobot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/AutoPaymentVNPayRobot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/Book.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/Book1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/BookService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/BookServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/Categories.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/ForeignBook1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/ForeignBookService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/ForeignBookServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/ICategoriesObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/IOrderBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/OrderBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/OrderBookBuilderImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/PaymentBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/PublishingCompany.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/RobotTemplate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/SaleBook.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/VietnameseBook1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/VietnameseBookService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/VietnameseBookServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../testIntern/src/trainee/OOP/main.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="21a2iwZEC9Rz9DW4EytJxlu9AiV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\DATA\A0920I1--LeTuanAnh\ElevatorSystem\src" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="da1ec8eb-c6b2-447a-bcf5-c2629a10067e" name="Default Changelist" comment="" />
+      <created>1638165008559</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638165008559</updated>
+      <workItem from="1638165011693" duration="126000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="178" y="0" key="new project wizard" timestamp="1638165070250">
+      <screen x="0" y="0" width="1474" height="864" />
+    </state>
+    <state x="178" y="0" key="new project wizard/0.0.1474.864@0.0.1474.864" timestamp="1638165070250" />
+  </component>
+</project>
